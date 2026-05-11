@@ -1,0 +1,52 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Package manager artifacts
+.npm
+
+# Build outputs
+dist
+build
+coverage
+out
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# IDE / OS files
+.vscode
+.DS_Store
+Thumbs.db
+
+# Tests
+coverage
+.nyc_output
+
+# Temporary files
+tmp
+temp
+.cache
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+*.swp
