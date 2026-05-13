@@ -1,0 +1,134 @@
+/* -- Base ----------------------------------------------------------------- */
+.fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-space2);
+  border: none;
+  cursor: pointer;
+  font-family: var(--typography-fontSans);
+  font-weight: var(--typography-weightMedium);
+  background-color: var(--colors-bgElevated);
+  color: var(--colors-primary);
+  box-shadow: var(--shadows-shadowMd);
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault),
+              box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
+              opacity var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+
+/* -- Variants ------------------------------------------------------------- */
+.fab--standard,
+.fab--mini {
+  border-radius: var(--radii-radiusFull);
+}
+
+.fab--extended {
+  border-radius: var(--radii-radiusFull);
+  padding: 0 var(--spacing-space5);
+}
+
+
+/* -- Sizes ---------------------------------------------------------------- */
+.fab--mini.fab--sm,
+.fab--standard.fab--sm {
+  width: var(--spacing-space10);
+  height: var(--spacing-space10);
+  font-size: var(--typography-textSm);
+}
+
+.fab--mini.fab--md,
+.fab--standard.fab--md {
+  width: var(--spacing-space14);
+  height: var(--spacing-space14);
+  font-size: var(--typography-textMd);
+}
+
+.fab--mini.fab--lg,
+.fab--standard.fab--lg {
+  width: var(--spacing-space16);
+  height: var(--spacing-space16);
+  font-size: var(--typography-textLg);
+}
+
+.fab--extended.fab--sm {
+  height: var(--spacing-space10);
+  font-size: var(--typography-textSm);
+}
+
+.fab--extended.fab--md {
+  height: var(--spacing-space14);
+  font-size: var(--typography-textMd);
+}
+
+.fab--extended.fab--lg {
+  height: var(--spacing-space16);
+  font-size: var(--typography-textLg);
+}
+
+
+/* -- Hover and Active ----------------------------------------------------- */
+.fab:hover:not(:disabled) {
+  background-color: var(--colors-bgOverlay);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.fab:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-bgOverlay) 80%, var(--colors-primary));
+  box-shadow: var(--shadows-shadowSm);
+}
+
+
+/* -- Focus ---------------------------------------------------------------- */
+.fab:focus-visible {
+  outline: 2px solid var(--colors-primary);
+  outline-offset: 3px;
+}
+
+
+/* -- Disabled ------------------------------------------------------------- */
+.fab--disabled,
+.fab:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* -- Loading -------------------------------------------------------------- */
+.fab--loading {
+  cursor: wait;
+}
+
+.fab--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--colors-bgElevated) 60%, transparent) 40%,
+    color-mix(in srgb, var(--colors-bgElevated) 80%, transparent) 50%,
+    color-mix(in srgb, var(--colors-bgElevated) 60%, transparent) 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: btn-shimmer 1.6s var(--transitions-easingDefault) infinite;
+}
+
+
+/* -- Icon and Label ------------------------------------------------------- */
+.fab__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--colors-space3);
+  flex-shrink: 0;
+}
+
+.fab__label {
+  font-size: inherit;
+  white-space: nowrap;
+}

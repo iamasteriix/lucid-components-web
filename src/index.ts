@@ -1,3 +1,6 @@
+import "./index.css";
+
+
 // Theme
 export { ThemeProvider } from "./context";
 export { useTheme } from "./hooks";

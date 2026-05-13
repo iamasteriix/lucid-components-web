@@ -1,0 +1,158 @@
+/* -- Base ----------------------------------------------------------------- */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radii-radiusFull);
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault),
+              box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
+              opacity var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+
+/* -- Sizes ---------------------------------------------------------------- */
+.icon-btn--sm {
+  width: var(--spacing-space8);
+  height: var(--spacing-space8);
+  font-size: var(--typography-textSm);
+}
+
+.icon-btn--md {
+  width: var(--spacing-space10);
+  height: var(--spacing-space10);
+  font-size: var(--typography-textMd);
+}
+
+.icon-btn--lg {
+  width: var(--spacing-space12);
+  height: var(--spacing-space12);
+  font-size: var(--typography-textLg);
+}
+
+
+/* -- Filled --------------------------------------------------------------- */
+.icon-btn--filled {
+  background-color: var(--colors-primary);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--filled:hover:not(:disabled) {
+  background-color: var(--colors-primaryHover);
+}
+
+.icon-btn--filled:active:not(:disabled) {
+  background-color: var(--colors-primaryActive);
+}
+
+
+/* -- Outlined ------------------------------------------------------------- */
+.icon-btn--outlined {
+  background-color: transparent;
+  border: 1px solid var(--colors-borderDefault);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--outlined:hover:not(:disabled) {
+  background-color: var(--colors-bgElevated);
+  border-color: var(--colors-borderStrong);
+}
+
+.icon-btn--outlined:active:not(:disabled) {
+  background-color: var(--colors-bgOverlay);
+}
+
+
+/* -- Tonal ---------------------------------------------------------------- */
+.icon-btn--tonal {
+  background-color: var(--colors-primarySubtle);
+  color: var(--colors-primary);
+}
+
+.icon-btn--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-primarySubtle) 80%, var(--colors-primary));
+}
+
+.icon-btn--tonal:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-primarySubtle) 60%, var(--colors-primary));
+}
+
+
+/* -- Elevated ------------------------------------------------------------- */
+.icon-btn--elevated {
+  box-shadow: var(--shadows-shadowMd);
+}
+
+.icon-btn--elevated:hover:not(:disabled) {
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated:active:not(:disabled) {
+  box-shadow: var(--shadows-shadowSm);
+}
+
+
+/* -- Ghost ---------------------------------------------------------------- */
+.icon-btn--ghost {
+  background-color: transparent;
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--ghost:hover:not(:disabled) {
+  background-color: var(--colors-bgElevated);
+}
+
+.icon-btn--ghost:active:not(:disabled) {
+  background-color: var(--colors-bgOverlay);
+}
+
+
+/* -- Focus ---------------------------------------------------------------- */
+.icon-btn:focus-visible {
+  outline: 2px solid var(--colors-primary);
+  outline-offset: 3px;
+}
+
+
+/* -- Disabled ------------------------------------------------------------- */
+.icon-btn--disabled,
+.icon-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* -- Loading -------------------------------------------------------------- */
+.icon-btn--loading {
+  cursor: wait;
+}
+
+.icon-btn--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--colors-bgElevated) 60%, transparent) 40%,
+    color-mix(in srgb, var(--colors-bgElevated) 80%, transparent) 50%,
+    color-mix(in srgb, var(--colors-bgElevated) 60%, transparent) 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: btn-shimmer 1.6s var(--transitions-easingDefault) infinite;
+}
+
+
+/* -- Icon ----------------------------------------------------------------- */
+.icon-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}

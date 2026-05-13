@@ -4,10 +4,16 @@
  */
 export const colorTokens = {
   // --- Brand ---
-  primary:       "#08cb00",
-  primaryHover:  "#9ef01a",
-  primaryActive: "#70e000",
-  primarySubtle: "#004b23",
+  primary:        "#08cb00",
+  primaryHover:   "#9ef01a",
+  primaryActive:  "#70e000",
+  primarySubtle:  "#004b23",
+
+  // --- Accent ---
+  secondary:        "#CC8A00",
+  secondaryHover:   "#ffda71",
+  secondaryActive:  "#ffb800",
+  secondarySubtle:  "#995c06",
 
   // --- Surfaces ---
   bgBase:      "#000000",
@@ -142,6 +148,3 @@ export const defaultTokens = {
   shadows:     shadowTokens,
   transitions: transitionTokens,
 };
-
-
-export type Tokens = typeof defaultTokens;
