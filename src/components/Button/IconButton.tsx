@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 import type { IconButtonProps } from "./types";
-import "./IconButton.css";
+import "./icon-button.css";
 
 
 export function IconButton<C extends ElementType = 'button'> ({

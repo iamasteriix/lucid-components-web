@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 import type { ButtonProps } from "./types";
-import "./Button.css";
+import "./button.css";
 
 
 export function Button<C extends ElementType = 'button'> ({

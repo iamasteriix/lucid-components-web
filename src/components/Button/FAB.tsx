@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 import type { FABProps } from "./types";
-import "./FAB.css";
+import "./floating-action-btn.css";
 
 
 export function FAB<C extends ElementType = 'button'> ({
