@@ -5,15 +5,15 @@
 export const colorTokens = {
   // --- Brand ---
   primary:        "#08cb00",
-  primaryHover:   "#9ef01a",
-  primaryActive:  "#70e000",
-  primarySubtle:  "#004b23",
+  primaryHover:   "#2b6629",
+  primaryActive:  "#23991f",
+  primarySubtle:  "#1f331f",
 
   // --- Accent ---
-  secondary:        "#CC8A00",
-  secondaryHover:   "#ffda71",
-  secondaryActive:  "#ffb800",
-  secondarySubtle:  "#995c06",
+  secondary:        "#a8005d",
+  secondaryHover:   "#fa0089",
+  secondaryActive:  "#cc0070",
+  secondarySubtle:  "#570030",
 
   // --- Surfaces ---
   bgBase:      "#000000",
@@ -33,12 +33,12 @@ export const colorTokens = {
   borderStrong:  "rgba(255, 255, 255, .22)",
 
   // --- Semantic ---
-  success:       "#27c98a",
-  successSubtle: "#0d2e22",
-  warning:       "#f0a030",
-  warningSubtle: "#2e200a",
-  danger:        "#f05252",
-  dangerSubtle:  "#2e1010",
+  success:       "#00b8cc",
+  successSubtle: "#286f77",
+  warning:       "#cc8a00",
+  warningSubtle: "#775e28",
+  danger:        "#cb0008",
+  dangerSubtle:  "#77282a",
   info:          "#4da8e8",
   infoSubtle:    "#0d2030",
 } as const;
@@ -116,10 +116,10 @@ export const radiiTokens = {
  * Elevation scale for depth and layering
  */
 export const shadowTokens = {
-  shadowSm: "0 1px 3px rgba(0, 0, 0, .4)",
-  shadowMd: "0 4px 12px rgba(0, 0, 0, .5)",
-  shadowLg: "0 12px 32px rgba(0, 0, 0, .6)",
-  shadowXl: "0 24px 64px rgba(0, 0, 0, .7)",
+  shadowSm: "0 1px 3px rgba(52, 52, 52, .4)",
+  shadowMd: "0 4px 12px rgba(52, 52, 52, .5)",
+  shadowLg: "0 12px 32px rgba(52, 52, 52, .6)",
+  shadowXl: "0 24px 64px rgba(52, 52, 52, .7)",
 } as const;
 
 

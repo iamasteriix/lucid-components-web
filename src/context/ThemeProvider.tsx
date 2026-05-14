@@ -1,9 +1,7 @@
-import { createContext, useMemo } from "react";
-import { defaultTokens } from "../tokens";
-import type { Tokens, ThemeOverride, ThemeProviderProps, } from "../types";
-
-
-export const ThemeContext = createContext<Tokens | null>(null);
+import { useMemo } from "react";
+import { defaultTokens } from "@/tokens";
+import { ThemeContext } from "./collection";
+import type { Tokens, ThemeOverride, ThemeProviderProps, } from "@/types";
 
 
 /**

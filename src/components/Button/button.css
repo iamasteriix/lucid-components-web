@@ -5,10 +5,10 @@
   justify-content: center;
   gap: var(--spacing-space2);
   font-family: var(--typography-fontSans);
-  font-weight: var(--typography-weightMedium);
+  font-weight: var(--typography-weightSemibold);
   font-size: var(--typography-textMd);
   line-height: var(--typography-leadingTight);
-  border-radius: var(--radii-radiusMd);
+  border-radius: var(--radii-radiusFull);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -25,19 +25,16 @@
 
 /* -- Sizes ---------------------------------------------------------------- */
 .btn--sm {
-  font-size: var(--typography-textSm);
   padding: var(--spacing-space1) var(--spacing-space3);
   height: var(--spacing-space8);
 }
 
 .btn--md {
-  font-size: var(--typography-textMd);
   padding: var(--spacing-space2) var(--spacing-space4);
   height: var(--spacing-space10);
 }
 
 .btn--lg {
-  font-size: var(--typography-textLg);
   padding: var(--spacing-space3) var(--spacing-space6);
   height: var(--spacing-space12);
 }
@@ -88,22 +85,22 @@
 
 .btn--destructive.btn--filled {
   background-color: var(--colors-danger);
-  color: var(--colors-textPrimary);
+  color: var(--colors-textInverse);
 }
 
 .btn--destructive.btn--filled:hover:not(:disabled) {
-  background-color: var(--colors-dangerHover);
+  filter: brightness(120%);
 }
 
 .btn--destructive.btn--filled:active:not(:disabled) {
-  background-color: var(--colors-dangerActive);
+  filter: brightness(110%);
 }
 
 
 /* -- Outlined ------------------------------------------------------------- */
 .btn--outlined {
   background-color: transparent;
-  border: 1px solid currentColor;
+  border: 1px solid var(--colors-borderDefault);
 }
 
 .btn--primary.btn--outlined {
@@ -130,7 +127,7 @@
 /* -- Tonal ---------------------------------------------------------------- */
 .btn--primary.btn--tonal {
   background-color: var(--colors-primarySubtle);
-  color: var(--colors-primary);
+  color: var(--colors-textPrimary);
 }
 
 .btn--primary.btn--tonal:hover:not(:disabled) {
@@ -139,7 +136,7 @@
 
 .btn--secondary.btn--tonal {
   background-color: var(--colors-secondarySubtle);
-  color: var(--colors-secondary);
+  color: var(--colors-textPrimary);
 }
 
 .btn--secondary.btn--tonal:hover:not(:disabled) {
@@ -148,7 +145,7 @@
 
 .btn--destructive.btn--tonal {
   background-color: var(--colors-dangerSubtle);
-  color: var(--colors-danger);
+  color: var(--colors-textPrimary);
 }
 
 .btn--destructive.btn--tonal:hover:not(:disabled) {
@@ -157,16 +154,38 @@
 
 
 /* -- Elevated ------------------------------------------------------------- */
-.btn--elevated {
+.btn--primary.btn--elevated {
+  background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-primary);
 }
 
-.btn--elevated:hover:not(:disabled) {
+.btn--primary.btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+  filter: brightness(120%);
+}
+
+.btn--secondary.btn--elevated {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-secondary);
+}
+
+.btn--secondary.btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
 }
 
-.btn--elevated:active:not(:disabled) {
-  box-shadow: var(--shadows-shadowSm);
+.btn--destructive.btn--elevated {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-danger);
+}
+
+.btn--destructive.btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
 }
 
 
@@ -174,7 +193,7 @@
 .btn--ghost {
   background-color: transparent;
   border: none;
-  color: var(--colors-textPrimary);
+  color: var(--colors-primary);
 }
 
 .btn--ghost:hover:not(:disabled) {
@@ -183,20 +202,6 @@
 
 .btn--ghost:active:not(:disabled) {
   background-color: var(--colors-bgOverlay);
-}
-
-
-/* -- Text ----------------------------------------------------------------- */
-.btn--text {
-  background-color: transparent;
-  border: none;
-  color: var(--colors-primary);
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.btn--text:hover:not(:disabled) {
-  text-decoration: underline;
 }
 
 

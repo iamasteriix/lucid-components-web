@@ -46,19 +46,25 @@ export function Button<C extends ElementType = 'button'> ({
       aria-disabled={ disabled || loading }
       { ...rest }
     >
-      <span
-        className='btn__icon btn__icon--left'
-        aria-hidden='true'
-      >
-        { leadingIcon }
-      </span>
+      {
+        !!leadingIcon && 
+        <span
+          className='btn__icon btn__icon--left'
+          aria-hidden='true'
+        >
+          { leadingIcon }
+        </span>
+      }
       <span className='btn__label'>{ children }</span>
-      <span
-        className='btn__icon btn__icon--right'
-        aria-hidden='true'
-      >
-        { trailingIcon }
-      </span>
+      {
+        !!trailingIcon &&
+        <span
+          className='btn__icon btn__icon--right'
+          aria-hidden='true'
+        >
+          { trailingIcon }
+        </span>
+      }
     </Component>
   );
 }

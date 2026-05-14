@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from "react";
 import type { Size, PropsWithAs, ComponentBaseProps, } from "../../types";
 
 
-export type ButtonVariant = 'primary' | 'secondary' | 'text' | 'ghost' | 'destructive';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive';
 export type FABVariant = 'standard' | 'mini' | 'extended';
 export type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
 export type ButtonTextAlign = 'left' | 'center' | 'right';
@@ -39,10 +39,13 @@ export interface FABOwnProps extends ButtonBaseProps {
 }
 
 
+export interface TextButtonOwnProps {
+  disabled?: boolean,
+  loading?: boolean,
+}
+
+
 export type ButtonProps<C extends ElementType = 'button'> = PropsWithAs<C, ButtonOwnProps>;
-
-
 export type IconButtonProps<C extends ElementType = 'button'> = PropsWithAs<C, IconButtonOwnProps>;
-
-
 export type FABProps<C extends ElementType = 'button'> = PropsWithAs<C, FABOwnProps>;
+export type TextButtonProps<C extends ElementType = 'button'> = PropsWithAs<C, TextButtonOwnProps>;

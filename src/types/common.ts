@@ -1,3 +1,5 @@
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+
 
 /** Size union */
 export type Size = 'sm' | 'md' | 'lg';
@@ -16,7 +18,7 @@ export type Variant =
 /** Component Base props */
 export interface ComponentBaseProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   'data-testid'?: string;
 }
 
@@ -30,11 +32,11 @@ export interface ComponentBaseProps {
  * <Button as="a" href="/">Go home to your families</Button>
  * ```
  */
-export type AsProp<C extends React.ElementType> = {
+export type AsProp<C extends ElementType> = {
   as?: C;
 };
 
-export type PropsWithAs<C extends React.ElementType, P = {}> =
+export type PropsWithAs<C extends ElementType, P extends object = object> =
   P &
   AsProp<C> &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof P | 'as'>;
+  Omit<ComponentPropsWithoutRef<C>, keyof P | 'as'>;
