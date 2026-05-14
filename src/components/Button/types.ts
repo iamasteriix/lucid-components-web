@@ -3,7 +3,7 @@ import type { Size, PropsWithAs, ComponentBaseProps, } from "../../types";
 
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive';
-export type FABVariant = 'standard' | 'mini' | 'extended';
+export type FABVariant = 'default' | 'mini' | 'extended';
 export type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
 export type ButtonTextAlign = 'left' | 'center' | 'right';
 export type ButtonSize = Size;
@@ -40,8 +40,10 @@ export interface FABOwnProps extends ButtonBaseProps {
 
 
 export interface TextButtonOwnProps {
+  size?: ButtonSize,
   disabled?: boolean,
   loading?: boolean,
+  label: string,
 }
 
 

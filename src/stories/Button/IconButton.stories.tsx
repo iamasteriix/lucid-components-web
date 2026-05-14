@@ -1,22 +1,18 @@
-import { Button } from "@/components";
+import { IconButton as IconButtonBase } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 
-type StoryProps = ComponentProps<typeof Button>;
+type StoryProps = ComponentProps<typeof IconButtonBase>;
 type Story = StoryObj<StoryProps>;
 
 
 const meta: Meta<StoryProps> = {
   title: 'Components/Button',
-  component: Button,
+  component: IconButtonBase,
   tags: ['autodocs'],
   argTypes: {
     as: { control: 'text', },
-    variant: {
-      options: ['primary', 'secondary', 'ghost', 'destructive'],
-      control: 'select',
-    },
     size: {
       options: ['sm', 'md', 'lg'],
       control: 'select',
@@ -25,33 +21,23 @@ const meta: Meta<StoryProps> = {
       options: ['elevated', 'filled', 'outlined', 'tonal'],
       control: 'select',
     },
-    textAlign: {
-      options: ['left', 'center', 'right'],
-      control: 'select',
-    },
-    fullWidth: { control: 'boolean', },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
-    leadingIcon: { control: 'boolean', },
-    trailingIcon: { control: 'boolean', },
-    children: { control: 'text', }
+    icon: { control: 'check', },
+    label: { control: 'text', },
   },
 }
 
 
-export const Default: Story = {
+export const IconButton: Story = {
   args: {
     as: 'button',
-    variant: 'primary',
     size: 'md',
     appearance: 'filled',
-    textAlign: 'center',
-    fullWidth: false,
     disabled: false,
     loading: false,
-    leadingIcon: <span>←</span>,
-    trailingIcon: <span>→</span>,
-    children: 'Label',
+    icon: <span>←</span>,
+    label: 'Label',
   }
 };
 

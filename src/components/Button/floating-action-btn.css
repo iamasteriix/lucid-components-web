@@ -4,10 +4,12 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-space2);
+  font-family: var(--typography-fontSans);
+  font-weight: var(--typography-weightSemibold);
+  font-size: var(--typography-textMd);
   border: none;
   cursor: pointer;
-  font-family: var(--typography-fontSans);
-  font-weight: var(--typography-weightMedium);
+  text-decoration: none;
   background-color: var(--colors-bgElevated);
   color: var(--colors-primary);
   box-shadow: var(--shadows-shadowMd);
@@ -20,7 +22,7 @@
 
 
 /* -- Variants ------------------------------------------------------------- */
-.fab--standard,
+.fab--default,
 .fab--mini {
   border-radius: var(--radii-radiusFull);
 }
@@ -32,34 +34,49 @@
 
 
 /* -- Sizes ---------------------------------------------------------------- */
-.fab--mini.fab--sm,
-.fab--standard.fab--sm {
-  width: var(--spacing-space10);
-  height: var(--spacing-space10);
+.fab--mini.fab--sm {
+  width: var(--spacing-space6);
+  height: var(--spacing-space6);
   font-size: var(--typography-textSm);
 }
 
-.fab--mini.fab--md,
-.fab--standard.fab--md {
-  width: var(--spacing-space14);
-  height: var(--spacing-space14);
+.fab--mini.fab--md {
+  width: var(--spacing-space10);
+  height: var(--spacing-space10);
   font-size: var(--typography-textMd);
 }
 
-.fab--mini.fab--lg,
-.fab--standard.fab--lg {
+.fab--mini.fab--lg {
+  width: var(--spacing-space12);
+  height: var(--spacing-space12);
+  font-size: var(--typography-textLg);
+}
+
+.fab--default.fab--sm {
+  width: var(--spacing-space8);
+  height: var(--spacing-space8);
+  font-size: var(--typography-textSm);
+}
+
+.fab--default.fab--md {
+  width: var(--spacing-space12);
+  height: var(--spacing-space12);
+  font-size: var(--typography-textMd);
+}
+
+.fab--default.fab--lg {
   width: var(--spacing-space16);
   height: var(--spacing-space16);
   font-size: var(--typography-textLg);
 }
 
 .fab--extended.fab--sm {
-  height: var(--spacing-space10);
+  height: var(--spacing-space8);
   font-size: var(--typography-textSm);
 }
 
 .fab--extended.fab--md {
-  height: var(--spacing-space14);
+  height: var(--spacing-space12);
   font-size: var(--typography-textMd);
 }
 

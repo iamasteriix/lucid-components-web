@@ -5,7 +5,7 @@ import "./floating-action-btn.css";
 
 export function FAB<C extends ElementType = 'button'> ({
   as,
-  variant = 'standard',
+  variant = 'default',
   size = 'md',
   disabled = false,
   loading = false,

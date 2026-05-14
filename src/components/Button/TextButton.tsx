@@ -5,9 +5,10 @@ import "./text-button.css";
 
 export function TextButton<C extends ElementType = 'button'> ({
   as,
+  size = 'md',
   disabled = false,
   loading = false,
-  label,
+  label = 'Label',
   className,
   'data-testid': testId,
   ...rest
@@ -17,6 +18,7 @@ export function TextButton<C extends ElementType = 'button'> ({
 
   const classes = [
     'text-btn',
+    `text-btn--${size}`,
     loading && 'text-btn--loading',
     disabled && 'text-btn--disabled',
     className,
@@ -32,7 +34,6 @@ export function TextButton<C extends ElementType = 'button'> ({
       disabled={ disabled || loading }
       aria-busy={ loading }
       aria-disabled={ disabled || loading }
-      aria-label={ label }
       { ...rest }
     >
       <span
