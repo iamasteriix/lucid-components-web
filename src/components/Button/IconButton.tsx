@@ -5,6 +5,7 @@ import "./icon-button.css";
 
 export function IconButton<C extends ElementType = 'button'> ({
   as,
+  variant = 'primary',
   size = 'md',
   appearance = 'filled',
   disabled = false,
@@ -20,6 +21,7 @@ export function IconButton<C extends ElementType = 'button'> ({
 
   const classes = [
     'icon-btn',
+    `icon-btn--${variant}`,
     `icon-btn--${size}`,
     `icon-btn--${appearance}`,
     loading && 'icon-btn--loading',

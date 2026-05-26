@@ -1,0 +1,11 @@
+[data-component='icon'] {
+  display: inline-flex;
+  flex-shrink: 0;
+  
+  /* monochrome */
+  --icon-color: currentColor;
+
+  /* duotone */
+  --icon-primary: var(--colors-primary);
+  --icon-secondary: var(--colors-accent);
+}

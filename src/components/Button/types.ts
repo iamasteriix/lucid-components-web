@@ -1,48 +1,51 @@
 import type { ElementType, ReactNode } from "react";
-import type { Size, PropsWithAs, ComponentBaseProps, } from "../../types";
+import type { Size, PropsWithAs, ComponentBaseProps, } from "@/types";
 
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive';
-export type FABVariant = 'default' | 'mini' | 'extended';
-export type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
-export type ButtonTextAlign = 'left' | 'center' | 'right';
-export type ButtonSize = Size;
+type ButtonVariant = 'primary' | 'accent' | 'ghost' | 'destructive';
+type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
+type ButtonTextAlign = 'left' | 'center' | 'right';
 
 
-export interface ButtonBaseProps extends ComponentBaseProps {
-  size?: ButtonSize;
+type ButtonBaseProps = ComponentBaseProps & {
+  size?: Size;
   disabled?: boolean;
   loading?: boolean;
   appearance?: ButtonAppearance;
 }
 
 
-export interface ButtonOwnProps extends ButtonBaseProps {
+type ButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
   fullWidth?: boolean;
   textAlign?: ButtonTextAlign;
-  leadingIcon?: ReactNode;
-  trailingIcon?: ReactNode;
+  LeadingIcon?: ReactNode;
+  TrailingIcon?: ReactNode;
 }
 
 
-export interface IconButtonOwnProps extends ButtonBaseProps {
+type IconButtonOwnProps = ButtonBaseProps & {
+  variant?: ButtonVariant;
   icon: ReactNode;
   label: string; // required for accessibility, renders as aria-label
 }
 
 
-export interface FABOwnProps extends ButtonBaseProps {
-  variant?: FABVariant;
-  icon: ReactNode;
-  label?: string; // required when variant is 'extended'
-}
+type FABOwnProps =
+  | ButtonBaseProps & {
+      variant?: 'default' | 'mini';
+      icon: ReactNode;
+      label?: string;
+    }
+  | ButtonBaseProps & {
+      variant?: 'extended';
+      icon: ReactNode;
+      label: string; // required when variant is 'extended'
+    }
+  
 
 
-export interface TextButtonOwnProps {
-  size?: ButtonSize,
-  disabled?: boolean,
-  loading?: boolean,
+type TextButtonOwnProps = ButtonBaseProps & {
   label: string,
 }
 

@@ -1,8 +1,8 @@
 {
-  "name": "lucid-components-web",
+  "name": "@nine-ui/react",
   "private": false,
   "version": "0.1.0",
-  "description": "Lucid Design for Web",
+  "description": "Nine UI React components",
   "author": "iamasteriix",
   "license": "MIT",
   "type": "module",
@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -22,6 +23,7 @@
   "scripts": {
     "dev": "storybook dev -p 5173",
     "build": "tsc && vite build",
+    "build:storybook": "storybook build",
     "lint": "eslint . --ext ts,tsx",
     "preview": "vite preview"
   },
@@ -40,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",

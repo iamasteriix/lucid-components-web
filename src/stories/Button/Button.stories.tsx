@@ -1,4 +1,5 @@
 import { Button as ButtonBase } from "@/components";
+import { ChevronRight, Plus } from "@/assets";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
@@ -14,7 +15,7 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     variant: {
-      options: ['primary', 'secondary', 'ghost', 'destructive'],
+      options: ['primary', 'accent', 'ghost', 'destructive'],
       control: 'select',
     },
     size: {
@@ -32,9 +33,9 @@ const meta: Meta<StoryProps> = {
     fullWidth: { control: 'boolean', },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
-    leadingIcon: { control: 'boolean', },
-    trailingIcon: { control: 'boolean', },
-    children: { control: 'text', }
+    LeadingIcon: { control: 'boolean', },
+    TrailingIcon: { control: 'boolean', },
+    children: { control: 'text', },
   },
 }
 
@@ -49,8 +50,8 @@ export const Button: Story = {
     fullWidth: false,
     disabled: false,
     loading: false,
-    leadingIcon: <span>←</span>,
-    trailingIcon: <span>→</span>,
+    LeadingIcon: <Plus/>,
+    TrailingIcon: <ChevronRight/>,
     children: 'Label',
   }
 };

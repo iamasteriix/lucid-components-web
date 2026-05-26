@@ -5,6 +5,7 @@
   justify-content: center;
   flex-shrink: 0;
   border: none;
+  line-height: var(--typography-leadingTight);
   cursor: pointer;
   border-radius: var(--radii-radiusFull);
   position: relative;
@@ -25,7 +26,7 @@
 .icon-btn--md {
   width: var(--spacing-space10);
   height: var(--spacing-space10);
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
 }
 
 .icon-btn--lg {
@@ -36,17 +37,43 @@
 
 
 /* -- Filled --------------------------------------------------------------- */
-.icon-btn--filled {
+.icon-btn--primary.icon-btn--filled {
   background-color: var(--colors-primary);
   color: var(--colors-textInverse);
 }
 
-.icon-btn--filled:hover:not(:disabled) {
+.icon-btn--primary.icon-btn--filled:hover:not(:disabled) {
   background-color: var(--colors-primaryHover);
 }
 
-.icon-btn--filled:active:not(:disabled) {
+.icon-btn--primary.icon-btn--filled:active:not(:disabled) {
   background-color: var(--colors-primaryActive);
+}
+
+.icon-btn--accent.icon-btn--filled {
+  background-color: var(--colors-accent);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--accent.icon-btn--filled:hover:not(:disabled) {
+  background-color: var(--colors-accentHover);
+}
+
+.icon-btn--accent.icon-btn--filled:active:not(:disabled) {
+  background-color: var(--colors-accentActive);
+}
+
+.icon-btn--destructive.icon-btn--filled {
+  background-color: var(--colors-danger);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--destructive.icon-btn--filled:hover:not(:disabled) {
+  filter: brightness(120%);
+}
+
+.icon-btn--destructive.icon-btn--filled:active:not(:disabled) {
+  filter: brightness(110%);
 }
 
 
@@ -54,7 +81,6 @@
 .icon-btn--outlined {
   background-color: transparent;
   border: 1px solid var(--colors-borderDefault);
-  color: var(--colors-textPrimary);
 }
 
 .icon-btn--outlined:hover:not(:disabled) {
@@ -68,31 +94,67 @@
 
 
 /* -- Tonal ---------------------------------------------------------------- */
-.icon-btn--tonal {
+.icon-btn--primary.icon-btn--tonal {
   background-color: var(--colors-primarySubtle);
-  color: var(--colors-primary);
+  color: var(--colors-textPrimary);
 }
 
-.icon-btn--tonal:hover:not(:disabled) {
+.icon-btn--primary.icon-btn--tonal:hover:not(:disabled) {
   background-color: color-mix(in srgb, var(--colors-primarySubtle) 80%, var(--colors-primary));
 }
 
-.icon-btn--tonal:active:not(:disabled) {
-  background-color: color-mix(in srgb, var(--colors-primarySubtle) 60%, var(--colors-primary));
+.icon-btn--accent.icon-btn--tonal {
+  background-color: var(--colors-accentSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--accent.icon-btn--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-accentSubtle) 80%, var(--colors-accent));
+}
+
+.icon-btn--destructive.icon-btn--tonal {
+  background-color: var(--colors-dangerSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--destructive.icon-btn--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-dangerSubtle) 80%, var(--colors-danger));
 }
 
 
 /* -- Elevated ------------------------------------------------------------- */
-.icon-btn--elevated {
+.icon-btn--primary.icon-btn--elevated {
+  background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-primary);
 }
 
-.icon-btn--elevated:hover:not(:disabled) {
+.icon-btn--primary.icon-btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+  filter: brightness(120%);
+}
+
+.icon-btn--accent.icon-btn--elevated {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-accent);
+}
+
+.icon-btn--accent.icon-btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
 }
 
-.icon-btn--elevated:active:not(:disabled) {
-  box-shadow: var(--shadows-shadowSm);
+.icon-btn--destructive.icon-btn--elevated {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-danger);
+}
+
+.icon-btn--destructive.icon-btn--elevated:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
 }
 
 

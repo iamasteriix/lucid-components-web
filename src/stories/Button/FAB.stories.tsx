@@ -1,4 +1,5 @@
 import { FAB as FABBase } from "@/components";
+import { Plus } from "@/assets";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
@@ -35,7 +36,7 @@ export const FAB: Story = {
     size: 'md',
     disabled: false,
     loading: false,
-    icon: <span>←</span>,
+    icon: <Plus/>,
     label: 'Label',
   }
 };

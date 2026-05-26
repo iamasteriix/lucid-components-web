@@ -1,4 +1,5 @@
 import { IconButton as IconButtonBase } from "@/components";
+import { Heart } from "@/assets";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
@@ -13,6 +14,10 @@ const meta: Meta<StoryProps> = {
   tags: ['autodocs'],
   argTypes: {
     as: { control: 'text', },
+    variant: {
+      options: ['primary', 'accent', 'ghost', 'destructive'],
+      control: 'select',
+    },
     size: {
       options: ['sm', 'md', 'lg'],
       control: 'select',
@@ -32,11 +37,12 @@ const meta: Meta<StoryProps> = {
 export const IconButton: Story = {
   args: {
     as: 'button',
+    variant: 'primary',
     size: 'md',
     appearance: 'filled',
     disabled: false,
     loading: false,
-    icon: <span>←</span>,
+    icon: <Heart/>,
     label: 'Label',
   }
 };

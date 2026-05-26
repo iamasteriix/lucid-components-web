@@ -5,15 +5,15 @@
 export const colorTokens = {
   // --- Brand ---
   primary:        "#08cb00",
-  primaryHover:   "#2b6629",
-  primaryActive:  "#23991f",
+  primaryHover:   "#23991f",
+  primaryActive:  "#2b6629",
   primarySubtle:  "#1f331f",
 
   // --- Accent ---
-  secondary:        "#a8005d",
-  secondaryHover:   "#fa0089",
-  secondaryActive:  "#cc0070",
-  secondarySubtle:  "#570030",
+  accent:        "#a8005d",
+  accentHover:   "#fa0089",
+  accentActive:  "#cc0070",
+  accentSubtle:  "#570030",
 
   // --- Surfaces ---
   bgBase:      "#000000",
@@ -23,7 +23,7 @@ export const colorTokens = {
 
   // --- Text ---
   textPrimary:   "#eeeeee",
-  textSecondary: "#9e9e9e",
+  textaccent: "#9e9e9e",
   textDisabled:  "#424242",
   textInverse:   "#212121",
 

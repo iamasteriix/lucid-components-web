@@ -16,7 +16,7 @@ export type Variant =
 
 
 /** Component Base props */
-export interface ComponentBaseProps {
+export type ComponentBaseProps = {
   className?: string;
   children?: ReactNode;
   'data-testid'?: string;

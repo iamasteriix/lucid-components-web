@@ -18,7 +18,7 @@ export type ThemeOverride = {
 
 
 /** Props for ThemeProvider */
-export interface ThemeProviderProps {
+export type ThemeProviderProps = {
   theme?: ThemeOverride,
   children: React.ReactNode,
 };

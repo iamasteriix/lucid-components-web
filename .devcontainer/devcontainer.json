@@ -1,9 +1,8 @@
 {
-  "name": "Lucid Design - Web",
+  "name": "Nine UI - Web",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/app",
-  "context": "..",
   "customizations": {
     "vscode": {
       "settings": {

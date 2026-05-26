@@ -34,7 +34,7 @@
 }
 
 .text-btn--md {
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
 }
 
 .text-btn--lg {

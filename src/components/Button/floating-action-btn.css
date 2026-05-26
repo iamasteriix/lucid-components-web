@@ -6,7 +6,7 @@
   gap: var(--spacing-space2);
   font-family: var(--typography-fontSans);
   font-weight: var(--typography-weightSemibold);
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -43,13 +43,13 @@
 .fab--mini.fab--md {
   width: var(--spacing-space10);
   height: var(--spacing-space10);
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
 }
 
 .fab--mini.fab--lg {
   width: var(--spacing-space12);
   height: var(--spacing-space12);
-  font-size: var(--typography-textLg);
+  font-size: var(--typography-textBase);
 }
 
 .fab--default.fab--sm {
@@ -61,13 +61,13 @@
 .fab--default.fab--md {
   width: var(--spacing-space12);
   height: var(--spacing-space12);
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
 }
 
 .fab--default.fab--lg {
   width: var(--spacing-space16);
   height: var(--spacing-space16);
-  font-size: var(--typography-textLg);
+  font-size: var(--typography-textBase);
 }
 
 .fab--extended.fab--sm {
@@ -77,12 +77,12 @@
 
 .fab--extended.fab--md {
   height: var(--spacing-space12);
-  font-size: var(--typography-textMd);
+  font-size: var(--typography-textBase);
 }
 
 .fab--extended.fab--lg {
   height: var(--spacing-space16);
-  font-size: var(--typography-textLg);
+  font-size: var(--typography-textBase);
 }
 
 

@@ -12,8 +12,8 @@ export function Button<C extends ElementType = 'button'> ({
   fullWidth = false,
   disabled = false,
   loading = false,
-  leadingIcon,
-  trailingIcon,
+  LeadingIcon,
+  TrailingIcon,
   className,
   children,
   'data-testid': testId,
@@ -47,22 +47,22 @@ export function Button<C extends ElementType = 'button'> ({
       { ...rest }
     >
       {
-        !!leadingIcon && 
+        !!LeadingIcon && 
         <span
           className='btn__icon btn__icon--left'
           aria-hidden='true'
         >
-          { leadingIcon }
+          { LeadingIcon }
         </span>
       }
       <span className='btn__label'>{ children }</span>
       {
-        !!trailingIcon &&
+        !!TrailingIcon &&
         <span
           className='btn__icon btn__icon--right'
           aria-hidden='true'
         >
-          { trailingIcon }
+          { TrailingIcon }
         </span>
       }
     </Component>
