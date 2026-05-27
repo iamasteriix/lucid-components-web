@@ -14,7 +14,7 @@ export function TextButton<C extends ElementType = 'button'> ({
   ...rest
 } : TextButtonProps<C>) {
 
-  const Component = as ?? 'button';
+  const Tag = as ?? 'button';
 
   const classes = [
     'text-btn',
@@ -27,7 +27,7 @@ export function TextButton<C extends ElementType = 'button'> ({
   .join(' ');
 
   return (
-    <Component
+    <Tag
       className={ classes }
       data-component='text-button'
       data-testid={ testId }
@@ -42,6 +42,6 @@ export function TextButton<C extends ElementType = 'button'> ({
       >
         { label }
       </span>
-    </Component>
+    </Tag>
   );
 }
