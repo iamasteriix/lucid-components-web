@@ -12,3 +12,4 @@ export type {
 } from "./types";
 
 // Components
+export * from "./components";

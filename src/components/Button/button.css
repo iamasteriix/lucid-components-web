@@ -7,7 +7,7 @@
   font-family: var(--typography-fontSans);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingTight);
-  border-radius: var(--radii-radiusFull);
+  border-radius: var(--radii-radius2xl);
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -43,7 +43,7 @@
 
 
 /* -- Layout --------------------------------------------------------------- */
-.btn--full-width { width: 100%; }
+.btn--full-width { width: 100%; color: aliceblue; }
 
 .btn--text-align-left {
   text-align: left;

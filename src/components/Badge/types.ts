@@ -1,0 +1,27 @@
+// src/components/Badge/types.ts
+import type { ElementType, ReactNode } from 'react';
+import type { ComponentBaseProps, PropsWithAs, Size } from '../../types';
+
+type BadgeVariant = 'primary' | 'accent' | 'ghost' | 'success' | 'warning' | 'destructive' | 'info';
+type BadgeAppearance = 'filled' | 'outlined' | 'tonal';
+type BadgeSize = Size;
+
+type BadgeBaseProps = ComponentBaseProps & {
+  variant?: BadgeVariant;
+  size?: BadgeSize;
+  appearance?: BadgeAppearance;
+};
+
+type BadgeDotProps = BadgeBaseProps & {
+  dot: true;
+  children?: never;
+};
+
+type BadgeLabelProps = BadgeBaseProps & {
+  dot?: false;
+  children: ReactNode;
+};
+
+type BadgeOwnProps = BadgeDotProps | BadgeLabelProps;
+
+export type BadgeProps<C extends ElementType = 'span'> = PropsWithAs<C, BadgeOwnProps>;

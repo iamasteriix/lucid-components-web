@@ -23,7 +23,7 @@ export const colorTokens = {
 
   // --- Text ---
   textPrimary:   "#eeeeee",
-  textaccent: "#9e9e9e",
+  textSecondary: "#9e9e9e",
   textDisabled:  "#424242",
   textInverse:   "#212121",
 
@@ -37,8 +37,8 @@ export const colorTokens = {
   successSubtle: "#286f77",
   warning:       "#cc8a00",
   warningSubtle: "#775e28",
-  danger:        "#cb0008",
-  dangerSubtle:  "#77282a",
+  danger:        "#b21807",
+  dangerSubtle:  "#800517",
   info:          "#4da8e8",
   infoSubtle:    "#0d2030",
 } as const;

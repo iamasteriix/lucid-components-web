@@ -7,7 +7,7 @@
   border: none;
   line-height: var(--typography-leadingTight);
   cursor: pointer;
-  border-radius: var(--radii-radiusFull);
+  border-radius: var(--radii-radius2xl);
   position: relative;
   overflow: hidden;
   transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault),

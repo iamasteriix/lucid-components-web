@@ -24,11 +24,11 @@
 /* -- Variants ------------------------------------------------------------- */
 .fab--default,
 .fab--mini {
-  border-radius: var(--radii-radiusFull);
+  border-radius: var(--radii-radius2xl);
 }
 
 .fab--extended {
-  border-radius: var(--radii-radiusFull);
+  border-radius: var(--radii-radius2xl);
   padding: 0 var(--spacing-space5);
 }
 
