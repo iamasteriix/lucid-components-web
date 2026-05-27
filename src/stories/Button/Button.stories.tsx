@@ -50,9 +50,19 @@ export const Button: Story = {
     fullWidth: false,
     disabled: false,
     loading: false,
-    LeadingIcon: <Plus/>,
-    TrailingIcon: <ChevronRight/>,
+    LeadingIcon: false,
+    TrailingIcon: false,
     children: 'Label',
+  },
+
+  render: args => {
+    return (
+      <ButtonBase
+        { ...args }
+        LeadingIcon={ args.LeadingIcon && <Plus/> }
+        TrailingIcon={ args.TrailingIcon && <ChevronRight/> }
+      />
+    );
   }
 };
 

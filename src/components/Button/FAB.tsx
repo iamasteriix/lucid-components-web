@@ -9,14 +9,14 @@ export function FAB<C extends ElementType = 'button'> ({
   size = 'md',
   disabled = false,
   loading = false,
-  icon,
+  Icon,
   label,
   className,
   'data-testid': testId,
   ...rest
 }: FABProps<C>) {
 
-  const Component = as ?? 'button';
+  const Tag = as ?? 'button';
 
   const classes = [
     'fab',
@@ -30,7 +30,7 @@ export function FAB<C extends ElementType = 'button'> ({
   .join(' ');
 
   return (
-    <Component
+    <Tag
       className={ classes }
       data-component='fab'
       data-testid={ testId }
@@ -44,7 +44,7 @@ export function FAB<C extends ElementType = 'button'> ({
         className='fab__icon'
         aria-hidden='true'
       >
-        { icon }
+        { Icon }
       </span>
       {
         variant === 'extended' &&
@@ -52,6 +52,6 @@ export function FAB<C extends ElementType = 'button'> ({
           { label || 'Label' }
         </span>
       }
-    </Component>
+    </Tag>
   );
 }

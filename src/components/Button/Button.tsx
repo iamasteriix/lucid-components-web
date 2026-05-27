@@ -20,7 +20,7 @@ export function Button<C extends ElementType = 'button'> ({
   ...rest
 }: ButtonProps<C>) {
 
-  const Component = as ?? 'button';
+  const Tag = as ?? 'button';
 
   const classes = [
     'btn',
@@ -37,7 +37,7 @@ export function Button<C extends ElementType = 'button'> ({
   .join(' ');
 
   return (
-    <Component
+    <Tag
       className={ classes }
       data-component='button'
       data-testid={ testId }
@@ -65,6 +65,6 @@ export function Button<C extends ElementType = 'button'> ({
           { TrailingIcon }
         </span>
       }
-    </Component>
+    </Tag>
   );
 }

@@ -1,4 +1,4 @@
-import type { Size, ComponentBaseProps, } from "@/types";
+import type { Size, TagBaseProps, } from "@/types";
 
 
 /** Duotone Colors */
@@ -27,7 +27,7 @@ type IconVariantProps = MonochromeIconProps | DuoToneIconProps;
 
 
 /** Base */
-type IconBaseProps = ComponentBaseProps & {
+type IconBaseProps = TagBaseProps & {
   size?: Size;
   bold?: boolean;
 }

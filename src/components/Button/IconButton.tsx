@@ -10,14 +10,14 @@ export function IconButton<C extends ElementType = 'button'> ({
   appearance = 'filled',
   disabled = false,
   loading = false,
-  icon,
+  Icon,
   label,
   className,
   'data-testid': testId,
   ...rest
 } : IconButtonProps<C>) {
 
-  const Component = as ?? 'button';
+  const Tag = as ?? 'button';
 
   const classes = [
     'icon-btn',
@@ -32,7 +32,7 @@ export function IconButton<C extends ElementType = 'button'> ({
   .join(' ');
 
   return (
-    <Component
+    <Tag
       className={ classes }
       data-component='icon-button'
       data-testid={ testId }
@@ -46,8 +46,8 @@ export function IconButton<C extends ElementType = 'button'> ({
         className='icon-btn__icon'
         aria-hidden='true'
       >
-        { icon }
+        { Icon }
       </span>
-    </Component>
+    </Tag>
   );
 }
