@@ -1,6 +1,6 @@
-import type { Preview } from '@storybook/react-vite'
-import { ThemeProvider } from '../src/context';
+import { ThemeProvider } from "../src/context";
 import { defaultTokens } from "../src/tokens";
+import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
 
 
