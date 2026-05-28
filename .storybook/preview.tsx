@@ -1,5 +1,5 @@
-import { ThemeProvider } from "../src/context";
-import { defaultTokens } from "../src/tokens";
+import { ThemeProvider } from "@/context";
+import { defaultTokens } from "@/tokens";
 import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
 
@@ -13,7 +13,11 @@ const preview: Preview = {
     ),
   ],
   parameters: {
-    layout: 'centered'
+    backgrounds: {
+      options: {
+        dark: { name: 'Dark', value: defaultTokens.colors.bgSurface, },
+      },
+    },
   },
 };
 
