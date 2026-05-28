@@ -15,8 +15,8 @@ export type Variant =
   | 'subtle';
 
 
-/** Component Base props */
-export type ComponentBaseProps = {
+/** Tag Base props */
+export type TagBaseProps = {
   className?: string;
   children?: ReactNode;
   'data-testid'?: string;

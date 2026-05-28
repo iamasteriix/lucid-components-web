@@ -1,12 +1,12 @@
 // src/components/Badge/types.ts
 import type { ElementType, ReactNode } from 'react';
-import type { ComponentBaseProps, PropsWithAs, Size } from '../../types';
+import type { TagBaseProps, PropsWithAs, Size } from '@/types';
 
 type BadgeVariant = 'primary' | 'accent' | 'ghost' | 'success' | 'warning' | 'destructive' | 'info';
 type BadgeAppearance = 'filled' | 'outlined' | 'tonal';
 type BadgeSize = Size;
 
-type BadgeBaseProps = ComponentBaseProps & {
+type BadgeBaseProps = TagBaseProps & {
   variant?: BadgeVariant;
   size?: BadgeSize;
   appearance?: BadgeAppearance;
@@ -24,4 +24,4 @@ type BadgeLabelProps = BadgeBaseProps & {
 
 type BadgeOwnProps = BadgeDotProps | BadgeLabelProps;
 
-export type BadgeProps<C extends ElementType = 'span'> = PropsWithAs<C, BadgeOwnProps>;
+export type BadgeProps <C extends ElementType = 'span'> = PropsWithAs<C, BadgeOwnProps>;

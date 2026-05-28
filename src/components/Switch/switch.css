@@ -1,0 +1,100 @@
+/* -- Base ----------------------------------------------------------------- */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+/* -- Track ---------------------------------------------------------------- */
+.switch__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radii-radiusFull);
+  background-color: var(--colors-bgElevated);
+  transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+.switch--on .switch__track {
+  background-color: var(--colors-primary);
+}
+
+
+/* -- Thumb ---------------------------------------------------------------- */
+.switch__thumb {
+  position: absolute;
+  border-radius: var(--radii-radiusFull);
+  background-color: var(--colors-textSecondary);
+  transition: transform var(--transitions-durationFast) var(--transitions-easingDefault),
+              background-color var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+.switch--on .switch__thumb {
+  background-color: var(--colors-textPrimary);
+}
+
+
+/* -- Sizes ---------------------------------------------------------------- */
+.switch--sm .switch__track {
+  width: var(--spacing-space8);
+  height: var(--spacing-space4);
+}
+
+.switch--sm .switch__thumb {
+  width: var(--spacing-space3);
+  height: var(--spacing-space2);
+  transform: translateX(var(--spacing-space1));
+}
+
+.switch--sm.switch--on .switch__thumb {
+  transform: translateX(var(--spacing-space4));
+}
+
+.switch--md .switch__track {
+  width: var(--spacing-space10);
+  height: var(--spacing-space5);
+}
+
+.switch--md .switch__thumb {
+  width: var(--spacing-space4);
+  height: var(--spacing-space3);
+  transform: translateX(var(--spacing-space1));
+}
+
+.switch--md.switch--on .switch__thumb {
+  transform: translateX(var(--spacing-space5));
+}
+
+.switch--lg .switch__track {
+  width: var(--spacing-space12);
+  height: var(--spacing-space6);
+}
+
+.switch--lg .switch__thumb {
+  width: var(--spacing-space5);
+  height: var(--spacing-space4);
+  transform: translateX(var(--spacing-space1));
+}
+
+.switch--lg.switch--on .switch__thumb {
+  transform: translateX(var(--spacing-space6));
+}
+
+
+
+/* -- Focus ---------------------------------------------------------------- */
+.switch:focus-visible {
+  outline: 2px solid var(--colors-primary);
+  outline-offset: 3px;
+}
+
+/* -- Disabled ------------------------------------------------------------- */
+.switch--disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}

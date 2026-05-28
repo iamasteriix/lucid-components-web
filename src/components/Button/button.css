@@ -1,6 +1,6 @@
 /* -- Base ----------------------------------------------------------------- */
 .btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-space2);
@@ -43,7 +43,10 @@
 
 
 /* -- Layout --------------------------------------------------------------- */
-.btn--full-width { width: 100%; color: aliceblue; }
+.btn--full-width {
+  display: flex;
+  width: 100%;
+}
 
 .btn--text-align-left {
   text-align: left;

@@ -15,7 +15,7 @@ export function Badge <C extends ElementType = 'span'> ({
   ...rest
 }: BadgeProps<C>) {
 
-  const Component = (as ?? 'span') as ElementType;
+  const Tag = (as ?? 'span') as ElementType;
 
   const classes = [
     'badge',
@@ -29,13 +29,13 @@ export function Badge <C extends ElementType = 'span'> ({
   .join(' ');
 
   return (
-    <Component
+    <Tag
       className={ classes }
       data-component='badge'
       data-testid={ testId }
       { ...rest }
     >
       { !dot && children }
-    </Component>
+    </Tag>
   );
 }
