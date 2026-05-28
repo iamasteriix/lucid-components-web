@@ -24,7 +24,7 @@ const meta: Meta<StoryProps> = {
     },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
-    Icon: { control: 'check', },
+    icon: { control: 'check', },
   },
 }
 
@@ -36,7 +36,7 @@ export const FAB: Story = {
     size: 'md',
     disabled: false,
     loading: false,
-    Icon: <Plus/>,
+    icon: <Plus/>,
     label: 'Label',
   }
 };

@@ -10,7 +10,7 @@ export function IconButton<C extends ElementType = 'button'> ({
   appearance = 'filled',
   disabled = false,
   loading = false,
-  Icon,
+  icon,
   label,
   className,
   'data-testid': testId,
@@ -46,7 +46,7 @@ export function IconButton<C extends ElementType = 'button'> ({
         className='icon-btn__icon'
         aria-hidden='true'
       >
-        { Icon }
+        { icon }
       </span>
     </Tag>
   );

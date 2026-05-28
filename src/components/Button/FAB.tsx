@@ -9,7 +9,7 @@ export function FAB<C extends ElementType = 'button'> ({
   size = 'md',
   disabled = false,
   loading = false,
-  Icon,
+  icon,
   label,
   className,
   'data-testid': testId,
@@ -44,7 +44,7 @@ export function FAB<C extends ElementType = 'button'> ({
         className='fab__icon'
         aria-hidden='true'
       >
-        { Icon }
+        { icon }
       </span>
       {
         variant === 'extended' &&

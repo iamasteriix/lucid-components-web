@@ -28,7 +28,7 @@ const meta: Meta<StoryProps> = {
     },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
-    Icon: { control: 'check', },
+    icon: { control: 'check', },
     label: { control: 'text', },
   },
 }
@@ -42,7 +42,7 @@ export const IconButton: Story = {
     appearance: 'filled',
     disabled: false,
     loading: false,
-    Icon: <Heart/>,
+    icon: <Heart/>,
     label: 'Label',
   }
 };

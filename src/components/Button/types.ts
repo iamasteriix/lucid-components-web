@@ -19,14 +19,14 @@ type ButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
   fullWidth?: boolean;
   textAlign?: ButtonTextAlign;
-  LeadingIcon?: ReactNode;
-  TrailingIcon?: ReactNode;
+  leadingIcon?: ReactNode;
+  trailingIcon?: ReactNode;
 }
 
 
 type IconButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
-  Icon: ReactNode;
+  icon: ReactNode;
   label: string; // required for accessibility, renders as aria-label
 }
 
@@ -34,12 +34,12 @@ type IconButtonOwnProps = ButtonBaseProps & {
 type FABOwnProps =
   | ButtonBaseProps & {
       variant?: 'default' | 'mini';
-      Icon: ReactNode;
+      icon: ReactNode;
       label?: string;
     }
   | ButtonBaseProps & {
       variant?: 'extended';
-      Icon: ReactNode;
+      icon: ReactNode;
       label: string; // required when variant is 'extended'
     }
   

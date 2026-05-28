@@ -5,7 +5,7 @@
   justify-content: center;
   color: var(--colors-info);
   font-family: var(--typography-fontSans);
-  font-weight: var(--typography-weightSemibold);
+  font-weight: var(--typography-weightRegular);
   line-height: var(--typography-leadingTight);
   background-color: transparent;
   border: none;
@@ -69,5 +69,4 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
 }

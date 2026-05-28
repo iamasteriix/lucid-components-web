@@ -16,7 +16,6 @@
 
 /* -- Sizes ---------------------------------------------------------------- */
 .badge--sm {
-  display: flex;
   padding: 0 var(--spacing-space1);
   font-size: var(--typography-textXs);
   min-width: var(--spacing-space3);
