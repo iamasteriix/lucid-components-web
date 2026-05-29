@@ -2,7 +2,7 @@ import type { ElementType, ReactNode } from "react";
 import type { Size, PropsWithAs, TagBaseProps, } from "@/types";
 
 
-type ButtonVariant = 'primary' | 'accent' | 'ghost' | 'destructive';
+type ButtonVariant = 'primary' | 'accent' | 'ghost' | 'error';
 type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
 type ButtonTextAlign = 'left' | 'center' | 'right';
 

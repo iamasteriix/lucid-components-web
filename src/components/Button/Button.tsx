@@ -33,8 +33,8 @@ export function Button<C extends ElementType = 'button'> ({
     disabled && 'btn--disabled',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

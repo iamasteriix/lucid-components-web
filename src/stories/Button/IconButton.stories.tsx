@@ -15,7 +15,7 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     variant: {
-      options: ['primary', 'accent', 'ghost', 'destructive'],
+      options: ['primary', 'accent', 'ghost', 'error'],
       control: 'select',
     },
     size: {

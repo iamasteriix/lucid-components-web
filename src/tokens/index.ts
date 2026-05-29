@@ -37,8 +37,8 @@ export const colorTokens = {
   successSubtle: "#286f77",
   warning:       "#cc8a00",
   warningSubtle: "#775e28",
-  danger:        "#b21807",
-  dangerSubtle:  "#660E04",
+  error:        "#b21807",
+  errorSubtle:  "#660E04",
   info:          "#4da8e8",
   infoSubtle:    "#0d2030",
 } as const;

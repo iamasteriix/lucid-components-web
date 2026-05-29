@@ -26,8 +26,8 @@ export function FAB<C extends ElementType = 'button'> ({
     disabled && 'fab--disabled',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

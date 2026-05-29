@@ -25,8 +25,8 @@ export function Badge <C extends ElementType = 'span'> ({
     dot && 'badge--dot',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

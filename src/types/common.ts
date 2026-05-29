@@ -10,7 +10,7 @@ export type Variant =
   | 'primary'
   | 'secondary'
   | 'ghost'
-  | 'destructive'
+  | 'error'
   | 'outline'
   | 'subtle';
 

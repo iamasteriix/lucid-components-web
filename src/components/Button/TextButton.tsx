@@ -23,8 +23,8 @@ export function TextButton<C extends ElementType = 'button'> ({
     disabled && 'text-btn--disabled',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

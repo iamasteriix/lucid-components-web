@@ -63,16 +63,16 @@
   background-color: var(--colors-accentActive);
 }
 
-.icon-btn--destructive.icon-btn--filled {
-  background-color: var(--colors-danger);
+.icon-btn--error.icon-btn--filled {
+  background-color: var(--colors-error);
   color: var(--colors-textInverse);
 }
 
-.icon-btn--destructive.icon-btn--filled:hover:not(:disabled) {
+.icon-btn--error.icon-btn--filled:hover:not(:disabled) {
   filter: brightness(120%);
 }
 
-.icon-btn--destructive.icon-btn--filled:active:not(:disabled) {
+.icon-btn--error.icon-btn--filled:active:not(:disabled) {
   filter: brightness(110%);
 }
 
@@ -112,13 +112,13 @@
   background-color: color-mix(in srgb, var(--colors-accentSubtle) 80%, var(--colors-accent));
 }
 
-.icon-btn--destructive.icon-btn--tonal {
-  background-color: var(--colors-dangerSubtle);
+.icon-btn--error.icon-btn--tonal {
+  background-color: var(--colors-errorSubtle);
   color: var(--colors-textPrimary);
 }
 
-.icon-btn--destructive.icon-btn--tonal:hover:not(:disabled) {
-  background-color: color-mix(in srgb, var(--colors-dangerSubtle) 80%, var(--colors-danger));
+.icon-btn--error.icon-btn--tonal:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-errorSubtle) 80%, var(--colors-error));
 }
 
 
@@ -146,13 +146,13 @@
   box-shadow: var(--shadows-shadowLg);
 }
 
-.icon-btn--destructive.icon-btn--elevated {
+.icon-btn--error.icon-btn--elevated {
   background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
-  color: var(--colors-danger);
+  color: var(--colors-error);
 }
 
-.icon-btn--destructive.icon-btn--elevated:hover:not(:disabled) {
+.icon-btn--error.icon-btn--elevated:hover:not(:disabled) {
   background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
 }

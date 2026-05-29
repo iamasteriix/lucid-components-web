@@ -13,9 +13,7 @@ const meta: Meta<StoryProps> = {
   component: SwitchBase,
   tags: ['autodocs'],
   argTypes: {
-    onChange: {
-      action: 'changed',
-    },
+    onChange: { action: 'changed',  },
     size: {
       options: ['sm', 'md', 'lg'],
       control: 'select',

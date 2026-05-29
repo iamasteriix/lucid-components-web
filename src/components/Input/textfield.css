@@ -1,0 +1,240 @@
+/* -- Base ----------------------------------------------------------------- */
+.textfield {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-space1);
+  width: 100%;
+  font-family: var(--typography-fontSans);
+}
+
+
+/* -- Row ------------------------------------------------------------------ */
+.textfield__row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: var(--radii-radius2xl);
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition:
+    border-color var(--transitions-durationFast) var(--transitions-easingDefault),
+    background-color var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+
+/* -- Input ---------------------------------------------------------------- */
+.textfield__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: var(--typography-leadingNormal);
+  color: var(--colors-textPrimary);
+  caret-color: var(--colors-textPrimary);
+}
+
+.textfield__input::placeholder {
+  color: var(--colors-textSecondary);
+}
+
+/* Hide number spinners */
+.textfield__input[type='number'] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.textfield__input[type='number']::-webkit-inner-spin-button,
+.textfield__input[type='number']::-webkit-outer-spin-button {
+  display: none;
+}
+
+
+/* -- Adornments ----------------------------------------------------------- */
+.textfield__leading,
+.textfield__trailing {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--colors-textSecondary);
+}
+
+.textfield__leading {
+  padding-left: var(--spacing-space3);
+}
+
+.textfield__trailing {
+  padding-right: var(--spacing-space3);
+}
+
+/* When a leading adornment is present, remove left padding from the input */
+.textfield--has-leading .textfield__input {
+  padding-left: var(--spacing-space2);
+}
+
+/* When a trailing adornment is present, remove right padding from the input */
+.textfield--has-trailing .textfield__input {
+  padding-right: var(--spacing-space2);
+}
+
+
+/* -- Sizes ---------------------------------------------------------------- */
+.textfield--sm .textfield__row {
+  height: var(--spacing-space8);
+}
+
+.textfield--sm .textfield__input {
+  padding: var(--spacing-space1) var(--spacing-space3);
+  font-size: var(--typography-textSm);
+}
+
+.textfield--sm .textfield__leading,
+.textfield--sm .textfield__trailing {
+  font-size: var(--typography-textSm);
+}
+
+.textfield--md .textfield__row {
+  height: var(--spacing-space10);
+}
+
+.textfield--md .textfield__input {
+  padding: var(--spacing-space2) var(--spacing-space3);
+  font-size: var(--typography-textBase);
+}
+
+.textfield--md .textfield__leading,
+.textfield--md .textfield__trailing {
+  font-size: var(--typography-textBase);
+}
+
+.textfield--lg .textfield__row {
+  height: var(--spacing-space12);
+}
+
+.textfield--lg .textfield__input {
+  padding: var(--spacing-space3) var(--spacing-space4);
+  font-size: var(--typography-textLg);
+}
+
+.textfield--lg .textfield__leading,
+.textfield--lg .textfield__trailing {
+  font-size: var(--typography-textLg);
+}
+
+
+/* -- Appearance: outlined ------------------------------------------------- */
+.textfield--outlined .textfield__row {
+  background-color: transparent;
+  border-color: var(--textfield-highlight);
+}
+
+.textfield--outlined:not(.textfield--disabled):focus-within .textfield__row {
+  border-color: var(--textfield-highlight-focus);
+}
+
+.textfield--outlined:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
+  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textPrimary));
+}
+
+
+/* -- Appearance: filled --------------------------------------------------- */
+.textfield--filled .textfield__row {
+  background-color: var(--colors-bgElevated);
+  border-color: transparent;
+  border-bottom-color: var(--textfield-highlight);
+  border-radius: var(--radii-radiusMd) var(--radii-radiusMd) 0 0;
+}
+
+.textfield--filled:not(.textfield--disabled):focus-within .textfield__row {
+  border-bottom-color: var(--textfield-highlight-focus);
+}
+
+.textfield--filled:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
+  background-color: color-mix(in srgb, var(--colors-bgElevated) 80%, var(--colors-textPrimary));
+}
+
+
+/* -- Appearance: ghost ---------------------------------------------------- */
+.textfield--ghost .textfield__row {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom-color: var(--textfield-highlight);
+  border-radius: 0;
+}
+
+.textfield--ghost:not(.textfield--disabled):focus-within .textfield__row {
+  border-bottom-color: var(--textfield-highlight-focus);
+}
+
+.textfield--ghost:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
+  border-bottom-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textPrimary));
+}
+
+
+/* -- Variants (highlight tokens) ----------------------------------------- */
+
+/*
+  Each variant sets two custom properties on the component root:
+    --textfield-highlight        border color at rest
+    --textfield-highlight-focus  border color while :focus-within
+  The appearance rules above consume them, so variant × appearance
+  combinations need no additional selectors.
+*/
+
+.textfield--neutral {
+  --textfield-highlight: var(--colors-borderDefault);
+  --textfield-highlight-focus: var(--colors-primary);
+}
+
+.textfield--success {
+  --textfield-highlight: var(--colors-success);
+  --textfield-highlight-focus: var(--colors-success);
+}
+
+.textfield--warning {
+  --textfield-highlight: var(--colors-warning);
+  --textfield-highlight-focus: var(--colors-warning);
+}
+
+.textfield--error {
+  --textfield-highlight: var(--colors-error);
+  --textfield-highlight-focus: var(--colors-error);
+}
+
+.textfield--info {
+  --textfield-highlight: var(--colors-info);
+  --textfield-highlight-focus: var(--colors-info);
+}
+
+
+/* -- Message -------------------------------------------------------------- */
+.textfield__message {
+  display: block;
+  font-size: var(--typography-textSm);
+  line-height: var(--typography-leadingNormal);
+  padding-inline: var(--radii-radius2xl);
+  color: var(--colors-textSecondary);
+}
+
+
+/* -- Disabled ------------------------------------------------------------- */
+.textfield--disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.textfield--disabled .textfield__row {
+  cursor: not-allowed;
+}
+
+.textfield--disabled .textfield__input {
+  pointer-events: none;
+}
+
+
+/* -- Readonly ------------------------------------------------------------- */
+.textfield--readonly .textfield__input {
+  cursor: default;
+}

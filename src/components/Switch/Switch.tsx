@@ -38,8 +38,8 @@ export function Switch <C extends ElementType = 'button'> ({
     disabled && 'switch--disabled',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');  
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

@@ -1,0 +1,10 @@
+export function SearchBold () {
+  return (
+    <path
+      d="M21.788 21.788a.723.723 0 0 0 0-1.022L18.122 17.1a9.157 9.157 0 1 0-1.022 1.022l3.666 3.666a.723.723 0 0 0 1.022 0"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      fill="var(--icon-color)"
+    />
+  );
+}

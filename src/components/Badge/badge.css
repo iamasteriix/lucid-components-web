@@ -71,8 +71,8 @@
   color: var(--colors-textInverse);
 }
 
-.badge--filled.badge--destructive {
-  background-color: var(--colors-danger);
+.badge--filled.badge--error {
+  background-color: var(--colors-error);
   color: var(--colors-textInverse);
 }
 
@@ -110,8 +110,8 @@
   color: var(--colors-accent);
 }
 
-.badge--outlined.badge--destructive {
-  color: var(--colors-danger);
+.badge--outlined.badge--error {
+  color: var(--colors-error);
 }
 
 .badge--outlined.badge--success {
@@ -141,8 +141,8 @@
   color: var(--colors-textSecondary);
 }
 
-.badge--tonal.badge--destructive {
-  background-color: var(--colors-dangerSubtle);
+.badge--tonal.badge--error {
+  background-color: var(--colors-errorSubtle);
   color: var(--colors-textSecondary);
 }
 

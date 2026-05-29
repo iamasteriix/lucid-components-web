@@ -2,7 +2,7 @@
 import type { ElementType, ReactNode } from 'react';
 import type { TagBaseProps, PropsWithAs, Size } from '@/types';
 
-type BadgeVariant = 'primary' | 'accent' | 'ghost' | 'success' | 'warning' | 'destructive' | 'info';
+type BadgeVariant = 'primary' | 'accent' | 'ghost' | 'success' | 'warning' | 'error' | 'info';
 type BadgeAppearance = 'filled' | 'outlined' | 'tonal';
 type BadgeSize = Size;
 

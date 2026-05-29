@@ -28,8 +28,8 @@ export function IconButton<C extends ElementType = 'button'> ({
     disabled && 'icon-btn--disabled',
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Tag

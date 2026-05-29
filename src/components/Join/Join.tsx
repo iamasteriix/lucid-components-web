@@ -21,8 +21,8 @@ export function Join <C extends ElementType = 'div'> ({
     `join--gap-${gap}`,
     className,
   ]
-  .filter(Boolean)
-  .join(' ');
+    .filter(Boolean)
+    .join(' ');
 
 
   return (

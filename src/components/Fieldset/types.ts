@@ -7,6 +7,7 @@ type FieldsetSurface = 'default' | 'elevated' | 'overlay';
 
 
 type FieldsetBaseProps = TagBaseProps & {
+  id?: string;  // falls back to useId()
   legend?: string;
   caption?: string;
   surface?: FieldsetSurface;
