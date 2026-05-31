@@ -20,7 +20,7 @@ export function Search (props: IconProps) {
   return (
     <Icon
       { ...props }
-      data-component='icon-chevron-left'
+      data-component='icon-search'
     >
       <Asset/>
     </Icon>

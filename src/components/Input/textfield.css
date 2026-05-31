@@ -33,7 +33,7 @@
   font-size: inherit;
   line-height: var(--typography-leadingNormal);
   color: var(--colors-textPrimary);
-  caret-color: var(--colors-textPrimary);
+  caret-color: var(--colors-primary);
 }
 
 .textfield__input::placeholder {
@@ -142,13 +142,12 @@
 /* -- Appearance: filled --------------------------------------------------- */
 .textfield--filled .textfield__row {
   background-color: var(--colors-bgElevated);
-  border-color: transparent;
-  border-bottom-color: var(--textfield-highlight);
-  border-radius: var(--radii-radiusMd) var(--radii-radiusMd) 0 0;
+  border-color: var(--textfield-highlight);
+  border-radius: var(--radii-radius2xl);
 }
 
 .textfield--filled:not(.textfield--disabled):focus-within .textfield__row {
-  border-bottom-color: var(--textfield-highlight-focus);
+  border-color: var(--textfield-highlight-focus);
 }
 
 .textfield--filled:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
@@ -160,16 +159,15 @@
 .textfield--ghost .textfield__row {
   background-color: transparent;
   border-color: transparent;
-  border-bottom-color: var(--textfield-highlight);
-  border-radius: 0;
+  border-radius: var(--radii-radius2xl);
 }
 
 .textfield--ghost:not(.textfield--disabled):focus-within .textfield__row {
-  border-bottom-color: var(--textfield-highlight-focus);
+  border-color: var(--textfield-highlight-focus);
 }
 
 .textfield--ghost:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
-  border-bottom-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textPrimary));
+  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textPrimary));
 }
 
 
@@ -214,7 +212,7 @@
   display: block;
   font-size: var(--typography-textSm);
   line-height: var(--typography-leadingNormal);
-  padding-inline: var(--radii-radius2xl);
+  padding-inline: var(--radii-radiusXl);
   color: var(--colors-textSecondary);
 }
 

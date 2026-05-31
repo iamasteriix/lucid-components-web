@@ -20,7 +20,7 @@ export function Heart (props: IconProps) {
   return (
     <Icon
       { ...props }
-      data-component='icon-chevron-left'
+      data-component='icon-heart'
     >
       <Asset/>
     </Icon>

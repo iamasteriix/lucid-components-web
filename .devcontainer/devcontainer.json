@@ -1,5 +1,5 @@
 {
-  "name": "Nine UI - Web",
+  "name": "Nine UI - React",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/app",

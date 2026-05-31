@@ -20,7 +20,7 @@ export function CloseCircle (props: IconProps) {
   return (
     <Icon
       { ...props }
-      data-component='icon-chevron-left'
+      data-component='icon-close-circle'
     >
       <Asset/>
     </Icon>

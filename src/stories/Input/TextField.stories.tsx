@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TextField as TextFieldBase } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
@@ -15,8 +16,6 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     name: { control: 'text', },
-    value: { control: 'text', },
-    defaultValue: { control: 'text', },
     placeholder: { control: 'text', },
     type: {
       options: ['email', 'number', 'search', 'text', 'tel', 'url'],
@@ -31,10 +30,10 @@ const meta: Meta<StoryProps> = {
       options: ['decimal', 'email', 'none', 'numeric', 'search', 'text', 'tel', 'url'],
       control: 'select',
     },
-    onChange: { action: 'changed', },
-    onBlur:  { action: 'changed', },
-    onFocus:  { action: 'changed', },
-    onKeyDown: { action: 'changed', },
+    onChange: { action: 'onChange', },
+    onBlur:  { action: 'onBlur', },
+    onFocus:  { action: 'onFocus', },
+    onKeyDown: { action: 'onKeydown', },
     variant: {
       options: ['neutral', 'success', 'warning', 'error', 'info'],
       control: 'select',
@@ -58,30 +57,35 @@ export const TextField: Story = {
   args: {
     as: 'div',
     name: 'name',
-    value: '',
-    defaultValue: '',
     placeholder: 'Say something',
+    message: 'This message will not self-destruct',
     type: 'text',
+    inputMode: 'text',
+    variant: 'neutral',
+    size: 'md',
+    appearance: 'outlined',
     autoComplete: 'on',
     disabled: false,
     required: false,
     readOnly: false,
     autoFocus: false,
-    inputMode: 'text',
-    variant: 'neutral',
-    size: 'md',
-    appearance: 'outlined',
     leadingNode: false,
     trailingNode: false,
-    message: 'This message will not self-destruct',
   },
 
   render: args => {
+    const [value, setValue] = useState('');
+
     return (
       <TextFieldBase
         { ...args }
-        leadingIcon={ args.leadingIcon && <Search/> }
-        trailingIcon={ args.trailingIcon && <CloseCircle/> }
+        value={ value }
+        onChange={ event => {
+          setValue(event.target.value);
+          args.onChange?.(event);
+        }}
+        leadingNode={ args.leadingNode && <Search/> }
+        trailingNode={ args.trailingNode && <CloseCircle bold/> }
       />
     );
   }
