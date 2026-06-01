@@ -50,8 +50,8 @@ type TextFieldBaseProps = TagBaseProps & {
   appearance?: TextFieldAppearance;
 
   // adornments
-  leadingNode: ReactNode;
-  trailingNode: ReactNode;
+  leadingNode?: ReactNode;
+  trailingNode?: ReactNode;
 
   // status message
   message?: string;

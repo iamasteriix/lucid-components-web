@@ -1,4 +1,4 @@
-import { Button, Fieldset, TextButton } from "@/components";
+import { Button, Fieldset, TextButton, TextField } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
@@ -42,6 +42,13 @@ export const SigninForm: Story = {
   render: args => {    
     return (
       <Fieldset { ...args }>
+        <TextField
+          placeholder='me@mymail.com'
+        />
+        <TextField
+          placeholder='Password'
+          type='password'
+        />
         <Button
           fullWidth
           children='Next'
