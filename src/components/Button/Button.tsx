@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { ButtonProps } from "./types";
+import type { ButtonProps } from "@/types";
 import "./button.css";
 
 

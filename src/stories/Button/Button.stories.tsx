@@ -1,7 +1,7 @@
-import { Button as ButtonBase } from "@/components";
-import { ChevronRight, Plus } from "@/assets";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button as ButtonBase } from "@/components";
+import { ChevronRight, Plus } from "@/assets";
 
 
 type StoryProps = ComponentProps<typeof ButtonBase>;

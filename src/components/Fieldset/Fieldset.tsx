@@ -1,6 +1,6 @@
-import { useId } from "react";
 import type { ElementType } from "react";
-import type { FieldsetProps } from "./types";
+import type { FieldsetProps } from "@/types";
+import { useId } from "react";
 import "./fieldset.css";
 
 

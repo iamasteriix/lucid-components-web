@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Switch as SwitchBase } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
+import { Switch as SwitchBase } from "@/components";
 
 
 type StoryProps = ComponentProps<typeof SwitchBase>;

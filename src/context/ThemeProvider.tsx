@@ -1,23 +1,23 @@
+import type { Tokens, ThemeProviderProps, ThemeCustom, } from "@/types";
 import { useMemo } from "react";
-import { defaultTokens } from "@/tokens";
-import { ThemeContext } from "./collection";
-import type { Tokens, ThemeOverride, ThemeProviderProps, } from "@/types";
+import { designTokens } from "@/tokens";
+import { ThemeContext } from "./base";
 
 
 /**
  * Merges a partial theme override with the default tokens.
  * Only one level of nesting — we merge per category, not recursively.
  */
-function resolveTheme (override?: ThemeOverride): Tokens {
-  if (!override) return defaultTokens
+function resolveTheme (custom?: ThemeCustom): Tokens {
+  if (!custom) return designTokens
 
   return {
-    colors:      { ...defaultTokens.colors,       ...override.colors },
-    typography:  { ...defaultTokens.typography,   ...override.typography },
-    spacing:     { ...defaultTokens.spacing,      ...override.spacing },
-    radii:       { ...defaultTokens.radii,        ...override.radii },
-    shadows:     { ...defaultTokens.shadows,      ...override.shadows },
-    transitions: { ...defaultTokens.transitions,  ...override.transitions },
+    colors:      { ...designTokens.colors,       ...custom.colors },
+    typography:  { ...designTokens.typography,   ...custom.typography },
+    spacing:     { ...designTokens.spacing,      ...custom.spacing },
+    radii:       { ...designTokens.radii,        ...custom.radii },
+    shadows:     { ...designTokens.shadows,      ...custom.shadows },
+    transitions: { ...designTokens.transitions,  ...custom.transitions },
   }
 }
 

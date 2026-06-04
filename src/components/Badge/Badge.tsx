@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { BadgeProps } from "./types";
+import type { BadgeProps } from "@/types";
 import "./badge.css";
 
 

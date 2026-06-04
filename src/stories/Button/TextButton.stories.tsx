@@ -1,6 +1,6 @@
-import { TextButton as TextButtonBase } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { TextButton as TextButtonBase } from "@/components";
 
 
 type StoryProps = ComponentProps<typeof TextButtonBase>;

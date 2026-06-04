@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { JoinProps } from "./types";
+import type { JoinProps } from "@/types";
 import "./join.css";
 
 

@@ -7,10 +7,3 @@ export { Switch } from "./Switch/Switch";
 export { Join } from "./Join/Join";
 export { Fieldset } from "./Fieldset/Fieldset";
 export { TextField } from "./Input/TextField";
-
-export type { ButtonProps, IconButtonProps, FABProps, TextButtonProps, } from "./Button/types";
-export type { BadgeProps } from "./Badge/types";
-export type { SwitchProps } from "./Switch/types";
-export type { JoinProps } from "./Join/types";
-export type { FieldsetProps } from "./Fieldset/types";
-export type { TextFieldProps } from "./Input/types";

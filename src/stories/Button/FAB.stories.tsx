@@ -1,7 +1,7 @@
-import { FAB as FABBase } from "@/components";
-import { Plus } from "@/assets";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { FAB as FABBase } from "@/components";
+import { Plus } from "@/assets";
 
 
 type StoryProps = ComponentProps<typeof FABBase>;

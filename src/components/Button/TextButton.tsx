@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { TextButtonProps } from "./types";
+import type { TextButtonProps } from "@/types";
 import "./text-button.css";
 
 

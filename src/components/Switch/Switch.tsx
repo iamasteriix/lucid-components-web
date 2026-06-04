@@ -1,6 +1,6 @@
-import { useState } from "react";
 import type { ElementType } from "react";
-import type { SwitchProps } from "./types";
+import type { SwitchProps } from "@/types";
+import { useState } from "react";
 import "./switch.css";
 
 
