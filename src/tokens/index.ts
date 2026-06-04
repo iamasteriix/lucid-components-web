@@ -4,43 +4,56 @@
  */
 export const colorTokens = {
   // --- Brand ---
-  primary:        "#08cb00",
-  primaryHover:   "#23991f",
-  primaryActive:  "#2b6629",
-  primarySubtle:  "#1f331f",
+  primary:        '#eeeeee',
+  primaryHover:   '#c9c9c9',
+  primaryActive:  '#a1a1a1',
+  primarySubtle:  '#787878',
+
+
+  // --- Secondary ---
+  secondary:        '#19242b',
+  secondaryHover:   '#22303a',
+  secondaryActive:  '#2a3c48',
+  secondarySubtle:  '#11181d',
 
   // --- Accent ---
-  accent:        "#a8005d",
-  accentHover:   "#fa0089",
-  accentActive:  "#cc0070",
-  accentSubtle:  "#570030",
+  accent:        '#30db12',
+  accentHover:   '#27b30e',
+  accentActive:  '#1e8a0b',
+  accentSubtle:  '#156108',
+
+  // --- Neutral ---
+  neutral:        '#6b7280',
+  neutralHover:   '#7d8590',
+  neutralActive:  '#4b5563',
+  neutralSubtle:  '#374151',
 
   // --- Surfaces ---
-  bgBase:      "#000000",
-  bgSurface:   "#111111",
-  bgElevated:  "#232323",
-  bgOverlay:   "#343434",
+  bgBase:      '#000000',
+  bgSurface:   '#111111',
+  bgElevated:  '#232323',
+  bgOverlay:   '#343434',
 
   // --- Text ---
-  textPrimary:   "#eeeeee",
-  textSecondary: "#9e9e9e",
-  textDisabled:  "#424242",
-  textInverse:   "#212121",
+  textPrimary:   '#eeeeee',
+  textSecondary: '#9e9e9e',
+  textDisabled:  '#424242',
+  textInverse:   '#212121',
 
   // --- Borders ---
-  borderSubtle:  "rgba(255, 255, 255, .07)",
-  borderDefault: "rgba(255, 255, 255, .12)",
-  borderStrong:  "rgba(255, 255, 255, .22)",
+  borderSubtle:  'rgba(238, 238, 238, .07)',
+  borderDefault: 'rgba(238, 238, 238, .12)',
+  borderStrong:  'rgba(238, 238, 238, .22)',
 
   // --- Semantic ---
-  success:       "#00b8cc",
-  successSubtle: "#286f77",
-  warning:       "#cc8a00",
-  warningSubtle: "#775e28",
-  error:        "#b21807",
-  errorSubtle:  "#660E04",
-  info:          "#4da8e8",
-  infoSubtle:    "#0d2030",
+  info:          '#3b82f6',
+  infoSubtle:    '#1f447f',
+  success:       '#10b981',
+  successSubtle: '#064530',
+  warning:       '#f59e0b',
+  warningSubtle: '#7f5305',
+  error:         '#ef4444',
+  errorSubtle:   '#7a2222',
 } as const;
 
 
@@ -55,26 +68,27 @@ export const typographyTokens = {
   fontSerif: "'Lora', 'Georgia', serif",
 
   // --- Size scale (rem) ---
-  textXs:   "0.75rem",   //  12px
-  textSm:   "0.875rem",  //  14px
-  textBase: "1rem",      //  16px
-  textLg:   "1.125rem",  //  18px
-  textXl:   "1.25rem",   //  20px
-  text2xl:  "1.5rem",    //  24px
-  text3xl:  "1.875rem",  //  30px
-  text4xl:  "2.25rem",   //  36px
+  textXs:   '.75rem',
+  textSm:   '.875rem',
+  textBase: '1rem',
+  textLg:   '1.125rem',
+  textXl:   '1.25rem',
+  text2xl:  '1.5rem',
+  text3xl:  '1.875rem',
+  text4xl:  '2.25rem',
 
   // --- Weights ---
-  weightRegular:  "400",
-  weightMedium:   "500",
-  weightSemibold: "600",
-  weightBold:     "700",
+  weightLight:    '300',
+  weightRegular:  '400',
+  weightMedium:   '500',
+  weightSemibold: '600',
+  weightBold:     '700',
 
   // --- Line heights ---
-  leadingTight:   "1.25",
-  leadingSnug:    "1.375",
-  leadingNormal:  "1.5",
-  leadingRelaxed: "1.625",
+  leadingTight:   '1.25',
+  leadingSnug:    '1.375',
+  leadingNormal:  '1.5',
+  leadingRelaxed: '1.625',
 } as const;
 
 
@@ -83,16 +97,16 @@ export const typographyTokens = {
  * Base-4 scale, used for padding, margin, and gap
  */
 export const spacingTokens = {
-  space1:  "0.25rem",  //  4px
-  space2:  "0.5rem",   //  8px
-  space3:  "0.75rem",  // 12px
-  space4:  "1rem",     // 16px
-  space5:  "1.25rem",  // 20px
-  space6:  "1.5rem",   // 24px
-  space8:  "2rem",     // 32px
-  space10: "2.5rem",   // 40px
-  space12: "3rem",     // 48px
-  space16: "4rem",     // 64px
+  space1:  '.25rem',
+  space2:  '.5rem',
+  space3:  '.75rem',
+  space4:  '1rem',
+  space5:  '1.25rem',
+  space6:  '1.5rem',
+  space8:  '2rem',
+  space10: '2.5rem',
+  space12: '3rem',
+  space16: '4rem',
 } as const;
 
 
@@ -101,13 +115,13 @@ export const spacingTokens = {
  * Border radius scale from sharp to fully rounded
  */
 export const radiiTokens = {
-  radiusNone: "0px",
-  radiusSm:   "4px",
-  radiusMd:   "8px",
-  radiusLg:   "12px",
-  radiusXl:   "16px",
-  radius2xl:  "24px",
-  radiusFull: "9999px",
+  radiusNone: '0px',
+  radiusSm:   '4px',
+  radiusMd:   '8px',
+  radiusLg:   '12px',
+  radiusXl:   '16px',
+  radius2xl:  '24px',
+  radiusFull: '9999px',
 } as const;
 
 
@@ -116,10 +130,10 @@ export const radiiTokens = {
  * Elevation scale for depth and layering
  */
 export const shadowTokens = {
-  shadowSm: "0 1px 3px rgba(52, 52, 52, .4)",
-  shadowMd: "0 4px 12px rgba(52, 52, 52, .5)",
-  shadowLg: "0 12px 32px rgba(52, 52, 52, .6)",
-  shadowXl: "0 24px 64px rgba(52, 52, 52, .7)",
+  shadowSm: '0 1px 3px rgba(52, 52, 52, .4)',
+  shadowMd: '0 4px 12px rgba(52, 52, 52, .5)',
+  shadowLg: '0 12px 32px rgba(52, 52, 52, .6)',
+  shadowXl: '0 24px 64px rgba(52, 52, 52, .7)',
 } as const;
 
 
@@ -128,11 +142,11 @@ export const shadowTokens = {
  * Duration and easing presets for consistent motion
  */
 export const transitionTokens = {
-  durationFast:  "100ms",
-  durationBase:  "180ms",
-  durationSlow:  "320ms",
-  easingDefault: "cubic-bezier(.4, 0, .2, 1)",
-  easingBounce:  "cubic-bezier(.34, 1.56, .64, 1)",
+  durationFast:  '100ms',
+  durationBase:  '180ms',
+  durationSlow:  '320ms',
+  easingDefault: 'cubic-bezier(.4, 0, .2, 1)',
+  easingBounce:  'cubic-bezier(.34, 1.56, .64, 1)',
 } as const;
 
 

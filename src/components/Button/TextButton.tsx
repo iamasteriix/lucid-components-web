@@ -5,6 +5,7 @@ import "./text-button.css";
 
 export function TextButton<C extends ElementType = 'button'> ({
   as,
+  variant = 'primary',
   size = 'md',
   disabled = false,
   loading = false,
@@ -18,6 +19,7 @@ export function TextButton<C extends ElementType = 'button'> ({
 
   const classes = [
     'text-btn',
+    `text-btn--${variant}`,
     `text-btn--${size}`,
     loading && 'text-btn--loading',
     disabled && 'text-btn--disabled',

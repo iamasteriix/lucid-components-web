@@ -1,4 +1,4 @@
-import { Button, Fieldset, TextButton, TextField } from "@/components";
+import { Button, Fieldset, Join, TextButton, TextField } from "@/components";
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
@@ -43,20 +43,30 @@ export const SigninForm: Story = {
     return (
       <Fieldset { ...args }>
         <TextField
-          placeholder='me@mymail.com'
+          type='email'
+          placeholder='me@email.com'
         />
         <TextField
-          placeholder='Password'
           type='password'
-        />
-        <Button
-          fullWidth
-          children='Next'
+          placeholder='Password'
         />
         <TextButton
-          label="Don't have an account?"
+          label='Forgot password?'
           size='sm'
         />
+        <Join
+          axis='vertical'
+          gap='wide'
+        >
+          <Button
+            fullWidth
+            children='Next'
+          />
+          <TextButton
+            label="Don't have an account?"
+            size='sm'
+          />
+        </Join>
       </Fieldset>
     );
   },

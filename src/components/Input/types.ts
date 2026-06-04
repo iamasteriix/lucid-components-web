@@ -60,5 +60,11 @@ type TextFieldBaseProps = TagBaseProps & {
   inputClassname?: string;
 };
 
+type TextAreaBaseProps = TextFieldBaseProps & {
+  minRows?: number;
+  maxRows?: number;
+}
 
-export type TextFieldProps <C extends ElementType = 'div'> = PropsWithAs<C, TextFieldBaseProps>;
+
+export type TextFieldProps <C extends ElementType = 'div'> = PropsWithAs <C, TextFieldBaseProps>;
+export type TextAreaProps <C extends ElementType = 'div'> = PropsWithAs <C, TextAreaBaseProps>;

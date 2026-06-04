@@ -46,7 +46,8 @@ type FABOwnProps =
 
 
 type TextButtonOwnProps = ButtonBaseProps & {
-  label: string,
+  variant?: ButtonVariant;
+  label: string;
 }
 
 
