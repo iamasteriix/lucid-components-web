@@ -5,9 +5,9 @@ import "./icon.css";
 
 
 const SIZE_MAP: Record<NonNullable<IconProps['size']>, string> = {
-  sm: 'var(--typography-textXl)',
-  md: 'var(--typography-text2xl)',
-  lg: 'var(--typography-text4xl)',
+  sm: 'var(--typography-textBase)',
+  md: 'var(--typography-textXl)',
+  lg: 'var(--typography-text3xl)',
 };
 
 

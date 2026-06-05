@@ -1,6 +1,6 @@
+import type { Preview } from "@storybook/react-vite";
 import { ThemeProvider } from "@/context";
 import { designTokens } from "@/tokens";
-import type { Preview } from "@storybook/react-vite";
 import "../src/index.css";
 
 
@@ -15,7 +15,7 @@ const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        dark: { name: 'Dark', value: designTokens.colors.bgSurface, },
+        dark: { name: 'Moonsong', value: designTokens.colors.bgBase, },
       },
     },
   },

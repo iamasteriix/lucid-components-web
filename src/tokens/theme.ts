@@ -41,9 +41,9 @@ export const colorTokens = {
   textInverse:   '#212121',
 
   // --- Borders ---
-  borderSubtle:  'rgba(238, 238, 238, .07)',
-  borderDefault: 'rgba(238, 238, 238, .12)',
-  borderStrong:  'rgba(238, 238, 238, .22)',
+  borderSubtle:  'rgba(238, 238, 238, .12)',
+  borderDefault: 'rgba(238, 238, 238, .17)',
+  borderStrong:  'rgba(238, 238, 238, .27)',
 
   // --- Semantic ---
   info:          '#3b82f6',

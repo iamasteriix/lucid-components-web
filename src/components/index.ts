@@ -7,3 +7,4 @@ export { Switch } from "./Switch/Switch";
 export { Join } from "./Join/Join";
 export { Fieldset } from "./Fieldset/Fieldset";
 export { TextField } from "./Input/TextField";
+export { Textarea } from "./Input/Textarea";

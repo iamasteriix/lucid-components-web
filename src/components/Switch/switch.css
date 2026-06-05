@@ -20,7 +20,7 @@
 }
 
 .switch--on .switch__track {
-  background-color: var(--colors-primary);
+  background-color: var(--colors-accent);
 }
 
 

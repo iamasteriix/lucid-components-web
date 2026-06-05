@@ -9,11 +9,19 @@ export type Size = 'sm' | 'md' | 'lg';
 export type Variant =
   | 'primary'
   | 'secondary'
-  | 'ghost'
-  | 'error'
-  | 'outline'
-  | 'subtle';
+  | 'accent'
+  | 'neutral'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error';
 
+/** Appearance */
+export type Appearance =
+  | 'filled'
+  | 'tonal'
+  | 'outlined'
+  | 'ghost';
 
 /** Tag Base props */
 export type TagBaseProps = {

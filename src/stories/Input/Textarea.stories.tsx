@@ -1,27 +1,23 @@
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from "react";
-import { TextField as TextFieldBase } from "@/components";
-import { CloseCircle, Search } from "@/assets";
+import { Textarea as TextareaBase } from "@/components";
+import { CloseCircle, PlusCircle } from "@/assets";
 
 
-type StoryProps = ComponentProps<typeof TextFieldBase>;
+type StoryProps = ComponentProps<typeof TextareaBase>;
 type Story = StoryObj<StoryProps>;
 
 
 const meta: Meta<StoryProps> = {
   title: 'Components/Input',
-  component: TextFieldBase,
+  component: TextareaBase,
   tags: ['autodocs'],
   argTypes: {
     as: { control: 'text', },
     name: { control: 'text', },
     defaultValue: { control: 'text', },
     placeholder: { control: 'text', },
-    type: {
-      options: ['email', 'number', 'search', 'text', 'tel', 'url'],
-      control: 'select',
-    },
     autoComplete: { control: 'text', },
     disabled: { control: 'boolean', },
     required: { control: 'boolean', },
@@ -30,6 +26,12 @@ const meta: Meta<StoryProps> = {
     inputMode: {
       options: ['decimal', 'email', 'none', 'numeric', 'search', 'text', 'tel', 'url'],
       control: 'select',
+    },
+    minRows: {
+      control: { type: 'number', min: 1, },
+    },
+    maxRows: {
+      control: { type: 'number', min: 1, },
     },
     onChange: { action: 'onChange', },
     onBlur:  { action: 'onBlur', },
@@ -54,17 +56,17 @@ const meta: Meta<StoryProps> = {
 }
 
 
-export const TextField: Story = {
+export const Textarea: Story = {
   args: {
     as: 'div',
     name: 'name',
     defaultValue: '',
     placeholder: 'Say something',
     message: 'This message will not self-destruct',
-    type: 'text',
     inputMode: 'text',
+    minRows: 1,
+    maxRows: undefined,
     variant: 'neutral',
-    size: 'md',
     appearance: 'outlined',
     autoComplete: 'off',
     disabled: false,
@@ -79,14 +81,14 @@ export const TextField: Story = {
     const [value, setValue] = useState('');
 
     return (
-      <TextFieldBase
+      <TextareaBase
         { ...args }
         value={ value }
         onChange={ event => {
           setValue(event.target.value);
           args.onChange?.(event);
         }}
-        leadingNode={ args.leadingNode && <Search/> }
+        leadingNode={ args.leadingNode && <PlusCircle/> }
         trailingNode={ args.trailingNode && <CloseCircle bold/> }
       />
     );

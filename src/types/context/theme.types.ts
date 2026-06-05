@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Tokens } from "../tokens/theme.types";
 
 
@@ -13,5 +14,5 @@ export type ThemeCustom = {
 /** Props for ThemeProvider */
 export type ThemeProviderProps = {
   theme?: ThemeCustom,
-  children: React.ReactNode,
+  children: ReactNode,
 };

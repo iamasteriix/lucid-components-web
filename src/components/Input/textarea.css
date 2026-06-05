@@ -1,0 +1,183 @@
+/* -- Base ----------------------------------------------------------------- */
+.textarea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-space1);
+  width: 100%;
+  font-family: var(--typography-fontSans);
+}
+
+
+/* -- Variants (highlight tokens) ----------------------------------------- */
+/*
+  Each variant sets two custom properties on the component root:
+    --textarea-highlight        border color at rest
+    --textarea-highlight-focus  border color while :focus-within
+  The appearance rules below consume them, so variant × appearance
+  combinations need no additional selectors.
+*/
+.textarea--neutral {
+  --textarea-highlight: var(--colors-borderDefault);
+  --textarea-highlight-focus: var(--colors-primary);
+}
+
+.textarea--info {
+  --textarea-highlight: var(--colors-info);
+  --textarea-highlight-focus: var(--colors-info);
+}
+
+.textarea--success {
+  --textarea-highlight: var(--colors-success);
+  --textarea-highlight-focus: var(--colors-success);
+}
+
+.textarea--warning {
+  --textarea-highlight: var(--colors-warning);
+  --textarea-highlight-focus: var(--colors-warning);
+}
+
+.textarea--error {
+  --textarea-highlight: var(--colors-error);
+  --textarea-highlight-focus: var(--colors-error);
+}
+
+
+/* -- Row ------------------------------------------------------------------ */
+.textarea__row {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  border-radius: var(--radii-radius2xl);
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition:
+    border-color var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+
+/* -- Input ---------------------------------------------------------------- */
+.textarea__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: var(--typography-textBase);
+  line-height: var(--typography-leadingNormal);
+  color: var(--colors-textPrimary);
+  caret-color: var(--colors-primary);
+  padding: var(--spacing-space2) var(--spacing-space5);
+}
+
+.textarea__input::placeholder {
+  color: var(--colors-textSecondary);
+}
+
+
+/* -- Appearance: outlined ------------------------------------------------- */
+.textarea--outlined .textarea__row {
+  background-color: transparent;
+  border-color: var(--textarea-highlight);
+}
+
+.textarea--outlined:not(.textarea--disabled):focus-within .textarea__row {
+  border-color: var(--textarea-highlight-focus);
+}
+
+.textarea--outlined:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
+  border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
+}
+
+
+/* -- Appearance: filled --------------------------------------------------- */
+.textarea--filled .textarea__row {
+  background-color: var(--colors-bgSurface);
+  border-color: var(--textarea-highlight);
+}
+
+.textarea--filled:not(.textarea--disabled):focus-within .textarea__row {
+  border-color: var(--textarea-highlight-focus);
+}
+
+.textarea--filled:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
+  border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
+}
+
+
+/* -- Appearance: ghost ---------------------------------------------------- */
+.textarea--ghost .textarea__row {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.textarea--ghost:not(.textarea--disabled):focus-within .textarea__row {
+  border-color: var(--textarea-highlight-focus);
+}
+
+.textarea--ghost:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
+  border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
+}
+
+
+/* -- Adornments ----------------------------------------------------------- */
+.textarea__leading,
+.textarea__trailing {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--colors-textSecondary);
+}
+
+.textarea__leading {
+  padding-left: var(--spacing-space3);
+  padding-top: var(--spacing-space2);
+}
+
+.textarea__trailing {
+  padding-right: var(--spacing-space3);
+  padding-top: var(--spacing-space2);
+}
+
+/* When a leading adornment is present, remove left padding from the input */
+.textarea--has-leading .textarea__input {
+  padding-left: var(--spacing-space2);
+}
+
+/* When a trailing adornment is present, remove right padding from the input */
+.textarea--has-trailing .textarea__input {
+  padding-right: var(--spacing-space2);
+}
+
+
+/* -- Message -------------------------------------------------------------- */
+.textarea__message {
+  display: block;
+  font-size: var(--typography-textSm);
+  line-height: var(--typography-leadingNormal);
+  padding-inline: var(--radii-radiusXl);
+  color: var(--colors-textSecondary);
+}
+
+
+/* -- Disabled ------------------------------------------------------------- */
+.textarea--disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.textarea--disabled .textarea__row {
+  cursor: not-allowed;
+}
+
+.textarea--disabled .textarea__input {
+  pointer-events: none;
+}
+
+
+/* -- Readonly ------------------------------------------------------------- */
+.textarea--readonly .textarea__input {
+  cursor: default;
+}

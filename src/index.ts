@@ -1,15 +1,9 @@
 import "./index.css";
 
 
-// Theme
-export { ThemeProvider } from "./context";
-export { useTheme } from "./hooks";
-export { designTokens } from "./tokens";
-export type {
-  Tokens,
-  ThemeOverride,
-  ThemeProviderProps,
-} from "./types";
-
-// Components
+export * from "./types";
+export * from "./context";
+export * from "./hooks";
 export * from "./components";
+export * from "./tokens";
+export * from "./assets";

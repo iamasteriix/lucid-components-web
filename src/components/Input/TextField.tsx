@@ -14,7 +14,7 @@ export function TextField <C extends ElementType = 'div'> ({
   disabled = false,
   readOnly = false,
   required = false,
-  autoComplete = 'on',
+  autoComplete = 'off',
   autoFocus = false,
   inputMode = 'text',
   onChange,
@@ -34,7 +34,6 @@ export function TextField <C extends ElementType = 'div'> ({
 }: TextFieldProps<C>) {
 
   const messageId = useId();
-
   const Tag = (as ?? 'div') as ElementType;
 
   const rootClasses = [
