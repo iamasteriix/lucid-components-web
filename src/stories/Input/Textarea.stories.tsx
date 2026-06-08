@@ -41,10 +41,6 @@ const meta: Meta<StoryProps> = {
       options: ['neutral', 'success', 'warning', 'error', 'info'],
       control: 'select',
     },
-    size: {
-      options: ['sm', 'md', 'lg'],
-      control: 'select',
-    },
     appearance: {
       options: ['filled', 'outlined', 'ghost'],
       control: 'select',

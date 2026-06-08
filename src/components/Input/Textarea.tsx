@@ -17,32 +17,32 @@ type GrowParams = {
  * body clean and makes the logic independently testable
  */
 const applyGrow = ({ el, minRows, maxRows }: GrowParams): void => {
-  // const style = getComputedStyle(el);
-  // const lineHeight = parseFloat(style.lineHeight);
-  // const paddingTop = parseFloat(style.paddingTop);
-  // const paddingBottom = parseFloat(style.paddingBottom);
+  const style = getComputedStyle(el);
+  const lineHeight = parseFloat(style.lineHeight);
+  const paddingTop = parseFloat(style.paddingTop);
+  const paddingBottom = parseFloat(style.paddingBottom);
 
-  // /** min height */
-  // const minHeight = (lineHeight * minRows) + paddingTop + paddingBottom;
+  /** min height */
+  const minHeight = (lineHeight * minRows); //+ paddingTop + paddingBottom;
 
-  // /** reset to auto so scrollHeight reflects actual content height */
-  // el.style.height = 'auto';
-  // const contentHeight = el.scrollHeight;
+  /** reset to auto so scrollHeight reflects actual content height */
+  el.style.height = 'auto';
+  const contentHeight = el.scrollHeight - (paddingTop + paddingBottom); // this makes it work
 
-  // /** max height */
-  // if (maxRows !== undefined) {
-  //   const maxHeight = (lineHeight * maxRows) + paddingTop + paddingBottom;
-  //   if (contentHeight >= maxHeight) {
-  //     el.style.height = `${maxHeight}px`;
-  //     el.style.overflowY = 'auto';
-  //   } else {
-  //     el.style.height = `${Math.max(contentHeight, minHeight)}px`;
-  //     el.style.overflowY = 'hidden';
-  //   }
-  // } else {
-  //   el.style.height = `${Math.max(contentHeight, minHeight)}px`;
-  //   el.style.overflowY = 'hidden';
-  // }
+  /** max height */
+  if (maxRows !== undefined) {
+    const maxHeight = (lineHeight * maxRows); //+ paddingTop + paddingBottom;
+    if (contentHeight >= maxHeight) {
+      el.style.height = `${maxHeight}px`;
+      el.style.overflowY = 'auto';
+    } else {
+      el.style.height = `${Math.max(contentHeight, minHeight)}px`;
+      el.style.overflowY = 'hidden';
+    }
+  } else {
+    el.style.height = `${Math.max(contentHeight, minHeight)}px`;
+    el.style.overflowY = 'hidden';
+  }
 }
 
 

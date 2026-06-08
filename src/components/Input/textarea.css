@@ -8,6 +8,42 @@
 }
 
 
+/* -- Row ------------------------------------------------------------------ */
+.textarea__row {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  border-radius: var(--radii-radius2xl);
+  border: 1px solid transparent;
+  background-color: transparent;
+  overflow: hidden;
+  transition:
+    border-color var(--transitions-durationFast) var(--transitions-easingDefault);
+}
+
+
+/* -- Input ---------------------------------------------------------------- */
+.textarea__input {
+  min-width: 0;
+  padding: var(--spacing-space2) var(--spacing-space5);
+  flex: 1;
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--typography-textBase);
+  color: var(--colors-textPrimary);
+  caret-color: var(--colors-primary);
+  line-height: var(--typography-leadingNormal);
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+}
+
+.textarea__input::placeholder {
+  color: var(--colors-textSecondary);
+}
+
+
 /* -- Variants (highlight tokens) ----------------------------------------- */
 /*
   Each variant sets two custom properties on the component root:
@@ -39,41 +75,6 @@
 .textarea--error {
   --textarea-highlight: var(--colors-error);
   --textarea-highlight-focus: var(--colors-error);
-}
-
-
-/* -- Row ------------------------------------------------------------------ */
-.textarea__row {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  border-radius: var(--radii-radius2xl);
-  border: 1px solid transparent;
-  background-color: transparent;
-  transition:
-    border-color var(--transitions-durationFast) var(--transitions-easingDefault);
-}
-
-
-/* -- Input ---------------------------------------------------------------- */
-.textarea__input {
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  resize: none;
-  overflow: hidden;
-  font-family: inherit;
-  font-size: var(--typography-textBase);
-  line-height: var(--typography-leadingNormal);
-  color: var(--colors-textPrimary);
-  caret-color: var(--colors-primary);
-  padding: var(--spacing-space2) var(--spacing-space5);
-}
-
-.textarea__input::placeholder {
-  color: var(--colors-textSecondary);
 }
 
 
@@ -113,14 +114,6 @@
   border-color: transparent;
 }
 
-.textarea--ghost:not(.textarea--disabled):focus-within .textarea__row {
-  border-color: var(--textarea-highlight-focus);
-}
-
-.textarea--ghost:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
-  border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
-}
-
 
 /* -- Adornments ----------------------------------------------------------- */
 .textarea__leading,
@@ -132,13 +125,13 @@
 }
 
 .textarea__leading {
-  padding-left: var(--spacing-space3);
   padding-top: var(--spacing-space2);
+  padding-left: var(--spacing-space3);
 }
 
 .textarea__trailing {
-  padding-right: var(--spacing-space3);
   padding-top: var(--spacing-space2);
+  padding-right: var(--spacing-space3);
 }
 
 /* When a leading adornment is present, remove left padding from the input */
