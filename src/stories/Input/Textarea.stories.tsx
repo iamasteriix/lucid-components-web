@@ -33,6 +33,10 @@ const meta: Meta<StoryProps> = {
     maxRows: {
       control: { type: 'number', min: 1, },
     },
+    anchor: {
+      options: ['top', 'bottom'],
+      control: 'select',
+    },
     onChange: { action: 'onChange', },
     onBlur:  { action: 'onBlur', },
     onFocus:  { action: 'onFocus', },
@@ -62,6 +66,7 @@ export const Textarea: Story = {
     inputMode: 'text',
     minRows: 1,
     maxRows: undefined,
+    anchor: 'top',
     variant: 'neutral',
     appearance: 'outlined',
     autoComplete: 'off',

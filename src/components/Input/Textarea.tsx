@@ -64,6 +64,7 @@ export function Textarea <C extends ElementType = 'div'> ({
   onKeyDown,
   variant = 'neutral',
   appearance = 'outlined',
+  anchor = 'top',
   minRows = 1,
   maxRows,
   leadingNode,
@@ -105,6 +106,7 @@ export function Textarea <C extends ElementType = 'div'> ({
     readOnly && `textarea--readonly`,
     leadingNode && `textarea--has-leading`,
     trailingNode && `textarea--has-trailing`,
+    anchor === 'bottom' && `textarea--anchor-bottom`,
     className,
   ]
     .filter(Boolean)

@@ -60,6 +60,7 @@ type TextareaOwnProps = TextInputBaseProps & {
   defaultValue?: string;
   minRows?: number;
   maxRows?: number;
+  anchor?: 'top' | 'bottom';
   inputMode?: HTMLAttributes<HTMLTextAreaElement>['inputMode'];
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
   onBlur?: FocusEventHandler<HTMLTextAreaElement>;

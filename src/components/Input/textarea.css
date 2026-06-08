@@ -118,6 +118,7 @@
 /* -- Adornments ----------------------------------------------------------- */
 .textarea__leading,
 .textarea__trailing {
+  padding-top: calc(var(--typography-textBase) * .65);
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
@@ -125,12 +126,10 @@
 }
 
 .textarea__leading {
-  padding-top: var(--spacing-space2);
   padding-left: var(--spacing-space3);
 }
 
 .textarea__trailing {
-  padding-top: var(--spacing-space2);
   padding-right: var(--spacing-space3);
 }
 
@@ -152,6 +151,22 @@
   line-height: var(--typography-leadingNormal);
   padding-inline: var(--radii-radiusXl);
   color: var(--colors-textSecondary);
+}
+
+
+/* -- Anchor: bottom ------------------------------------------------------- */
+.textarea--anchor-bottom {
+  flex-direction: column-reverse;
+}
+
+.textarea--anchor-bottom .textarea__leading,
+.textarea--anchor-bottom .textarea__trailing {
+  padding-bottom: calc(var(--typography-textBase) * .65);
+  align-self: flex-end;
+}
+
+.textarea--anchor-bottom .textarea__message {
+  order: -1;  /* undo reversing effect of flex direction */
 }
 
 
