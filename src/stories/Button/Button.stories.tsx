@@ -15,7 +15,7 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     variant: {
-      options: ['primary', 'accent', 'ghost', 'error'],
+      options: ['primary', 'secondary', 'accent', 'neutral', 'info', 'success', 'warning', 'error'],
       control: 'select',
     },
     size: {
@@ -23,7 +23,7 @@ const meta: Meta<StoryProps> = {
       control: 'select',
     },
     appearance: {
-      options: ['elevated', 'filled', 'outlined', 'tonal'],
+      options: ['elevated', 'filled', 'outlined', 'tonal', 'ghost'],
       control: 'select',
     },
     textAlign: {

@@ -3,45 +3,45 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radii-radius2xl);
+  overflow: hidden;
   border: none;
+  border-radius: var(--radii-radius2xl);
   font-family: var(--typography-fontSans);
   font-weight: var(--typography-weightMedium);
   line-height: var(--typography-leadingTight);
   white-space: nowrap;
   user-select: none;
-  overflow: hidden;
 }
 
 
 /* -- Sizes ---------------------------------------------------------------- */
 .badge--sm {
-  padding: 0 var(--spacing-space1);
-  font-size: var(--typography-textXs);
   min-width: var(--spacing-space3);
   min-height: var(--spacing-space5);
+  padding: 0 var(--spacing-space1);
+  font-size: var(--typography-textXs);
 }
 
 .badge--md {
-  padding: var(--spacing-space1) var(--spacing-space2);
-  font-size: var(--typography-textSm);
   min-width: var(--spacing-space4);
   min-height: var(--spacing-space5);
+  padding: var(--spacing-space1) var(--spacing-space2);
+  font-size: var(--typography-textSm);
 }
 
 .badge--lg {
-  padding: var(--spacing-space2) var(--spacing-space3);
-  font-size: var(--typography-textBase);
   min-width: var(--spacing-space5);
   min-height: var(--spacing-space6);
+  padding: var(--spacing-space2) var(--spacing-space3);
+  font-size: var(--typography-textBase);
 }
 
 
 /* -- Dot ------------------------------------------------------------------ */
 .badge--dot {
-  padding: 0;
   min-width: unset;
   min-height: unset;
+  padding: 0;
 }
 
 .badge--dot.badge--sm {
@@ -66,13 +66,23 @@
   color: var(--colors-textInverse);
 }
 
+.badge--filled.badge--secondary {
+  background-color: var(--colors-secondary);
+  color: var(--colors-textPrimary);
+}
+
 .badge--filled.badge--accent {
   background-color: var(--colors-accent);
   color: var(--colors-textInverse);
 }
 
-.badge--filled.badge--error {
-  background-color: var(--colors-error);
+.badge--filled.badge--neutral {
+  background-color: var(--colors-neutral);
+  color: var(--colors-textInverse);
+}
+
+.badge--filled.badge--info {
+  background-color: var(--colors-info);
   color: var(--colors-textInverse);
 }
 
@@ -86,32 +96,36 @@
   color: var(--colors-textInverse);
 }
 
-.badge--filled.badge--info {
-  background-color: var(--colors-info);
+.badge--filled.badge--error {
+  background-color: var(--colors-error);
   color: var(--colors-textInverse);
 }
 
-.badge--filled.badge--ghost {
-  background-color: var(--colors-bgElevated);
-  color: var(--colors-textSecondary);
-}
 
 /* -- Outlined ------------------------------------------------------------- */
 .badge--outlined {
-  background-color: transparent;
   border: 1px solid currentColor;
+  background-color: transparent;
 }
 
 .badge--outlined.badge--primary {
   color: var(--colors-primary);
 }
 
+.badge--outlined.badge--secondary {
+  color: var(--colors-secondary);
+}
+
 .badge--outlined.badge--accent {
   color: var(--colors-accent);
 }
 
-.badge--outlined.badge--error {
-  color: var(--colors-error);
+.badge--outlined.badge--neutral {
+  color: var(--colors-neutral);
+}
+
+.badge--outlined.badge--info {
+  color: var(--colors-info);
 }
 
 .badge--outlined.badge--success {
@@ -122,17 +136,19 @@
   color: var(--colors-warning);
 }
 
-.badge--outlined.badge--info {
-  color: var(--colors-info);
+.badge--outlined.badge--error {
+  color: var(--colors-error);
 }
 
-.badge--outlined.badge--ghost {
-  color: var(--colors-textSecondary);
-}
 
 /* -- Tonal ---------------------------------------------------------------- */
 .badge--tonal.badge--primary {
   background-color: var(--colors-primarySubtle);
+  color: var(--colors-textSecondary);
+}
+
+.badge--tonal.badge--secondary {
+  background-color: var(--colors-secondarySubtle);
   color: var(--colors-textSecondary);
 }
 
@@ -141,8 +157,13 @@
   color: var(--colors-textSecondary);
 }
 
-.badge--tonal.badge--error {
-  background-color: var(--colors-errorSubtle);
+.badge--tonal.badge--neutral {
+  background-color: var(--colors-neutralSubtle);
+  color: var(--colors-textSecondary);
+}
+
+.badge--tonal.badge--info {
+  background-color: var(--colors-infoSubtle);
   color: var(--colors-textSecondary);
 }
 
@@ -156,12 +177,7 @@
   color: var(--colors-textSecondary);
 }
 
-.badge--tonal.badge--info {
-  background-color: var(--colors-infoSubtle);
-  color: var(--colors-textSecondary);
-}
-
-.badge--tonal.badge--ghost {
-  background-color: var(--colors-bgElevated);
+.badge--tonal.badge--error {
+  background-color: var(--colors-errorSubtle);
   color: var(--colors-textSecondary);
 }

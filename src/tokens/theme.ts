@@ -1,6 +1,6 @@
 /**
  * Design tokens — colors
- * @see src/theme/ThemeProvider.tsx for how these are injected as CSS variables
+ * @see src/context/ThemeProvider.tsx for how these are injected as CSS variables
  */
 export const colorTokens = {
   // --- Brand ---

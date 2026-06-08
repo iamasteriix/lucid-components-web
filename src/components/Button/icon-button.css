@@ -1,18 +1,19 @@
 /* -- Base ----------------------------------------------------------------- */
 .icon-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: none;
-  line-height: var(--typography-leadingTight);
-  cursor: pointer;
-  border-radius: var(--radii-radius2xl);
-  position: relative;
   overflow: hidden;
-  transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault),
-              box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
-              opacity var(--transitions-durationFast) var(--transitions-easingDefault);
+  border: none;
+  border-radius: var(--radii-radius2xl);
+  cursor: pointer;
+  line-height: var(--typography-leadingTight);
+  transition:
+    background-color var(--transitions-durationFast) var(--transitions-easingDefault),
+    box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
+    opacity var(--transitions-durationFast) var(--transitions-easingDefault);
 }
 
 
@@ -37,139 +38,392 @@
 
 
 /* -- Filled --------------------------------------------------------------- */
-.icon-btn--primary.icon-btn--filled {
+.icon-btn--filled.icon-btn--primary {
   background-color: var(--colors-primary);
   color: var(--colors-textInverse);
 }
 
-.icon-btn--primary.icon-btn--filled:hover:not(:disabled) {
+.icon-btn--filled.icon-btn--primary:hover:not(:disabled) {
   background-color: var(--colors-primaryHover);
 }
 
-.icon-btn--primary.icon-btn--filled:active:not(:disabled) {
+.icon-btn--filled.icon-btn--primary:active:not(:disabled) {
   background-color: var(--colors-primaryActive);
 }
 
-.icon-btn--accent.icon-btn--filled {
+.icon-btn--filled.icon-btn--secondary {
+  background-color: var(--colors-secondary);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--filled.icon-btn--secondary:hover:not(:disabled) {
+  background-color: var(--colors-secondaryHover);
+}
+
+.icon-btn--filled.icon-btn--secondary:active:not(:disabled) {
+  background-color: var(--colors-secondaryActive);
+}
+
+.icon-btn--filled.icon-btn--accent {
   background-color: var(--colors-accent);
   color: var(--colors-textInverse);
 }
 
-.icon-btn--accent.icon-btn--filled:hover:not(:disabled) {
+.icon-btn--filled.icon-btn--accent:hover:not(:disabled) {
   background-color: var(--colors-accentHover);
 }
 
-.icon-btn--accent.icon-btn--filled:active:not(:disabled) {
+.icon-btn--filled.icon-btn--accent:active:not(:disabled) {
   background-color: var(--colors-accentActive);
 }
 
-.icon-btn--error.icon-btn--filled {
+.icon-btn--filled.icon-btn--neutral {
+  background-color: var(--colors-neutral);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--filled.icon-btn--neutral:hover:not(:disabled) {
+  background-color: var(--colors-neutralHover);
+}
+
+.icon-btn--filled.icon-btn--neutral:active:not(:disabled) {
+  background-color: var(--colors-neutralActive);
+}
+
+.icon-btn--filled.icon-btn--info {
+  background-color: var(--colors-info);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--filled.icon-btn--info:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--filled.icon-btn--info:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--filled.icon-btn--success {
+  background-color: var(--colors-success);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--filled.icon-btn--success:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--filled.icon-btn--success:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--filled.icon-btn--warning {
+  background-color: var(--colors-warning);
+  color: var(--colors-textInverse);
+}
+
+.icon-btn--filled.icon-btn--warning:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--filled.icon-btn--warning:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--filled.icon-btn--error {
   background-color: var(--colors-error);
   color: var(--colors-textInverse);
 }
 
-.icon-btn--error.icon-btn--filled:hover:not(:disabled) {
-  filter: brightness(120%);
+.icon-btn--filled.icon-btn--error:hover:not(:disabled) {
+  filter: brightness(115%);
 }
 
-.icon-btn--error.icon-btn--filled:active:not(:disabled) {
-  filter: brightness(110%);
+.icon-btn--filled.icon-btn--error:active:not(:disabled) {
+  filter: brightness(90%);
 }
 
 
 /* -- Outlined ------------------------------------------------------------- */
 .icon-btn--outlined {
-  background-color: transparent;
   border: 1px solid var(--colors-borderDefault);
+  background-color: transparent;
 }
 
+.icon-btn--outlined.icon-btn--primary   { color: var(--colors-primary); }
+.icon-btn--outlined.icon-btn--secondary { color: var(--colors-secondary); }
+.icon-btn--outlined.icon-btn--accent    { color: var(--colors-accent); }
+.icon-btn--outlined.icon-btn--neutral   { color: var(--colors-neutral); }
+.icon-btn--outlined.icon-btn--info      { color: var(--colors-info); }
+.icon-btn--outlined.icon-btn--success   { color: var(--colors-success); }
+.icon-btn--outlined.icon-btn--warning   { color: var(--colors-warning); }
+.icon-btn--outlined.icon-btn--error     { color: var(--colors-error); }
+
 .icon-btn--outlined:hover:not(:disabled) {
-  background-color: var(--colors-bgElevated);
-  border-color: var(--colors-borderStrong);
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
 }
 
 .icon-btn--outlined:active:not(:disabled) {
-  background-color: var(--colors-bgOverlay);
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
 }
 
 
 /* -- Tonal ---------------------------------------------------------------- */
-.icon-btn--primary.icon-btn--tonal {
+.icon-btn--tonal.icon-btn--primary {
   background-color: var(--colors-primarySubtle);
   color: var(--colors-textPrimary);
 }
 
-.icon-btn--primary.icon-btn--tonal:hover:not(:disabled) {
+.icon-btn--tonal.icon-btn--primary:hover:not(:disabled) {
   background-color: color-mix(in srgb, var(--colors-primarySubtle) 80%, var(--colors-primary));
 }
 
-.icon-btn--accent.icon-btn--tonal {
+.icon-btn--tonal.icon-btn--primary:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-primarySubtle) 60%, var(--colors-primary));
+}
+
+.icon-btn--tonal.icon-btn--secondary {
+  background-color: var(--colors-secondarySubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--tonal.icon-btn--secondary:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-secondarySubtle) 80%, var(--colors-secondary));
+}
+
+.icon-btn--tonal.icon-btn--secondary:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-secondarySubtle) 60%, var(--colors-secondary));
+}
+
+.icon-btn--tonal.icon-btn--accent {
   background-color: var(--colors-accentSubtle);
   color: var(--colors-textPrimary);
 }
 
-.icon-btn--accent.icon-btn--tonal:hover:not(:disabled) {
+.icon-btn--tonal.icon-btn--accent:hover:not(:disabled) {
   background-color: color-mix(in srgb, var(--colors-accentSubtle) 80%, var(--colors-accent));
 }
 
-.icon-btn--error.icon-btn--tonal {
+.icon-btn--tonal.icon-btn--accent:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-accentSubtle) 60%, var(--colors-accent));
+}
+
+.icon-btn--tonal.icon-btn--neutral {
+  background-color: var(--colors-neutralSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--tonal.icon-btn--neutral:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-neutralSubtle) 80%, var(--colors-neutral));
+}
+
+.icon-btn--tonal.icon-btn--neutral:active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--colors-neutralSubtle) 60%, var(--colors-neutral));
+}
+
+.icon-btn--tonal.icon-btn--info {
+  background-color: var(--colors-infoSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--tonal.icon-btn--info:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--tonal.icon-btn--info:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--tonal.icon-btn--success {
+  background-color: var(--colors-successSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--tonal.icon-btn--success:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--tonal.icon-btn--success:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--tonal.icon-btn--warning {
+  background-color: var(--colors-warningSubtle);
+  color: var(--colors-textPrimary);
+}
+
+.icon-btn--tonal.icon-btn--warning:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--tonal.icon-btn--warning:active:not(:disabled) {
+  filter: brightness(90%);
+}
+
+.icon-btn--tonal.icon-btn--error {
   background-color: var(--colors-errorSubtle);
   color: var(--colors-textPrimary);
 }
 
-.icon-btn--error.icon-btn--tonal:hover:not(:disabled) {
-  background-color: color-mix(in srgb, var(--colors-errorSubtle) 80%, var(--colors-error));
+.icon-btn--tonal.icon-btn--error:hover:not(:disabled) {
+  filter: brightness(115%);
+}
+
+.icon-btn--tonal.icon-btn--error:active:not(:disabled) {
+  filter: brightness(90%);
 }
 
 
 /* -- Elevated ------------------------------------------------------------- */
-.icon-btn--primary.icon-btn--elevated {
+.icon-btn--elevated.icon-btn--primary {
   background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
   color: var(--colors-primary);
 }
 
-.icon-btn--primary.icon-btn--elevated:hover:not(:disabled) {
+.icon-btn--elevated.icon-btn--primary:hover:not(:disabled) {
   background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
-  filter: brightness(120%);
 }
 
-.icon-btn--accent.icon-btn--elevated {
+.icon-btn--elevated.icon-btn--primary:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--secondary {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-secondary);
+}
+
+.icon-btn--elevated.icon-btn--secondary:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--secondary:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--accent {
   background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
   color: var(--colors-accent);
 }
 
-.icon-btn--accent.icon-btn--elevated:hover:not(:disabled) {
+.icon-btn--elevated.icon-btn--accent:hover:not(:disabled) {
   background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
 }
 
-.icon-btn--error.icon-btn--elevated {
+.icon-btn--elevated.icon-btn--accent:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--neutral {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-neutral);
+}
+
+.icon-btn--elevated.icon-btn--neutral:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--neutral:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--info {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-info);
+}
+
+.icon-btn--elevated.icon-btn--info:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--info:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--success {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-success);
+}
+
+.icon-btn--elevated.icon-btn--success:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--success:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--warning {
+  background-color: transparent;
+  box-shadow: var(--shadows-shadowMd);
+  color: var(--colors-warning);
+}
+
+.icon-btn--elevated.icon-btn--warning:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--warning:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.icon-btn--elevated.icon-btn--error {
   background-color: transparent;
   box-shadow: var(--shadows-shadowMd);
   color: var(--colors-error);
 }
 
-.icon-btn--error.icon-btn--elevated:hover:not(:disabled) {
+.icon-btn--elevated.icon-btn--error:hover:not(:disabled) {
   background-color: color-mix(in srgb, currentColor 8%, transparent);
   box-shadow: var(--shadows-shadowLg);
+}
+
+.icon-btn--elevated.icon-btn--error:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
 }
 
 
 /* -- Ghost ---------------------------------------------------------------- */
 .icon-btn--ghost {
+  border: none;
   background-color: transparent;
-  color: var(--colors-textPrimary);
 }
 
+.icon-btn--ghost.icon-btn--primary   { color: var(--colors-primary); }
+.icon-btn--ghost.icon-btn--secondary { color: var(--colors-secondary); }
+.icon-btn--ghost.icon-btn--accent    { color: var(--colors-accent); }
+.icon-btn--ghost.icon-btn--neutral   { color: var(--colors-neutral); }
+.icon-btn--ghost.icon-btn--info      { color: var(--colors-info); }
+.icon-btn--ghost.icon-btn--success   { color: var(--colors-success); }
+.icon-btn--ghost.icon-btn--warning   { color: var(--colors-warning); }
+.icon-btn--ghost.icon-btn--error     { color: var(--colors-error); }
+
 .icon-btn--ghost:hover:not(:disabled) {
-  background-color: var(--colors-bgElevated);
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
 }
 
 .icon-btn--ghost:active:not(:disabled) {
-  background-color: var(--colors-bgOverlay);
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
 }
 
 

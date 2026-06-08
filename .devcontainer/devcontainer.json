@@ -1,7 +1,7 @@
 {
   "name": "Nine UI - React",
   "dockerComposeFile": "../docker-compose.yml",
-  "service": "dev",
+  "service": "react",
   "workspaceFolder": "/app",
   "customizations": {
     "vscode": {

@@ -14,15 +14,15 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     variant: {
-      options: ['primary', 'accent', 'ghost', 'success', 'warning', 'error', 'info'],
-      control: 'select',
-    },
-    size: {
-      options: ['sm', 'md', 'lg'],
+      options: ['primary', 'secondary', 'accent', 'neutral', 'info', 'success', 'warning', 'error'],
       control: 'select',
     },
     appearance: {
       options: ['filled', 'outlined', 'tonal'],
+      control: 'select',
+    },
+    size: {
+      options: ['sm', 'md', 'lg'],
       control: 'select',
     },
     dot: { control: 'boolean', },

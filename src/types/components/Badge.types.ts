@@ -12,7 +12,7 @@ type BadgeVariant =
   | 'warning'
   | 'error';
   
-type BadgeAppearance = 'filled' | 'outlined' | 'tonal' | 'ghost';
+type BadgeAppearance = 'filled' | 'outlined' | 'tonal';
 type BadgeSize = Size;
 
 type BadgeBaseProps = TagBaseProps & {

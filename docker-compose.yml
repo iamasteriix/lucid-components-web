@@ -1,7 +1,8 @@
 services:
-  dev:
+  react:
     build: .
-    container_name: nine-ui-react
+    container_name: nine-ui
+    image: nine-ui-react
     volumes:
       - .:/app
       - /app/node_modules

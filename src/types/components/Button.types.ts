@@ -2,8 +2,16 @@ import type { ElementType, ReactNode } from "react";
 import type { Size, PropsWithAs, TagBaseProps, } from "@/types";
 
 
-type ButtonVariant = 'primary' | 'accent' | 'ghost' | 'error';
-type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal';
+type ButtonVariant =
+    'primary'
+  | 'secondary'
+  | 'accent'
+  | 'neutral'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error';
+type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal' | 'ghost';
 type ButtonTextAlign = 'left' | 'center' | 'right';
 
 
