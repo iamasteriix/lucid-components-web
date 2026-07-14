@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from "react";
-import { TextField as TextFieldBase } from "@/components";
+import { IconButton, TextField as TextFieldBase } from "@/components";
 import { CloseCircle, Search } from "@/assets";
 
 
@@ -87,7 +87,17 @@ export const TextField: Story = {
           args.onChange?.(event);
         }}
         leadingNode={ args.leadingNode && <Search/> }
-        trailingNode={ args.trailingNode && <CloseCircle bold/> }
+        trailingNode={
+          args.trailingNode &&
+          <IconButton
+            icon={ <CloseCircle bold/> }
+            label='clear'
+            size='sm'
+            variant='primary'
+            appearance='ghost'
+            onClick={ () => setValue('') }
+          />
+        }
       />
     );
   }

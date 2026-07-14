@@ -1,12 +1,20 @@
 services:
-  react:
-    build: .
-    container_name: nine-ui
-    image: nine-ui-react
+  base:
+    image: skyline
+    build:
+      context: .
+      target: development
+
+  uikit-react:
+    image: skyline
+    command: npm run dev --workspace=apps/uikit-react -- --host 0.0.0.0
     volumes:
       - .:/app
-      - /app/node_modules
+      - uikit_react_root_modules:/app/node_modules/
+      - uikit_react_workspace_modules:/app/apps/uikit-react/node_modules/
     ports:
-      - "5173:5173"
-    environment:
-      - NODE_ENV=development
+      - "3001:3001"
+
+volumes:
+  uikit_react_root_modules:
+  uikit_react_workspace_modules:

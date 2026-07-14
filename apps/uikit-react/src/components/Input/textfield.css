@@ -12,11 +12,11 @@
 .textfield__row {
   display: flex;
   align-items: center;
-  width: 100%;
-  border-radius: var(--radii-radius2xl);
-  border: 1px solid transparent;
-  background-color: transparent;
   overflow: hidden;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--radii-radius2xl);
+  background-color: transparent;
   transition:
     border-color var(--transitions-durationFast) var(--transitions-easingDefault),
     background-color var(--transitions-durationFast) var(--transitions-easingDefault);
@@ -27,7 +27,6 @@
 .textfield__input {
   flex: 1;
   min-width: 0;
-  background: transparent;
   border: none;
   outline: none;
   font-family: inherit;
@@ -35,6 +34,7 @@
   line-height: var(--typography-leadingNormal);
   color: var(--colors-textPrimary);
   caret-color: var(--colors-primary);
+  background: transparent;
 }
 
 .textfield__input::placeholder {
@@ -53,12 +53,12 @@
 }
 
 
-/* -- Variants (highlight tokens) ----------------------------------------- */
+/* -- Variants ------------------------------------------------------------- */
 /*
   Each variant sets two custom properties on the component root:
     --textfield-highlight        border color at rest
     --textfield-highlight-focus  border color while :focus-within
-  The appearance rules above consume them, so variant × appearance
+  The appearance rules consume them, so variant × appearance
   combinations need no additional selectors.
 */
 .textfield--neutral {
@@ -84,6 +84,43 @@
 .textfield--error {
   --textfield-highlight: var(--colors-error);
   --textfield-highlight-focus: var(--colors-error);
+}
+
+
+/* -- Appearance: outlined ------------------------------------------------- */
+.textfield--outlined .textfield__row {
+  background-color: transparent;
+  border-color: var(--textfield-highlight);
+}
+
+.textfield--outlined:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
+  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textSecondary));
+}
+
+.textfield--outlined:not(.textfield--disabled):focus-within .textfield__row {
+  border-color: var(--textfield-highlight-focus);
+}
+
+
+/* -- Appearance: filled --------------------------------------------------- */
+.textfield--filled .textfield__row {
+  background-color: var(--colors-bgSurface);
+  border-color: var(--textfield-highlight);
+}
+
+.textfield--filled:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
+  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textSecondary));
+}
+
+.textfield--filled:not(.textfield--disabled):focus-within .textfield__row {
+  border-color: var(--textfield-highlight-focus);
+}
+
+
+/* -- Appearance: ghost ---------------------------------------------------- */
+.textfield--ghost .textfield__row {
+  background-color: transparent;
+  border-color: transparent;
 }
 
 
@@ -131,43 +168,6 @@
 }
 
 
-/* -- Appearance: outlined ------------------------------------------------- */
-.textfield--outlined .textfield__row {
-  background-color: transparent;
-  border-color: var(--textfield-highlight);
-}
-
-.textfield--outlined:not(.textfield--disabled):focus-within .textfield__row {
-  border-color: var(--textfield-highlight-focus);
-}
-
-.textfield--outlined:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
-  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textSecondary));
-}
-
-
-/* -- Appearance: filled --------------------------------------------------- */
-.textfield--filled .textfield__row {
-  background-color: var(--colors-bgSurface);
-  border-color: var(--textfield-highlight);
-}
-
-.textfield--filled:not(.textfield--disabled):focus-within .textfield__row {
-  border-color: var(--textfield-highlight-focus);
-}
-
-.textfield--filled:not(.textfield--disabled):hover:not(:focus-within) .textfield__row {
-  border-color: color-mix(in srgb, var(--textfield-highlight) 60%, var(--colors-textSecondary));
-}
-
-
-/* -- Appearance: ghost ---------------------------------------------------- */
-.textfield--ghost .textfield__row {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-
 /* -- Adornments ----------------------------------------------------------- */
 .textfield__leading,
 .textfield__trailing {
@@ -199,9 +199,9 @@
 /* -- Message -------------------------------------------------------------- */
 .textfield__message {
   display: block;
+  padding-inline: var(--radii-radiusXl);
   font-size: var(--typography-textSm);
   line-height: var(--typography-leadingNormal);
-  padding-inline: var(--radii-radiusXl);
   color: var(--colors-textSecondary);
 }
 

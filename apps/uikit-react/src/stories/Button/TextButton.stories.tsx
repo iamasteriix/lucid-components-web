@@ -13,6 +13,10 @@ const meta: Meta<StoryProps> = {
   tags: ['autodocs'],
   argTypes: {
     as: { control: 'text', },
+    variant: {
+      options: ['primary', 'secondary', 'accent', 'neutral', 'info', 'success', 'warning', 'error'],
+      control: 'select',
+    },
     size: {
       options: ['sm', 'md', 'lg'],
       control: 'select',
@@ -27,6 +31,7 @@ const meta: Meta<StoryProps> = {
 export const TextButton: Story = {
   args: {
     as: 'button',
+    variant: 'info',
     size: 'md',
     disabled: false,
     loading: false,

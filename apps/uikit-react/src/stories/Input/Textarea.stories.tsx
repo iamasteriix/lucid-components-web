@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from "react";
-import { Textarea as TextareaBase } from "@/components";
+import { IconButton, Textarea as TextareaBase } from "@/components";
 import { CloseCircle, PlusCircle } from "@/assets";
 
 
@@ -90,7 +90,17 @@ export const Textarea: Story = {
           args.onChange?.(event);
         }}
         leadingNode={ args.leadingNode && <PlusCircle/> }
-        trailingNode={ args.trailingNode && <CloseCircle bold/> }
+        trailingNode={
+          args.trailingNode &&
+          <IconButton
+            icon={ <CloseCircle bold/> }
+            label='clear'
+            size='sm'
+            variant='primary'
+            appearance='ghost'
+            onClick={ () => setValue('') }
+          />
+        }
       />
     );
   }

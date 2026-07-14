@@ -1,34 +1,62 @@
 /* -- Base ----------------------------------------------------------------- */
 .fab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-space2);
-  font-family: var(--typography-fontSans);
-  font-weight: var(--typography-weightSemibold);
-  font-size: var(--typography-textBase);
+  overflow: hidden;
   border: none;
+  border-radius: var(--radii-radius2xl);
+  font-family: var(--typography-fontSans);
+  font-size: var(--typography-textBase);
+  font-weight: var(--typography-weightSemibold);
   cursor: pointer;
   text-decoration: none;
-  background-color: var(--colors-bgElevated);
-  color: var(--colors-primary);
   box-shadow: var(--shadows-shadowMd);
-  position: relative;
-  overflow: hidden;
-  transition: background-color var(--transitions-durationFast) var(--transitions-easingDefault),
-              box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
-              opacity var(--transitions-durationFast) var(--transitions-easingDefault);
+  transition:
+    background-color var(--transitions-durationFast) var(--transitions-easingDefault),
+    box-shadow var(--transitions-durationFast) var(--transitions-easingDefault),
+    opacity var(--transitions-durationFast) var(--transitions-easingDefault);
 }
 
 
 /* -- Variants ------------------------------------------------------------- */
-.fab--default,
-.fab--mini {
-  border-radius: var(--radii-radius2xl);
+.fab--surface {
+  background-color: var(--colors-bgElevated);
+  color: var(--colors-primary);
 }
 
+.fab--primary {
+  background-color: var(--colors-primary);
+  color: var(--colors-textInverse);
+}
+
+
+/* -- Variant: hover & active ---------------------------------------------- */
+.fab--surface:hover:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.fab--surface:active:not(:disabled) {
+  background-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+.fab--primary:hover:not(:disabled) {
+  background-color: var(--colors-primaryHover);
+  box-shadow: var(--shadows-shadowLg);
+}
+
+.fab--primary:active:not(:disabled) {
+  background-color: var(--colors-primaryActive);
+  box-shadow: var(--shadows-shadowSm);
+}
+
+
+/* -- Appearance ------------------------------------------------------------- */
 .fab--extended {
-  border-radius: var(--radii-radius2xl);
   padding: 0 var(--spacing-space5);
 }
 
@@ -43,13 +71,11 @@
 .fab--mini.fab--md {
   width: var(--spacing-space10);
   height: var(--spacing-space10);
-  font-size: var(--typography-textBase);
 }
 
 .fab--mini.fab--lg {
   width: var(--spacing-space12);
   height: var(--spacing-space12);
-  font-size: var(--typography-textBase);
 }
 
 .fab--default.fab--sm {
@@ -61,13 +87,11 @@
 .fab--default.fab--md {
   width: var(--spacing-space12);
   height: var(--spacing-space12);
-  font-size: var(--typography-textBase);
 }
 
 .fab--default.fab--lg {
   width: var(--spacing-space16);
   height: var(--spacing-space16);
-  font-size: var(--typography-textBase);
 }
 
 .fab--extended.fab--sm {
@@ -77,24 +101,10 @@
 
 .fab--extended.fab--md {
   height: var(--spacing-space12);
-  font-size: var(--typography-textBase);
 }
 
 .fab--extended.fab--lg {
   height: var(--spacing-space16);
-  font-size: var(--typography-textBase);
-}
-
-
-/* -- Hover and Active ----------------------------------------------------- */
-.fab:hover:not(:disabled) {
-  background-color: var(--colors-bgOverlay);
-  box-shadow: var(--shadows-shadowLg);
-}
-
-.fab:active:not(:disabled) {
-  background-color: color-mix(in srgb, var(--colors-bgOverlay) 80%, var(--colors-primary));
-  box-shadow: var(--shadows-shadowSm);
 }
 
 
@@ -136,12 +146,11 @@
 }
 
 
-/* -- Icon and Label ------------------------------------------------------- */
+/* -- Icon & Label --------------------------------------------------------- */
 .fab__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--colors-space3);
   flex-shrink: 0;
 }
 

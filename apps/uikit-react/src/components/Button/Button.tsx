@@ -12,10 +12,10 @@ export function Button<C extends ElementType = 'button'> ({
   fullWidth = false,
   disabled = false,
   loading = false,
-  leadingIcon,
-  trailingIcon,
+  label,
+  leadingNode,
+  trailingNode,
   className,
-  children,
   'data-testid': testId,
   ...rest
 }: ButtonProps<C>) {
@@ -36,6 +36,7 @@ export function Button<C extends ElementType = 'button'> ({
     .filter(Boolean)
     .join(' ');
 
+    
   return (
     <Tag
       className={ classes }
@@ -47,22 +48,22 @@ export function Button<C extends ElementType = 'button'> ({
       { ...rest }
     >
       {
-        !!leadingIcon && 
+        !!leadingNode && 
         <span
           className='btn__icon btn__icon--left'
           aria-hidden='true'
         >
-          { leadingIcon }
+          { leadingNode }
         </span>
       }
-      <span className='btn__label'>{ children }</span>
+      <span className='btn__label'>{ label }</span>
       {
-        !!trailingIcon &&
+        !!trailingNode &&
         <span
           className='btn__icon btn__icon--right'
           aria-hidden='true'
         >
-          { trailingIcon }
+          { trailingNode }
         </span>
       }
     </Tag>

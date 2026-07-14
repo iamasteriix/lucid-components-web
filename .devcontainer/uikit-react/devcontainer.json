@@ -1,8 +1,8 @@
 {
-  "name": "Nine UI - React",
+  "name": "Skyline UI - React",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "react",
-  "workspaceFolder": "/app",
+  "workspaceFolder": "/app/apps/uikit-react/",
   "customizations": {
     "vscode": {
       "settings": {

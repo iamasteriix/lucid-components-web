@@ -13,27 +13,31 @@ type ButtonVariant =
   | 'error';
 type ButtonAppearance = 'elevated' | 'filled' | 'outlined' | 'tonal' | 'ghost';
 type ButtonTextAlign = 'left' | 'center' | 'right';
+type FABVariant = 'primary' | 'surface';
 
 
 type ButtonBaseProps = TagBaseProps & {
   size?: Size;
   disabled?: boolean;
   loading?: boolean;
-  appearance?: ButtonAppearance;
+  children?: never;
 }
 
 
 type ButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
+  appearance?: ButtonAppearance;
+  label?: string;
   fullWidth?: boolean;
   textAlign?: ButtonTextAlign;
-  leadingIcon?: ReactNode;
-  trailingIcon?: ReactNode;
+  leadingNode?: ReactNode;
+  trailingNode?: ReactNode;
 }
 
 
 type IconButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
+  appearance?: ButtonAppearance;
   icon: ReactNode;
   label: string; // required for accessibility, renders as aria-label
 }
@@ -41,20 +45,21 @@ type IconButtonOwnProps = ButtonBaseProps & {
 
 type FABOwnProps =
   | ButtonBaseProps & {
-      variant?: 'default' | 'mini';
-      icon: ReactNode;
+      variant?: FABVariant;
+      appearance?: 'default' | 'mini';
       label?: string;
     }
   | ButtonBaseProps & {
-      variant?: 'extended';
-      icon: ReactNode;
-      label: string; // required when variant is 'extended'
-    }
+      variant?: FABVariant;
+      appearance?: 'extended';
+      label: string; // required when appearance is 'extended'
+    };
   
 
 
 type TextButtonOwnProps = ButtonBaseProps & {
   variant?: ButtonVariant;
+  appearance?: ButtonAppearance;
   label: string;
 }
 

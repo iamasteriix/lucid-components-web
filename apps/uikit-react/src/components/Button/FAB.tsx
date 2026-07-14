@@ -1,12 +1,13 @@
 import type { ElementType } from "react";
 import type { FABProps } from "@/types";
-import "./floating-action-btn.css";
+import "./fab.css";
 
 
 export function FAB<C extends ElementType = 'button'> ({
   as,
-  variant = 'default',
+  variant = 'surface',
   size = 'md',
+  appearance = 'default',
   disabled = false,
   loading = false,
   icon,
@@ -22,6 +23,7 @@ export function FAB<C extends ElementType = 'button'> ({
     'fab',
     `fab--${variant}`,
     `fab--${size}`,
+    `fab--${appearance}`,
     loading && 'fab--loading',
     disabled && 'fab--disabled',
     className,
@@ -37,7 +39,7 @@ export function FAB<C extends ElementType = 'button'> ({
       disabled={ disabled || loading }
       aria-busy={ loading }
       aria-disabled={ disabled || loading }
-      aria-label={ variant !== 'extended' ? label : undefined }
+      aria-label={ appearance !== 'extended' ? label : undefined }
       { ...rest }
     >
       <span
@@ -47,7 +49,7 @@ export function FAB<C extends ElementType = 'button'> ({
         { icon }
       </span>
       {
-        variant === 'extended' &&
+        appearance === 'extended' &&
         <span className='fab__label'>
           { label || 'Label' }
         </span>

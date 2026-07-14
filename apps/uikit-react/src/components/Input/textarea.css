@@ -12,11 +12,11 @@
 .textarea__row {
   display: flex;
   align-items: flex-start;
-  width: 100%;
-  border-radius: var(--radii-radius2xl);
-  border: 1px solid transparent;
-  background-color: transparent;
   overflow: hidden;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--radii-radius2xl);
+  background-color: transparent;
   transition:
     border-color var(--transitions-durationFast) var(--transitions-easingDefault);
 }
@@ -24,19 +24,19 @@
 
 /* -- Input ---------------------------------------------------------------- */
 .textarea__input {
+  flex: 1;
   min-width: 0;
   padding: var(--spacing-space2) var(--spacing-space5);
-  flex: 1;
-  background: transparent;
-  font-family: inherit;
-  font-size: var(--typography-textBase);
-  color: var(--colors-textPrimary);
-  caret-color: var(--colors-primary);
-  line-height: var(--typography-leadingNormal);
   border: none;
   outline: none;
   resize: none;
   overflow: hidden;
+  font-family: inherit;
+  font-size: var(--typography-textBase);
+  line-height: var(--typography-leadingNormal);
+  color: var(--colors-textPrimary);
+  caret-color: var(--colors-primary);
+  background: transparent;
 }
 
 .textarea__input::placeholder {
@@ -44,7 +44,7 @@
 }
 
 
-/* -- Variants (highlight tokens) ----------------------------------------- */
+/* -- Variants ------------------------------------------------------------- */
 /*
   Each variant sets two custom properties on the component root:
     --textarea-highlight        border color at rest
@@ -84,12 +84,12 @@
   border-color: var(--textarea-highlight);
 }
 
-.textarea--outlined:not(.textarea--disabled):focus-within .textarea__row {
-  border-color: var(--textarea-highlight-focus);
-}
-
 .textarea--outlined:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
   border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
+}
+
+.textarea--outlined:not(.textarea--disabled):focus-within .textarea__row {
+  border-color: var(--textarea-highlight-focus);
 }
 
 
@@ -99,12 +99,12 @@
   border-color: var(--textarea-highlight);
 }
 
-.textarea--filled:not(.textarea--disabled):focus-within .textarea__row {
-  border-color: var(--textarea-highlight-focus);
-}
-
 .textarea--filled:not(.textarea--disabled):hover:not(:focus-within) .textarea__row {
   border-color: color-mix(in srgb, var(--textarea-highlight) 60%, var(--colors-textSecondary));
+}
+
+.textarea--filled:not(.textarea--disabled):focus-within .textarea__row {
+  border-color: var(--textarea-highlight-focus);
 }
 
 
@@ -118,10 +118,10 @@
 /* -- Adornments ----------------------------------------------------------- */
 .textarea__leading,
 .textarea__trailing {
-  padding-top: calc(var(--typography-textBase) * .65);
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+  height: calc(var(--typography-leadingNormal) * var(--typography-textBase) + var(--spacing-space2) * 2);
   color: var(--colors-textSecondary);
 }
 
@@ -147,9 +147,9 @@
 /* -- Message -------------------------------------------------------------- */
 .textarea__message {
   display: block;
+  padding-inline: var(--radii-radiusXl);
   font-size: var(--typography-textSm);
   line-height: var(--typography-leadingNormal);
-  padding-inline: var(--radii-radiusXl);
   color: var(--colors-textSecondary);
 }
 
@@ -161,12 +161,12 @@
 
 .textarea--anchor-bottom .textarea__leading,
 .textarea--anchor-bottom .textarea__trailing {
-  padding-bottom: calc(var(--typography-textBase) * .65);
   align-self: flex-end;
+  height: calc(var(--typography-leadingNormal) * var(--typography-textBase) + var(--spacing-space2) * 2);
 }
 
 .textarea--anchor-bottom .textarea__message {
-  order: -1;  /* undo reversing effect of flex direction */
+  order: -1; /* undo reversing effect of flex direction */
 }
 
 

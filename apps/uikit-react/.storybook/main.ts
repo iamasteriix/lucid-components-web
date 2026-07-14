@@ -9,7 +9,8 @@ const config: StorybookConfig = {
   addons: [],
   staticDirs: ['../public'],
   core: {
-    allowedHosts: ['localhost']
+    allowedHosts: ['localhost'],
+    disableTelemetry: true,
   },
 };
 

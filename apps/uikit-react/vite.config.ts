@@ -10,11 +10,15 @@ import react from "@vitejs/plugin-react";
 export default defineConfig ({
   plugins: [react()],
 
+  server: {
+    port: 3001,
+  },
+
   build: {
     /** Library entry — all public exports flow through here */
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'NineUIReact',
+      name: 'SkylineUIKitReact',
       formats: ['es', 'cjs'],
       fileName: format => `index.${format}.js`, // outputs dist/index.es.js, dist/index.cjs.js
     },

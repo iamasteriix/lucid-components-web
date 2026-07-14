@@ -30,12 +30,12 @@ const meta: Meta<StoryProps> = {
       options: ['left', 'center', 'right'],
       control: 'select',
     },
+    label: { control: 'text', },
     fullWidth: { control: 'boolean', },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
-    leadingIcon: { control: 'boolean', },
-    trailingIcon: { control: 'boolean', },
-    children: { control: 'text', },
+    leadingNode: { control: 'boolean', },
+    trailingNode: { control: 'boolean', },
   },
 }
 
@@ -47,20 +47,20 @@ export const Button: Story = {
     size: 'md',
     appearance: 'filled',
     textAlign: 'center',
+    label: 'Label',
     fullWidth: false,
     disabled: false,
     loading: false,
-    leadingIcon: false,
-    trailingIcon: false,
-    children: 'Label',
+    leadingNode: false,
+    trailingNode: false,
   },
 
   render: args => {
     return (
       <ButtonBase
         { ...args }
-        leadingIcon={ args.leadingIcon && <Plus/> }
-        trailingIcon={ args.trailingIcon && <ChevronRight/> }
+        leadingNode={ args.leadingNode && <Plus/> }
+        trailingNode={ args.trailingNode && <ChevronRight/> }
       />
     );
   }

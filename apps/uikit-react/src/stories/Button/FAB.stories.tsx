@@ -15,6 +15,10 @@ const meta: Meta<StoryProps> = {
   argTypes: {
     as: { control: 'text', },
     variant: {
+      options: ['primary', 'surface'],
+      control: 'select',
+    },
+    appearance: {
       options: ['default', 'mini', 'extended'],
       control: 'select',
     },
@@ -22,6 +26,7 @@ const meta: Meta<StoryProps> = {
       options: ['sm', 'md', 'lg'],
       control: 'select',
     },
+    label: { control: 'text', },
     disabled: { control: 'boolean', },
     loading: { control: 'boolean', },
     icon: { control: 'check', },
@@ -32,12 +37,13 @@ const meta: Meta<StoryProps> = {
 export const FAB: Story = {
   args: {
     as: 'button',
-    variant: 'default',
+    variant: 'surface',
+    appearance: 'default',
     size: 'md',
+    label: 'Label',
     disabled: false,
     loading: false,
     icon: <Plus/>,
-    label: 'Label',
   }
 };
 
