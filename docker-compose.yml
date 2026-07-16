@@ -5,16 +5,27 @@ services:
       context: .
       target: development
 
-  uikit-react:
+  uikit-web:
     image: skyline
-    command: npm run dev --workspace=apps/uikit-react -- --host 0.0.0.0
+    command: npm run dev --workspace=packages/web -- --host 0.0.0.0
     volumes:
       - .:/app
-      - uikit_react_root_modules:/app/node_modules/
-      - uikit_react_workspace_modules:/app/apps/uikit-react/node_modules/
+      - uikit_web_root_modules:/app/node_modules/
+      - uikit_web_workspace_modules:/app/packages/web/node_modules/
     ports:
       - "3001:3001"
 
+  uikit-native:
+    image: skyline
+    volumes:
+      - .:/app
+      - uikit_native_root_modules:/app/node_modules/
+      - uikit_native_workspace_modules:/app/packages/native/node_modules/
+    ports:
+      - "4001:4001"
+
 volumes:
-  uikit_react_root_modules:
-  uikit_react_workspace_modules:
+  uikit_web_root_modules:
+  uikit_web_workspace_modules:
+  uikit_native_root_modules:
+  uikit_native_workspace_modules:

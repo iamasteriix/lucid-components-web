@@ -5,10 +5,10 @@ WORKDIR /app
 RUN npm i -g vite
 
 COPY package*.json                    ./
-COPY apps/uikit-react/package*.json   ./apps/uikit-react/
+COPY packages/web/package*.json       ./packages/web/
+COPY packages/native/package*.json    ./packages/native
 
 RUN npm i
 
-COPY apps/uikit-react/  ./apps/uikit-react/
-
-EXPOSE 3001
+COPY packages/web/      ./packages/web/
+COPY packages/native/   ./packages/native/

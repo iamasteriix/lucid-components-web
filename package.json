@@ -1,10 +1,14 @@
 {
-  "name": "skyline",
+  "name": "@skyline-uikit",
   "private": false,
   "scripts": {
-    "dev:uikit-react": "docker compose up -d uikit-react"
+    "dev:web": "docker compose up -d uikit-web",
+    "dev:native": "docker compose up -d uikit-native",
+    "bash:web": "docker compose exec -it uikit-web bash",
+    "bash:native": "docker compose exec -it uikit-native bash"
   },
   "workspaces": [
-    "apps/uikit-react"
+    "packages/web",
+    "packages/native"
   ]
 }
