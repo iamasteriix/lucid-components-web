@@ -1,0 +1,12 @@
+export { ChevronLeftOutline } from "./components/ChevronLeft/ChevronLeftOutline";
+export { ChevronLeftOutlineDuo } from "./components/ChevronLeft/ChevronLeftOutlineDuo";
+export { ChevronRightOutline } from "./components/ChevronRight/ChevronRightOutline";
+export { ChevronRightOutlineDuo } from "./components/ChevronRight/ChevronRightOutlineDuo";
+export { CloseCircleBold } from "./components/CloseCircle/CloseCircleBold";
+export { CloseCircleBoldDuo } from "./components/CloseCircle/CloseCircleBoldDuo";
+export { CloseCircleOutline } from "./components/CloseCircle/CloseCircleOutline";
+export { CloseCircleOutlineDuo } from "./components/CloseCircle/CloseCircleOutlineDuo";
+export { HeartBold } from "./components/Heart/HeartBold";
+export { HeartBoldDuo } from "./components/Heart/HeartBoldDuo";
+export { HeartOutline } from "./components/Heart/HeartOutline";
+export { HeartOutlineDuo } from "./components/Heart/HeartOutlineDuo";

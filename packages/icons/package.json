@@ -1,0 +1,14 @@
+{
+  "name": "@skyline-uikit/icons",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Icon pack to go with the Skyline UI Kit for web and native clients",
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-native-svg": "^15.15.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "typescript": "^6.0.3"
+  }
+}
