@@ -7,4 +7,4 @@ export type {
 
 
 
-export { createIcon } from "./icon/createIcon";
+export { createIcon } from "@icon-factory";

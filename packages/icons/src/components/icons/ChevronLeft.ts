@@ -1,14 +1,14 @@
-import type { IconBaseProps } from "../base.types";
-import { createIcon } from "../../lib";
-import { resolveIconColor } from "../../utils";
+import type { IconParentProps } from "../icons.types";
+import { createIcon } from "@/lib";
+import { resolveIconColor } from "@/utils";
 
 
 
-export const ChevronLeftOutline = ({
+export const ChevronLeft = ({
   viewBox = '0 0 24 24',
   size = '1rem',
   fill,
-}: IconBaseProps) => createIcon({
+}: IconParentProps) => createIcon({
   viewBox,
   size,
   paths: [{

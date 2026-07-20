@@ -1,5 +1,6 @@
 import type { SvgProps } from "react-native-svg";
 import type { IconDefinition, IconProps } from "./types";
+import React from "react";
 import { Path, Svg } from "react-native-svg";
 
 

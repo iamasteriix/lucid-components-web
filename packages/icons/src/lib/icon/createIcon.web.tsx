@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import React from "react";
 import { IconDefinition, IconProps } from "./types";
 
 
