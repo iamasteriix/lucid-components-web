@@ -19,6 +19,9 @@ const preview: Preview = {
         moonsong: { name: 'Moonsong', value: designTokens.colors.bgBase, },
       },
     },
+    controls: {
+      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid',]
+    },
   },
 };
 

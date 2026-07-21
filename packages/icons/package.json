@@ -1,25 +1,33 @@
 {
   "name": "@skyline-uikit/icons",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Icon pack to go with the Skyline UI Kit for web and native clients",
   "exports": {
     ".": {
       "react-native": {
         "types": "./dist/native/index.d.ts",
-        "default": "./dist/native/index.js"
+        "import": "./dist/native/index.mjs",
+        "require": "./dist/native/index.js"
       },
       "types": "./dist/web/index.d.ts",
-      "default": "./dist/web/index.js"
+      "import": "./dist/web/index.mjs",
+      "require": "./dist/web/index.js"
     }
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "react-native-svg": "^15.15.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "react": "^19",
     "react-native-svg": "^15"
   },
-  "devDependencies": {
-    "@types/react": "^19.2.17",
-    "tsup": "^8.5.1",
-    "typescript": "^6.0.3"
+  "peerDependenciesMeta": {
+    "react-native-svg": {
+      "optional": true
+    }
   }
 }

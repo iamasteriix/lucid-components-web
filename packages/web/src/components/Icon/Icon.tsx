@@ -2,24 +2,41 @@ import type { IconProps } from "./types";
 
 
 
+const SIZE_MAP: Record<NonNullable<IconProps['size']>, string> = {
+  xsm: 'var(--typography-textXs)',
+  sm: 'var(--typography-textSm)',
+  md: 'var(--typography-textLg)',
+  lg: 'var(--typography-textXl)',
+};
+
+
+
 export const Icon = ({
   as,
   size = 'md',
   variant = 'monochrome',
-  bold,
-  ...props
+  bold = false,
+  'data-testid': testId,
+  ...rest
 }: IconProps) => {
 
   const Tag = as;
-  const fill = variant === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent'] : 'var(--colors-primary)'
+  const fontSize = SIZE_MAP[size];
+  const fill = variant === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent)'] : 'var(--colors-primary)'
 
   return (
-    <span { ...props }>
+    <span
+      data-component='icon'
+      data-testid={ testId }
+      aria-hidden='true'
+      role='presentation'
+      { ...rest }
+    >
       <Tag
         viewBox='0 0 24 24'
-        size={ size }
-        variant={ variant }
+        size={ fontSize }
         fill={ fill }
+        variant={ variant }
         bold={ bold }
       />
     </span>

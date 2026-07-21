@@ -1,17 +1,25 @@
-import type { SVGProps } from "react";
+import type { FC } from "react";
 import React from "react";
-import { IconDefinition, IconProps } from "./types";
+import { resolveIconColor } from "@/utils";
+import { IconDefinition, WebIconProps, } from "./types";
 
 
 
-export const createIcon = (definition: IconDefinition) => {
-  return (props: IconProps & SVGProps<SVGSVGElement>) => (
+export const createIcon = (definition: IconDefinition): FC<WebIconProps> => {
+  return ({
+    viewBox = '0 0 24 24',
+    size = '1rem',
+    fill = '#f0fefe',
+    ...rest
+  }: WebIconProps) => (
     <svg
-      fontSize={ definition.size }
-      viewBox={ definition.viewBox }
+      viewBox={ viewBox }
+      fontSize={ size }
+      width={ size }
+      height={ size }
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      { ...props }
+      { ...rest }
     >
       {
         definition.paths.map((path, index) => (
@@ -20,7 +28,7 @@ export const createIcon = (definition: IconDefinition) => {
             d={ path.d }
             fillRule={ path.fillRule }
             clipRule={ path.clipRule }
-            fill={ path.fill }
+            fill={ resolveIconColor(fill, index) }
           />
         ))
       }

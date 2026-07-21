@@ -1,13 +1,19 @@
-export type IconBaseProps = {
-  viewBox: string;
-  size: string;
-  fill: string | string[];
-};
+import { FC } from "react";
 
-export type IconParentProps = {
+
+
+export type IconProps = {
   viewBox?: string;
   size?: string;
-  variant?: 'monochrome' | 'duotone';
   fill?: string | string[];
+  variant?: 'monochrome' | 'duotone';
   bold?: boolean;
 };
+
+export type IconBaseProps = {
+  viewBox?: string;
+  size?: string;
+  fill?: string | string[];
+};
+
+export type IconComponent = FC<IconProps>;

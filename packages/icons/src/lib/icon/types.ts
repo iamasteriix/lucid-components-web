@@ -1,23 +1,23 @@
-import type { ComponentType } from "react";
+import type { SVGProps } from "react";
+import type { SvgProps } from "react-native-svg";
+import type { IconBaseProps } from "@/components/icons.types";
 
 
 
-export type PathData = {
+type Override<T, U> = Omit<T, keyof U> & U;
+
+type PathData = {
   d: string;
-  fill?: string;
   fillRule?: 'nonzero' | 'evenodd';
   clipRule?: 'nonzero' | 'evenodd';
-}
+};
 
 export type IconDefinition = {
-  viewBox: string;
+  viewBox?: string;
+  size?: string;
   paths: PathData[];
-  size: string;
-}
+};
 
-export type IconProps = {
-  [key: string]: any;
-}
+export type WebIconProps = Override<SVGProps<SVGSVGElement>, IconBaseProps> & IconBaseProps;
 
-// shared function signature
-export type CreateIcon = (definition: IconDefinition) => ComponentType<IconProps>;
+export type NativeIconProps = Override<SvgProps, IconBaseProps> & IconBaseProps;

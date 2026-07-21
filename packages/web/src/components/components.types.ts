@@ -1,11 +1,9 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, CSSProperties, ElementType, ReactNode } from "react";
 
 
-/** Size union */
+
 export type Size = 'sm' | 'md' | 'lg';
 
-
-/** Variant union */
 export type Variant =
   | 'primary'
   | 'secondary'
@@ -16,22 +14,18 @@ export type Variant =
   | 'warning'
   | 'error';
 
-
-/** Appearance */
 export type Appearance =
   | 'filled'
   | 'tonal'
   | 'outlined'
   | 'ghost';
 
-  
-/** Tag Base props */
 export type TagBaseProps = {
+  style?: CSSProperties;
   className?: string;
   children?: ReactNode;
   'data-testid'?: string;
 }
-
 
 /**
  * Polymorphic `as` prop
