@@ -1,0 +1,66 @@
+/* Base */
+.text {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-family: var(--typography-fontSans);
+  font-size: var(--typography-textBase);
+  font-weight: var(--typography-weightRegular);
+  line-height: var(--typography-leadingNormal);
+  color: var(--colors-inherit);
+  text-align: start;
+}
+
+/* Font families */
+.text--sans { font-family: var(--typography-fontSans); }
+.text--serif { font-family: var(--typography-fontSerif); }
+.text--mono { font-family: var(--typography-fontMono); }
+
+/* Sizes */
+.text--xs { font-size: var(--typography-textXs); }
+.text--sm { font-size: var(--typography-textSm); }
+.text--base { font-size: var(--typography-textBase); }
+.text--lg { font-size: var(--typography-textLg); }
+.text--xl { font-size: var(--typography-textXl); }
+.text--2xl { font-size: var(--typography-text2xl); }
+.text--3xl { font-size: var(--typography-text3xl); }
+.text--4xl { font-size: var(--typography-text4xl); }
+
+/* Weights */
+.text--light { font-weight: var(--typography-weightLight); }
+.text--regular { font-weight: var(--typography-weightRegular); }
+.text--medium { font-weight: var(--typography-weightMedium); }
+.text--semibold { font-weight: var(--typography-weightSemibold); }
+.text--bold { font-weight: var(--typography-weightBold); }
+
+/* Line heights */
+.text--tight { line-height: var(--typography-leadingTight); }
+.text--snug { line-height: var(--typography-leadingSnug); }
+.text--normal { line-height: var(--typography-leadingNormal); }
+.text--relaxed { line-height: var(--typography-leadingRelaxed); }
+
+/* Colors */
+.text--primary { color: var(--colors-primary); }
+.text--secondary { color: var(--colors-secondary); }
+.text--disabled { color: var(--colors-disabled); }
+.text--inverse { color: var(--colors-inverse); }
+.text--inherit { color: inherit; }
+
+/* Alignment */
+.text--start { text-align: start; }
+.text--center { text-align: center; }
+.text--end { text-align: end; }
+
+/* Text wrap */
+.text--wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+.text--nowrap { white-space: nowrap; }
+.text--balance { text-wrap: balance; }
+.text--pretty { text-wrap: pretty; }
+.text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
