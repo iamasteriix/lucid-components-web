@@ -12,8 +12,5 @@
     "packages/web",
     "packages/native",
     "packages/icons"
-  ],
-  "allowScripts": {
-    "esbuild@0.28.1": true
-  }
+  ]
 }
