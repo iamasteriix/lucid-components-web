@@ -24,17 +24,8 @@ services:
     ports:
       - "4001:4001"
 
-  uikit-icons:
-    image: skyline
-    volumes:
-      - .:/app
-      - uikit_icons_root_modules:/app/node_modules/
-      - uikit_icons_workspace_modules:/app/packages/icons/node_modules/
-
 volumes:
   uikit_web_root_modules:
   uikit_web_workspace_modules:
   uikit_native_root_modules:
   uikit_native_workspace_modules:
-  uikit_icons_root_modules:
-  uikit_icons_workspace_modules:

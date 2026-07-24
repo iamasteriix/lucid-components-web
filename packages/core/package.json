@@ -2,8 +2,6 @@
   "name": "@skyline-uikit/core",
   "private": true,
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "exports": {
     ".": {
       "types": "./dist/web/index.d.ts",

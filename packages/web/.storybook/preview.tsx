@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/react-vite";
-import { ThemeProvider } from "@/context";
-import { designTokens } from "@/tokens";
+import { designTokens, ThemeProvider } from "@/theme";
 import "../src/index.css";
 
 
@@ -16,7 +15,7 @@ const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        moonsong: { name: 'Moonsong', value: designTokens.colors.bgBase, },
+        pluto: { name: 'Pluto', value: designTokens.colors.bgBase, },
       },
     },
     controls: {

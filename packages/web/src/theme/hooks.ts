@@ -1,6 +1,6 @@
-import type { Tokens } from "@/context/types";
+import type { Tokens } from "./types";
 import { useContext } from "react";
-import { ThemeContext } from "@/context";
+import { ThemeContext } from "./context";
 
 
 

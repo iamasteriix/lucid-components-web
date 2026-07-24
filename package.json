@@ -4,13 +4,13 @@
   "scripts": {
     "dev:web": "docker compose up -d uikit-web",
     "dev:native": "docker compose up -d uikit-native",
-    "dev:icons": "docker compose up -d uikit-icons",
     "bash:web": "docker compose exec -it uikit-web bash",
     "bash:native": "docker compose exec -it uikit-native bash"
   },
   "workspaces": [
     "packages/web",
     "packages/native",
-    "packages/icons"
+    "packages/icons",
+    "packages/core"
   ]
 }

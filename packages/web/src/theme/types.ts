@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { designTokens } from "@/tokens";
+import { designTokens } from "./tokens";
 
 
 

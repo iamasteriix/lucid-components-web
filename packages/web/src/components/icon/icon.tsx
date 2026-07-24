@@ -1,8 +1,8 @@
-import type { IconProps } from "./types";
+import type { IconProps } from "./icon.types";
 
 
 
-const SIZE_MAP: Record<NonNullable<IconProps['size']>, string> = {
+const size_map: Record<NonNullable<IconProps['size']>, string> = {
   xsm: 'var(--typography-textXs)',
   sm: 'var(--typography-textSm)',
   md: 'var(--typography-textLg)',
@@ -21,7 +21,7 @@ export const Icon = ({
 }: IconProps) => {
 
   const Tag = as;
-  const fontSize = SIZE_MAP[size];
+  const fontSize = size_map[size];
   const fill = variant === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent)'] : 'var(--colors-primary)'
 
   return (

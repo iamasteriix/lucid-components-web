@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
-import type { TextProps } from "./types";
-import "./text.css";
+import type { TextProps } from "./text.types";
+import styles from "./text.module.css";
 
 
 
@@ -10,7 +10,7 @@ export const Text = <C extends ElementType = 'span'> ({
   size = 'base',
   weight = 'regular',
   lineHeight = 'normal',
-  color = 'inherit',
+  color = 'primary',
   align = 'start',
   textWrap = 'wrap',
   className,
@@ -23,13 +23,14 @@ export const Text = <C extends ElementType = 'span'> ({
   const Tag: ElementType = (as ?? 'span');
 
   const classes = [
-    'text',
-    `text--${font}`,
-    `text--${size}`,
-    `text--${weight}`,
-    `text--${lineHeight}`,
-    `text--${color}`,
-    `text--${align}`,
+    styles.text,
+    styles[`text--${font}`],
+    styles[`text--${size}`],
+    styles[`text--${weight}`],
+    styles[`text--${lineHeight}`],
+    styles[`text--${color}`],
+    styles[`text--${align}`],
+    styles[`text--${textWrap}`],
     className,
   ]
   .filter(Boolean)

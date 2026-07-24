@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { PropsWithAs, TagBaseProps } from "../components.types";
+import type { PropsWithAs, TagBaseProps } from "@/types";
 
 
 
@@ -25,7 +25,7 @@ type FontFamily = 'sans' | 'serif' | 'mono';
 
 type TextWrap = 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'truncate';
 
-type TextOwnProps = TagBaseProps & {
+export type TextOwnProps = {
   color?: TextColor;
   align?: TextAlign;
   size?: TextSize;
@@ -35,4 +35,4 @@ type TextOwnProps = TagBaseProps & {
   textWrap?: TextWrap;
 };
 
-export type TextProps <C extends ElementType = 'span'> = PropsWithAs<C, TextOwnProps>;
+export type TextProps <C extends ElementType = 'span'> = PropsWithAs<C, TagBaseProps & TextOwnProps>;

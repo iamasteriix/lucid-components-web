@@ -1,6 +1,6 @@
-import type { ComponentProps } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Text as TextBase } from '@/components';
+import type { ComponentProps } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Text as TextBase } from "./text";
 
 
 
@@ -51,7 +51,7 @@ export const Text: Story = {
     size: 'base',
     weight: 'regular',
     lineHeight: 'normal',
-    color: 'inherit',
+    color: 'primary',
     align: 'start',
     textWrap: 'wrap',
     children: 'My style is ridiculous',

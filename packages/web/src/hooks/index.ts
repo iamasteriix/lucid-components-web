@@ -1,1 +1,1 @@
-export { useTheme } from "./useTheme";
+export { useResolveLayoutStyling } from "./resolve-layout.hook";

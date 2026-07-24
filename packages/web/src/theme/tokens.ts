@@ -1,8 +1,7 @@
 /**
- * Design tokens — colors
  * @see src/context/ThemeProvider.tsx for how these are injected as CSS variables
  */
-export const colorTokens = {
+const colorTokens = {
   // --- Brand ---
   primary:        '#eeeeee',
   primaryHover:   '#c9c9c9',
@@ -58,10 +57,9 @@ export const colorTokens = {
 
 
 /**
- * Design tokens — typography
  * Font stacks, size scale, weights, and line heights
  */
-export const typographyTokens = {
+const typographyTokens = {
   // --- Font families ---
   fontSans:  "'DM Sans', 'Inter', system-ui, sans-serif",
   fontMono:  "'JetBrains Mono', 'Fira Code', monospace",
@@ -93,10 +91,9 @@ export const typographyTokens = {
 
 
 /**
- * Design tokens — spacing
  * Base-4 scale, used for padding, margin, and gap
  */
-export const spacingTokens = {
+const spacingTokens = {
   space1:  '.25rem',
   space2:  '.5rem',
   space3:  '.75rem',
@@ -111,10 +108,9 @@ export const spacingTokens = {
 
 
 /**
- * Design tokens — radii
  * Border radius scale from sharp to fully rounded
  */
-export const radiiTokens = {
+const radiiTokens = {
   radiusNone: '0px',
   radiusSm:   '4px',
   radiusMd:   '8px',
@@ -126,10 +122,9 @@ export const radiiTokens = {
 
 
 /**
- * Design tokens — shadows
  * Elevation scale for depth and layering
  */
-export const shadowTokens = {
+const shadowTokens = {
   shadowSm: '0 1px 3px rgba(52, 52, 52, .4)',
   shadowMd: '0 4px 12px rgba(52, 52, 52, .5)',
   shadowLg: '0 12px 32px rgba(52, 52, 52, .6)',
@@ -138,13 +133,62 @@ export const shadowTokens = {
 
 
 /**
- * Design tokens — transitions
  * Duration and easing presets for consistent motion
  */
-export const transitionTokens = {
+const transitionTokens = {
   durationFast:  '100ms',
   durationBase:  '180ms',
   durationSlow:  '320ms',
   easingDefault: 'cubic-bezier(.4, 0, .2, 1)',
   easingBounce:  'cubic-bezier(.34, 1.56, .64, 1)',
+} as const;
+
+
+/**
+ * Glassmorphism
+ * Transluscent surfaces meant to sit over bgBase/bgSurface, combined with backdrop-filter, blur, and saturate.
+ * Border uses brighter top edge to simulate light catching the glass rim
+ */
+const glassTokens = {
+  // --- surface fills ---
+  bgFaint: 'rgba(238, 238, 238, .03)',
+  bgSubtle: 'rgba(238, 238, 238, .06)',
+  bgDefault: 'rgba(238, 238, 238, .09)',
+  bgStrong: 'rgba(238, 238, 238, .12)',
+
+  // --- accent-tinted glass ---
+  accentFaint: 'rgba(48, 219, 18, .03)',
+  accentSubtle: 'rgba(48, 219, 18, .09)',
+  accentDefault: 'rgba(48, 219, 18, .12)',
+
+  // --- borders: brighter than border tokens since glass edges catch light ---
+  border: 'rgba(238, 238, 238, .18)',
+  borderTop: 'rgba(238, 238, 238, .36)',
+  borderInner: 'rgba(18, 18, 18, .3)', // opposite of top highlight
+
+  // --- backdrop filter ---
+  blurSm: '9px',
+  blurMd: '18px',
+  blurLg: '27px',
+  saturate: '162%',
+
+  // --- shadows: layered like the default shadow tokens ---
+  shadowSm: '0 3px 18px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(238, 238, 238, .09)',
+  shadowMd: '0 9px 36px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(238, 238, 238, .12)',
+  shadowLg: '0 18px 45px rgba(0, 0, 0, .54), inset 0 1px 0 rgba(238, 238, 238, .18)',
+};
+
+
+/**
+ * Complete default token set
+ * Pass a partial override to ThemeProvider to customize
+*/
+export const designTokens = {
+  colors:       colorTokens,
+  typography:   typographyTokens,
+  spacing:      spacingTokens,
+  radii:        radiiTokens,
+  shadows:      shadowTokens,
+  transitions:  transitionTokens,
+  glass:        glassTokens,
 } as const;

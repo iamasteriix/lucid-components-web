@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type { TagBaseProps } from "../components.types";
+import type { TagBaseProps } from "@/types";
 
 
 // wrapped-around icon's props

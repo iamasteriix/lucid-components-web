@@ -1,4 +1,4 @@
-import type { Tokens } from "@/context/types";
+import type { Tokens } from "./types";
 import { createContext } from "react";
 
 

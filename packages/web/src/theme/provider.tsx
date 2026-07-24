@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
 import type { Tokens, ThemeProviderProps, ThemeOverride, } from "./types";
 import { useMemo } from "react";
-import { designTokens } from "@/tokens";
-import { ThemeContext } from "./base";
+import { designTokens } from "./tokens";
+import { ThemeContext } from "./context";
 
 
 /**
