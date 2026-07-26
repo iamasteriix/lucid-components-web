@@ -12,12 +12,13 @@ import { ThemeContext } from "./context";
 function resolveTheme (override?: ThemeOverride): Tokens {
   if (!override) return designTokens;
   return {
-    colors:      { ...designTokens.colors,       ...override.colors },
-    typography:  { ...designTokens.typography,   ...override.typography },
-    spacing:     { ...designTokens.spacing,      ...override.spacing },
-    radii:       { ...designTokens.radii,        ...override.radii },
-    shadows:     { ...designTokens.shadows,      ...override.shadows },
-    transitions: { ...designTokens.transitions,  ...override.transitions },
+    colors:       { ...designTokens.colors,       ...override.colors },
+    typography:   { ...designTokens.typography,   ...override.typography },
+    spacing:      { ...designTokens.spacing,      ...override.spacing },
+    radii:        { ...designTokens.radii,        ...override.radii },
+    shadows:      { ...designTokens.shadows,      ...override.shadows },
+    transitions:  { ...designTokens.transitions,  ...override.transitions },
+    glass:        { ...designTokens.glass,        ...override.glass, },
   }
 }
 

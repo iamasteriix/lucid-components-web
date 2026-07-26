@@ -13,7 +13,7 @@ export type Spanning = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
 
 export type Variant = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
 
-export type Appearance = 'filled' | 'tonal' | 'outlined' | 'ghost';
+export type Appearance = 'filled' | 'tonal' | 'outlined' | 'ghost' | 'glass';
 
 export type TagBaseProps = {
   style?: CSSProperties;

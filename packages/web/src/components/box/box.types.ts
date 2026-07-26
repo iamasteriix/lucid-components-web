@@ -19,6 +19,18 @@ type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
 type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse';
 
+type Surface = 'base' | 'surface' | 'elevated' | 'overlay';
+
+type Appearance = 'flat' | 'glass';
+
+type BorderVariant = 'subtle' | 'default' | 'strong';
+
+type BorderRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+
+type BorderWidth = 'none' | 'thin' | 'medium' | 'bold';
+
+type BoxShadow = 'sm' | 'md' | 'lg' | 'xl';
+
 export type BoxOwnProps = {
   // -- layout ---
   display?: ResponsiveProp<Display>;
@@ -55,12 +67,13 @@ export type BoxOwnProps = {
   paddingX?: ResponsiveProp<Spacing>;
   paddingY?: ResponsiveProp<Spacing>;
 
-  // // decorations
-  // background?: BoxBackground;
-  // surface?: BoxSurface;
-  // borderColor?: Variant;
-  // borderAppearance?: BorderAppearance;
-  // borderRadius?: ResponsiveProp<Spacing>;
+  // -- decorations ---
+  surface?: Surface;
+  appearance?: Appearance;
+  border?: BorderVariant;
+  borderWidth?: BorderWidth;
+  borderRadius?: BorderRadius;
+  shadow?: BoxShadow;
 };
 
 export type BoxProps <C extends ElementType = 'div'> = PropsWithAs<C, TagBaseProps & BoxOwnProps>;

@@ -102,6 +102,27 @@ export const shadowTokens = {
   shadowXl: '0 24px 64px rgba(52, 52, 52, .7)',
 } as const;
 
+// Glassmorphism
+const glassTokens = {
+  bgFaint: 'rgba(238, 238, 238, .03)',
+  bgSubtle: 'rgba(238, 238, 238, .06)',
+  bgDefault: 'rgba(238, 238, 238, .09)',
+  bgStrong: 'rgba(238, 238, 238, .12)',
+  accentFaint: 'rgba(48, 219, 18, .03)',
+  accentSubtle: 'rgba(48, 219, 18, .09)',
+  accentDefault: 'rgba(48, 219, 18, .12)',
+  border: 'rgba(238, 238, 238, .18)',
+  borderTop: 'rgba(238, 238, 238, .36)',
+  borderInner: 'rgba(18, 18, 18, .3)',
+  blurSm: '9px',
+  blurMd: '18px',
+  blurLg: '27px',
+  saturate: '162%',
+  shadowSm: '0 3px 18px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(238, 238, 238, .09)',
+  shadowMd: '0 9px 36px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(238, 238, 238, .12)',
+  shadowLg: '0 18px 45px rgba(0, 0, 0, .54), inset 0 1px 0 rgba(238, 238, 238, .18)',
+};
+
 // Duration and easing presets for consistent motion
 export const transitionTokens = {
   durationFast:  '100ms',
@@ -241,4 +262,3 @@ Top-level page-assembly composition of `Container`, `Section`, `Grid`, and `Stac
 Injection point that provides structure about what child belongs to, and what can it inhereit from, what parent. It consists of:
 - **internal `createSlot(options)` factory** that defines slot logic for all specialized and generic slots across the system. It **takes** default styles for the slot (eg. fixed icon dimensions, color token), and an optional context hook for inheriting values from the parent component (size, color, spacing tokens) and **returns** a slot component to be exposed as a static property on the parent (e.g. `Button.Icon`). Every specialized or generic slot in the system must be produced by `createSlot`, not authored as a bespoke one-off component, so that the consumer-facing mental model stays identical across the entire system.
 - **consumer-facing slot instances** (eg. `Button.Icon`, `Button.Slot`, `TextField.Leading`, `Card.Footer`). Specialized slots (eg. `Button.Icon`) carry content-specific defaults (icon sizing/color) and may accept a narrow prop like `position` (`leading`/`trailing`) that maps purely to CSS `order` (`-1`/`1`), never to DOM reordering or child-scanning. Generic slots (e.g. `Button.Slot`) share the same positioning mechanics (same parent container, same `order`-based placement) but carry no content-type assumptions — used for arbitrary children (badges, spinners, custom nodes) that don't fit a specialized slot. Parent components do no scanning, inspection, or carry knowledge of slot contents, and instead provide modifiers like `gaps`. The only permitted 'logic' in a slot instance is context read for token inheritance that is treated as equivalent to CSS custom-property inheritance, not as layout logic.
----

@@ -1,5 +1,5 @@
 import type { Spacing, Spanning } from "@/components";
-import { useResponsive } from "@skyline-uikit/core";
+import { resolveLayoutStyles, useDeviceBreakpoints, } from "@skyline-uikit/core";
 import { spacingMap, spanningMap } from "@/constants";
 
 
@@ -59,21 +59,20 @@ const mergeSpacing = (
 
 
 export const useResolveLayoutStyling = <T extends Record<string, any>>(props: T): ResolvedStylingOptions => {
+  const { breakpoint, } = useDeviceBreakpoints();
   
   // resolve all responsive props
   const keys: string[] = Object.keys(props);
   const resolved: Record<string, any> = {};
-  for (const key of keys) resolved[key] = useResponsive(props[key]).value;
+  for (const key of keys) resolved[key] = resolveLayoutStyles(props[key], breakpoint);
 
   // built style object
   const styles: ResolvedStylingOptions = {};
   const resolvedAsList = Object.entries(resolved);
-
+  let isMarginResolved = false;
+  let isPaddingResolved = false;
   for (const [key, value] of resolvedAsList) {
     if (value === undefined) continue;
-
-    let isMarginResolved = false;
-    let isPaddingResolved = false;
 
     switch (key) {
       // flex properties
@@ -132,6 +131,11 @@ export const useResolveLayoutStyling = <T extends Record<string, any>>(props: T)
         isPaddingResolved = true;
         break;
       }
+
+      // simple pass-through
+      default:
+        styles[key] = value;
+        break;
     }
   }
 

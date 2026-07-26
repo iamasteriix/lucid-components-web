@@ -1,1 +1,1 @@
-export { useResponsive } from "@/responsive/hooks";
+export { resolveLayoutStyles, useDeviceBreakpoints, } from "@/responsive";

@@ -15,7 +15,7 @@ const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        pluto: { name: 'Pluto', value: designTokens.colors.bgBase, },
+        moonsong: { name: 'Moonsong', value: designTokens.colors.bgBase, },
       },
     },
     controls: {

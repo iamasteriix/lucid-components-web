@@ -1,4 +1,4 @@
-import { Breakpoint, Breakpoints } from "../types";
+import { Breakpoint, Breakpoints } from "./types";
 
 
 
