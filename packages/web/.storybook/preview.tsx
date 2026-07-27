@@ -1,25 +1,42 @@
 import type { Preview } from "@storybook/react-vite";
-import { designTokens, ThemeProvider } from "@/theme";
+import { designTokens, } from "@/theme";
+import { create } from "storybook/theming";
+import { DocsContainer } from "./docs-container";
 import "../src/index.css";
 
 
 
 const preview: Preview = {
-  decorators: [
-    Story => (
-      <ThemeProvider>
-        <Story/>
-      </ThemeProvider>
-    ),
-  ],
+  initialGlobals: {
+    backgrounds: { value: 'dark', },
+  },
   parameters: {
+    docs: {
+      container: DocsContainer,
+      theme: create({
+        base: 'dark',
+        brandTitle: 'Skyline Design',
+        colorPrimary: designTokens.colors.primary,
+        appBg: designTokens.colors.bgBase,
+      }),
+    },
     backgrounds: {
       options: {
-        moonsong: { name: 'Moonsong', value: designTokens.colors.bgBase, },
+        dark: { name: 'Dark', value: designTokens.colors.bgBase, },
       },
     },
     controls: {
-      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid',]
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid',],
+    },
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['Getting Started', 'Design Tokens', '*'],
+      },
     },
   },
 };

@@ -1,5 +1,5 @@
-import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import type { ComponentProps } from "react";
 import { Box as BoxBase } from "./box";
 
 
@@ -16,15 +16,17 @@ const dimensionOptions = [...spacingOptions, ...spanningOptions];
 const meta: Meta<StoryProps> = {
   title: 'Components/Layout/Box',
   component: BoxBase,
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
   argTypes: {
     display: {
       control: 'select',
       options: ['block', 'flex', 'grid', 'inline', 'inline-block', 'inline-flex', 'inline-grid', 'none'],
+      description: "Sets the CSS `display` property. Determines the box's layout behavior.",
     },
     alignSelf: {
       control: 'select',
       options: ['auto', 'flex-start', 'flex-end', 'center', 'stretch'],
+      description: "Overrides the parent's `alignItems` for this specific child (flex or grid).",
     },
     alignItems: {
       control: 'select',
