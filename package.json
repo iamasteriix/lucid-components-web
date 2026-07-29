@@ -1,6 +1,7 @@
 {
   "name": "@skyline-uikit",
   "private": false,
+  "description": "Design beautiful products for everyone.",
   "scripts": {
     "dev:web": "docker compose up -d uikit-web",
     "dev:native": "docker compose up -d uikit-native",

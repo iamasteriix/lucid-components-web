@@ -1,1 +1,1 @@
-# Skyline UI Kit - Web
+# Lucid UI Kit - Web

@@ -4,10 +4,10 @@ This document defines the tokens, rules, conventions, and boundaries of the proj
 
 ## Design tokens
 
-```tsx
-// src/tokens/theme.ts
-// @see src/context/ThemeProvider.tsx for how these are injected as CSS variables
-export const colorTokens = {
+```ts
+// src/theme/tokens.ts
+// @see ./provider.tsx for how these are injected as CSS variables
+const colorTokens = {
   primary: '#eeeeee',
   primaryHover: '#c9c9c9',
   primaryActive: '#a1a1a1',
@@ -46,71 +46,96 @@ export const colorTokens = {
 } as const;
 
 // Font stacks, size scale, weights, and line heights
-export const typographyTokens = {
-  fontSans:  "'DM Sans', 'Inter', system-ui, sans-serif",
-  fontMono:  "'JetBrains Mono', 'Fira Code', monospace",
+const typographyTokens = {
+  fontSans: "'DM Sans', 'Inter', system-ui, sans-serif",
+  fontMono: "'JetBrains Mono', 'Fira Code', monospace",
   fontSerif: "'Lora', 'Georgia', serif",
-  textXs:   '.75rem',
-  textSm:   '.875rem',
+  textXs: '.75rem',
+  textSm: '.875rem',
   textBase: '1rem',
-  textLg:   '1.125rem',
-  textXl:   '1.25rem',
-  text2xl:  '1.5rem',
-  text3xl:  '1.875rem',
-  text4xl:  '2.25rem',
-  weightLight:    '300',
-  weightRegular:  '400',
-  weightMedium:   '500',
+  textLg: '1.125rem',
+  textXl: '1.25rem',
+  text2xl: '1.5rem',
+  text3xl: '1.875rem',
+  text4xl: '2.25rem',
+  weightLight: '300',
+  weightRegular: '400',
+  weightMedium: '500',
   weightSemibold: '600',
-  weightBold:     '700',
-  leadingTight:   '1.25',
-  leadingSnug:    '1.375',
-  leadingNormal:  '1.5',
+  weightBold: '700',
+  leadingTight: '1.25',
+  leadingSnug: '1.375',
+  leadingNormal: '1.5',
   leadingRelaxed: '1.625',
 } as const;
 
-// Base-4 scale, used for padding, margin, and gap
-export const spacingTokens = {
-  space1:  '.25rem',
-  space2:  '.5rem',
-  space3:  '.75rem',
-  space4:  '1rem',
-  space5:  '1.25rem',
-  space6:  '1.5rem',
-  space8:  '2rem',
+// Distance around and between component and layout elements
+const spacingTokens = {
+  space0: '0px',
+  space1: '.25rem',
+  space2: '.5rem',
+  space3: '.75rem',
+  space4: '1rem',
+  space5: '1.25rem',
+  space6: '1.5rem',
+  space8: '2rem',
   space10: '2.5rem',
   space12: '3rem',
   space16: '4rem',
+  space18: '4.5rem',
+  space20: '5rem',
+  space24: '6rem',
+  space28: '7rem',
+  space32: '8rem',
+  space36: '9rem',
 } as const;
 
-// Border radius scale from sharp to fully rounded
-export const radiiTokens = {
+const shapeTokens = {
   radiusNone: '0px',
-  radiusSm:   '4px',
-  radiusMd:   '8px',
-  radiusLg:   '12px',
-  radiusXl:   '16px',
-  radius2xl:  '24px',
+  radiusSm: '4px',
+  radiusMd: '8px',
+  radiusLg: '12px',
+  radiusXl: '16px',
+  radius2xl: '24px',
   radiusFull: '9999px',
+  strokeLight: '.5px',
+  strokeMedium: '1px',
+  strokeSemiBold: '2px',
+  strokeBold: '3px',
 } as const;
 
 // Elevation scale for depth and layering
-export const shadowTokens = {
-  shadowSm: '0 1px 3px rgba(52, 52, 52, .4)',
-  shadowMd: '0 4px 12px rgba(52, 52, 52, .5)',
-  shadowLg: '0 12px 32px rgba(52, 52, 52, .6)',
-  shadowXl: '0 24px 64px rgba(52, 52, 52, .7)',
+const elevationTokens = {
+  shadowSm: '0 1px 4px rgba(52, 52, 52, .27)',
+  shadowMd: '0 4px 12px rgba(52, 52, 52, .36)',
+  shadowLg: '0 12px 32px rgba(52, 52, 52, .45)',
+  level0: 0,
+  level1: 10,
+  level2: 20,
+  level3: 30,
+  level4: 60,
+  level5: 90,
 } as const;
 
-// Glassmorphism
+// Duration and easing presets for consistent motion
+const motionTokens = {
+  durationFast: '100ms',
+  durationBase: '180ms',
+  durationSlow: '320ms',
+  easingDefault: 'cubic-bezier(.4, 0, .2, 1)',
+  easingBounce: 'cubic-bezier(.34, 1.56, .64, 1)',
+} as const;
+
+// Transluscent surfaces meant to sit over bgBase/bgSurface, combined with backdrop-filter, blur, and saturate
 const glassTokens = {
-  bgFaint: 'rgba(238, 238, 238, .03)',
-  bgSubtle: 'rgba(238, 238, 238, .06)',
-  bgDefault: 'rgba(238, 238, 238, .09)',
-  bgStrong: 'rgba(238, 238, 238, .12)',
+  neutralFaint: 'rgba(238, 238, 238, .03)',
+  neutralSubtle: 'rgba(238, 238, 238, .06)',
+  neutralDefault: 'rgba(238, 238, 238, .09)',
+  neutralStrong: 'rgba(238, 238, 238, .12)',
   accentFaint: 'rgba(48, 219, 18, .03)',
-  accentSubtle: 'rgba(48, 219, 18, .09)',
-  accentDefault: 'rgba(48, 219, 18, .12)',
+  accentSubtle: 'rgba(48, 219, 18, .06)',
+  accentDefault: 'rgba(48, 219, 18, .09)',
+  accentStrong: 'rgba(48, 219, 18, .12)',
   border: 'rgba(238, 238, 238, .18)',
   borderTop: 'rgba(238, 238, 238, .36)',
   borderInner: 'rgba(18, 18, 18, .3)',
@@ -123,13 +148,15 @@ const glassTokens = {
   shadowLg: '0 18px 45px rgba(0, 0, 0, .54), inset 0 1px 0 rgba(238, 238, 238, .18)',
 };
 
-// Duration and easing presets for consistent motion
-export const transitionTokens = {
-  durationFast:  '100ms',
-  durationBase:  '180ms',
-  durationSlow:  '320ms',
-  easingDefault: 'cubic-bezier(.4, 0, .2, 1)',
-  easingBounce:  'cubic-bezier(.34, 1.56, .64, 1)',
+// Pass a partial override to ThemeProvider to customize
+export const designTokens = {
+  colors: colorTokens,
+  typography: typographyTokens,
+  spacing: spacingTokens,
+  shape: shapeTokens,
+  elevation: elevationTokens,
+  motion: motionTokens,
+  glass: glassTokens,
 } as const;
 ```
 ---
@@ -139,10 +166,11 @@ export const transitionTokens = {
 ## Base component types
 
 ```ts
-// src/components/components.types.ts
-export type Size = 'sm' | 'md' | 'lg';
-export type Variant = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
-export type Appearance = 'filled' | 'tonal' | 'outlined' | 'ghost';
+// src/types/index.ts
+type SpaceType = 'space-0' | 'space-1' | 'space-2' | 'space-3' | 'space-4' | 'space-5' | 'space-6' | 'space-8' | 'space-10' | 'space-12' | 'space-16' | 'space-18' | 'space-20' | 'space-24' | 'space-28' | 'space-32' | 'space-36';
+type FitType = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
+type IntentType = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
+type AppearanceType = 'filled' | 'outlined' | 'tonal' | 'elevated' | 'ghost';
 export type TagBaseProps = {
   style?: CSSProperties;
   className?: string;
@@ -160,6 +188,18 @@ export type ResponsiveProp<T = string | number> = T[] | { [breakpoint: string]: 
 
 
 
+## Core Responsive types
+
+```ts
+// packages/core/src/responsive/types.ts
+export type BreakpointType = 'compact' | 'medium' | 'regular' | 'large' | 'extended' | 'ultra' | 'cinema';
+export type Breakpoints = Record<BreakpointType, number>;
+export type BreakpointOptions <T> = Partial<Record<BreakpointType, T>>;
+export type ResponsiveProp <T = string | number> = T | T[] | BreakpointOptions<T>;
+```
+
+
+
 ## CSS conventions
 
 ### Property ordering (outside-in):
@@ -168,16 +208,9 @@ export type ResponsiveProp<T = string | number> = T[] | { [breakpoint: string]: 
 3. Typography — `font-family`, `font-size`, `font-weight`, `line-height`, `white-space`, `text-align`, `color`
 4. Visual / decoration — `background-color`, `box-shadow`, `opacity`, `cursor`, `user-select`, `transition`, `animation`
 **Other rules:**
-- BEM class composition — no `data-*` attribute selectors
+- BEM class composition preferred
 - CSS custom properties only — no hardcoded values
 - Token naming: `--spacing-space4`, `--colors-primary`, `--radii-radiusMd`, `--typography-textSm`, `--transitions-durationFast`, `--transitions-easingDefault`
-
-### Variant and appearance system
-All interactive components share these unions:
-```ts
-type Variant = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
-type Appearance = 'filled' | 'outlined' | 'tonal' | 'elevated' | 'ghost';
-```
 
 ### Hover/active patterns — two systems:
 - `primary`, `secondary`, `accent`, `neutral` → explicit `*Hover` / `*Active` tokens
@@ -199,27 +232,6 @@ type Appearance = 'filled' | 'outlined' | 'tonal' | 'elevated' | 'ghost';
 ```css
 :hover  { background-color: color-mix(in srgb, currentColor 8%, transparent); box-shadow: var(--shadows-shadowLg); }
 :active { background-color: color-mix(in srgb, currentColor 16%, transparent); box-shadow: var(--shadows-shadowSm); }
-```
-
-### Design tokens (abbreviated — key ones)
-```txt
-# Colors
-  primary / primaryHover / primaryActive / primarySubtle
-  secondary / secondaryHover / secondaryActive / secondarySubtle
-  accent / accentHover / accentActive / accentSubtle
-  neutral / neutralHover / neutralActive / neutralSubtle
-  info / infoSubtle
-  success / successSubtle
-  warning / warningSubtle
-  error / errorSubtle
-  bgBase / bgSurface / bgElevated / bgOverlay
-  textPrimary / textSecondary / textDisabled / textInverse
-  borderSubtle / borderDefault / borderStrong
-# Spacing: space1 (.25rem) → space16 (4rem)
-# Radii: radiusNone → radiusFull
-# Typography: textXs → text4xl, weightLight → weightBold, leadingTight → leadingRelaxed
-# Shadows: shadowSm → shadowXl
-# Transitions: durationFast/Base/Slow, easingDefault/Bounce
 ```
 ---
 

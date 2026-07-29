@@ -5,4 +5,45 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Getting Started
 
-Design beautiful products for everyone.
+Lucid Design enables you to express yourself across web and mobile and give your audience a consistent and familiar experience.
+
+Install the Lucid UI web components and start building.
+```bash
+npm install @lucid-ui/web
+```
+
+
+## Your first component
+The `AppShell` accepts an optional `theme` prop for customization.
+
+### Theme System
+Pass a partial object to `AppShell`. Only the tokens you provide are overridden; the rest fall back to the defaults.
+```tsx
+import { AppShell } from '@lucid-ui/web';
+
+const theme = {
+  colors: {
+    primary: '#ff6b6b',
+    accent: '#4ecdc4',
+    error: '#f44336',
+  },
+  typography: {
+    textBase: '1.125rem',
+    weightBold: '800',
+  },
+  spacing: {
+    space4: '1.25rem',
+    space8: '2.5rem',
+  },
+};
+
+const Root = () => {
+  return (
+    <AppShell theme={ theme }>
+      <App/>
+    </AppShell>
+  );
+}
+```
+
+Once you your app under the `AppShell`, you can use any component from the library. All layout, spacing, and visual props are token‑constrained, and you get autocomplete and type safety for every value.

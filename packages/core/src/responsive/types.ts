@@ -1,8 +1,7 @@
-export type Breakpoint = 'bp1' | 'bp2' | 'bp3' | 'bp4' | 'bp5' | 'bp6';
+export type BreakpointType = 'compact' | 'medium' | 'regular' | 'large' | 'extended' | 'ultra' | 'cinema';
 
-export type Breakpoints = Record<Breakpoint, number>;
+export type Breakpoints = Record<BreakpointType, number>;
 
-export type ResponsiveProp <T> = 
-  | T
-  | T[]
-  | Partial<Record<Breakpoint, T>>;
+export type BreakpointOptions <T> = Partial<Record<BreakpointType, T>>;
+
+export type ResponsiveProp <T = string | number> = T | T[] | BreakpointOptions<T>;

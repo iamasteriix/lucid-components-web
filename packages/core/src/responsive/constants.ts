@@ -1,17 +1,18 @@
-import { Breakpoint, Breakpoints } from "./types";
+import { BreakpointType, Breakpoints } from "./types";
 
 
 
 export const defaultBreakpoints: Breakpoints = {
-  bp1: 480,
-  bp2: 640,
-  bp3: 768,
-  bp4: 1024,
-  bp5: 1280,
-  bp6: 1536,
+  compact: 480,
+  medium: 640,
+  regular: 768,
+  large: 1024,
+  extended: 1280,
+  ultra: 1536,
+  cinema: 1920,
 };
 
-export const breakpointList: Breakpoint[] = ['bp1', 'bp2', 'bp3', 'bp4', 'bp5', 'bp6'];
+export const breakpointList: BreakpointType[] = ['cinema', 'compact', 'extended', 'large', 'medium', 'regular', 'ultra'];
 
 export const breakpointsSorted = breakpointList.map(breakpoint => ({ key: breakpoint, value: defaultBreakpoints[breakpoint], }))
   .sort((a, b) => a.value - b.value);

@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
-import { designTokens, } from "@/theme";
 import { create } from "storybook/theming";
+import { designTokens, } from "@/theme";
 import { DocsContainer } from "./docs-container";
 import "../src/index.css";
 
@@ -15,14 +15,21 @@ const preview: Preview = {
       container: DocsContainer,
       theme: create({
         base: 'dark',
-        brandTitle: 'Skyline Design',
-        colorPrimary: designTokens.colors.primary,
+        brandTitle: 'Lucid Design',
+        brandImage: '/logo.ico',
+        colorPrimary: designTokens.colors.textPrimary,
+        colorSecondary: designTokens.colors.textSecondary,
         appBg: designTokens.colors.bgBase,
+        appContentBg: designTokens.colors.bgSurface,
+        appBorderColor: designTokens.colors.borderDefault,
+        textColor: designTokens.colors.textPrimary,
+        fontBase: designTokens.typography.fontSans,
+        fontCode: designTokens.typography.fontMono,
       }),
     },
     backgrounds: {
       options: {
-        dark: { name: 'Dark', value: designTokens.colors.bgBase, },
+        dark: { name: 'Moonsong', value: designTokens.colors.bgBase, },
       },
     },
     controls: {
@@ -35,7 +42,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Getting Started', 'Design Tokens', '*'],
+        order: ['Getting Started', '*'],
       },
     },
   },

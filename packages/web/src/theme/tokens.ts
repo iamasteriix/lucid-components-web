@@ -39,10 +39,10 @@ const colorTokens = {
   textDisabled:  '#424242',
   textInverse:   '#212121',
 
-  // --- Borders ---
-  borderSubtle:  'rgba(238, 238, 238, .12)',
-  borderDefault: 'rgba(238, 238, 238, .17)',
-  borderStrong:  'rgba(238, 238, 238, .27)',
+  // --- Strokes ---
+  strokeSubtle:  'rgba(238, 238, 238, .12)',
+  strokeDefault: 'rgba(238, 238, 238, .17)',
+  strokeStrong:  'rgba(238, 238, 238, .27)',
 
   // --- Semantic ---
   info:          '#3b82f6',
@@ -91,9 +91,10 @@ const typographyTokens = {
 
 
 /**
- * Base-4 scale, used for padding, margin, and gap
+ * Distance around and between component and layout elements
  */
 const spacingTokens = {
+  space0:  '0px',
   space1:  '.25rem',
   space2:  '.5rem',
   space3:  '.75rem',
@@ -104,38 +105,56 @@ const spacingTokens = {
   space10: '2.5rem',
   space12: '3rem',
   space16: '4rem',
+  space18: '4.5rem',
+  space20: '5rem',
+  space24: '6rem',
+  space28: '7rem',
+  space32: '8rem',
+  space36: '9rem',
 } as const;
 
 
-/**
- * Border radius scale from sharp to fully rounded
- */
-const radiiTokens = {
-  radiusNone: '0px',
-  radiusSm:   '4px',
-  radiusMd:   '8px',
-  radiusLg:   '12px',
-  radiusXl:   '16px',
-  radius2xl:  '24px',
-  radiusFull: '9999px',
+const shapeTokens = {
+  // -- border radius scale ---
+  radiusDefault:  '24px',
+  radiusSm:       '4px',
+  radiusMd:       '8px',
+  radiusLg:       '12px',
+  radiusXl:       '16px',
+  radius2xl:      '24px',
+  radiusFull:     '9999px',
+
+  // -- stroke weight ---
+  strokeLight:    '.5px',
+  strokeMedium:   '1px',
+  strokeSemiBold: '2px',
+  strokeBold:     '3px',
 } as const;
 
 
 /**
  * Elevation scale for depth and layering
  */
-const shadowTokens = {
-  shadowSm: '0 1px 3px rgba(52, 52, 52, .4)',
-  shadowMd: '0 4px 12px rgba(52, 52, 52, .5)',
-  shadowLg: '0 12px 32px rgba(52, 52, 52, .6)',
-  shadowXl: '0 24px 64px rgba(52, 52, 52, .7)',
+const elevationTokens = {
+  // -- shadows ---
+  shadowSm: '0 1px 4px rgba(52, 52, 52, .27)',
+  shadowMd: '0 4px 12px rgba(52, 52, 52, .36)',
+  shadowLg: '0 12px 32px rgba(52, 52, 52, .45)',
+
+  // -- elevation ---
+  level0: 0,
+  level1: 10,
+  level2: 20,
+  level3: 30,
+  level4: 60,
+  level5: 90,
 } as const;
 
 
 /**
  * Duration and easing presets for consistent motion
  */
-const transitionTokens = {
+const motionTokens = {
   durationFast:  '100ms',
   durationBase:  '180ms',
   durationSlow:  '320ms',
@@ -151,28 +170,29 @@ const transitionTokens = {
  */
 const glassTokens = {
   // --- surface fills ---
-  bgFaint: 'rgba(238, 238, 238, .03)',
-  bgSubtle: 'rgba(238, 238, 238, .06)',
-  bgDefault: 'rgba(238, 238, 238, .09)',
-  bgStrong: 'rgba(238, 238, 238, .12)',
+  neutralFaint:   'rgba(238, 238, 238, .03)',
+  neutralSubtle:  'rgba(238, 238, 238, .06)',
+  neutralDefault: 'rgba(238, 238, 238, .09)',
+  neutralStrong:  'rgba(238, 238, 238, .12)',
 
   // --- accent-tinted glass ---
-  accentFaint: 'rgba(48, 219, 18, .03)',
-  accentSubtle: 'rgba(48, 219, 18, .09)',
-  accentDefault: 'rgba(48, 219, 18, .12)',
+  accentFaint:    'rgba(48, 219, 18, .03)',
+  accentSubtle:   'rgba(48, 219, 18, .06)',
+  accentDefault:  'rgba(48, 219, 18, .09)',
+  accentStrong:   'rgba(48, 219, 18, .12)',
 
   // --- borders: brighter than border tokens since glass edges catch light ---
-  border: 'rgba(238, 238, 238, .18)',
-  borderTop: 'rgba(238, 238, 238, .36)',
-  borderInner: 'rgba(18, 18, 18, .3)', // opposite of top highlight
+  border:       'rgba(238, 238, 238, .18)',
+  borderTop:    'rgba(238, 238, 238, .36)',
+  borderInner:  'rgba(18, 18, 18, .3)', // opposite of top highlight
 
   // --- backdrop filter ---
-  blurSm: '9px',
-  blurMd: '18px',
-  blurLg: '27px',
+  blurSm:   '9px',
+  blurMd:   '18px',
+  blurLg:   '27px',
   saturate: '162%',
 
-  // --- shadows: layered like the default shadow tokens ---
+  // --- shadows: layered like the elevation shadow tokens ---
   shadowSm: '0 3px 18px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(238, 238, 238, .09)',
   shadowMd: '0 9px 36px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(238, 238, 238, .12)',
   shadowLg: '0 18px 45px rgba(0, 0, 0, .54), inset 0 1px 0 rgba(238, 238, 238, .18)',
@@ -184,11 +204,11 @@ const glassTokens = {
  * Pass a partial override to ThemeProvider to customize
 */
 export const designTokens = {
-  colors:       colorTokens,
-  typography:   typographyTokens,
-  spacing:      spacingTokens,
-  radii:        radiiTokens,
-  shadows:      shadowTokens,
-  transitions:  transitionTokens,
-  glass:        glassTokens,
+  colors:     colorTokens,
+  typography: typographyTokens,
+  spacing:    spacingTokens,
+  shape:      shapeTokens,
+  elevation:  elevationTokens,
+  motion:     motionTokens,
+  glass:      glassTokens,
 } as const;

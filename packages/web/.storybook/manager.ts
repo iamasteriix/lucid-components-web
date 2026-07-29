@@ -6,11 +6,11 @@ import { designTokens } from "../src/theme";
 addons.setConfig({
   theme: create({
     base: 'dark',
-    brandTitle: 'Skyline Design',
+    brandTitle: 'Lucid Design',
     brandUrl: 'https://developers.ninespace.app/design/',
     brandTarget: '_self',
-    colorPrimary: designTokens.colors.primary,
-    colorSecondary: designTokens.colors.secondary,
+    colorPrimary: designTokens.colors.textPrimary,
+    colorSecondary: designTokens.colors.textSecondary,
     appBg: designTokens.colors.bgBase,
     appContentBg: designTokens.colors.bgSurface,
     appBorderColor: designTokens.colors.borderDefault,

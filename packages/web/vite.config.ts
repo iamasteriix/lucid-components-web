@@ -18,7 +18,7 @@ export default defineConfig ({
     /** Library entry — all public exports flow through here */
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'SkylineUIKitReact',
+      name: 'LucidUIKitReact',
       formats: ['es', 'cjs'],
       fileName: format => `index.${format}.js`, // outputs dist/index.es.js, dist/index.cjs.js
     },

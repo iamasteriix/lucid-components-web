@@ -1,2 +1,4 @@
+export type { BreakpointType, ResponsiveProp, } from "./types";
+
 export { useDeviceBreakpoints } from "./useDeviceBreakpoints.web";
-export { resolveLayoutStyles } from "./resolve-layout";
+export { resolveBreakpointSx } from "./resolve-breakpoint";

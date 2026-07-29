@@ -1,11 +1,11 @@
-import type { Breakpoint, ResponsiveProp } from "./types";
+import type { BreakpointOptions, BreakpointType, ResponsiveProp } from "./types";
 import { breakpointList } from "./constants";
 
 
 
-export const resolveLayoutStyles = <T>(
+export const resolveBreakpointSx = <T>(
   prop: ResponsiveProp<T>,
-  breakpoint?: Breakpoint,
+  breakpoint: BreakpointType,
 ): T | undefined => {
   if (prop === undefined || prop === null) return undefined;
 
@@ -21,10 +21,10 @@ export const resolveLayoutStyles = <T>(
 
   // search object map fallback
   if (breakpoint === undefined) return undefined;
-  const record: Partial<Record<Breakpoint, T>> = prop;
+  const record: BreakpointOptions<T> = prop;
   const len = breakpointList.length -1;
   for (let i = len; i >= 0; i--) {
-    const key: Breakpoint = breakpointList[i];
+    const key: BreakpointType = breakpointList[i];
     const value = record[key];
     if (value !== undefined) return value;
   }

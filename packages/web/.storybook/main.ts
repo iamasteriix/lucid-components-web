@@ -14,7 +14,7 @@ const config: StorybookConfig = {
     disableTelemetry: true,
   },
   docs: {
-    defaultName: 'Skyline Design',
+    defaultName: 'Lucid Design',
     docsMode: true,
   },
 };

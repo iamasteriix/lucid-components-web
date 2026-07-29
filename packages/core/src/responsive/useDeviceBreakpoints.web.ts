@@ -1,13 +1,13 @@
-import type { Breakpoint } from "./types";
+import type { BreakpointType } from "./types";
 import { useLayoutEffect, useMemo, useState } from "react";
 import { breakpointsSorted, } from "./constants";
 
 
 
-const getCurrentBreakpoint = (width?: number): Breakpoint | undefined => {
+const getCurrentBreakpoint = (width?: number): BreakpointType | undefined => {
   if (width === undefined) return undefined;
 
-  let current: Breakpoint = 'bp6';
+  let current: BreakpointType = 'cinema';
   let capacity = breakpointsSorted.length -1;
   for (let i = capacity; i >= 0; i--) {
     if (width >= breakpointsSorted[i].value) {
@@ -48,7 +48,5 @@ export const useDeviceBreakpoints = () => {
     return getCurrentBreakpoint(width);
   }, [width]);
 
-  const device = breakpoint && ['bp1', 'bp2', 'bp3'].includes(breakpoint) ? 'mobile' : 'desktop';
-
-  return { breakpoint, device, };
+  return { breakpoint, };
 }

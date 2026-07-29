@@ -1,1 +1,6 @@
-export { resolveLayoutStyles, useDeviceBreakpoints, } from "@/responsive";
+export {
+  type BreakpointType,
+  type ResponsiveProp,
+  resolveBreakpointSx,
+  useDeviceBreakpoints,
+} from "@/responsive";

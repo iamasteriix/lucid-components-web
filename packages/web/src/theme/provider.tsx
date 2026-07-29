@@ -9,16 +9,16 @@ import { ThemeContext } from "./context";
  * Merges a partial theme override with the default tokens.
  * Only one level of nesting — we merge per category, not recursively.
  */
-function resolveTheme (override?: ThemeOverride): Tokens {
+const resolveTheme = (override?: ThemeOverride): Tokens => {
   if (!override) return designTokens;
   return {
-    colors:       { ...designTokens.colors,       ...override.colors },
-    typography:   { ...designTokens.typography,   ...override.typography },
-    spacing:      { ...designTokens.spacing,      ...override.spacing },
-    radii:        { ...designTokens.radii,        ...override.radii },
-    shadows:      { ...designTokens.shadows,      ...override.shadows },
-    transitions:  { ...designTokens.transitions,  ...override.transitions },
-    glass:        { ...designTokens.glass,        ...override.glass, },
+    colors:     { ...designTokens.colors,     ...override.colors, },
+    typography: { ...designTokens.typography, ...override.typography, },
+    spacing:    { ...designTokens.spacing,    ...override.spacing, },
+    shape:      { ...designTokens.shape,      ...override.shape, },
+    elevation:  { ...designTokens.elevation,  ...override.elevation, },
+    motion:     { ...designTokens.motion,     ...override.motion, },
+    glass:      { ...designTokens.glass,      ...override.glass, },
   }
 }
 
@@ -29,7 +29,7 @@ function resolveTheme (override?: ThemeOverride): Tokens {
  * and injects them onto a wrapping div.
  * e.g. colors.primary -> --colors-primary
  */
-function toCSSVariables(tokens: Tokens): Record<string, string> {
+const toCSSVariables = (tokens: Tokens): Record<string, string> => {
   return Object
     .entries(tokens)
     .reduce((acc, [category, values]) => {
@@ -50,11 +50,11 @@ function toCSSVariables(tokens: Tokens): Record<string, string> {
  */
 export function ThemeProvider({ theme, children }: ThemeProviderProps) {
   const resolved = useMemo(() => resolveTheme(theme), [theme])
-  const cssVars  = useMemo(() => toCSSVariables(resolved), [resolved])
+  const cssVars: CSSProperties = useMemo(() => toCSSVariables(resolved), [resolved])
 
   return (
     <ThemeContext.Provider value={ resolved }>
-      <div style={ cssVars as CSSProperties }>
+      <div style={ cssVars }>
         { children }
       </div>
     </ThemeContext.Provider>
