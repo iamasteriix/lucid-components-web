@@ -21,7 +21,7 @@ const preview: Preview = {
         colorSecondary: designTokens.colors.textSecondary,
         appBg: designTokens.colors.bgBase,
         appContentBg: designTokens.colors.bgSurface,
-        appBorderColor: designTokens.colors.borderDefault,
+        appBorderColor: designTokens.colors.strokeDefault,
         textColor: designTokens.colors.textPrimary,
         fontBase: designTokens.typography.fontSans,
         fontCode: designTokens.typography.fontMono,
