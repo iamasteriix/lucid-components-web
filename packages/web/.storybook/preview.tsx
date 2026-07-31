@@ -6,6 +6,8 @@ import "../src/index.css";
 
 
 
+const { colors, typography, } = designTokens;
+
 const preview: Preview = {
   initialGlobals: {
     backgrounds: { value: 'dark', },
@@ -16,15 +18,34 @@ const preview: Preview = {
       theme: create({
         base: 'dark',
         brandTitle: 'Lucid Design',
+        brandUrl: '/',
         brandImage: '/logo.ico',
-        colorPrimary: designTokens.colors.textPrimary,
-        colorSecondary: designTokens.colors.textSecondary,
-        appBg: designTokens.colors.bgBase,
-        appContentBg: designTokens.colors.bgSurface,
-        appBorderColor: designTokens.colors.strokeDefault,
-        textColor: designTokens.colors.textPrimary,
-        fontBase: designTokens.typography.fontSans,
-        fontCode: designTokens.typography.fontMono,
+        brandTarget: '_self',
+        colorPrimary: colors.primary,
+        colorSecondary: colors.primaryHover,
+        appBg: colors.bgBase,
+        appContentBg: colors.bgSurface,
+        appHoverBg: colors.secondaryHover,
+        appPreviewBg: colors.primarySubtle,
+        appBorderColor: colors.strokeDefault,
+        appBorderRadius: 24,
+        fontBase: typography.fontSans,
+        fontCode: typography.fontMono,
+        textColor: colors.textPrimary,
+        textInverseColor: colors.textInverse,
+        textMutedColor: colors.textSecondary,
+        barTextColor: colors.textPrimary,
+        barHoverColor: colors.primaryHover,
+        barSelectedColor: colors.primaryActive,
+        barBg: colors.bgElevated,
+        buttonBg: colors.primarySubtle,
+        buttonBorder: colors.primarySubtle,
+        booleanBg: colors.bgOverlay,
+        booleanSelectedBg: colors.bgElevated,
+        inputBg: colors.bgSurface,
+        inputBorder: colors.strokeSubtle,
+        inputTextColor: colors.textPrimary,
+        inputBorderRadius: 24,
       }),
     },
     backgrounds: {
@@ -37,7 +58,7 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
-      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid',],
+      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid', 'sx'],
     },
     options: {
       storySort: {

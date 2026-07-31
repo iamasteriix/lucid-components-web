@@ -36,7 +36,7 @@ const colorTokens = {
   // --- Text ---
   textPrimary:   '#eeeeee',
   textSecondary: '#9e9e9e',
-  textDisabled:  '#424242',
+  textMuted:     '#424242',
   textInverse:   '#212121',
 
   // --- Strokes ---
@@ -182,9 +182,9 @@ const glassTokens = {
   accentStrong:   'rgba(48, 219, 18, .12)',
 
   // --- borders: brighter than border tokens since glass edges catch light ---
-  border:       'rgba(238, 238, 238, .18)',
-  borderTop:    'rgba(238, 238, 238, .36)',
-  borderInner:  'rgba(18, 18, 18, .3)', // opposite of top highlight
+  border:       '1px solid rgba(238, 238, 238, .18)',
+  borderTop:    '1px solid rgba(238, 238, 238, .36)',
+  borderInner:  '1px solid rgba(18, 18, 18, .3)', // opposite of top highlight
 
   // --- backdrop filter ---
   blurSm:   '9px',

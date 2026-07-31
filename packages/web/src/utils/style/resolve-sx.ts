@@ -20,6 +20,10 @@ const spaceOrFitKeys = new Set([
   'gap',
 ]);
 
+const borderWidthKeys = new Set<keyof SxProps>([
+  'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth',
+]);
+
 const passthroughKeys = new Set([
   'display', 'alignSelf', 'alignItems', 'justifySelf', 'justifyContent',
   'order', 'overflow', 'position', 'flex', 'flexDirection', 'flexWrap', 'flexGrow', 'flexShrink',
@@ -30,10 +34,9 @@ const passthroughKeys = new Set([
 
 const resolveSxValue = (
   key: keyof SxProps,
-  value: unknown,
+  value: any,
 ): PropValue => {
   if (value === undefined || value === null) return undefined;
-  if (typeof value !== 'string' || typeof value !== 'number') return undefined;
 
   // map to spacing or fit
   if (spaceOrFitKeys.has(key)) {
@@ -51,7 +54,9 @@ const resolveSxValue = (
     if (value in sxStrokeColor) return sxStrokeColor[value as SxStrokeColor];
   }
   if (key === 'borderRadius') return sxRadiusMap[value as SxRadius];
-  if (key === 'borderWidth') return sxStrokeWeightMap[value as SxStrokeWeight];
+
+  // the implications of adding this single edge case are making me sick
+  if (borderWidthKeys.has(key)) return sxStrokeWeightMap[value as SxStrokeWeight];
 
   // handle grid
   if (key === 'gridColumn' || key === 'gridRow') {
@@ -69,9 +74,11 @@ const resolveSxValue = (
 
 
 export const resolveSx = (
-  sx: SxProps,
-  breakpoint: BreakpointType,
+  sx?: SxProps,
+  breakpoint?: BreakpointType,
 ): CSSProperties => {
+  if (sx === undefined || sx === null) return {} as CSSProperties;
+  if (breakpoint === undefined || breakpoint === null) return {} as CSSProperties;
 
   const styles: Record<string, PropValue> = {};
 

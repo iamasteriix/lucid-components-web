@@ -41,6 +41,8 @@ export type SxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
 
 export type SxPosition = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
+export type SxElevation = 'level-0' | 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5';
+
 // cosmetic choice
 export type SxSpace =
   | 'space-0' | 'space-1' | 'space-2' | 'space-3'
@@ -60,8 +62,6 @@ export type SxStrokeWeight = 'none' | 'light' | 'medium' | 'semi-bold' | 'bold';
 export type SxStrokeColor = 'subtle' | 'default' | 'strong';
 
 export type SxRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
-
-export type SxElevation = 'level-0' | 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5';
 
 export type SxProps = {
   // -- layout: base ---
@@ -111,9 +111,15 @@ export type SxProps = {
   left?: ResponsiveProp<SxSpace | 'auto'>;
   gap?: ResponsiveProp<SxSpace>;
 
-  // -- decorations ---
+  // -- decorations: background ---
   backgroundColor?: SxIntent;
-  borderRadius?: ResponsiveProp<SxRadius>;
+  
+  // -- decorations: border ---
   borderWidth?: ResponsiveProp<SxStrokeWeight>;
+  borderTopWidth?: ResponsiveProp<SxStrokeWeight>;
+  borderRightWidth?: ResponsiveProp<SxStrokeWeight>;
+  borderBottomWidth?: ResponsiveProp<SxStrokeWeight>;
+  borderLeftWidth?: ResponsiveProp<SxStrokeWeight>;
+  borderRadius?: ResponsiveProp<SxRadius>;
   borderColor?: SxIntent | SxStrokeColor;
 };

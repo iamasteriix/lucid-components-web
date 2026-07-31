@@ -16,7 +16,6 @@ type AsProp <C extends ElementType> = { as?: C; };
 
 export type TagBaseProps = {
   style?: CSSProperties;
-  className?: string;
   children?: ReactNode;
   'data-testid'?: string;
 };

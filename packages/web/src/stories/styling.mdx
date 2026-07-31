@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+
+<Meta title='Styling'/>
+
+# Styling
+<br/>
+
+### The `sx` prop
+
+Lucid Moonsong provides a deliberately limited `sx` prop for defining custom styles that have access to your theme. The constraint is meant to guide and enhance design system's minimalist tone, which in turn means that you need to make thoughtful decisions about the story your interfaces tell and its impact on the experiences of your audience.
+
+`SxStyles.create` provides a simplified interface to define and manage your component styles. In most IDEs, it will offer you static type checking and suggestions.
+
+```tsx
+import { SxStyles } from "@lucid-ui/web";
+
+const sxStyles = SxStyles.create({
+  width: 'auto',
+  height: 'space-16',
+  borderRadius: '2xl',
+});
+```
+
+### Vanilla CSS
+Lucid Design components include a `style` prop that accepts any valid CSS values. However, it exists solely for one-off overrides that fall outside of the component's semantic props or `sx`'s styped surface. Use it sparingly, and only when the design system cannot express the needed visual.

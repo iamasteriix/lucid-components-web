@@ -1,0 +1,22 @@
+import { Meta, Canvas, Controls, } from "@storybook/addon-docs/blocks";
+import * as ViewStories from "./view.stories";
+
+
+<Meta
+  of={ ViewStories }
+  title='View'
+/>
+
+# View
+
+This is the fundamental component for building UI, and is designed to be multi-purpose and open-ended. It provides two mutually exclusive material that control how the surface is rendered: `'flat'` selects from the solid surface fills in your theme, while `'glass'` creates a translucent surface that is meant to float above your app content.
+<br/>
+
+
+A wide `'flat'` `View` with the base surface fill and a `'light'` border that wraps over a `'glass'` `View` with a `Text` component.
+
+<Canvas
+  of={ ViewStories.ViewFlat }
+  layout='padded'
+  withToolbar
+/>

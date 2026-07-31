@@ -167,10 +167,6 @@ export const designTokens = {
 
 ```ts
 // src/types/index.ts
-type SpaceType = 'space-0' | 'space-1' | 'space-2' | 'space-3' | 'space-4' | 'space-5' | 'space-6' | 'space-8' | 'space-10' | 'space-12' | 'space-16' | 'space-18' | 'space-20' | 'space-24' | 'space-28' | 'space-32' | 'space-36';
-type FitType = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
-type IntentType = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
-type AppearanceType = 'filled' | 'outlined' | 'tonal' | 'elevated' | 'ghost';
 export type TagBaseProps = {
   style?: CSSProperties;
   className?: string;
