@@ -1,18 +1,16 @@
-import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { IconProps } from "./icon";
 import { Search } from "@lucid-ui/icons";
-import { Icon as IconBase } from "./icon";
+import { Icon } from "./icon";
 
 
 
-type StoryProps = ComponentProps<typeof IconBase>;
-type Story = StoryObj<StoryProps>;
+type Story = StoryObj<IconProps>;
 
 
-const meta: Meta<StoryProps> = {
+const meta: Meta<IconProps> = {
   title: 'Components/Icon',
-  component: IconBase,
-  tags: ['autodocs'],
+  component: Icon,
   argTypes: {
     size: {
       control: 'select',
@@ -27,7 +25,7 @@ const meta: Meta<StoryProps> = {
 };
 
 
-export const Icon: Story = {
+export const IconOverview: Story = {
   args: {
     as: Search,
     size: 'md',

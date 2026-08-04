@@ -18,7 +18,7 @@ export default meta;
 
 
 export const ViewsLayered: Story = {
-  name: 'View - Glass layered over base',
+  name: 'View — Glass layered over base',
   render: (_: ViewProps) => (
     <View
       material='flat'

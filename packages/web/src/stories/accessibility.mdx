@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+
+
+<Meta title='Utilities/Accessibility'/>
+
+# Accessibility
+
+Lucid Design sets the foundation for inclusive product design with the `a11y` prop so approaching accessibility as a core design principle is a real cakewalk right out the gate.
+<br/>
+
+### `A11yRegistry`
+The `A11yRegistry` abstraction facilitates easy maintainability by centralizing the accessibility attributes away from the render function. It providea a `create` identity function that allows you to specify valid accessibility properties you can use in the `a11y` prop.
+
+```tsx
+import { A11yRegistry } from "@lucid-ui/web";
+
+const a11y = A11yRegistry.create({
+  button: {
+    role: 'button',
+    label: 'Submit form',
+  },
+});
+```
+
+Addressing accessibility as a first-class design process enhances your ability to anticipate, include, and respond to the needs of a wide diversity of individual abilities, which can encourage new ways of thinking about how to tell your product story.

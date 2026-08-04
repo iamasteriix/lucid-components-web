@@ -18,6 +18,7 @@ export type A11yProps = {
   role?: string;
   hint?: string;
   state?: A11yState;
+  hidden?: boolean;
 };
 
 

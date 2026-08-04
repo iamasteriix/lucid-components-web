@@ -11,7 +11,6 @@ type Story = StoryObj<StoryProps>;
 const meta: Meta<StoryProps> = {
   title: 'Components/Text',
   component: TextBase,
-  tags: ['autodocs'],
   argTypes: {
     font: {
       control: 'select',
@@ -31,7 +30,7 @@ const meta: Meta<StoryProps> = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'disabled', 'inverse', 'inherit'],
+      options: ['primary', 'secondary', 'muted', 'inverse', 'inherit'],
     },
     align: {
       control: 'select',
@@ -45,7 +44,8 @@ const meta: Meta<StoryProps> = {
 };
 
 
-export const Text: Story = {
+export const TextOverview: Story = {
+  name: 'Text — Overview',
   args: {
     font: 'sans',
     size: 'base',

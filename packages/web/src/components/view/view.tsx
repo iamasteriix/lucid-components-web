@@ -1,3 +1,4 @@
+import type { Ref } from "react";
 import type { SxElevation, } from "@/theme";
 import type { ElementBaseProps, } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
@@ -8,6 +9,7 @@ import styles from "./view.module.css";
 
 type BaseViewProps = ElementBaseProps & {
   elevation?: SxElevation;
+  ref?: Ref<HTMLDivElement>;
 };
 
 type FlatViewProps = BaseViewProps & {
@@ -39,6 +41,7 @@ export const View = ({
   style,
   children,
   testID,
+  ref,
 }: ViewProps) => {
   const { breakpoint, } = useDeviceBreakpoints();
 
@@ -60,6 +63,7 @@ export const View = ({
 
   return (
     <div
+      ref={ ref }
       className={ classes }
       style={ styleObj }
       data-component='view'

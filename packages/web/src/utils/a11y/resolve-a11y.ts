@@ -14,5 +14,6 @@ export const resolveA11y = (props?: A11yProps): object => {
       'aria-busy': props.state?.busy,
       'aria-expanded': props.state?.expanded,
       'aria-describedby': props.hint,
+      'aria-hidden': props.hidden,
     }).filter(([_, value]) => value !== null || value !== undefined));
 }
