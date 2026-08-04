@@ -1,31 +1,31 @@
 services:
   base:
-    image: skyline
+    image: lucid-ui
     build:
       context: .
       target: development
 
-  uikit-web:
-    image: skyline
+  web:
+    image: lucid-ui
     command: npm run dev --workspace=packages/web -- --host 0.0.0.0
     volumes:
       - .:/app
-      - uikit_web_root_modules:/app/node_modules/
-      - uikit_web_workspace_modules:/app/packages/web/node_modules/
+      - web_root_modules:/app/node_modules/
+      - web_workspace_modules:/app/packages/web/node_modules/
     ports:
       - "3001:3001"
 
-  uikit-native:
-    image: skyline
+  native:
+    image: lucid-ui
     volumes:
       - .:/app
-      - uikit_native_root_modules:/app/node_modules/
-      - uikit_native_workspace_modules:/app/packages/native/node_modules/
+      - native_root_modules:/app/node_modules/
+      - native_workspace_modules:/app/packages/native/node_modules/
     ports:
       - "4001:4001"
 
 volumes:
-  uikit_web_root_modules:
-  uikit_web_workspace_modules:
-  uikit_native_root_modules:
-  uikit_native_workspace_modules:
+  web_root_modules:
+  web_workspace_modules:
+  native_root_modules:
+  native_workspace_modules:

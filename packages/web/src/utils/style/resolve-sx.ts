@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
-import type { BreakpointType } from "@skyline-uikit/core";
+import type { BreakpointType } from "@lucid-ui/core";
 import type { SxFit, SxIntent, SxProps, SxRadius, SxSpace, SxStrokeColor, SxStrokeWeight } from "@/theme";
-import { resolveBreakpointSx } from "@skyline-uikit/core";
+import { resolveBreakpointSx } from "@lucid-ui/core";
 import { sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap, } from "@/theme";
 
 
@@ -26,8 +26,8 @@ const borderWidthKeys = new Set<keyof SxProps>([
 
 const passthroughKeys = new Set([
   'display', 'alignSelf', 'alignItems', 'justifySelf', 'justifyContent',
-  'order', 'overflow', 'position', 'flex', 'flexDirection', 'flexWrap', 'flexGrow', 'flexShrink',
-  'gridTemplateColumns', 'gridTemplateRows', 'gridArea', 'gridTemplateAreas',
+  'flex', 'flexDirection', 'flexWrap', 'flexGrow', 'flexShrink',
+  'order', 'overflow', 'position',
 ]);
 
 
@@ -57,13 +57,6 @@ const resolveSxValue = (
 
   // the implications of adding this single edge case are making me sick
   if (borderWidthKeys.has(key)) return sxStrokeWeightMap[value as SxStrokeWeight];
-
-  // handle grid
-  if (key === 'gridColumn' || key === 'gridRow') {
-    if (typeof value === 'number') return `span ${value}`;
-    if (typeof value === 'string' && value in sxFitMap) return `span ${sxFitMap[value as SxFit]}`;
-    return value; // one fallback I'll let through bc idk wtf is happening here
-  }
 
   // css-native or raw strings
   if (passthroughKeys.has(key)) return value;

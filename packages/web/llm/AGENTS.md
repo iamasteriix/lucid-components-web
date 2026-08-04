@@ -91,7 +91,7 @@ const spacingTokens = {
 } as const;
 
 const shapeTokens = {
-  radiusNone: '0px',
+  radiusDefault:  '24px',
   radiusSm: '4px',
   radiusMd: '8px',
   radiusLg: '12px',

@@ -9,14 +9,62 @@ import * as ViewStories from "./view.stories";
 
 # View
 
-This is the fundamental component for building UI, and is designed to be multi-purpose and open-ended. It provides two mutually exclusive material that control how the surface is rendered: `'flat'` selects from the solid surface fills in your theme, while `'glass'` creates a translucent surface that is meant to float above your app content.
+This is the fundamental component for building UI, and is designed around ***flexbox*** to be multi-purpose and open-ended. It provides two mutually exclusive `'material'` values that control how the surface is rendered: `'flat'` selects from the solid surface fills in your theme, while `'glass'` creates a translucent surface that is meant to float above your app content.
 <br/>
 
 
 A wide `'flat'` `View` with the base surface fill and a `'light'` border that wraps over a `'glass'` `View` with a `Text` component.
 
 <Canvas
-  of={ ViewStories.ViewFlat }
-  layout='padded'
   withToolbar
+  of={ ViewStories.ViewsLayered }
+  layout='padded'
+  source={{
+    code: `
+      import { SxStyles, Text, View, } from "@lucid-ui/web";
+
+      export const GlassOverBaseViews = () => {
+        return (
+          <View
+            material='flat'
+            tone='base'
+            intensity='filled'
+            elevation='level-0'
+            sx={ styles.base }
+          >
+            <View
+              material='glass'
+              tone='neutral'
+              intensity='subtle'
+              elevation='level-2'
+              sx={ styles.elevated }
+            >
+              <Text>Timbo</Text>
+            </View>
+          </View>
+        );
+      }
+
+      const styles = SxStyles.create({
+        base: {
+          justifyContent: 'center',
+          width: 'fill',
+          height: 'space-20',
+          paddingX: 'space-8',
+          borderWidth: 'light',
+          borderColor: 'subtle',
+          borderRadius: 'xl',
+        },
+        elevated: {
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 'space-28',
+          height: 'space-12',
+          borderWidth: 'light',
+          borderColor: 'subtle',
+          borderRadius: 'full',
+        },
+      });
+    `,
+  }}
 />

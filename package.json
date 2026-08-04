@@ -1,12 +1,12 @@
 {
-  "name": "@skyline-uikit",
+  "name": "@lucid-ui",
   "private": false,
   "description": "Design beautiful products for everyone.",
   "scripts": {
-    "dev:web": "docker compose up -d uikit-web",
-    "dev:native": "docker compose up -d uikit-native",
-    "bash:web": "docker compose exec -it uikit-web bash",
-    "bash:native": "docker compose exec -it uikit-native bash"
+    "dev:web": "docker compose up -d web",
+    "dev:native": "docker compose up -d native",
+    "bash:web": "docker compose exec -it web bash",
+    "bash:native": "docker compose exec -it native bash"
   },
   "workspaces": [
     "packages/web",

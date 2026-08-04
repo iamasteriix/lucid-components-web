@@ -114,6 +114,9 @@ const spacingTokens = {
 } as const;
 
 
+/**
+ * Radius scale and stroke weights
+ */
 const shapeTokens = {
   // -- border radius scale ---
   radiusDefault:  '24px',

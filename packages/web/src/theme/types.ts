@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { ResponsiveProp } from "@skyline-uikit/core";
+import type { ResponsiveProp } from "@lucid-ui/core";
 import { designTokens } from "./tokens";
 
 
@@ -25,7 +25,7 @@ export type ThemeProviderProps = {
 
 /** —— CSS ————————————————————————————————————————————————————————————————— */
 
-export type SxDisplay = 'block' | 'flex' | 'grid' | 'inline' | 'inline-block' | 'inline-flex' | 'inline-grid' | 'none';
+export type SxDisplay = 'flex' | 'none';
 
 export type SxFlex = 'auto' | 'none';
 
@@ -81,14 +81,6 @@ export type SxProps = {
   flexGrow?: ResponsiveProp<0 | 1>;
   flexShrink?: ResponsiveProp<0 | 1>;
   flexBasis?: ResponsiveProp<SxSpace | SxFit>;
-
-  // -- layout: grid ---
-  gridColumn?: ResponsiveProp<string | number>;
-  gridTemplateColumns?: ResponsiveProp<string>;
-  gridRow?: ResponsiveProp<string | number>;
-  gridTemplateRows?: ResponsiveProp<string>;
-  gridArea?: ResponsiveProp<string>;
-  gridTemplateAreas?: ResponsiveProp<string>;
 
   // -- sizes ---
   width?: ResponsiveProp<SxSpace | SxFit>;

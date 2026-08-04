@@ -15,11 +15,13 @@ Lucid Moonsong provides a deliberately limited `sx` prop for defining custom sty
 ```tsx
 import { SxStyles } from "@lucid-ui/web";
 
-const sxStyles = SxStyles.create({
-  width: 'auto',
-  height: 'space-16',
-  borderRadius: '2xl',
-});
+const styles = SxStyles.create(
+  card: {
+    width: 'auto',
+    height: 'space-16',
+    borderRadius: '2xl',
+  },
+);
 ```
 
 ### Vanilla CSS

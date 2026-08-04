@@ -1,5 +1,5 @@
 {
-  "name": "@skyline-uikit/native",
+  "name": "@lucid-ui/native",
   "main": "expo-router/entry",
   "version": "0.1.0",
   "private": false,

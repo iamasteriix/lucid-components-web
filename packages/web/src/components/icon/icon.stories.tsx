@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Search } from "@skyline-uikit/icons";
+import { Search } from "@lucid-ui/icons";
 import { Icon as IconBase } from "./icon";
 
 

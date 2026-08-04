@@ -1,16 +1,13 @@
-import type { ElementType, ReactElement, } from "react";
-import type { SxElevation, SxProps } from "@/theme";
-import type { PropsWithAs, TagBaseProps } from "@/types";
-import { useDeviceBreakpoints } from "@skyline-uikit/core";
-import { resolveSx } from "@/utils";
+import type { SxElevation, } from "@/theme";
+import type { ElementBaseProps, } from "@/types";
+import { useDeviceBreakpoints } from "@lucid-ui/core";
+import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./view.module.css";
 
 
 
-type BaseViewProps = TagBaseProps & {
+type BaseViewProps = ElementBaseProps & {
   elevation?: SxElevation;
-  sx?: SxProps;
-  children?: ReactElement | ReactElement[]; // for parity with react native
 };
 
 type FlatViewProps = BaseViewProps & {
@@ -18,36 +15,31 @@ type FlatViewProps = BaseViewProps & {
   tone?: 'base' | 'surface' | 'elevated' | 'overlay';
   intensity?: 'filled' | 'tonal' | 'inherit';
   depth?: 'sm' | 'md' | 'lg'; // shadow spread
-}
+};
 
 type GlassViewProps = BaseViewProps & {
   material: 'glass';
   tone?: 'neutral' | 'accent';
   intensity?: 'faint' | 'subtle' | 'default' | 'strong';
   depth?: 'sm' | 'md' | 'lg'; // depth of blur
-}
+};
 
-export type ViewOwnProps = FlatViewProps | GlassViewProps;
-
-export type ViewProps <C extends ElementType = 'div'> = PropsWithAs<C, ViewOwnProps>;
+export type ViewProps = FlatViewProps | GlassViewProps;
 
 
 
-export const View = <C extends ElementType = 'div'> ({
-  as,
+export const View = ({
   material = 'flat',
   tone = 'surface',
   intensity = 'inherit',
   depth,
   elevation = 'level-0',
   sx,
-  className,
+  a11y,
   style,
   children,
-  'data-testid': testId,
-  ...rest
-}: ViewProps<C>) => {
-  const Tag: ElementType = as ?? 'div';
+  testID,
+}: ViewProps) => {
   const { breakpoint, } = useDeviceBreakpoints();
 
   // build class name for semantic props
@@ -58,23 +50,23 @@ export const View = <C extends ElementType = 'div'> ({
     intensity && styles[`view--intensity-${intensity}`],
     elevation && styles[`view--elevation-${elevation}`],
     depth && styles[`view--depth-${depth}`],
-    className,
   ]
     .filter(Boolean)
     .join(' ');
 
   const sxStyles = resolveSx(sx, breakpoint);       // resolve sx into inline styles
   const styleObj = Object.assign(sxStyles, style);  // merge style properties
+  const accessibility = resolveA11y(a11y);          // resolve accessibility props
 
   return (
-    <Tag
+    <div
       className={ classes }
       style={ styleObj }
       data-component='view'
-      data-testid={ testId }
-      { ...rest }
+      data-testid={ testID }
+      { ...accessibility }
     >
       { children }
-    </Tag>
+    </div>
   );
 }

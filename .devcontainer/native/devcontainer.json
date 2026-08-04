@@ -1,7 +1,7 @@
 {
-  "name": "Skyline UI Kit - Native",
+  "name": "Lucid UI Kit - Native",
   "dockerComposeFile": "../../docker-compose.yml",
-  "service": "uikit-native",
+  "service": "native",
   "workspaceFolder": "/app/packages/native/",
   "customizations": {
     "vscode": {
