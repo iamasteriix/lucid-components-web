@@ -8,8 +8,8 @@
     "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./src/*"],
-      "@icon-factory": ["./src/lib/icon/createIcon.web"]
+      "@icon-factory": ["./src/utils/core/create-icon.web"]
     }
   },
-  "include": ["src/**/*", "lib/**/*"]
+  "include": ["src/**/*"]
 }

@@ -1,9 +1,12 @@
 import type { FC } from "react";
-import type { IconDefinition, NativeIconProps, } from "./types";
+import type { SvgProps } from "react-native-svg";
 import React from "react";
-import { resolveIconColor } from "@/utils";
 import { Path, Svg } from "react-native-svg";
+import { IconBaseProps, IconDefinition, Override } from "@/types";
+import { resolveIconColor } from "../normalizers/resolve-format";
 
+
+type NativeIconProps = Override<SvgProps, IconBaseProps> & IconBaseProps;
 
 
 export const createIcon = (definition: IconDefinition): FC<NativeIconProps> => {
@@ -11,6 +14,7 @@ export const createIcon = (definition: IconDefinition): FC<NativeIconProps> => {
     viewBox = '0 0 24 24',
     size = '1rem',
     fill = '#f0fefe',
+    variant = 'monochrome',
     ...rest
   }: NativeIconProps) => (
     <Svg
@@ -28,7 +32,7 @@ export const createIcon = (definition: IconDefinition): FC<NativeIconProps> => {
             d={ path.d }
             fillRule={ path.fillRule }
             clipRule={ path.clipRule }
-            fill={ resolveIconColor(fill, index) }
+            fill={ resolveIconColor(fill, variant, index) }
           />
         ))
       }

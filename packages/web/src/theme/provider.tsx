@@ -1,24 +1,31 @@
-import type { CSSProperties } from "react";
-import type { Tokens, ThemeProviderProps, ThemeOverride, } from "./types";
+import type { CSSProperties, ReactNode } from "react";
+import type { ThemeTokensType } from "@lucid-ui/core";
 import { useMemo } from "react";
-import { designTokens } from "./tokens";
+import { tokens } from "@lucid-ui/core";
 import { ThemeContext } from "./context";
+
+
+
+type ThemeProviderProps = {
+  theme?: ThemeTokensType;
+  children: ReactNode;
+};
 
 
 /**
  * Merges a partial theme override with the default tokens.
  * Only one level of nesting — we merge per category, not recursively.
  */
-const resolveTheme = (override?: ThemeOverride): Tokens => {
-  if (!override) return designTokens;
+const resolveTheme = (override?: ThemeTokensType): ThemeTokensType => {
+  if (!override) return tokens;
   return {
-    colors:     { ...designTokens.colors,     ...override.colors, },
-    typography: { ...designTokens.typography, ...override.typography, },
-    spacing:    { ...designTokens.spacing,    ...override.spacing, },
-    shape:      { ...designTokens.shape,      ...override.shape, },
-    elevation:  { ...designTokens.elevation,  ...override.elevation, },
-    motion:     { ...designTokens.motion,     ...override.motion, },
-    glass:      { ...designTokens.glass,      ...override.glass, },
+    colors:     { ...tokens.colors,     ...override.colors, },
+    typography: { ...tokens.typography, ...override.typography, },
+    spacing:    { ...tokens.spacing,    ...override.spacing, },
+    shape:      { ...tokens.shape,      ...override.shape, },
+    elevation:  { ...tokens.elevation,  ...override.elevation, },
+    motion:     { ...tokens.motion,     ...override.motion, },
+    glass:      { ...tokens.glass,      ...override.glass, },
   }
 }
 
@@ -29,13 +36,12 @@ const resolveTheme = (override?: ThemeOverride): Tokens => {
  * and injects them onto a wrapping div.
  * e.g. colors.primary -> --colors-primary
  */
-const toCSSVariables = (tokens: Tokens): Record<string, string> => {
+const toCSSVariables = (tokens: ThemeTokensType): Record<string, string> => {
   return Object
     .entries(tokens)
     .reduce((acc, [category, values]) => {
-      const prefix = category.replace(/Tokens$/, '');
       Object.entries(values).forEach(([key, value]) => {
-        acc[`--${prefix}-${key}`] = value as string
+        acc[`--${category}-${key}`] = value as string
       });
       return acc;
     },

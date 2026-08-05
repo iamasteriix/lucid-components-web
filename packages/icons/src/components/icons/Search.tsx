@@ -1,10 +1,10 @@
-import type { IconComponent, IconProps, } from "../icons.types";
+import type { IconComponent, IconProps, } from "@/types";
 import React from "react";
-import { createIcon } from "@/lib";
+import { createIcon } from "@/utils";
 
 
 
-const SearchBold = createIcon({
+const SearchSolid = createIcon({
   paths: [{
     d: 'M21.788 21.788a.723.723 0 0 0 0-1.022L18.122 17.1a9.157 9.157 0 1 0-1.022 1.022l3.666 3.666a.723.723 0 0 0 1.022 0',
     fillRule: 'evenodd',
@@ -14,7 +14,7 @@ const SearchBold = createIcon({
 
 
 
-const SearchBoldDuo = createIcon({
+const SearchSolidDuo = createIcon({
   paths: [
     {
       d: 'M20.313 11.157a9.157 9.157 0 1 1-18.313 0 9.157 9.157 0 0 1 18.313 0',
@@ -66,13 +66,13 @@ export const Search: IconComponent = ({
   size = '1rem',
   fill = '#f0fefe',
   variant = 'monochrome',
-  bold = false,
+  solid = false,
 }: IconProps) => {
   
   const isDuotone = variant === 'duotone';
-  const SelectedIcon = isDuotone && bold ? SearchBoldDuo
+  const SelectedIcon = isDuotone && solid ? SearchSolidDuo
     : isDuotone ? SearchOutlineDuo
-    : bold ? SearchBold
+    : solid ? SearchSolid
     : SearchOutline;
 
   return (
@@ -80,6 +80,7 @@ export const Search: IconComponent = ({
       viewBox={ viewBox }
       size={ size }
       fill={ fill }
+      variant={ variant }
     />
   );
 }

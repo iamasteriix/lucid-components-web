@@ -1,7 +1,7 @@
 import type {
   SxElevation, SxFit, SxIntent, SxRadius, SxSpace, SxStrokeColor,
   SxStrokeWeight,
-} from "./types";
+} from "@/types";
 
 
 

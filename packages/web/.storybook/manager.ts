@@ -1,15 +1,15 @@
 import { addons } from "storybook/manager-api";
 import { create } from "storybook/theming";
-import { designTokens } from "../src/theme";
+import { tokens } from "@lucid-ui/core";
 
 
-const { colors, typography, } = designTokens;
+const { colors, typography, } = tokens;
 
 addons.setConfig({
   theme: create({
     base: 'dark',
     brandTitle: 'Lucid Design',
-    brandUrl: 'https://developers.ninespace.app/design/',
+    brandUrl: '/design/',
     brandImage: '/logo-48x48.ico',
     brandTarget: '_self',
     colorPrimary: colors.primary,

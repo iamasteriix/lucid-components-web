@@ -1,5 +1,5 @@
 /**
- * @see src/context/ThemeProvider.tsx for how these are injected as CSS variables
+ * Semantic color tokens for surfaces, text, borders, and status indicators
  */
 const colorTokens = {
   // --- Brand ---
@@ -206,7 +206,7 @@ const glassTokens = {
  * Complete default token set
  * Pass a partial override to ThemeProvider to customize
 */
-export const designTokens = {
+export const tokens = {
   colors:     colorTokens,
   typography: typographyTokens,
   spacing:    spacingTokens,

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { BreakpointType } from "@lucid-ui/core";
-import type { SxFit, SxIntent, SxProps, SxRadius, SxSpace, SxStrokeColor, SxStrokeWeight } from "@/theme";
+import type { SxFit, SxIntent, SxProps, SxRadius, SxSpace, SxStrokeColor, SxStrokeWeight } from "@/types";
 import { resolveBreakpointSx } from "@lucid-ui/core";
 import { sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap, } from "@/theme";
 

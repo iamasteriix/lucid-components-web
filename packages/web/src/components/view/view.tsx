@@ -1,5 +1,5 @@
 import type { Ref } from "react";
-import type { SxElevation, } from "@/theme";
+import type { SxElevation, } from "@/types";
 import type { ElementBaseProps, } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx } from "@/utils";

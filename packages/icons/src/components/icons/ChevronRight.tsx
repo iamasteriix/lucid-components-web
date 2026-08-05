@@ -1,6 +1,6 @@
-import type { IconComponent, IconProps } from "../icons.types";
+import type { IconComponent, IconProps } from "@/types";
 import React from "react";
-import { createIcon } from "@/lib";
+import { createIcon } from "@/utils";
 
 
 
@@ -16,10 +16,12 @@ export const ChevronRight: IconComponent = ({
   viewBox = '0 0 24 24',
   size = '1rem',
   fill = '#f0fefe',
+  variant = 'monochrome',
 }: IconProps) => (
   <Icon
     viewBox={ viewBox }
     size={ size }
     fill={ fill }
+    variant={ variant }
   />
 );

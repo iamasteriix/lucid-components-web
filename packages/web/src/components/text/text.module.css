@@ -7,7 +7,7 @@
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightRegular);
   line-height: var(--typography-leadingNormal);
-  color: var(--colors-inherit);
+  color: var(--colors-textPrimary);
   text-align: start;
 }
 

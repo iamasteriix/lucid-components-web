@@ -149,7 +149,7 @@ const glassTokens = {
 };
 
 // Pass a partial override to ThemeProvider to customize
-export const designTokens = {
+export const tokens = {
   colors: colorTokens,
   typography: typographyTokens,
   spacing: spacingTokens,

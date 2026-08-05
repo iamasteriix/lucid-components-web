@@ -14,8 +14,21 @@ Icons are small symbols that represent actions and concepts, used to improve sca
   withToolbar
   of={ IconStories.IconOverview }
   layout='padded'
-/>
-<Controls
-  of={ IconStories.IconOverview }
-  exclude={['a11y']}
+  source={{
+    code: `
+      import { Icon, } from "@lucid-ui/web";
+      import { Search, } from "@lucid-ui/icons";
+
+      export const SearchIcon = () => {
+        return (
+          <Icon
+            as={ Search }
+            size='md'
+            solid={ false }
+            variant='duotone'
+          />
+        );
+      }
+    `,
+  }}
 />

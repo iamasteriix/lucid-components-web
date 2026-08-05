@@ -1,4 +1,4 @@
-import type { SxProps } from "@/theme";
+import type { SxProps } from "@/types";
 
 
 

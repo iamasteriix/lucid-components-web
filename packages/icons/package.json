@@ -2,7 +2,7 @@
   "name": "@lucid-ui/icons",
   "private": false,
   "version": "0.1.0",
-  "description": "Icon pack to go with the Skyline UI Kit for web and native clients",
+  "description": "Simply beautiful icon library, all available as React components. Make them your own.",
   "exports": {
     ".": {
       "react-native": {

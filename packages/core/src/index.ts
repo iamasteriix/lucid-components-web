@@ -4,3 +4,8 @@ export {
   resolveBreakpointSx,
   useDeviceBreakpoints,
 } from "@/responsive";
+
+export {
+  type ThemeTokensType,
+  tokens,
+} from "@/theme";

@@ -1,10 +1,10 @@
-import type { IconComponent, IconProps } from "../icons.types";
+import type { IconComponent, IconProps } from "@/types";
 import React from "react";
-import { createIcon } from "@/lib";
+import { createIcon } from "@/utils";
 
 
 
-const PlusCircleBold = createIcon({
+const PlusCircleSolid = createIcon({
   paths: [{
     d: 'M12 23.4c6.296 0 11.4-5.104 11.4-11.4S18.296.6 12 .6.6 5.704.6 12 5.704 23.4 12 23.4m.855-14.82a.855.855 0 0 0-1.71 0v2.565H8.58a.855.855 0 0 0 0 1.71h2.565v2.565a.855.855 0 0 0 1.71 0v-2.565h2.565a.855.855 0 0 0 0-1.71h-2.565z',
     fillRule: 'evenodd',
@@ -13,7 +13,7 @@ const PlusCircleBold = createIcon({
 
 
 
-const PlusCircleBoldDuo = createIcon({
+const PlusCircleSolidDuo = createIcon({
   paths: [
     {
       d: 'M23.4 12c0 6.296-5.104 11.4-11.4 11.4S.6 18.296.6 12 5.704.6 12 .6 23.4 5.704 23.4 12',
@@ -58,13 +58,13 @@ export const PlusCircle: IconComponent = ({
   size = '1rem',
   fill = '#f0fefe',
   variant = 'monochrome',
-  bold = false,
+  solid = false,
 }: IconProps) => {
 
   const isDuotone = variant === 'duotone';
-  const SelectedIcon = isDuotone && bold ? PlusCircleBoldDuo
+  const SelectedIcon = isDuotone && solid ? PlusCircleSolidDuo
     : isDuotone ? PlusCircleOutlineDuo
-    : bold ? PlusCircleBold
+    : solid ? PlusCircleSolid
     : PlusCircleOutline;
 
   return (
@@ -72,6 +72,7 @@ export const PlusCircle: IconComponent = ({
       viewBox={ viewBox }
       size={ size }
       fill={ fill }
+      variant={ variant }
     />
   );
 }

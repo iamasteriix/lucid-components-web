@@ -1,8 +1,11 @@
-import type { FC } from "react";
+import type { FC, SVGProps } from "react";
 import React from "react";
-import { resolveIconColor } from "@/utils";
-import { IconDefinition, WebIconProps, } from "./types";
+import { IconBaseProps, IconDefinition, Override } from "@/types";
+import { resolveIconColor } from "../normalizers/resolve-format";
 
+
+
+type WebIconProps = Override<SVGProps<SVGSVGElement>, IconBaseProps> & IconBaseProps;
 
 
 export const createIcon = (definition: IconDefinition): FC<WebIconProps> => {
@@ -10,6 +13,7 @@ export const createIcon = (definition: IconDefinition): FC<WebIconProps> => {
     viewBox = '0 0 24 24',
     size = '1rem',
     fill = '#f0fefe',
+    variant = 'monochrome',
     ...rest
   }: WebIconProps) => (
     <svg
@@ -28,7 +32,7 @@ export const createIcon = (definition: IconDefinition): FC<WebIconProps> => {
             d={ path.d }
             fillRule={ path.fillRule }
             clipRule={ path.clipRule }
-            fill={ resolveIconColor(fill, index) }
+            fill={ resolveIconColor(fill, variant, index) }
           />
         ))
       }

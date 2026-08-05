@@ -1,6 +1,5 @@
 import type { ComponentType, Ref } from "react";
-import type { ElementBaseProps } from "@/types";
-import type { SxProps } from "@/theme";
+import type { ElementBaseProps, SxProps } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx, } from "@/utils";
 
@@ -12,14 +11,14 @@ type IconComponentProps = {
   size?: string;
   variant?: 'monochrome' | 'duotone';
   fill?: string | string[];
-  bold?: boolean;
+  solid?: boolean;
 };
 
 export type IconProps = Omit<ElementBaseProps, 'children'> & {
   as: ComponentType<IconComponentProps>,
   size?: 'xsm' | 'sm' | 'md' | 'lg';
   variant?: 'monochrome' | 'duotone';
-  bold?: boolean;
+  solid?: boolean;
   sx?: SxProps;
   children?: never;
   ref?: Ref<HTMLSpanElement>;
@@ -40,7 +39,7 @@ export const Icon = ({
   as: IconComponent,
   size = 'md',
   variant = 'monochrome',
-  bold = false,
+  solid = false,
   sx,
   style,
   testID,
@@ -70,7 +69,7 @@ export const Icon = ({
         size={ fontSize }
         fill={ fill }
         variant={ variant }
-        bold={ bold }
+        solid={ solid }
       />
     </span>
   );

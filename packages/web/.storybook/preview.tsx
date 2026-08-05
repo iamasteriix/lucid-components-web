@@ -1,12 +1,12 @@
 import type { Preview } from "@storybook/react-vite";
 import { create } from "storybook/theming";
-import { designTokens, } from "@/theme";
+import { tokens } from "@lucid-ui/core";
 import { DocsContainer } from "./docs-container";
-import "../src/index.css";
+import "./preview.css";
 
 
 
-const { colors, typography, } = designTokens;
+const { colors, typography, } = tokens;
 
 const preview: Preview = {
   initialGlobals: {
@@ -50,7 +50,7 @@ const preview: Preview = {
     },
     backgrounds: {
       options: {
-        dark: { name: 'Moonsong', value: designTokens.colors.bgBase, },
+        dark: { name: 'Moonsong', value: colors.bgBase, },
       },
     },
     controls: {
@@ -63,7 +63,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Getting Started', '*'],
+        order: ['Getting Started', 'Foundations', '*'],
       },
     },
   },

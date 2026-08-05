@@ -1,0 +1,6 @@
+p {
+  font-size: var(--typography-textSm);
+  margin: unset !important;
+  line-height: var(--typography-leadingNormal);
+  color: var(--colors-textPrimary);
+}

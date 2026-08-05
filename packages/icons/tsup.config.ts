@@ -14,7 +14,7 @@ export default defineConfig ([
     external: ['react'],
     esbuildOptions(options) {
       options.alias = {
-        "@icon-factory": "./src/lib/icon/createIcon.web.tsx",
+        "@icon-factory": "./src/utils/core/create-icon.web.tsx",
       };
     },
   },
@@ -30,7 +30,7 @@ export default defineConfig ([
     external: ['react'],
     esbuildOptions(options) {
       options.alias = {
-        "@icon-factory": "./src/lib/icon/createIcon.native.tsx",
+        "@icon-factory": "./src/utils/core/create-icon.native.tsx",
       };
     },
   },

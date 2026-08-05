@@ -1,6 +1,6 @@
-import type { Tokens } from "./types";
+import type { ThemeTokensType } from "@lucid-ui/core";
 import { createContext } from "react";
 
 
 
-export const ThemeContext = createContext<Tokens | null>(null);
+export const ThemeContext = createContext<ThemeTokensType | null>(null);

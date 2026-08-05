@@ -1,0 +1,17 @@
+{
+  "name": "Lucid UI Kit - Icons",
+  "dockerComposeFile": "../../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/app/packages/icons/",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "js/ts.tsdk.path": "node_modules/typescript/lib"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  }
+}
