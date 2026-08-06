@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ViewProps } from "./view";
 import { SxStyles } from "@/utils";
+import { Text } from "@/components";
 import { View, } from "./view";
-import { Text } from "../text/text";
 
 
 type Story = StoryObj<ViewProps>;

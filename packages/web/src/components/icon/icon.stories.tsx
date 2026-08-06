@@ -3,7 +3,7 @@ import type { IconProps } from "./icon";
 import { useState } from "react";
 import * as Icons from "@lucid-ui/icons";
 import { SxStyles } from "@/utils";
-import { View } from "../view/view";
+import { View } from "@/primitives";
 import { Icon } from "./icon";
 import { Text } from "../text/text";
 

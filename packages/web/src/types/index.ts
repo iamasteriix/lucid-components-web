@@ -102,6 +102,8 @@ export type SxProps = {
   bottom?: ResponsiveProp<SxSpace | 'auto'>;
   left?: ResponsiveProp<SxSpace | 'auto'>;
   gap?: ResponsiveProp<SxSpace>;
+  columnGap?: ResponsiveProp<SxSpace>;
+  rowGap?: ResponsiveProp<SxSpace>;
 
   // -- decorations: background ---
   backgroundColor?: SxIntent;
@@ -119,10 +121,25 @@ export type SxProps = {
 
 
 // —— Components ——————————————————————————————————————————————————————————————
+
+export type ViewMaterial = 'flat' | 'glass';
+
 export type ElementBaseProps = {
   sx?: SxProps;
   a11y?: A11yProps;
   style?: CSSProperties;
   children?: ReactElement | ReactElement[];
   testID?: string;
+};
+
+export type SlotParams <T = {}> = {
+  displayName?: string;
+  defaultSx?: SxProps;
+  defaultStyle?: CSSProperties;
+  useContext?: () => Record<string, any>; // optional hook to inherit values from parent context
+  extraProps?: T;                         // props the slot accepts beyond the base
+};
+
+export type SlotProps = ElementBaseProps & {
+  position?: 'leading' | 'trailing';  // maps to order: -1 or 1
 };

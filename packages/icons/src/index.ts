@@ -5,4 +5,5 @@ export {
   Plus, PlusCircle,
   Search,
   Eye,
+  Backspace,
 } from "@/components";

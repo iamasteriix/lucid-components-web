@@ -1,16 +1,15 @@
-import type { ComponentProps } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Text as TextBase } from "./text";
+import type { TextProps } from "./text"
+import { Text } from "./text";
 
 
 
-type StoryProps = ComponentProps<typeof TextBase>;
-type Story = StoryObj<StoryProps>;
+type Story = StoryObj<TextProps>;
 
 
-const meta: Meta<StoryProps> = {
+export default {
   title: 'Components/Text',
-  component: TextBase,
+  component: Text,
   argTypes: {
     font: {
       control: 'select',
@@ -41,7 +40,7 @@ const meta: Meta<StoryProps> = {
       options: ['wrap', 'nowrap', 'balance', 'pretty', 'truncate'],
     },
   },
-};
+} as Meta<TextProps>;
 
 
 export const TextOverview: Story = {
@@ -57,6 +56,3 @@ export const TextOverview: Story = {
     children: 'My style is ridiculous',
   },
 };
-
-
-export default meta;

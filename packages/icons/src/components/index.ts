@@ -6,3 +6,4 @@ export { Plus } from "./icons/Plus";
 export { PlusCircle } from "./icons/PlusCircle";
 export { Search } from "./icons/Search";
 export { Eye } from "./icons/Eye";
+export { Backspace } from "./icons/Backspace";

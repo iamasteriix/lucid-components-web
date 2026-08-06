@@ -1,7 +1,6 @@
 export {
   Icon,
   Text,
-  View,
 } from "@/components";
 
 export {
@@ -10,3 +9,7 @@ export {
 } from "@/utils";
 
 export { ThemeManager, ThemeProvider, useTheme } from "@/theme";
+
+export {
+  View,
+} from "@/primitives";
