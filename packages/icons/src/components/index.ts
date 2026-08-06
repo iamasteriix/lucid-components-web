@@ -5,3 +5,4 @@ export { Heart } from "./icons/Heart";
 export { Plus } from "./icons/Plus";
 export { PlusCircle } from "./icons/PlusCircle";
 export { Search } from "./icons/Search";
+export { Eye } from "./icons/Eye";

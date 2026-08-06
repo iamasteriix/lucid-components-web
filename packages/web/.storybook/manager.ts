@@ -1,6 +1,7 @@
 import { addons } from "storybook/manager-api";
 import { create } from "storybook/theming";
 import { tokens } from "@lucid-ui/core";
+import "./styles.css";
 
 
 const { colors, typography, } = tokens;
@@ -10,7 +11,7 @@ addons.setConfig({
     base: 'dark',
     brandTitle: 'Lucid Design',
     brandUrl: '/design/',
-    brandImage: '/logo-48x48.ico',
+    brandImage: '/logo-48x48.webp',
     brandTarget: '_self',
     colorPrimary: colors.primary,
     colorSecondary: colors.primaryHover,

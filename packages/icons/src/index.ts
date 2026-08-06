@@ -4,4 +4,5 @@ export {
   Heart,
   Plus, PlusCircle,
   Search,
+  Eye,
 } from "@/components";

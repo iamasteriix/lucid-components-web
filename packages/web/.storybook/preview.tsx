@@ -2,7 +2,7 @@ import type { Preview } from "@storybook/react-vite";
 import { create } from "storybook/theming";
 import { tokens } from "@lucid-ui/core";
 import { DocsContainer } from "./docs-container";
-import "./preview.css";
+import "./styles.css";
 
 
 
@@ -18,8 +18,8 @@ const preview: Preview = {
       theme: create({
         base: 'dark',
         brandTitle: 'Lucid Design',
-        brandUrl: '/',
-        brandImage: '/logo-48x48.ico',
+        brandUrl: '/design/',
+        brandImage: '/logo-48x48.webp',
         brandTarget: '_self',
         colorPrimary: colors.primary,
         colorSecondary: colors.primaryHover,

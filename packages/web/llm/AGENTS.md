@@ -5,8 +5,8 @@ This document defines the tokens, rules, conventions, and boundaries of the proj
 ## Design tokens
 
 ```ts
-// src/theme/tokens.ts
-// @see ./provider.tsx for how these are injected as CSS variables
+// packages/core/src/theme/tokens.ts
+// semantic color tokens for surfaces, text, borders, and status
 const colorTokens = {
   primary: '#eeeeee',
   primaryHover: '#c9c9c9',
@@ -159,26 +159,14 @@ export const tokens = {
   glass: glassTokens,
 } as const;
 ```
----
 
-
-
-## Base component types
-
+**Accompanying types:**
 ```ts
-// src/types/index.ts
-export type TagBaseProps = {
-  style?: CSSProperties;
-  className?: string;
-  children?: ReactNode;
-  'data-testid'?: string;
+export type ThemeTokensType = {
+  [K in keyof typeof tokens]: {
+    [P in keyof typeof tokens[K]]: string | number;
+  };
 };
-export type AsProp<C extends ElementType> = { as?: C; };
-export type PropsWithAs<C extends ElementType, P extends object = object> =
-  P &
-  AsProp<C> &
-  Omit<ComponentPropsWithoutRef<C>, keyof P | 'as'>;
-export type ResponsiveProp<T = string | number> = T[] | { [breakpoint: string]: T };
 ```
 ---
 
@@ -233,40 +221,29 @@ export type ResponsiveProp <T = string | number> = T | T[] | BreakpointOptions<T
 
 
 
+## Utility APIs
+
+`SxStyles.create` and `A11yRegistry.create` are type-safe identity factories that group properties by keys.
+```ts
+const IdFactory = {
+  create: <T extends Record<string, ValueTypes>> (values: T): T => values,
+}
+```
+
+
+
 ## Layout system
 
-- **One engine, many thin presets.** All layout behavior is CSS-driven through a single prop-to-CSS mapping layer owned by `Box`. Every other layout primitive (`Grid`, `Stack`, `Container`, `Section`) is a preset over `Box` — different defaults and a narrowed prop surface, not a separate implementation.
-- **Zero layout logic in components.** No child-scanning, no DOM reordering, no runtime measurement, no "if child is X do Y" branching. All positioning is expressed as CSS properties (`order`, `grid-column`, `align-self`, `flex-grow`, etc.) that the browser resolves.
-- **Context-free vs. context-aware is the only real dividing line.** A prop is safe to fold into `Box` if it's a direct, no-op-if-irrelevant CSS mapping. A prop requires a real, separate component only if it must read something from a parent's internal state (eg. total column count, named grid areas, auto-placement).
-- **Composition (Slot) and positioning (Box family) are orthogonal.** Slots answer "where does this child go, and what does it inherit." Box/Grid/Stack answer "how does this child behave once placed." Never blend the two responsibilities into one component.
-
-
-### 1. Box
-This component has no opinionated defaults; it is the raw material every preset below is built from. Any child-positioning prop is valid here as long as it's a pure CSS mapping that no-ops harmlessly when the parent isn't the relevant container type. Do not add props to `Box` that require reading parent context — that would be the signal to build a dedicated context-aware component not retrofitted into `Box`.
-**Owns:**
-- All spacing props (margin/padding scale, gap)
-- All sizing props (width/height, min/max)
-- `display` (with no default — raw)
-- Flex-child props: `alignSelf`, `order`
-- Grid-child props: `span` (→ `grid-column: span n`), `order`
-- Responsive value support (array/object syntax resolved to breakpoints)
-
-### 2. Grid
-`Grid` is a two-dimensional layout preset over `Box` that owns a narrow prop surface (`columns`, `rows`, `areas`, `gap`).
-
-### 3. Stack
-A one-dimensional layout preset over `Box` that owns `direction`, `gap`, `align`, `justify`, `wrap`.
-
-### 4. Section
-`Box` with opinionated spacing (`padding-block`) that provides consistent rhythm between large page regions. It sits at the page-shell level and composes into `Layout`; it is not a general-purpose primitive.
-
-### 5. Container
-`Container` is a thin preset over `Box` with max-width clamping, responsive padding, and horizontal auto-centering as the default behavior. It sits at the page-shell level and composes into `Layout`, alongside `Section`.
-
-### 6. Layout
-Top-level page-assembly composition of `Container`, `Section`, `Grid`, and `Stack` arranged into a coherent page shell. It does not introduce its own CSS-prop logic or mapping layer.
-
-### 7. Slot interface
-Injection point that provides structure about what child belongs to, and what can it inhereit from, what parent. It consists of:
-- **internal `createSlot(options)` factory** that defines slot logic for all specialized and generic slots across the system. It **takes** default styles for the slot (eg. fixed icon dimensions, color token), and an optional context hook for inheriting values from the parent component (size, color, spacing tokens) and **returns** a slot component to be exposed as a static property on the parent (e.g. `Button.Icon`). Every specialized or generic slot in the system must be produced by `createSlot`, not authored as a bespoke one-off component, so that the consumer-facing mental model stays identical across the entire system.
-- **consumer-facing slot instances** (eg. `Button.Icon`, `Button.Slot`, `TextField.Leading`, `Card.Footer`). Specialized slots (eg. `Button.Icon`) carry content-specific defaults (icon sizing/color) and may accept a narrow prop like `position` (`leading`/`trailing`) that maps purely to CSS `order` (`-1`/`1`), never to DOM reordering or child-scanning. Generic slots (e.g. `Button.Slot`) share the same positioning mechanics (same parent container, same `order`-based placement) but carry no content-type assumptions — used for arbitrary children (badges, spinners, custom nodes) that don't fit a specialized slot. Parent components do no scanning, inspection, or carry knowledge of slot contents, and instead provide modifiers like `gaps`. The only permitted 'logic' in a slot instance is context read for token inheritance that is treated as equivalent to CSS custom-property inheritance, not as layout logic.
+- **Two distinct engines, one shared foundation.**
+- **Flex-only layout engine** All layout behavior is CSS-driven through a single prop-to-CSS mapping layer owned by `View` that mimics React Native's `View` behavior by only relying on `display: flex` and defaulting to `flex-direction: column`. The following are one dimensional presets that are thin layers over `View` and set specific defaults.
+  - **Stack** A one-dimensional layout preset over `View` that owns `direction`, `gap`, `align`, `justify`, `wrap`.
+  - **Section** `View` with opinionated spacing (`padding-block`) that provides consistent rhythm between large page regions. It sits at the page-shell level and composes into `Layout`; it is not a general-purpose primitive.
+  - **Container** Thin preset over `View` with max-width clamping, responsive padding, and horizontal auto-centering as the default behavior. It sits at the page-shell level and composes into `Layout`, alongside `Section`.
+  - **Layout** Top-level page-assembly composition of `Container`, `Section`, `Grid`, and `Stack` arranged into a coherent page shell. It does not introduce its own CSS-prop logic or mapping layer.
+- **Context-free vs. context-aware is the only real dividing line.** A prop is safe to fold into `View` if it's a direct, no-op-if-irrelevant CSS mapping. A prop requires a real, separate component only if it must read something from a parent's internal state (eg. total column count, named grid areas, auto-placement).
+- **Composition (Slot) and positioning (View family) are orthogonal.** Slots answer "where does this child go, and what does it inherit." Box/Grid/Stack answer "how does this child behave once placed." Never blend the two responsibilities into one component.
+- **Slot-based, flex-powered, positional-driven grid engine** Built on `View` to mimic standard 2D CSS grid. It partitions children into flex-row wrappers and calculates column widths as proportional fractions based on `Grid`'s row count ($x$). Introducing a `<Grid.Span>` dynamically adjusts the current row band's width distribution to account for $x_1/x$ spans, pushing remaining items into subsequent flex containers. Children that exceed the track limit on the cross axis automatically flow into dynamic implicit flex rows, while `<Grid.Span>`s that overflow the main axis update the grid to include the new columns, preserving standard CSS grid overflow behavior without relying on native 2d layout engines.
+- **Slot interface** Injection point that provides structure about what child belongs to, and what can it inhereit from, what parent. It consists of:
+  - **internal `createSlot(options)` factory** that defines slot logic for all specialized and generic slots across the system. It **takes** default styles for the slot (eg. fixed icon dimensions, color token), and an optional context hook for inheriting values from the parent component (size, color, spacing tokens) and **returns** a slot component to be exposed as a static property on the parent (e.g. `Button.Icon`). Every specialized or generic slot in the system must be produced by `createSlot`, not authored as a bespoke one-off component, so that the consumer-facing mental model stays identical across the entire system.
+  - **consumer-facing slot instances** (eg. `Grid.Span`, `Button.Icon`, `Button.Slot`, `TextField.Leading`, `Card.Footer`). Specialized slots (eg. `Button.Icon`) carry content-specific defaults (icon sizing/color) and may accept a narrow prop like `position` (`leading`/`trailing`) that maps purely to CSS `order` (`-1`/`1`), never to DOM reordering or child-scanning. Generic slots (e.g. `Button.Slot`) share the same positioning mechanics (same parent container, same `order`-based placement) but carry no content-type assumptions — used for arbitrary children (badges, spinners, custom nodes) that don't fit a specialized slot. Parent components do no scanning, inspection, or carry knowledge of slot contents, and instead provide modifiers like `gaps`. The only permitted 'logic' in a slot instance is context read for token inheritance that is treated as equivalent to CSS custom-property inheritance, not as layout logic.
+- **Platform parity maintained** both engines work identically on web and native, powered by flexbox.
