@@ -5,7 +5,7 @@ import { breakpointList } from "./constants";
 
 export const resolveBreakpointSx = <T>(
   prop: ResponsiveProp<T>,
-  breakpoint: BreakpointType,
+  breakpoint: BreakpointType | undefined,
 ): T | undefined => {
   if (prop === undefined || prop === null) return undefined;
 

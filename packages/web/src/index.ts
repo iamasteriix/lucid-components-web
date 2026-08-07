@@ -1,6 +1,6 @@
 export {
-  Icon,
-  Text,
+  Icon, Text,
+  Grid,
 } from "@/components";
 
 export {

@@ -1,32 +1,7 @@
-import type { Ref } from "react";
-import type { SxElevation, } from "@/types";
-import type { ElementBaseProps, } from "@/types";
+import type { ViewProps } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./view.module.css";
-
-
-
-type BaseViewProps = ElementBaseProps & {
-  elevation?: SxElevation;
-  ref?: Ref<HTMLDivElement>;
-};
-
-type FlatViewProps = BaseViewProps & {
-  material: 'flat';
-  tone?: 'base' | 'surface' | 'elevated' | 'overlay';
-  intensity?: 'filled' | 'tonal' | 'inherit';
-  depth?: 'sm' | 'md' | 'lg'; // shadow spread
-};
-
-type GlassViewProps = BaseViewProps & {
-  material: 'glass';
-  tone?: 'neutral' | 'accent';
-  intensity?: 'faint' | 'subtle' | 'default' | 'strong';
-  depth?: 'sm' | 'md' | 'lg'; // depth of blur
-};
-
-export type ViewProps = FlatViewProps | GlassViewProps;
 
 
 

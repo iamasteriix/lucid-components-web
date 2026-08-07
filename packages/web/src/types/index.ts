@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactElement, } from "react";
+import type { CSSProperties, ReactElement, Ref, } from "react";
 import type { ResponsiveProp } from "@lucid-ui/core";
 
 
@@ -23,7 +23,7 @@ export type A11yProps = {
 
 
 
-/** —— CSS ————————————————————————————————————————————————————————————————— */
+// —— CSS —————————————————————————————————————————————————————————————————————
 
 export type SxDisplay = 'flex' | 'none';
 
@@ -52,6 +52,8 @@ export type SxSpace =
   | 'space-36';
 
 export type SxFit = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
+
+export type SxGap = 0 | .25 | .5 | .75 | 1 | 1.25 | 1.5 | 2 | 2.5 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 18 | 20 | 24;
 
 export type SxIntent = 'primary' | 'secondary' | 'accent' | 'neutral' | 'info' | 'success' | 'warning' | 'error';
 
@@ -91,19 +93,19 @@ export type SxProps = {
   maxHeight?: ResponsiveProp<SxSpace | SxFit>;
 
   // -- spacing ---
-  margin?: ResponsiveProp<SxSpace>;
-  marginX?: ResponsiveProp<SxSpace>;
-  marginY?: ResponsiveProp<SxSpace>;
-  padding?: ResponsiveProp<SxSpace>;
-  paddingX?: ResponsiveProp<SxSpace>;
-  paddingY?: ResponsiveProp<SxSpace>;
+  margin?: ResponsiveProp<SxGap | SxSpace>;
+  marginX?: ResponsiveProp<SxGap | SxSpace>;
+  marginY?: ResponsiveProp<SxGap | SxSpace>;
+  padding?: ResponsiveProp<SxGap | SxSpace>;
+  paddingX?: ResponsiveProp<SxGap | SxSpace>;
+  paddingY?: ResponsiveProp<SxGap | SxSpace>;
   top?: ResponsiveProp<SxSpace | 'auto'>;
   right?: ResponsiveProp<SxSpace | 'auto'>;
   bottom?: ResponsiveProp<SxSpace | 'auto'>;
   left?: ResponsiveProp<SxSpace | 'auto'>;
-  gap?: ResponsiveProp<SxSpace>;
-  columnGap?: ResponsiveProp<SxSpace>;
-  rowGap?: ResponsiveProp<SxSpace>;
+  gap?: ResponsiveProp<SxGap | SxSpace>;
+  columnGap?: ResponsiveProp<SxGap | SxSpace>;
+  rowGap?: ResponsiveProp<SxGap | SxSpace>;
 
   // -- decorations: background ---
   backgroundColor?: SxIntent;
@@ -122,8 +124,6 @@ export type SxProps = {
 
 // —— Components ——————————————————————————————————————————————————————————————
 
-export type ViewMaterial = 'flat' | 'glass';
-
 export type ElementBaseProps = {
   sx?: SxProps;
   a11y?: A11yProps;
@@ -131,6 +131,27 @@ export type ElementBaseProps = {
   children?: ReactElement | ReactElement[];
   testID?: string;
 };
+
+type BaseViewProps = ElementBaseProps & {
+  elevation?: SxElevation;
+  ref?: Ref<HTMLDivElement>;
+};
+
+type FlatViewProps = BaseViewProps & {
+  material: 'flat';
+  tone?: 'base' | 'surface' | 'elevated' | 'overlay';
+  intensity?: 'filled' | 'tonal' | 'inherit';
+  depth?: 'sm' | 'md' | 'lg'; // shadow spread
+};
+
+type GlassViewProps = BaseViewProps & {
+  material: 'glass';
+  tone?: 'neutral' | 'accent';
+  intensity?: 'faint' | 'subtle' | 'default' | 'strong';
+  depth?: 'sm' | 'md' | 'lg'; // depth of blur
+};
+
+export type ViewProps = FlatViewProps | GlassViewProps;
 
 export type SlotParams <T = {}> = {
   displayName?: string;
