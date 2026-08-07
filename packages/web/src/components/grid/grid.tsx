@@ -1,4 +1,4 @@
-import type { JSXElementConstructor, ReactElement, ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import type { ResponsiveProp } from "@lucid-ui/core";
 import type { ElementBaseProps, SxAlign, SxFit, SxGap, SxSpace, ViewProps, } from "@/types";
 import { Children, isValidElement, useLayoutEffect, useRef, useState } from "react";
@@ -47,8 +47,6 @@ type Band =
       implicit: ReactNode[];
       implicitCols: number;
     };
-
-type LePetitPrince = ReactElement<unknown, string | JSXElementConstructor<any>> | ReactElement<unknown, string | JSXElementConstructor<any>>[];
 
 
 
@@ -303,7 +301,7 @@ export const Grid = ({
       {
         bands.map((band, index) => (
           renderBand(band, index, effectiveCols, shelf.repeat, shelf.gapX))
-        ) as LePetitPrince
+        )
       }
     </View>
   );

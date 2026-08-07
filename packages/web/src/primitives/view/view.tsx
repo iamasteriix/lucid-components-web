@@ -1,11 +1,23 @@
-import type { ViewProps } from "@/types";
+import type { ReactElement } from "react";
+import type { FlatViewProps, GlassViewProps, LooseViewProps, ViewProps } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./view.module.css";
 
 
 
-export const View = ({
+/**
+ * @note
+ * `View` is discriminated on `material` (`'flat'` | `'glass'`), so TypeScript
+ * cannot determine what branch is being satisfied when you import it. Perhaps consequently,
+ * it also allows us to use **overloads** to declare multiple function signatures for the
+ * same implementation. This way, callers get to pick whatever signature matches and ignore
+ * the rest, while only the last implementation actually runs.
+ */
+export function View (props: FlatViewProps): ReactElement | ReactElement[];
+export function View (props: GlassViewProps): ReactElement | ReactElement[];
+export function View (props: LooseViewProps): ReactElement | ReactElement[];
+export function View ({
   material = 'flat',
   tone = 'surface',
   intensity = 'inherit',
@@ -17,7 +29,7 @@ export const View = ({
   children,
   testID,
   ref,
-}: ViewProps) => {
+}: ViewProps | LooseViewProps) {
   const { breakpoint, } = useDeviceBreakpoints();
 
   // build class name for semantic props

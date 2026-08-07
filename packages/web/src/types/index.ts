@@ -124,11 +124,13 @@ export type SxProps = {
 
 // —— Components ——————————————————————————————————————————————————————————————
 
+type ElementChildren = ReactElement | ElementChildren[];
+
 export type ElementBaseProps = {
   sx?: SxProps;
   a11y?: A11yProps;
   style?: CSSProperties;
-  children?: ReactElement | ReactElement[];
+  children?: ElementChildren;
   testID?: string;
 };
 
@@ -137,14 +139,14 @@ type BaseViewProps = ElementBaseProps & {
   ref?: Ref<HTMLDivElement>;
 };
 
-type FlatViewProps = BaseViewProps & {
+export type FlatViewProps = BaseViewProps & {
   material: 'flat';
   tone?: 'base' | 'surface' | 'elevated' | 'overlay';
   intensity?: 'filled' | 'tonal' | 'inherit';
   depth?: 'sm' | 'md' | 'lg'; // shadow spread
 };
 
-type GlassViewProps = BaseViewProps & {
+export type GlassViewProps = BaseViewProps & {
   material: 'glass';
   tone?: 'neutral' | 'accent';
   intensity?: 'faint' | 'subtle' | 'default' | 'strong';
@@ -152,6 +154,13 @@ type GlassViewProps = BaseViewProps & {
 };
 
 export type ViewProps = FlatViewProps | GlassViewProps;
+
+export type LooseViewProps = BaseViewProps & {
+  material: 'flat' | 'glass';
+  tone?: FlatViewProps['tone'] | GlassViewProps['tone'];
+  intensity?: FlatViewProps['intensity'] | GlassViewProps['intensity'];
+  depth?: FlatViewProps['depth'] | GlassViewProps['depth'];
+};
 
 export type SlotParams <T = {}> = {
   displayName?: string;
