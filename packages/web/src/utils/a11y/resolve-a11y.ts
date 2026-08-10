@@ -1,7 +1,6 @@
 import type { A11yProps } from "@/types";
 
 
-
 export const resolveA11y = (props?: A11yProps): object => {
   if (!props) return {};
   return Object.fromEntries(

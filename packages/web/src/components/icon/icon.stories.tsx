@@ -8,7 +8,6 @@ import { Icon } from "./icon";
 import { Text } from "../text/text";
 
 
-
 type Story = StoryObj<IconProps>;
 
 

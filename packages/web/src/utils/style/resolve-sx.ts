@@ -5,9 +5,7 @@ import { resolveBreakpointSx } from "@lucid-ui/core";
 import { sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap, } from "@/theme";
 
 
-
 type PropValue = string | number | undefined;
-
 
 
 const spaceOrFitKeys = new Set([
@@ -29,7 +27,6 @@ const passthroughKeys = new Set([
   'flex', 'flexDirection', 'flexWrap', 'flexGrow', 'flexShrink',
   'order', 'overflow', 'position',
 ]);
-
 
 
 const resolveSxValue = (
@@ -63,7 +60,6 @@ const resolveSxValue = (
 
   return undefined; // fallback: eliminate undeclared values
 }
-
 
 
 export const resolveSx = (

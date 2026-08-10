@@ -3,7 +3,6 @@ import type { TextProps } from "./text"
 import { Text } from "./text";
 
 
-
 type Story = StoryObj<TextProps>;
 
 

@@ -4,7 +4,6 @@ import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx, } from "@/utils";
 
 
-
 // wrapped-around icon's props
 type IconComponentProps = {
   viewBox?: string;
@@ -25,14 +24,12 @@ export type IconProps = Omit<ElementBaseProps, 'children'> & {
 };
 
 
-
 const sizeMap: Record<NonNullable<IconProps['size']>, string> = {
   xsm: 'var(--typography-textXs)',
   sm: 'var(--typography-textSm)',
   md: 'var(--typography-textLg)',
   lg: 'var(--typography-textXl)',
 };
-
 
 
 export const Icon = ({

@@ -1,19 +1,22 @@
-import type { SlotParams, SlotProps } from "@/types";
+import type { SlotParams, SlotProps, } from "@/types";
 import { View } from "../view/view";
-
 
 
 export const createSlot = <T extends Record<string, any> = {}> ({
   displayName = 'Slot',
   defaultSx,
   defaultStyle,
-  useContext = () => ({}),
+  // useContext = () => ({}),
   extraProps,
 }: SlotParams) => {
 
   const SlotComponent = ({
     position,
-    sx,
+    sx = {
+      display: 'flex',
+      width: 'fill',
+      height: 'fill',
+    },
     style,
     children,
     ...rest
@@ -25,7 +28,6 @@ export const createSlot = <T extends Record<string, any> = {}> ({
 
     return (
       <View
-        material='flat'
         sx={ mergedSx }
         style={ mergedStyle }
         { ...extraProps }

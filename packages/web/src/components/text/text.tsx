@@ -5,7 +5,6 @@ import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./text.module.css";
 
 
-
 type TextColor = 'primary' | 'secondary' | 'muted' | 'inverse' | 'inherit';
 
 type TextAlign = 'start' | 'center' | 'end';
@@ -33,7 +32,6 @@ export type TextProps = Omit<ElementBaseProps, 'children'> & {
   children?: string | number;
   ref?: Ref<HTMLParagraphElement>;
 };
-
 
 
 export const Text = ({

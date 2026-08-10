@@ -5,7 +5,6 @@ import { tokens } from "@lucid-ui/core";
 import { ThemeContext } from "./context";
 
 
-
 type ThemeProviderProps = {
   theme?: ThemeTokensType;
   children: ReactNode;
@@ -30,7 +29,6 @@ const resolveTheme = (override?: ThemeTokensType): ThemeTokensType => {
 }
 
 
-
 /**
  * Flattens the resolved token set into CSS custom properties
  * and injects them onto a wrapping div.
@@ -48,7 +46,6 @@ const toCSSVariables = (tokens: ThemeTokensType): Record<string, string> => {
     {} as Record<string, string>
   );
 }
-
 
 
 /**

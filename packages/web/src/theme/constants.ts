@@ -4,7 +4,6 @@ import type {
 } from "@/types";
 
 
-
 export const sxSpaceMap: Record<SxSpace, string> = {
   'space-0':  'var(--spacing-space0)',
   'space-1':  'var(--spacing-space1)',

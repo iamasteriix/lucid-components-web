@@ -1,25 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ViewProps } from "./view";
+import type { ViewPropsStrict } from "@/types";
 import { SxStyles } from "@/utils";
 import { Text } from "@/components";
 import { View, } from "./view";
 
 
-type Story = StoryObj<ViewProps>;
+type Story = StoryObj<ViewPropsStrict>;
 
 
-const meta: Meta<ViewProps> = {
+export default {
   title: 'Components/Layout/View',
   component: View,
-};
-
-
-export default meta;
+} as Meta<ViewPropsStrict>;
 
 
 export const ViewsLayered: Story = {
   name: 'View — Glass layered over base',
-  render: (_: ViewProps) => (
+  render: (_: ViewPropsStrict) => (
     <View
       material='flat'
       tone='base'

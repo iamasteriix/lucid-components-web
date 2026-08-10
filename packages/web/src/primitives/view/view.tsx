@@ -1,9 +1,8 @@
 import type { ReactElement } from "react";
-import type { FlatViewProps, GlassViewProps, LooseViewProps, ViewProps } from "@/types";
+import type { FlatViewProps, GlassViewProps, ViewProps, ViewPropsStrict } from "@/types";
 import { useDeviceBreakpoints } from "@lucid-ui/core";
 import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./view.module.css";
-
 
 
 /**
@@ -16,7 +15,7 @@ import styles from "./view.module.css";
  */
 export function View (props: FlatViewProps): ReactElement | ReactElement[];
 export function View (props: GlassViewProps): ReactElement | ReactElement[];
-export function View (props: LooseViewProps): ReactElement | ReactElement[];
+export function View (props: ViewProps): ReactElement | ReactElement[];
 export function View ({
   material = 'flat',
   tone = 'surface',
@@ -29,7 +28,7 @@ export function View ({
   children,
   testID,
   ref,
-}: ViewProps | LooseViewProps) {
+}: ViewPropsStrict | ViewProps) {
   const { breakpoint, } = useDeviceBreakpoints();
 
   // build class name for semantic props

@@ -2,7 +2,6 @@ import type { CSSProperties, ReactElement, Ref, } from "react";
 import type { ResponsiveProp } from "@lucid-ui/core";
 
 
-
 // —— Accessibility ———————————————————————————————————————————————————————————
 type A11yState = {
   disabled?: boolean;
@@ -20,7 +19,6 @@ export type A11yProps = {
   state?: A11yState;
   hidden?: boolean;
 };
-
 
 
 // —— CSS —————————————————————————————————————————————————————————————————————
@@ -121,7 +119,6 @@ export type SxProps = {
 };
 
 
-
 // —— Components ——————————————————————————————————————————————————————————————
 
 type ElementChildren = ReactElement | ElementChildren[];
@@ -153,10 +150,10 @@ export type GlassViewProps = BaseViewProps & {
   depth?: 'sm' | 'md' | 'lg'; // depth of blur
 };
 
-export type ViewProps = FlatViewProps | GlassViewProps;
+export type ViewPropsStrict = FlatViewProps | GlassViewProps;
 
-export type LooseViewProps = BaseViewProps & {
-  material: 'flat' | 'glass';
+export type ViewProps = BaseViewProps & {
+  material?: 'flat' | 'glass';
   tone?: FlatViewProps['tone'] | GlassViewProps['tone'];
   intensity?: FlatViewProps['intensity'] | GlassViewProps['intensity'];
   depth?: FlatViewProps['depth'] | GlassViewProps['depth'];
@@ -170,6 +167,6 @@ export type SlotParams <T = {}> = {
   extraProps?: T;                         // props the slot accepts beyond the base
 };
 
-export type SlotProps = ElementBaseProps & {
+export type SlotProps = ViewProps & {
   position?: 'leading' | 'trailing';  // maps to order: -1 or 1
 };

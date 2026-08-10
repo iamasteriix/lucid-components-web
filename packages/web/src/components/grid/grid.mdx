@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls, } from "@storybook/addon-docs/blocks";
+import * as GridStories from "./grid.stories";
+
+
+<Meta
+  of={ GridStories }
+  title='Grid'
+/>
+
+# Grid
+
+Designed for arranging visual elements in rows and columns, and supports fixed column counts and responsive columns that reflow based on available width.
+
+<Canvas
+  withToolbar
+  of={ GridStories.GridDashboardLayout }
+  layout='padded'
+  source={{
+    code: `
+      import { Grid, Text, View, } from "@lucid-ui/web";
+
+      export const GridDashboard = () => {
+        return (
+          <Grid columns={ 4 } gap={ 2 }>
+            <Grid.Span columns={ 2 } rows={ 2 } style={{ backgroundColor: 'red' }}>
+              <View tone='elevated'>
+                <Text size='xs' color='secondary'>Top artist</Text>
+                <Text size='lg' color='secondary'>070 Shake</Text>
+              </View>
+            </Grid.Span>
+            <View tone='elevated'>
+              <Text size='xs' color='secondary'>Top songs with friends</Text>
+              <Text size='lg' color='primary' weight='semibold'>Don't Break The Silence</Text>
+            </View>
+            <View tone='elevated'>
+              <Text size='xs' color='secondary'>Top song</Text>
+              <Text size='lg' color='primary' weight='semibold'>Web</Text>
+            </View>
+          </Grid>
+        );
+      }
+    `,
+  }}
+/>
