@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "types": ["node"],
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@icon-factory": ["./src/utils/core/create-icon.web"]
+    }
+  },
+  "include": ["src/**/*"]
+}
