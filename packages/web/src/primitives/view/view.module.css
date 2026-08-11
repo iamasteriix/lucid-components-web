@@ -1,0 +1,177 @@
+/* ============================================================
+   BASE — reset, box-sizing, no defaults
+   ============================================================ */
+.view {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border-style: solid;
+  border-width: 0;
+}
+
+
+/* ============================================================
+   MATERIAL: FLAT
+   ============================================================ */
+
+/* --- Position & layout --- */
+.view--material-flat {
+  position: relative;
+}
+
+/* Elevation (z-index) — stacking is a layout concern, not a decoration */
+.view--material-flat.view--elevation-level-0 { z-index: var(--elevation-level0); }
+.view--material-flat.view--elevation-level-1 { z-index: var(--elevation-level1); }
+.view--material-flat.view--elevation-level-2 { z-index: var(--elevation-level2); }
+.view--material-flat.view--elevation-level-3 { z-index: var(--elevation-level3); }
+.view--material-flat.view--elevation-level-4 { z-index: var(--elevation-level4); }
+.view--material-flat.view--elevation-level-5 { z-index: var(--elevation-level5); }
+
+/* --- View model --- */
+/* (no default width/height — left to sx or consumer) */
+
+/* --- Typography --- */
+/* (none — text is inherited) */
+
+/* --- Visual / decorations --- */
+
+/* Tone: base, surface, elevated, overlay */
+.view--material-flat.view--tone-base {
+  background-color: var(--colors-bgBase);
+}
+.view--material-flat.view--tone-surface {
+  background-color: var(--colors-bgSurface);
+}
+.view--material-flat.view--tone-elevated {
+  background-color: var(--colors-bgElevated);
+}
+.view--material-flat.view--tone-overlay {
+  background-color: var(--colors-bgOverlay);
+}
+
+/* Intensity: filled, tonal, inherit */
+/* filled uses the full background color — no additional mix */
+
+/* tonal is a subtle tint of *this tone's* surface color */
+.view--material-flat.view--tone-base.view--intensity-tonal {
+  background-color: color-mix(in srgb, var(--colors-bgBase) 92%, var(--colors-primary));
+}
+.view--material-flat.view--tone-surface.view--intensity-tonal {
+  background-color: color-mix(in srgb, var(--colors-bgSurface) 92%, var(--colors-primary));
+}
+.view--material-flat.view--tone-elevated.view--intensity-tonal {
+  background-color: color-mix(in srgb, var(--colors-bgElevated) 92%, var(--colors-primary));
+}
+.view--material-flat.view--tone-overlay.view--intensity-tonal {
+  background-color: color-mix(in srgb, var(--colors-bgOverlay) 92%, var(--colors-primary));
+}
+
+/* inherit drops the background regardless of tone — nothing to gate */
+.view--material-flat.view--intensity-inherit {
+  background-color: inherit;
+}
+
+/* Depth (shadow) — sm, md, lg */
+.view--material-flat.view--depth-sm {
+  box-shadow: var(--elevation-shadowSm);
+}
+.view--material-flat.view--depth-md {
+  box-shadow: var(--elevation-shadowMd);
+}
+.view--material-flat.view--depth-lg {
+  box-shadow: var(--elevation-shadowLg);
+}
+
+
+/* ============================================================
+   MATERIAL: GLASS
+   ============================================================ */
+
+/* --- Base --- */
+/* glass defaults to neutralDefault */
+.view--material-glass {
+  position: relative;
+  background-color: var(--glass-neutralDefault);
+  backdrop-filter: blur(var(--glass-blurMd)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blurMd)) saturate(var(--glass-saturate));
+  box-shadow: var(--glass-shadowMd);
+  border: var(--glass-border);
+  border-top: var(--glass-borderTop);
+  border-bottom: var(--glass-borderInner);
+}
+
+/* Elevation (z-index) — stacking is a layout concern, not a decoration */
+.view--material-glass.view--elevation-level-0 { z-index: var(--elevation-level0); }
+.view--material-glass.view--elevation-level-1 { z-index: var(--elevation-level1); }
+.view--material-glass.view--elevation-level-2 { z-index: var(--elevation-level2); }
+.view--material-glass.view--elevation-level-3 { z-index: var(--elevation-level3); }
+.view--material-glass.view--elevation-level-4 { z-index: var(--elevation-level4); }
+.view--material-glass.view--elevation-level-5 { z-index: var(--elevation-level5); }
+
+/* --- Typography --- */
+/* (none) */
+
+/* --- Visual / decorations --- */
+
+/* Tone: neutral, accent */
+.view--material-glass.view--tone-neutral {
+  background-color: var(--glass-neutralDefault);
+}
+.view--material-glass.view--tone-accent {
+  background-color: var(--glass-accentDefault);
+}
+
+/* Intensity: faint, subtle, default, strong (neutral) */
+.view--material-glass.view--tone-neutral.view--intensity-faint {
+  background-color: var(--glass-neutralFaint);
+}
+.view--material-glass.view--tone-neutral.view--intensity-subtle {
+  background-color: var(--glass-neutralSubtle);
+}
+.view--material-glass.view--tone-neutral.view--intensity-default {
+  background-color: var(--glass-neutralDefault);
+}
+.view--material-glass.view--tone-neutral.view--intensity-strong {
+  background-color: var(--glass-neutralStrong);
+}
+
+/* Intensity: faint, subtle, default, strong (accent) */
+.view--material-glass.view--tone-accent.view--intensity-faint {
+  background-color: var(--glass-accentFaint);
+}
+.view--material-glass.view--tone-accent.view--intensity-subtle {
+  background-color: var(--glass-accentSubtle);
+}
+.view--material-glass.view--tone-accent.view--intensity-default {
+  background-color: var(--glass-accentDefault);
+}
+.view--material-glass.view--tone-accent.view--intensity-strong {
+  background-color: var(--glass-accentStrong);
+}
+
+/* Depth (blur) — sm, md, lg (overrides default blurMd) */
+.view--material-glass.view--depth-sm {
+  backdrop-filter: blur(var(--glass-blurSm)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blurSm)) saturate(var(--glass-saturate));
+}
+.view--material-glass.view--depth-md {
+  backdrop-filter: blur(var(--glass-blurMd)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blurMd)) saturate(var(--glass-saturate));
+}
+.view--material-glass.view--depth-lg {
+  backdrop-filter: blur(var(--glass-blurLg)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blurLg)) saturate(var(--glass-saturate));
+}
+
+/* Elevation (glass shadow) — overrides the base default shadow above */
+.view--material-glass.view--elevation-level-0 { box-shadow: none; }
+.view--material-glass.view--elevation-level-1 { box-shadow: var(--glass-shadowSm); }
+.view--material-glass.view--elevation-level-2 { box-shadow: var(--glass-shadowMd); }
+.view--material-glass.view--elevation-level-3 { box-shadow: var(--glass-shadowLg); }
+.view--material-glass.view--elevation-level-4 { box-shadow: var(--glass-shadowLg); }
+.view--material-glass.view--elevation-level-5 { box-shadow: var(--glass-shadowLg); }

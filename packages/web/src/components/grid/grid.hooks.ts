@@ -1,0 +1,71 @@
+import type { ResponsiveProp } from "@lucid-ui/core";
+import type { SxGap, SxSpace, } from "@/types";
+import type { ResponsiveColType, ResponsiveHookOptions } from "./grid.types";
+import { resolveBreakpointSx, useDeviceBreakpoints } from "@lucid-ui/core";
+import { useLayoutEffect, useRef, useState } from "react";
+import { resolveSizeToPx } from "@/utils";
+
+
+/**
+ * Uses current viewport breakpoint to determine column number, gap sizes, and
+ * how to arrange child elements
+ */
+export const useResponsiveGrid = (
+  columns:    ResponsiveProp<number | ResponsiveColType>,
+  columnGap:  ResponsiveProp<SxGap | SxSpace>           | undefined,
+  rowGap:     ResponsiveProp<SxGap | SxSpace>           | undefined,
+): ResponsiveHookOptions => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { breakpoint, } = useDeviceBreakpoints();
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  // resolve viewport breakpoints for columns and gaps
+  const resolvedColumns = resolveBreakpointSx(columns, breakpoint) ?? 1;
+  const gapX = resolveBreakpointSx(columnGap, breakpoint) ?? 0;
+  const gapY = resolveBreakpointSx(rowGap, breakpoint) ?? 0;
+
+  // normalize gap values
+  const gapXParsed = resolveSizeToPx(gapX);
+  const gapYParsed = resolveSizeToPx(gapY);
+
+  // observe container size when using auto-fit dynamic columns
+  useLayoutEffect(() => {
+    if (typeof resolvedColumns === 'number' || !ref.current) return;
+    const element = ref.current;
+    const observer = new ResizeObserver(([entry]) => {
+      setContainerWidth(entry.contentRect.width);
+    });
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+    }
+  }, [resolvedColumns]);
+
+  // return simple fixed column count
+  if (typeof resolvedColumns === 'number') {
+    return {
+      colNum: Math.max(1, resolvedColumns),
+      gapX: gapXParsed,
+      gapY: gapYParsed,
+      repeat: 'fill',
+      ref,
+    };
+  }
+
+  // calculate dynamic container width
+  const {
+    minWidth,
+    maxNum = Infinity,
+    repeat = 'fill',
+  } = resolvedColumns;
+  const cell = (containerWidth +gapXParsed) /(minWidth +gapXParsed);
+  const fit = Math.max(1, Math.floor(cell));
+
+  return {
+    colNum: Math.min(fit, maxNum),
+    gapX: gapXParsed,
+    gapY: gapYParsed,
+    repeat,
+    ref,
+  };
+}

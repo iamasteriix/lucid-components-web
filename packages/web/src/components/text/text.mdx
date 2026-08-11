@@ -1,0 +1,18 @@
+import { Meta, Canvas, Controls, } from "@storybook/addon-docs/blocks";
+import * as TextStories from "./text.stories";
+
+
+<Meta
+  of={ TextStories }
+  title='Text'
+/>
+
+# Text
+Text displays styled body text from your theme.
+
+<Canvas
+  withToolbar
+  of={ TextStories.TextOverview }
+  layout='padded'
+/>
+<Controls of={ TextStories.TextOverview }/>

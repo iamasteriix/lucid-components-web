@@ -1,8 +1,8 @@
 {
-  "name": "Nine UI - Web",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "dev",
-  "workspaceFolder": "/app",
+  "name": "Lucid UI Kit - Native",
+  "dockerComposeFile": "../../docker-compose.yml",
+  "service": "native",
+  "workspaceFolder": "/app/packages/native/",
   "customizations": {
     "vscode": {
       "settings": {
