@@ -12,7 +12,7 @@ const spaceOrFitKeys = new Set([
   'flexBasis',
   'width', 'minWidth', 'maxWidth',
   'height', 'minHeight', 'maxHeight',
-  'margin', 'marginX', 'marginY',
+  'margin', 'marginHorizontal', 'marginVertical',
   'padding', 'paddingX', 'paddingY',
   'top', 'right', 'bottom', 'left',
   'gap',
@@ -88,10 +88,10 @@ export const resolveSx = (
 
     // handle margin expansion
     if (key === 'margin') styles.margin = cssValue;
-    else if (key === 'marginX') {
+    else if (key === 'marginHorizontal') {
       styles.marginLeft = cssValue;
       styles.marginRight = cssValue;
-    } else if (key === 'marginY') {
+    } else if (key === 'marginVertical') {
       styles.marginTop = cssValue;
       styles.marginBottom = cssValue;
     }

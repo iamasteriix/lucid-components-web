@@ -2,7 +2,13 @@ import type { GridSpanProps } from "./grid.types";
 import { createSlot } from "@/primitives";
 
 
-const GridSpanSlot = createSlot<GridSpanProps>({ displayName: 'Grid.Span', });
+const GridSpanSlot = createSlot<GridSpanProps>({
+  displayName: 'Grid.Span',
+  defaultSx: {
+    width: 'fill',
+    height: 'fill',
+  },
+});
 
 
 export const GridSpan = ({

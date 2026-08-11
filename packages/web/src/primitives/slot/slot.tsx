@@ -4,9 +4,8 @@ import { View } from "../view/view";
 
 export const createSlot = <T extends Record<string, any> = {}> ({
   displayName = 'Slot',
-  defaultSx,
-  defaultStyle,
-  // useContext = () => ({}),
+  defaultSx = {},
+  defaultStyle = {},
   extraProps,
 }: SlotParams) => {
 
@@ -19,8 +18,8 @@ export const createSlot = <T extends Record<string, any> = {}> ({
   }: SlotProps & T) => {
 
     const order = position === 'leading' ? -1 : position === 'trailing' ? 1 : undefined;
-    const mergedSx = { order, ...defaultSx, ...sx, };
-    const mergedStyle = { ...defaultStyle, ...style, };
+    const mergedSx = Object.assign({ order, }, defaultSx, sx);
+    const mergedStyle = Object.assign(defaultStyle, style);
 
     return (
       <View

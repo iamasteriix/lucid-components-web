@@ -92,11 +92,19 @@ export type SxProps = {
 
   // -- spacing ---
   margin?: ResponsiveProp<SxGap | SxSpace>;
-  marginX?: ResponsiveProp<SxGap | SxSpace>;
-  marginY?: ResponsiveProp<SxGap | SxSpace>;
+  marginVertical?: ResponsiveProp<SxGap | SxSpace>;
+  marginHorizontal?: ResponsiveProp<SxGap | SxSpace>;
+  marginTop?: ResponsiveProp<SxGap | SxSpace>;
+  marginRight?: ResponsiveProp<SxGap | SxSpace>;
+  marginBottom?: ResponsiveProp<SxGap | SxSpace>;
+  marginLeft?: ResponsiveProp<SxGap | SxSpace>;
   padding?: ResponsiveProp<SxGap | SxSpace>;
-  paddingX?: ResponsiveProp<SxGap | SxSpace>;
-  paddingY?: ResponsiveProp<SxGap | SxSpace>;
+  paddingVertical?: ResponsiveProp<SxGap | SxSpace>;
+  paddingHorizontal?: ResponsiveProp<SxGap | SxSpace>;
+  paddingTop?: ResponsiveProp<SxGap | SxSpace>;
+  paddingRight?: ResponsiveProp<SxGap | SxSpace>;
+  paddingBottom?: ResponsiveProp<SxGap | SxSpace>;
+  paddingLeft?: ResponsiveProp<SxGap | SxSpace>;
   top?: ResponsiveProp<SxSpace | 'auto'>;
   right?: ResponsiveProp<SxSpace | 'auto'>;
   bottom?: ResponsiveProp<SxSpace | 'auto'>;

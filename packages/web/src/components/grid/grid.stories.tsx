@@ -23,10 +23,7 @@ export const GridDashboardLayout: Story = {
       columns={ 4 }
       sx={ styles.grid }
     >
-      <Grid.Span
-        columns={ 2 }
-        rows={ 2 }
-      >
+      <Grid.Span columns={ 2 } rows={ 2 }>
         <View
           tone='elevated'
           intensity='filled'
@@ -36,6 +33,26 @@ export const GridDashboardLayout: Story = {
           <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
         </View>
       </Grid.Span>
+      <View
+        tone='elevated'
+        intensity='filled'
+        depth='sm'
+        elevation='level-1'
+        sx={ styles.card }
+      >
+        <Text size='xs' color='secondary'>Minutes listened</Text>
+        <Text size='3xl' color='primary' weight='bold'>1,351</Text>
+      </View>
+      <View
+        tone='elevated'
+        intensity='filled'
+        depth='sm'
+        elevation='level-1'
+        sx={ styles.card }
+      >
+        <Text size='xs' color='secondary'>Top song</Text>
+        <Text size='lg' color='primary' weight='semibold'>Web</Text>
+      </View>
       <View
         tone='elevated'
         intensity='filled'
@@ -53,18 +70,8 @@ export const GridDashboardLayout: Story = {
         elevation='level-1'
         sx={ styles.card }
       >
-        <Text size='xs' color='secondary'>Top song</Text>
-        <Text size='lg' color='primary' weight='semibold'>Web</Text>
-      </View>
-      <View
-        tone='elevated'
-        intensity='filled'
-        depth='sm'
-        elevation='level-1'
-        sx={ styles.card }
-      >
-        <Text size='xs' color='secondary'>Top song</Text>
-        <Text size='lg' color='primary' weight='semibold'>Web</Text>
+        <Text size='xs' color='secondary'>Top artists with friends</Text>
+        <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
       </View>
       <Grid.Span
         columns={ 4 }
@@ -73,10 +80,10 @@ export const GridDashboardLayout: Story = {
         <View
           tone='elevated'
           intensity='filled'
-          sx={ styles.panel }
+          sx={ styles.wide }
         >
-          <Text size='xs' color='secondary'>Top artist</Text>
-          <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
+          <Text size='2xl' color='primary' weight='semibold'>You hit 7 plays</Text>
+          <Text size='base' color='secondary'>This song was on repeat. Such a fan.</Text>
         </View>
       </Grid.Span>
     </Grid>
@@ -98,6 +105,12 @@ const styles = SxStyles.create({
     padding: 'space-4',
     width: 'fill',
     height: 'space-28',
+    borderRadius: 'xl',
+  },
+  wide: {
+    padding: 'space-4',
+    width: 'fill',
+    height: 'space-24',
     borderRadius: 'xl',
   },
 });

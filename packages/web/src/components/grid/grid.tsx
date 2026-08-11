@@ -72,7 +72,7 @@ const GridBody = ({
                           key={ row.toString() }
                           style={{
                             ...styles.cell,
-                            flexBasis: `${100 /rowCols}%`,
+                            flexBasis: `calc(${100 /rowCols}% - ${(columnGap *(rowCols -1)) /rowCols}px)`,
                             visibility: occupant ? 'visible' : 'hidden',
                           }}
                         >
@@ -92,8 +92,8 @@ const GridBody = ({
             style={{
               position: 'absolute',
               top: assignSpanTop(span.row),
-              left: `${(span.col /columns) *100}%`,
-              width: `${(span.colSpan /columns) *100}%`,
+              left: `calc(${span.col} * (100% - ${(columns -1) * columnGap}px) / ${columns} + ${span.col *columnGap}px)`,
+              width: `calc(${span.colSpan} *(100% - ${(columns -1) *columnGap}px) / ${columns} + ${(span.colSpan -1) *columnGap}px)`,
               height: assignSpanHeight(span.row, span.rowSpan),
             }}
           >
