@@ -121,7 +121,7 @@ export type SxProps = {
 
 // —— Components ——————————————————————————————————————————————————————————————
 
-type ElementChildren = ReactElement | ElementChildren[];
+type ElementChildren = ReactElement | ElementChildren[];  // self-referential
 
 export type ElementBaseProps = {
   sx?: SxProps;

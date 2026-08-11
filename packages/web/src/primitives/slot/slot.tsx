@@ -12,11 +12,7 @@ export const createSlot = <T extends Record<string, any> = {}> ({
 
   const SlotComponent = ({
     position,
-    sx = {
-      display: 'flex',
-      width: 'fill',
-      height: 'fill',
-    },
+    sx,
     style,
     children,
     ...rest

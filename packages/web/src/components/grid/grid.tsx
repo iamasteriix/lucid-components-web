@@ -1,170 +1,103 @@
-import type { ReactElement, ReactNode } from "react";
-import type { ResponsiveProp } from "@lucid-ui/core";
-import type { ViewProps, SxAlign, SxFit, SxGap, SxSpace, ViewPropsStrict, } from "@/types";
-import { Children, isValidElement, useLayoutEffect, useRef, useState } from "react";
-import { resolveBreakpointSx, useDeviceBreakpoints } from "@lucid-ui/core";
-import { createSlot, View } from "@/primitives";
+import type { CSSProperties } from "react";
+import type { GridBodyProps, GridProps } from "./grid.types";
+import { useLayoutEffect, useRef, useState } from "react";
+import { View } from "@/primitives";
+import { useResponsiveGrid } from "./grid.hooks";
+import { computeGridLayout, } from "./grid-core";
+import { GridSpan } from "./grid.slots";
 
 
-// —— Types ———————————————————————————————————————————————————————————————————
-
-type ColRepeat = 'fill' | 'fit';
-
-type ResponsiveColType = {
-  minWidth: number;
-  repeat?: ColRepeat;
-  maxNum?: number;
-};
-
-export type GridProps = ViewPropsStrict & {
-  align?: ResponsiveProp<SxAlign>;
-  justify?: ResponsiveProp<SxAlign>;
-  columns?: ResponsiveProp<number | ResponsiveColType>;
-  width?: ResponsiveProp<SxSpace | SxFit>;
-  maxWidth?: ResponsiveProp<SxSpace | SxFit>;
-  height?: ResponsiveProp<SxSpace | SxFit>;
-  minHeight?: ResponsiveProp<SxSpace | SxFit>;
-  gap?: ResponsiveProp<SxGap>;
-  columnGap?: ResponsiveProp<SxGap>;
-  rowGap?: ResponsiveProp<SxGap>;
-};
-
-type GridSpanProps = ViewProps & {
-  columns: number;
-  rows: number;
-};
-
-type Band =
-  | {
-      kind: 'default';
-      items: ReactNode[];
-    }
-  | {
-      kind: 'span';
-      span: ReactElement<GridSpanProps>;
-      implicit: ReactNode[];
-      implicitCols: number;
-    };
-
-
-
-// —— Slot ————————————————————————————————————————————————————————————————————
-
-const GridSpanSlot = createSlot<GridSpanProps>({ displayName: 'Grid.Span', });
-
-const GridSpan = ({
-  columns,
+const GridBody = ({
+  placements,
   rows,
-  ...rest
-}: GridSpanProps) => (
-  <GridSpanSlot
-    columns={ columns }
-    rows={ rows }
-    { ...rest }
-  />
-);
+  columns,
+  rowGap,
+  columnGap,
+  repeat,
+}: GridBodyProps) => {
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [rowHeights, setRowHeights] = useState<number[]>([]);
 
+  useLayoutEffect(() => {
+    setRowHeights(rowRefs.current.map(element => {
+      return element?.getBoundingClientRect().height ?? 0
+    }));
+  }, [placements, rows]);
 
-// —— Helpers —————————————————————————————————————————————————————————————————
+  const spans = placements.filter(cell => (cell.colSpan > 1 || cell.rowSpan > 1));
 
-/**
- * Uses the tree of child nodes to determine how they should be arranged in
- * horizontal bands across the element. `Grid.Span` children explicitly set the
- * number of columns they will occupy in their respective bands, and any
- * remaining space within the band is used to fit subsequent children.
- * The default behavior is that each child that is not a `Grid.Span` is added
- * to a band that is iteratively stacked below the current one.
- */
-const buildBands = (
-  children: ReactNode,
-  baseColumns: number,
-) => {
-  const childList = Children.toArray(children);
-
-  // iterate over children to determine number of effective columns
-  const effectiveCols = childList.reduce(
-    (
-      numCols: number,
-      child
-    ) => {
-      if (isValidElement(child) && child.type === GridSpan) {
-        const { columns, } = child.props as GridSpanProps;
-        return Math.max(numCols, columns);
-      }
-      return numCols;
-    },
-    baseColumns,
+  const assignSpanTop = (row: number) => (
+    rowHeights.slice(0, row).reduce((sum, h) => sum +h, 0) + row *rowGap
   );
 
-  const bands: Band[] = [];
-  let pool = childList;
-  let buffer: ReactNode[] = [];
-  
-  const flush = () => {
-    if (buffer.length) {
-      bands.push({ kind: 'default', items: buffer, });
-      buffer = [];
-    }
-  }
+  const assignSpanHeight = (
+    row: number,
+    rowSpan: number
+  ) => {
+    const spanned = rowHeights.slice(row, row +rowSpan);
+    return spanned.reduce((sum, h) => sum +h, 0) + Math.max(0, spanned.length -1) *rowGap;
+  };
 
-  // partition children into standard and child bands
-  while (pool.length) {
-    const head = pool.shift();
-    if (isValidElement(head) && head.type === GridSpan) {
-      flush();
-      const { columns, rows, } = head.props as GridSpanProps;
-      const implicitCols = Math.max(1, effectiveCols -columns);
-      const capacity = implicitCols *rows;
-      bands.push({
-        kind: 'span',
-        span: head as ReactElement<GridSpanProps>,
-        implicit: pool.slice(0, capacity),
-        implicitCols,
-      });
-      pool = pool.slice(capacity);
-    } else buffer.push(head);
-  }
-
-  flush();
-
-  return { bands, effectiveCols, };
-}
-
-
-/**
- * Chunks a flat array into sub-arrays of a target size
- */
-const chunk = <T,> (
-  list: T[],
-  size: number,
-): T[][] => (
-  Array.from({ length: Math.ceil(list.length /size) }, (_, i) => (
-    list.slice(i *size, i *size +size)
-  ))
-);
-
-
-/**
- * Renders a single flex row with flexBasis-calculated column widths
- */
-const renderRow = (
-  items: ReactNode[],
-  columns: number,
-  gap: SxGap | undefined,
-  key: string,
-) => {
   return (
-    <div
-      key={ key }
-      style={{ display: 'flex', flexDirection: 'row', gap, }}
-    >
+    <div style={{ ...styles.plane, rowGap, }}>
       {
-        items.map((item, itemIndex) => (
+        Array.from(
+          { length: rows, },
+          (_, row) => {
+            const childrenRegular = placements.filter(cell => !(cell.colSpan > 1 || cell.rowSpan > 1) && cell.row === row);
+
+            // 'fit' shrinks a row's basis denominator to just the cells it uses, instead of the full
+            // effective number of columns. Trailing empty cells collapse.
+            const rowCols = repeat === 'fit' ?
+                Math.max(...(childrenRegular.map(child => child.col +1)), 1)
+              : columns;
+
+            const assignRef = (element: HTMLDivElement | null) => {
+              rowRefs.current[row] = element;
+            }
+
+            return (
+              <div
+                key={ row.toString() }
+                ref={ element => assignRef(element) }
+                style={{ ...styles.row, columnGap, }}
+              >
+                {
+                  Array.from(
+                    { length: rowCols, },
+                    (_, col) => {
+                      const occupant = childrenRegular.find(child => child.col === col);
+                      return (
+                        <div
+                          key={ row.toString() }
+                          style={{
+                            ...styles.cell,
+                            flexBasis: `${100 /rowCols}%`,
+                            visibility: occupant ? 'visible' : 'hidden',
+                          }}
+                        >
+                          { occupant?.child }
+                        </div>
+                      );
+                  })
+                }
+              </div>
+            );
+        })
+      }
+      {
+        spans.map((span, index) => (
           <div
-            key={ itemIndex.toString() }
-            style={{ display: 'flex', flexGrow: 0, flexShrink: 0, flexBasis: `${100 /columns}%` }}
+            key={ index.toString() }
+            style={{
+              position: 'absolute',
+              top: assignSpanTop(span.row),
+              left: `${(span.col /columns) *100}%`,
+              width: `${(span.colSpan /columns) *100}%`,
+              height: assignSpanHeight(span.row, span.rowSpan),
+            }}
           >
-            { item }
+            { span.child }
           </div>
         ))
       }
@@ -173,150 +106,64 @@ const renderRow = (
 }
 
 
-const renderBand = (
-  band: Band,
-  index: number,
-  columns: number,
-  repeat: ColRepeat,
-  gap: SxGap | undefined,
-) => {
-  if (band.kind === 'default') {
-    return chunk(band.items, columns).map((row, rowIndex) => (
-      renderRow(
-        row,
-        repeat === 'fit' ? row.length : columns,
-        gap,
-        `${index}-${rowIndex}`,
-      )
-    ));
-  }
-
-  // span band rendering
-  // span item on left, implicit side rows on right
-  const spanCols = Math.max(1, columns -band.implicitCols);
-
-  return (
-    <div
-      key={ index.toString() }
-      style={{ display: 'flex', flexDirection: 'row', gap, }}
-    >
-      <div style={{ display: 'flex', flexGrow: spanCols, flexBasis: 0, }}>
-        { band.span }
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', flexGrow: band.implicitCols, flexBasis: 0, gap, }}>
-        {
-          chunk(band.implicit, band.implicitCols).map((row, rowIndex) => (
-            renderRow(
-              row,
-              repeat === 'fit' ? row.length : band.implicitCols,
-              gap,
-              `${index}-${rowIndex}`,
-            )
-          ))
-        }
-      </div>
-    </div>
-  );
-}
-
-
-// —— Responsiveness hook —————————————————————————————————————————————————————
-
-const useResponsiveCols = (
-  columns: ResponsiveProp<number | ResponsiveColType>,
-  gap: ResponsiveProp<SxGap> | undefined,
-  columnGap: ResponsiveProp<SxGap> | undefined,
-  rowGap: ResponsiveProp<SxGap> | undefined,
-) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { breakpoint, } = useDeviceBreakpoints();
-  const [containerWidth, setContainerWidth] = useState(0);
-
-  // resolve viewport breakpoints for columns and gaps
-  const resolvedColumns = resolveBreakpointSx(columns, breakpoint) ?? 1;
-  const gapX = resolveBreakpointSx(columnGap ?? gap, breakpoint) ?? 0;
-  const gapY = resolveBreakpointSx(rowGap ?? gap, breakpoint) ?? 0;
-
-  // observe container size when using auto-fit dynamic columns
-  useLayoutEffect(() => {
-    if (typeof resolvedColumns === 'number' || !ref.current) return;
-    const el = ref.current;
-    const observer = new ResizeObserver(([entry]) => {
-      setContainerWidth(entry.contentRect.width);
-    });
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-    }
-  }, [resolvedColumns]);
-
-  // return simple fixed column count
-  if (typeof resolvedColumns === 'number') {
-    return {
-      cols: Math.max(1, resolvedColumns),
-      gapX,
-      gapY,
-      repeat: 'fill' as const,
-      ref,
-    };
-  }
-
-  // calculate dynamic container width
-  const {
-    minWidth,
-    maxNum = Infinity,
-    repeat = 'fill',
-  } = resolvedColumns;
-  const cell = (containerWidth +gapX) /(minWidth +gapX);
-  const fit = Math.max(1, Math.floor(cell));
-  const cols = Math.min(fit, maxNum);
-
-  return { cols, gapX, gapY, repeat, ref, };
-};
-
-
-// —— Component ———————————————————————————————————————————————————————————————
-
 export const Grid = ({
-  align, justify, width, maxWidth, height, minHeight, columnGap, rowGap, sx,
   material = 'flat',
   columns = 1,
-  gap = 0,
+  sx = {
+    gap: 0,
+    columnGap: 0,
+    rowGap: 0,
+  },
   children,
-  ...rest
 }: GridProps) => {
 
-  // calculate base columns and observe element resize
-  const shelf = useResponsiveCols(columns, gap, columnGap, rowGap);
-
-  // partition children into layout bands
-  const { bands, effectiveCols, } = buildBands(children, shelf.cols);
+  const { gap, columnGap, rowGap, ...sxRest } = sx;
+  const shelf = useResponsiveGrid(
+    columns,
+    columnGap ?? gap,
+    rowGap ?? gap
+  );
+  const plane = computeGridLayout(children, shelf.colNum);
 
   return (
     <View
       ref={ shelf.ref }
       material={ material }
-      sx={{
-        width, maxWidth, height, minHeight, gap, columnGap,
-        flexDirection: 'column',
-        alignItems: align,
-        justifyContent: justify,
-        ...sx,
-      }}
+      sx={ sxRest }
       data-component='grid'
-      { ...rest }
     >
-      {
-        bands.map((band, index) => (
-          renderBand(band, index, effectiveCols, shelf.repeat, shelf.gapX))
-        )
-      }
+      <GridBody
+        placements={ plane.placements }
+        rows={ plane.rows }
+        columns={ plane.columns }
+        rowGap={ shelf.gapY }
+        columnGap={ shelf.gapX }
+        repeat={ shelf.repeat }
+      />
     </View>
   );
 }
 
 
 /**
- * Allotted Slot
+ * Assigns slot to namespace
  */
 Grid.Span = GridSpan;
+
+
+const styles: Record<string, CSSProperties> = {
+  plane: {
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  cell: {
+    display: 'flex',
+    flexGrow: 0,
+    flexShrink: 0,
+  },
+};

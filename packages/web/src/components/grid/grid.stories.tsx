@@ -1,5 +1,5 @@
 import type { Meta, StoryObj, } from "@storybook/react-vite";
-import type { GridProps } from "./grid";
+import type { GridProps } from "./grid.types";
 import { Grid } from "./grid";
 import { Text } from "../text/text";
 import { View } from "@/primitives";
@@ -12,18 +12,6 @@ type Story = StoryObj<GridProps>;
 export default {
   title: 'Components/Layout/Grid',
   component: Grid,
-  argTypes: {
-    align: {},
-    justify: {},
-    columns: {},
-    width: {},
-    maxWidth: {},
-    height: {},
-    minHeight: {},
-    gap: {},
-    columnGap: {},
-    rowGap: {},
-  },
 } as Meta<GridProps>;
 
 
@@ -33,13 +21,16 @@ export const GridDashboardLayout: Story = {
     <Grid
       { ...args }
       columns={ 4 }
-      gap={ 4 }
+      sx={ styles.grid }
     >
-      <Grid.Span columns={ 2 } rows={ 2 }>
+      <Grid.Span
+        columns={ 2 }
+        rows={ 2 }
+      >
         <View
           tone='elevated'
           intensity='filled'
-          sx={ styles.card }
+          sx={ styles.panel }
         >
           <Text size='xs' color='secondary'>Top artist</Text>
           <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
@@ -65,16 +56,48 @@ export const GridDashboardLayout: Story = {
         <Text size='xs' color='secondary'>Top song</Text>
         <Text size='lg' color='primary' weight='semibold'>Web</Text>
       </View>
+      <View
+        tone='elevated'
+        intensity='filled'
+        depth='sm'
+        elevation='level-1'
+        sx={ styles.card }
+      >
+        <Text size='xs' color='secondary'>Top song</Text>
+        <Text size='lg' color='primary' weight='semibold'>Web</Text>
+      </View>
+      <Grid.Span
+        columns={ 4 }
+        rows={ 1 }
+      >
+        <View
+          tone='elevated'
+          intensity='filled'
+          sx={ styles.panel }
+        >
+          <Text size='xs' color='secondary'>Top artist</Text>
+          <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
+        </View>
+      </Grid.Span>
     </Grid>
   ),
 };
 
 
 const styles = SxStyles.create({
-  card: {
+  grid: {
+    gap: 4,
+  },
+  panel: {
     padding: 'space-4',
     width: 'fill',
     height: 'fill',
+    borderRadius: 'xl',
+  },
+  card: {
+    padding: 'space-4',
+    width: 'fill',
+    height: 'space-28',
     borderRadius: 'xl',
   },
 });
