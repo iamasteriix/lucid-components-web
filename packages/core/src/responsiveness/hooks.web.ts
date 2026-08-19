@@ -19,8 +19,7 @@ const getCurrentBreakpoint = (width?: number): BreakpointType | undefined => {
 }
 
 
-
-export const useDeviceBreakpoints = () => {
+export const useMediaQuery = () => {
   const [width, setWidth] = useState<number | undefined>(undefined);
 
   // no dependency because we only want the listener attach once when the component mounts

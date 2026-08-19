@@ -1,60 +1,62 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ViewPropsStrict } from "@/types";
-import { SxStyles } from "@/utils";
+import type { ViewProps } from "./view.types";
+import { SxStyles } from "@/core";
 import { Text } from "@/components";
 import { View, } from "./view";
 
 
-type Story = StoryObj<ViewPropsStrict>;
+type Story = StoryObj<ViewProps>;
 
 
 export default {
   title: 'Components/Layout/View',
   component: View,
-} as Meta<ViewPropsStrict>;
+} as Meta<ViewProps>;
 
 
 export const ViewsLayered: Story = {
   name: 'View — Glass layered over base',
-  render: (_: ViewPropsStrict) => (
-    <View
-      material='flat'
-      tone='base'
-      intensity='filled'
-      elevation='level-0'
-      sx={ styles.base }
-    >
+  render: (_: ViewProps) => (
+    <View sx={ styles.base }>
       <View
-        material='glass'
-        tone='neutral'
-        intensity='subtle'
-        elevation='level-2'
-        sx={ styles.elevated }
+        variant={ variants.view.veneer }
+        sx={ styles.veneer }
       >
-        <Text>Timbo</Text>
+        <Text>Timbo is in the party</Text>
       </View>
     </View>
   ),
 };
 
 
+const variants = SxStyles.variants({
+  view: {
+    veneer: {
+      name: 'glass',
+      tone: 'accent',
+      intensity: 'subtle',
+      elevation: 'level-1',
+      blur: 'sm',
+    },
+  },
+});
+
 const styles = SxStyles.create({
   base: {
     justifyContent: 'center',
     width: 'fill',
     height: 'space-20',
-    paddingX: 'space-8',
+    paddingHorizontal: 'space-8',
+    backgroundColor: 'base',
     borderWidth: 'light',
     borderColor: 'subtle',
     borderRadius: 'xl',
   },
-  elevated: {
+  veneer: {
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 'space-28',
-    height: 'space-12',
-    borderWidth: 'light',
-    borderColor: 'subtle',
-    borderRadius: 'full',
+    width: 'half',
+    marginHorizontal: 'auto',
+    padding: 'space-3',
+    borderRadius: '2xl',
   },
 });

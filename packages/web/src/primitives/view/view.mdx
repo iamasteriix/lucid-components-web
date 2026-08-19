@@ -9,11 +9,10 @@ import * as ViewStories from "./view.stories";
 
 # View
 
-This is the fundamental component for building UI, and is designed around ***flexbox*** to be multi-purpose and open-ended. It provides two mutually exclusive `'material'` values that control how the surface is rendered: `'flat'` selects from the solid surface fills in your theme, while `'glass'` creates a translucent surface that is meant to float above your app content.
+This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. It natively provides two lightweight variants, `flat`, and `glass` with a handful of features to configure the layout surfaces.
 <br/>
 
 
-A wide `'flat'` `View` with the base surface fill and a `'light'` border that wraps over a `'glass'` `View` with a `Text` component.
 
 <Canvas
   withToolbar
@@ -25,46 +24,49 @@ A wide `'flat'` `View` with the base surface fill and a `'light'` border that wr
 
       export const GlassOverBaseViews = () => {
         return (
-          <View
-            material='flat'
-            tone='base'
-            intensity='filled'
-            elevation='level-0'
-            sx={ styles.base }
-          >
+          <View sx={ styles.base }>
             <View
-              material='glass'
-              tone='neutral'
-              intensity='subtle'
-              elevation='level-2'
-              sx={ styles.elevated }
+              variant={ variants.view.veneer }
+              sx={ styles.veneer }
             >
-              <Text>Timbo</Text>
+              <Text>Timbo is in the party</Text>
             </View>
           </View>
-        );
-      }
+        )
+      };
+
+
+      const variants = SxStyles.variants({
+        view: {
+          veneer: {
+            name: 'glass',
+            tone: 'neutral',
+            intensity: 'subtle',
+            elevation: 'level-1',
+            blur: 'sm',
+          },
+        },
+      });
 
       const styles = SxStyles.create({
         base: {
           justifyContent: 'center',
           width: 'fill',
           height: 'space-20',
-          paddingX: 'space-8',
+          paddingHorizontal: 'space-8',
+          backgroundColor: 'base',
           borderWidth: 'light',
           borderColor: 'subtle',
           borderRadius: 'xl',
         },
-        elevated: {
+        veneer: {
           alignItems: 'center',
-          justifyContent: 'center',
-          width: 'space-28',
-          height: 'space-12',
-          borderWidth: 'light',
-          borderColor: 'subtle',
-          borderRadius: 'full',
+          width: 'half',
+          marginHorizontal: 'auto',
+          padding: 'space-3',
+          borderRadius: '2xl',
         },
       });
-    `,
+    `
   }}
 />

@@ -2,8 +2,8 @@ export {
   type BreakpointType,
   type ResponsiveProp,
   resolveBreakpointSx,
-  useDeviceBreakpoints,
-} from "@/responsive";
+  useMediaQuery,
+} from "@/responsiveness";
 
 export {
   type ThemeTokensType,

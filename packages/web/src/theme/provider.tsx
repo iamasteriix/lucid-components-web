@@ -24,7 +24,6 @@ const resolveTheme = (override?: ThemeTokensType): ThemeTokensType => {
     shape:      { ...tokens.shape,      ...override.shape, },
     elevation:  { ...tokens.elevation,  ...override.elevation, },
     motion:     { ...tokens.motion,     ...override.motion, },
-    glass:      { ...tokens.glass,      ...override.glass, },
   }
 }
 

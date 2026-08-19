@@ -8,6 +8,6 @@ import { tokens } from "./tokens";
 // to map the token property types to `string`
 export type ThemeTokensType = {
   [K in keyof typeof tokens]: {
-    [P in keyof typeof tokens[K]]: string | number;
+    [P in keyof typeof tokens[K]]: string;
   };
 };

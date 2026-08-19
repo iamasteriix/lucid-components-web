@@ -1,11 +1,10 @@
 import type {
-  SxElevation, SxFit, SxIntent, SxRadius, SxSpace, SxStrokeColor,
-  SxStrokeWeight,
+  SxElevation, SxFit, SxIntent, SxRadius, SxShadow, SxSpace, SxStrokeColor,
+  SxStrokeWeight, SxSurface,
 } from "@/types";
 
 
 export const sxSpaceMap: Record<SxSpace, string> = {
-  'space-0':  'var(--spacing-space0)',
   'space-1':  'var(--spacing-space1)',
   'space-2':  'var(--spacing-space2)',
   'space-3':  'var(--spacing-space3)',
@@ -33,7 +32,6 @@ export const sxFitMap: Record<SxFit, string> = {
 };
 
 export const sxLevelMap: Record<SxElevation, string> = {
-  'level-0': 'var(--elevation-level0)',
   'level-1': 'var(--elevation-level1)',
   'level-2': 'var(--elevation-level2)',
   'level-3': 'var(--elevation-level3)',
@@ -42,7 +40,6 @@ export const sxLevelMap: Record<SxElevation, string> = {
 };
 
 export const sxRadiusMap: Record<SxRadius, string> = {
-  none:   '0px',
   sm:     'var(--shape-radiusSm)',
   md:     'var(--shape-radiusMd)',
   lg:     'var(--shape-radiusLg)',
@@ -52,7 +49,6 @@ export const sxRadiusMap: Record<SxRadius, string> = {
 };
 
 export const sxStrokeWeightMap: Record<SxStrokeWeight, string> = {
-  none:         '0px',
   light:        'var(--shape-strokeLight)',
   medium:       'var(--shape-strokeMedium)',
   'semi-bold':  'var(--shape-strokeSemiBold)',
@@ -63,7 +59,6 @@ export const sxIntentMap: Record<SxIntent, string> = {
   primary:    'var(--colors-primary)',
   secondary:  'var(--colors-secondary)',
   accent:     'var(--colors-accent)',
-  neutral:    'var(--colors-neutral)',
   info:       'var(--colors-info)',
   success:    'var(--colors-success)',
   warning:    'var(--colors-warning)',
@@ -74,4 +69,21 @@ export const sxStrokeColor: Record<SxStrokeColor, string> = {
   subtle:   'var(--colors-strokeSubtle)',
   default:  'var(--colors-strokeDefault)',
   strong:   'var(--colors-strokeStrong)',
+};
+
+export const sxSurface: Record<SxSurface, string> = {
+  base:     'var(--colors-bgBase)',
+  surface:  'var(--colors-bgSurface)',
+  subtle:   'var(--colors-bgSubtle)',
+  raised:   'var(--colors-bgRaised)',
+  overlay:  'var(--colors-bgOverlay)',
+  floating: 'var(--colors-bgFloating)',
+};
+
+export const sxShadow: Record<SxShadow, string> = {
+  diffuse:      'var(--elevation-shadowDiffuse)',
+  directional:  'var(--elevation-shadowDirectional)',
+  linear:       'var(--elevation-shadowLinear)',
+  edge:         'var(--elevation-shadowEdge)',
+  enclosed:     'var(--elevation-shadowEnclosed)',
 };

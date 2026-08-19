@@ -6,7 +6,7 @@ export {
 export {
   SxStyles,
   A11yRegistry,
-} from "@/utils";
+} from "@/core";
 
 export { ThemeManager, ThemeProvider, useTheme } from "@/theme";
 

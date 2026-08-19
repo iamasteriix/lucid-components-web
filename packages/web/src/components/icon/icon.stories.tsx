@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { IconProps } from "./icon";
 import { useState } from "react";
 import * as Icons from "@lucid-ui/icons";
-import { SxStyles } from "@/utils";
+import { SxStyles } from "@/core";
 import { View } from "@/primitives";
 import { Icon } from "./icon";
 import { Text } from "../text/text";

@@ -1,8 +1,15 @@
 import type { CSSProperties } from "react";
 import type { BreakpointType } from "@lucid-ui/core";
-import type { SxFit, SxIntent, SxProps, SxRadius, SxSpace, SxStrokeColor, SxStrokeWeight } from "@/types";
+import type {
+  SxElevation, SxFit, SxIntent, SxProps, SxRadius, SxShadow, SxSpace,
+  SxStrokeColor, SxStrokeWeight, SxSurface,
+} from "@/types";
 import { resolveBreakpointSx } from "@lucid-ui/core";
-import { sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap, } from "@/theme";
+import {
+  sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor,
+  sxStrokeWeightMap,
+} from "@/theme";
+import { sxLevelMap, sxShadow, sxSurface } from "@/theme/constants";
 
 
 type PropValue = string | number | undefined;
@@ -13,13 +20,14 @@ const spaceOrFitKeys = new Set([
   'width', 'minWidth', 'maxWidth',
   'height', 'minHeight', 'maxHeight',
   'margin', 'marginHorizontal', 'marginVertical',
-  'padding', 'paddingX', 'paddingY',
+  'padding', 'paddingHorizontal', 'paddingVertical',
   'top', 'right', 'bottom', 'left',
   'gap',
 ]);
 
-const borderWidthKeys = new Set<keyof SxProps>([
-  'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth',
+const borderWidthKeys = new Set([
+  'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth',
+  'borderLeftWidth',
 ]);
 
 const passthroughKeys = new Set([
@@ -35,6 +43,11 @@ const resolveSxValue = (
 ): PropValue => {
   if (value === undefined || value === null) return undefined;
 
+  // elevation
+  if (key === 'elevation') {
+    if (value in sxLevelMap) return sxLevelMap[value as SxElevation];
+  }
+
   // map to spacing or fit
   if (spaceOrFitKeys.has(key)) {
     if (value in sxSpaceMap) return sxSpaceMap[value as SxSpace];
@@ -43,7 +56,10 @@ const resolveSxValue = (
   }
 
   // background color
-  if (key === 'backgroundColor') return sxIntentMap[value as SxIntent];
+  if (key === 'backgroundColor') {
+    if (value in sxSurface) return sxSurface[value as SxSurface];
+    if (value in sxIntentMap) return sxIntentMap[value as SxIntent];
+  }
 
   // border
   if (key === 'borderColor') {
@@ -54,6 +70,11 @@ const resolveSxValue = (
 
   // the implications of adding this single edge case are making me sick
   if (borderWidthKeys.has(key)) return sxStrokeWeightMap[value as SxStrokeWeight];
+
+  // box shadow
+  if (key === 'boxShadow') {
+    if (value in sxShadow) return sxShadow[value as SxShadow];
+  }
 
   // css-native or raw strings
   if (passthroughKeys.has(key)) return value;
@@ -98,10 +119,10 @@ export const resolveSx = (
     
     // padding
     else if (key === 'padding') styles.padding = cssValue;
-    else if (key === 'paddingX') {
+    else if (key === 'paddingHorizontal') {
       styles.paddingLeft = cssValue;
       styles.paddingRight = cssValue;
-    } else if (key === 'paddingY') {
+    } else if (key === 'paddingVertical') {
       styles.paddingTop = cssValue;
       styles.paddingBottom = cssValue;
     }

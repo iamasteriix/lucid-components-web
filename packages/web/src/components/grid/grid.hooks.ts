@@ -1,7 +1,7 @@
 import type { ResponsiveProp } from "@lucid-ui/core";
 import type { SxGap, SxSpace, } from "@/types";
 import type { ResponsiveColType, ResponsiveHookOptions } from "./grid.types";
-import { resolveBreakpointSx, useDeviceBreakpoints } from "@lucid-ui/core";
+import { resolveBreakpointSx, useMediaQuery } from "@lucid-ui/core";
 import { useLayoutEffect, useRef, useState } from "react";
 import { resolveSizeToPx } from "@/utils";
 
@@ -16,7 +16,7 @@ export const useResponsiveGrid = (
   rowGap:     ResponsiveProp<SxGap | SxSpace>           | undefined,
 ): ResponsiveHookOptions => {
   const ref = useRef<HTMLDivElement>(null);
-  const { breakpoint, } = useDeviceBreakpoints();
+  const { breakpoint, } = useMediaQuery();
   const [containerWidth, setContainerWidth] = useState(0);
 
   // resolve viewport breakpoints for columns and gaps

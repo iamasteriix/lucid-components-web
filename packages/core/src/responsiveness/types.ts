@@ -1,4 +1,4 @@
-export type BreakpointType = 'compact' | 'medium' | 'regular' | 'large' | 'extended' | 'ultra' | 'cinema';
+export type BreakpointType = 'compact' | 'small' | 'regular' | 'large' | 'extended' | 'ultra' | 'cinema';
 
 export type Breakpoints = Record<BreakpointType, number>;
 

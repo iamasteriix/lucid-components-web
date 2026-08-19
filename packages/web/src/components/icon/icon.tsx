@@ -1,6 +1,6 @@
 import type { ComponentType, Ref } from "react";
 import type { ElementBaseProps, SxProps } from "@/types";
-import { useDeviceBreakpoints } from "@lucid-ui/core";
+import { useMediaQuery } from "@lucid-ui/core";
 import { resolveA11y, resolveSx, } from "@/utils";
 
 
@@ -45,7 +45,7 @@ export const Icon = ({
     hidden: true,
   },
 }: IconProps) => {
-  const { breakpoint, } = useDeviceBreakpoints();
+  const { breakpoint, } = useMediaQuery();
   
   const fontSize = sizeMap[size];
   const fill = variant === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent)'] : 'var(--colors-primary)';

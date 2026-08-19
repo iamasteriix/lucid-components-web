@@ -2,36 +2,29 @@
  * Semantic color tokens for surfaces, text, borders, and status indicators
  */
 const colorTokens = {
-  // --- Brand ---
-  primary:        '#eeeeee',
-  primaryHover:   '#c9c9c9',
-  primaryActive:  '#a1a1a1',
-  primarySubtle:  '#787878',
+  // --- Brand ---// --- Brand ---
+  primary:       '#eeeeee',
+  primarySubtle: '#787878',
+  primaryStrong: '#ffffff',
 
 
   // --- Secondary ---
-  secondary:        '#19242b',
-  secondaryHover:   '#22303a',
-  secondaryActive:  '#2a3c48',
-  secondarySubtle:  '#11181d',
+  secondary:       '#19242b',
+  secondarySubtle: '#11181d',
+  secondaryStrong: '#2a3c48',
 
   // --- Accent ---
-  accent:        '#30db12',
-  accentHover:   '#27b30e',
-  accentActive:  '#1e8a0b',
-  accentSubtle:  '#156108',
+  accent:       '#30db12',
+  accentSubtle: '#156108',
+  accentStrong: '#5cff3a',
 
-  // --- Neutral ---
-  neutral:        '#6b7280',
-  neutralHover:   '#7d8590',
-  neutralActive:  '#4b5563',
-  neutralSubtle:  '#374151',
-
-  // --- Surfaces ---
-  bgBase:      '#000000',
-  bgSurface:   '#111111',
-  bgElevated:  '#232323',
-  bgOverlay:   '#343434',
+  // --- Surface fills ---
+  bgBase:     '#000000',
+  bgSurface:  '#111111',
+  bgSubtle:   '#191919',
+  bgRaised:   'rgba(238, 238, 238, .09)',
+  bgOverlay:  'rgba(238, 238, 238, .12)',
+  bgFloating: 'rgba(238, 238, 238, .06)',
 
   // --- Text ---
   textPrimary:   '#eeeeee',
@@ -45,14 +38,21 @@ const colorTokens = {
   strokeStrong:  'rgba(238, 238, 238, .27)',
 
   // --- Semantic ---
-  info:          '#3b82f6',
-  infoSubtle:    '#1f447f',
+  info:       '#3b82f6',
+  infoSubtle: '#1f447f',
+  infoStrong: '#1d4ed8',
+
   success:       '#10b981',
   successSubtle: '#064530',
+  successStrong: '#047857',
+
   warning:       '#f59e0b',
   warningSubtle: '#7f5305',
-  error:         '#ef4444',
-  errorSubtle:   '#7a2222',
+  warningStrong: '#b45309',
+
+  error:       '#ef4444',
+  errorSubtle: '#7a2222',
+  errorStrong: '#b91c1c',
 } as const;
 
 
@@ -61,9 +61,9 @@ const colorTokens = {
  */
 const typographyTokens = {
   // --- Font families ---
-  fontSans:  "'DM Sans', 'Inter', system-ui, sans-serif",
-  fontMono:  "'JetBrains Mono', 'Fira Code', monospace",
-  fontSerif: "'Lora', 'Georgia', serif",
+  fontSans:  '"DM Sans", "Inter", system-ui, sans-serif',
+  fontMono:  '"JetBrains Mono", "Fira Code", monospace',
+  fontSerif: '"Lora", "Georgia", serif',
 
   // --- Size scale (rem) ---
   textXs:   '.75rem',
@@ -94,7 +94,6 @@ const typographyTokens = {
  * Distance around and between component and layout elements
  */
 const spacingTokens = {
-  space0:  '0px',
   space1:  '.25rem',
   space2:  '.5rem',
   space3:  '.75rem',
@@ -119,13 +118,12 @@ const spacingTokens = {
  */
 const shapeTokens = {
   // -- border radius scale ---
-  radiusDefault:  '24px',
-  radiusSm:       '4px',
-  radiusMd:       '8px',
-  radiusLg:       '12px',
-  radiusXl:       '16px',
-  radius2xl:      '24px',
-  radiusFull:     '9999px',
+  radiusSm:   '4px',
+  radiusMd:   '8px',
+  radiusLg:   '12px',
+  radiusXl:   '16px',
+  radius2xl:  '24px',
+  radiusFull: '9999px',
 
   // -- stroke weight ---
   strokeLight:    '.5px',
@@ -139,18 +137,25 @@ const shapeTokens = {
  * Elevation scale for depth and layering
  */
 const elevationTokens = {
-  // -- shadows ---
-  shadowSm: '0 1px 4px rgba(52, 52, 52, .27)',
-  shadowMd: '0 4px 12px rgba(52, 52, 52, .36)',
-  shadowLg: '0 12px 32px rgba(52, 52, 52, .45)',
-
   // -- elevation ---
-  level0: 0,
-  level1: 10,
-  level2: 20,
-  level3: 30,
-  level4: 60,
-  level5: 90,
+  level1: '10',
+  level2: '20',
+  level3: '30',
+  level4: '60',
+  level5: '90',
+
+  // --- backdrop filter ---
+  blurSubtle: '9px',
+  blur:       '18px',
+  blurStrong: '27px',
+  saturate:   '162%',
+
+  // -- shadows ---
+  shadowDiffuse:      '0 9px 27px rgba(52, 52, 52, .36)',
+  shadowDirectional:  '0 4px 12px rgba(52, 52, 52, .36)',
+  shadowLinear:       '0 1px 4px rgba(52, 52, 52, .27)',
+  shadowEdge:         'inset 0 1px 0 rgba(238, 238, 238, .12)',
+  shadowEnclosed:     '0 9px 36px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(238, 238, 238, .12)',
 } as const;
 
 
@@ -167,42 +172,6 @@ const motionTokens = {
 
 
 /**
- * Glassmorphism
- * Transluscent surfaces meant to sit over bgBase/bgSurface, combined with backdrop-filter, blur, and saturate.
- * Border uses brighter top edge to simulate light catching the glass rim
- */
-const glassTokens = {
-  // --- surface fills ---
-  neutralFaint:   'rgba(238, 238, 238, .03)',
-  neutralSubtle:  'rgba(238, 238, 238, .06)',
-  neutralDefault: 'rgba(238, 238, 238, .09)',
-  neutralStrong:  'rgba(238, 238, 238, .12)',
-
-  // --- accent-tinted glass ---
-  accentFaint:    'rgba(48, 219, 18, .03)',
-  accentSubtle:   'rgba(48, 219, 18, .06)',
-  accentDefault:  'rgba(48, 219, 18, .09)',
-  accentStrong:   'rgba(48, 219, 18, .12)',
-
-  // --- borders: brighter than border tokens since glass edges catch light ---
-  border:       '1px solid rgba(238, 238, 238, .18)',
-  borderTop:    '1px solid rgba(238, 238, 238, .36)',
-  borderInner:  '1px solid rgba(18, 18, 18, .3)', // opposite of top highlight
-
-  // --- backdrop filter ---
-  blurSm:   '9px',
-  blurMd:   '18px',
-  blurLg:   '27px',
-  saturate: '162%',
-
-  // --- shadows: layered like the elevation shadow tokens ---
-  shadowSm: '0 3px 18px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(238, 238, 238, .09)',
-  shadowMd: '0 9px 36px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(238, 238, 238, .12)',
-  shadowLg: '0 18px 45px rgba(0, 0, 0, .54), inset 0 1px 0 rgba(238, 238, 238, .18)',
-};
-
-
-/**
  * Complete default token set
  * Pass a partial override to ThemeProvider to customize
 */
@@ -213,5 +182,4 @@ export const tokens = {
   shape:      shapeTokens,
   elevation:  elevationTokens,
   motion:     motionTokens,
-  glass:      glassTokens,
 } as const;

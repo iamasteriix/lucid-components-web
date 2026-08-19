@@ -1,4 +1,4 @@
 export type { BreakpointType, ResponsiveProp, } from "./types";
 
-export { useDeviceBreakpoints } from "./useDeviceBreakpoints.web";
+export { useMediaQuery } from "./hooks.web";
 export { resolveBreakpointSx } from "./resolve-breakpoint";

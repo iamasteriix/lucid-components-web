@@ -1,6 +1,6 @@
 import type { Ref } from "react";
 import type { ElementBaseProps, } from "@/types";
-import { useDeviceBreakpoints, } from "@lucid-ui/core";
+import { useMediaQuery, } from "@lucid-ui/core";
 import { resolveA11y, resolveSx } from "@/utils";
 import styles from "./text.module.css";
 
@@ -49,7 +49,7 @@ export const Text = ({
   a11y,
   ref,
 }: TextProps) => {
-  const { breakpoint, } = useDeviceBreakpoints();
+  const { breakpoint, } = useMediaQuery();
 
   const classes = [
     styles.text,
