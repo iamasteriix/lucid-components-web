@@ -1,5 +1,5 @@
-import { Meta, Canvas, Controls, } from "@storybook/addon-docs/blocks";
-import * as TextStories from "./text.stories";
+import { Meta, Canvas, Controls, } from '@storybook/addon-docs/blocks';
+import * as TextStories from './text.stories';
 
 
 <Meta
@@ -7,12 +7,31 @@ import * as TextStories from "./text.stories";
   title='Text'
 />
 
+
 # Text
-Text displays styled body text from your theme.
+
+Text displays styled body text with support for nesting, styling, and presenting exactly as it is written in code. It offers pre-configured `variant`s built from your theme that use a blend of semantic-hierarchy types to simplify how you determine their roles.
 
 <Canvas
-  withToolbar
   of={ TextStories.TextOverview }
   layout='padded'
+  sourceState='none'
 />
-<Controls of={ TextStories.TextOverview }/>
+
+
+### Nesting
+
+`<Text>` only supports nesting other `<Text>` elements. In this case, the nested elements flow like inline text and wrap to avoid overflow.
+
+<Canvas
+  of={ TextStories.TextNested }
+  layout='padded'
+  source={{
+    code: `
+      <Text>
+        <Text>What is yout favorite flower? </Text>
+        <Text>(I wanna know)</Text>
+      </Text>
+    `,
+  }}
+/>

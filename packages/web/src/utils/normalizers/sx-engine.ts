@@ -1,33 +1,38 @@
-import type { CSSProperties } from "react";
-import type { BreakpointType } from "@lucid-ui/core";
+import type { CSSProperties } from 'react';
+import type { BreakpointType } from '@lucid-ui/core';
 import type {
-  SxElevation, SxFit, SxIntent, SxProps, SxRadius, SxShadow, SxSpace,
-  SxStrokeColor, SxStrokeWeight, SxSurface,
-} from "@/types";
-import { resolveBreakpointSx } from "@lucid-ui/core";
+  SxColor, SxElevation, SxFit, SxTypeface, SxFontSize, SxFontWeight, SxIntent, SxProps,
+  SxRadius, SxShadow, SxSpace, SxStrokeColor, SxStrokeWeight, SxSurface, SxTracking,
+} from '@/types';
+import { resolveBreakpointSx } from '@lucid-ui/core';
 import {
-  sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor,
-  sxStrokeWeightMap,
-} from "@/theme";
-import { sxLevelMap, sxShadow, sxSurface } from "@/theme/constants";
+  sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap,
+} from '@/theme';
+import {
+  sxColor, sxTypeface, sxFontSize, sxFontWeight, sxLetterSpacing, sxLevelMap,
+  sxLineHeight, sxShadow, sxSurface,
+} from '@/theme/constants';
 
 
-type PropValue = string | number | undefined;
+type SxCssValue = string | number | undefined;
 
 
 const spaceOrFitKeys = new Set([
   'flexBasis',
   'width', 'minWidth', 'maxWidth',
   'height', 'minHeight', 'maxHeight',
-  'margin', 'marginHorizontal', 'marginVertical',
-  'padding', 'paddingHorizontal', 'paddingVertical',
+  'margin', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft', 'marginVertical', 'marginHorizontal',
+  'padding', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'paddingVertical', 'paddingHorizontal',
   'top', 'right', 'bottom', 'left',
-  'gap',
+  'gap', 'columnGap', 'rowGap',
 ]);
 
 const borderWidthKeys = new Set([
-  'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth',
-  'borderLeftWidth',
+  'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth',
+]);
+
+const textKeys = new Set([
+  'fontSize', 'lineHeight', 'letterSpacing', 'fontWeight', 'fontFamily', 'color',
 ]);
 
 const passthroughKeys = new Set([
@@ -37,10 +42,16 @@ const passthroughKeys = new Set([
 ]);
 
 
+/**
+ * @note Watch out for the key lookups and the conditions within them. They are a little
+ * fragile, and might collide when the style lookup maps get extensive enough. For
+ * example, notice how the text line-heights and letter spacing overlap. This works ok
+ * now, but might start to become a problem soon.
+ */
 const resolveSxValue = (
   key: keyof SxProps,
   value: any,
-): PropValue => {
+): SxCssValue => {
   if (value === undefined || value === null) return undefined;
 
   // elevation
@@ -53,6 +64,7 @@ const resolveSxValue = (
     if (value in sxSpaceMap) return sxSpaceMap[value as SxSpace];
     if (value in sxFitMap) return sxFitMap[value as SxFit];
     if (value === 'auto') return 'auto';
+    if (/^-?\d*\.?\d+px$/.test(value)) return value;
   }
 
   // background color
@@ -76,6 +88,16 @@ const resolveSxValue = (
     if (value in sxShadow) return sxShadow[value as SxShadow];
   }
 
+  // text
+  if (textKeys.has(key)) {
+    if (value in sxFontSize) return sxFontSize[value as SxFontSize];
+    if (key === 'lineHeight' && value in sxLineHeight) return sxLineHeight[value as SxTracking];
+    if (key === 'letterSpacing' && value in sxLetterSpacing) return sxLetterSpacing[value as SxTracking];
+    if (value in sxFontWeight) return sxFontWeight[value as SxFontWeight];
+    if (value in sxTypeface) return sxTypeface[value as SxTypeface];
+    if (value in sxColor) return sxColor[value as SxColor];
+  }
+
   // css-native or raw strings
   if (passthroughKeys.has(key)) return value;
 
@@ -83,6 +105,10 @@ const resolveSxValue = (
 }
 
 
+/**
+ * @note Do not assume that anything just passes through here. Confirm that every key in
+ * `SxProps` is resolved in the `resolveSxValue` helper.
+ */
 export const resolveSx = (
   sx?: SxProps,
   breakpoint?: BreakpointType,
@@ -90,7 +116,7 @@ export const resolveSx = (
   if (sx === undefined || sx === null) return {} as CSSProperties;
   if (breakpoint === undefined || breakpoint === null) return {} as CSSProperties;
 
-  const styles: Record<string, PropValue> = {};
+  const styles: Record<string, SxCssValue> = {};
 
   // resolve each responsive prop to a single value at the current breakpoint
   const sxKeys = Object.keys(sx) as Array<keyof SxProps>;

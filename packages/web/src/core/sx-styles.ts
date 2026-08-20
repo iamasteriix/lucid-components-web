@@ -1,5 +1,5 @@
-import type { SxProps } from "@/types";
-import type { VariantMap } from "@/types/components";
+import type { SxProps } from '@/types';
+import type { VariantMap } from '@/types/components';
 
 
 export const SxStyles = {

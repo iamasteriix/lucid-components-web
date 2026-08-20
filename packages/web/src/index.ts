@@ -1,15 +1,15 @@
 export {
   Icon, Text,
   Grid,
-} from "@/components";
+} from '@/components';
 
 export {
   SxStyles,
   A11yRegistry,
-} from "@/core";
+} from '@/core';
 
-export { ThemeManager, ThemeProvider, useTheme } from "@/theme";
+export { ThemeManager, ThemeProvider, useTheme } from '@/theme';
 
 export {
   View,
-} from "@/primitives";
+} from '@/primitives';

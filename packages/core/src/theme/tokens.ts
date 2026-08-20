@@ -66,14 +66,18 @@ const typographyTokens = {
   fontSerif: '"Lora", "Georgia", serif',
 
   // --- Size scale (rem) ---
+  text2xs:  '.625rem',
   textXs:   '.75rem',
   textSm:   '.875rem',
   textBase: '1rem',
-  textLg:   '1.125rem',
-  textXl:   '1.25rem',
-  text2xl:  '1.5rem',
-  text3xl:  '1.875rem',
+  textMd:   '1.125rem',
+  textLg:   '1.25rem',
+  textXl:   '1.5rem',
+  text2xl:  '1.75rem',
+  text3xl:  '2rem',
   text4xl:  '2.25rem',
+  text5xl:  '2.5rem',
+  text6xl:  '3.5rem',
 
   // --- Weights ---
   weightLight:    '300',
@@ -83,10 +87,20 @@ const typographyTokens = {
   weightBold:     '700',
 
   // --- Line heights ---
-  leadingTight:   '1.25',
-  leadingSnug:    '1.375',
-  leadingNormal:  '1.5',
-  leadingRelaxed: '1.625',
+  leadingCompact: '1',
+  leadingTight:   '1.1',
+  leadingSnug:    '1.25',
+  leadingNormal:  '1.375',
+  leadingRelaxed: '1.5',
+  leadingWide:    '2.5',
+
+  // --- Letter spacing ---
+  trackingCompact: '-0.25px',
+  trackingTight:   '-0.1px',
+  trackingSnug:    '-0.05px',
+  trackingNormal:  '0px',
+  trackingRelaxed: '0.1px',
+  trackingWide:    '0.2px',
 } as const;
 
 

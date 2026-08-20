@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from '@storybook/addon-docs/blocks';
 
 
 <Meta title='Foundations/Styles'/>
@@ -14,7 +14,7 @@ This is the essence of the UI kit. A component's variants allow you to choose fr
 Use the `SxStyles.variants()` API for simplified development and readability. The method uses component names as top-level properties to provide type safety for the respective component's variants.
 
 ```tsx
-import { SxStyles } from "@lucid-ui/web";
+import { SxStyles } from '@lucid-ui/web';
 
 const variants = SxStyles.variants({
   view: {
@@ -40,7 +40,7 @@ Lucid Moonsong provides a deliberately limited `sx` prop for defining custom sty
 `SxStyles.create()` provides a simplified interface to define and manage your component styles, along with static type checking and suggestions.
 
 ```tsx
-import { SxStyles } from "@lucid-ui/web";
+import { SxStyles } from '@lucid-ui/web';
 
 const styles = SxStyles.create(
   card: {

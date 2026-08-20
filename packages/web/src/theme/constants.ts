@@ -1,7 +1,7 @@
 import type {
-  SxElevation, SxFit, SxIntent, SxRadius, SxShadow, SxSpace, SxStrokeColor,
-  SxStrokeWeight, SxSurface,
-} from "@/types";
+  SxElevation, SxFit, SxIntent, SxRadius, SxShadow, SxSpace, SxStrokeColor, SxSurface,
+  SxStrokeWeight, SxFontSize, SxTracking, SxFontWeight, SxTypeface, SxColor,
+} from '@/types';
 
 
 export const sxSpaceMap: Record<SxSpace, string> = {
@@ -86,4 +86,63 @@ export const sxShadow: Record<SxShadow, string> = {
   linear:       'var(--elevation-shadowLinear)',
   edge:         'var(--elevation-shadowEdge)',
   enclosed:     'var(--elevation-shadowEnclosed)',
+};
+
+export const sxFontSize: Record<SxFontSize, string> = {
+  '2xs':  'var(--typography-text2xs)',
+  'xs':   'var(--typography-textXs)',
+  'sm':   'var(--typography-textSm)',
+  'base': 'var(--typography-textBase)',
+  'md':   'var(--typography-textMd)',
+  'lg':   'var(--typography-textLg)',
+  'xl':   'var(--typography-textXl)',
+  '2xl':  'var(--typography-text2xl)',
+  '3xl':  'var(--typography-text3xl)',
+  '4xl':  'var(--typography-text4xl)',
+  '5xl':  'var(--typography-text5xl)',
+  '6xl':  'var(--typography-text6xl)',
+};
+
+export const sxLineHeight: Record<SxTracking, string> = {
+  'compact':  'var(--typography-leadingCompact)',
+  'tight':    'var(--typography-leadingTight)',
+  'snug':     'var(--typography-leadingSnug)',
+  'normal':   'var(--typography-leadingNormal)',
+  'relaxed':  'var(--typography-leadingRelaxed)',
+  'wide':     'var(--typography-leadingWide)',
+};
+
+export const sxLetterSpacing: Record<SxTracking, string> = {
+  'compact':  'var(--typography-trackingCompact)',
+  'tight':    'var(--typography-trackingTight)',
+  'snug':     'var(--typography-trackingSnug)',
+  'normal':   'var(--typography-trackingNormal)',
+  'relaxed':  'var(--typography-trackingRelaxed)',
+  'wide':     'var(--typography-trackingWide)',
+};
+
+export const sxFontWeight: Record<SxFontWeight, string> = {
+  light: 'var(--typography-weightLight)',
+  regular: 'var(--typography-weightRegular)',
+  medium: 'var(--typography-weightMedium)',
+  'semi-bold': 'var(--typography-weightSemibold)',
+  bold: 'var(--typography-weightBold)',
+};
+
+export const sxTypeface: Record<SxTypeface, string> = {
+  sans:   'var(--typography-fontSans)',
+  mono:   'var(--typography-fontMono)',
+  serif:  'var(--typography-fontSerif)',
+};
+
+export const sxColor: Record<SxColor, string> = {
+  primary:    'var(--colors-textPrimary)',
+  secondary:  'var(--colors-textSecondary)',
+  muted:      'var(--colors-textMuted)',
+  inverse:    'var(--colors-textInverse)',
+  accent:     'var(--colors-accent)',
+  info:       'var(--colors-info)',
+  success:    'var(--colors-success)',
+  warning:    'var(--colors-warning)',
+  error:      'var(--colors-error)',
 };

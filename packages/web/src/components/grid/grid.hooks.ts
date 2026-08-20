@@ -21,8 +21,8 @@ export const useResponsiveGrid = (
 
   // resolve viewport breakpoints for columns and gaps
   const resolvedColumns = resolveBreakpointSx(columns, breakpoint) ?? 1;
-  const gapX = resolveBreakpointSx(columnGap, breakpoint) ?? 0;
-  const gapY = resolveBreakpointSx(rowGap, breakpoint) ?? 0;
+  const gapX = resolveBreakpointSx(columnGap, breakpoint) ?? '0px';
+  const gapY = resolveBreakpointSx(rowGap, breakpoint) ?? '0px';
 
   // normalize gap values
   const gapXParsed = resolveSizeToPx(gapX);

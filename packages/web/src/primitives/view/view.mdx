@@ -1,5 +1,5 @@
-import { Meta, Canvas, } from "@storybook/addon-docs/blocks";
-import * as ViewStories from "./view.stories";
+import { Meta, Canvas, } from '@storybook/addon-docs/blocks';
+import * as ViewStories from './view.stories';
 
 
 <Meta
@@ -9,18 +9,17 @@ import * as ViewStories from "./view.stories";
 
 # View
 
-This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. It natively provides two lightweight variants, `flat`, and `glass` with a handful of features to configure the layout surfaces.
+This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. It offers two native lightweight variants, `flat` and `glass`, that give you quick constrol over the surface aesthetic and are accessible from all the other layout components.
 <br/>
 
 
 
 <Canvas
-  withToolbar
   of={ ViewStories.ViewsLayered }
   layout='padded'
   source={{
     code: `
-      import { SxStyles, Text, View, } from "@lucid-ui/web";
+      import { SxStyles, Text, View, } from '@lucid-ui/web';
 
       export const GlassOverBaseViews = () => {
         return (

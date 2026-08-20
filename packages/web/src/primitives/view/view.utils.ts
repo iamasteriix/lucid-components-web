@@ -1,5 +1,5 @@
-import type { ViewVariant } from "./view.types";
-import styles from "./view.module.css";
+import type { ViewVariant } from './view.types';
+import styles from './view.module.css';
 
 
 export const resolveVariantClasses = (variant: ViewVariant): string => {

@@ -1,6 +1,6 @@
 import type { ReactNode, Ref } from "react";
 import type { ResponsiveProp } from "@lucid-ui/core";
-import type { ViewProps, ViewPropsStrict } from "@/types";
+import type { ViewProps, } from "@/primitives";
 
 
 export type ColumnRepeat = 'fill' | 'fit';
@@ -11,7 +11,7 @@ export type ResponsiveColType = {
   maxNum?: number;
 };
 
-export type GridProps = ViewPropsStrict & {
+export type GridProps = ViewProps & {
   columns?: ResponsiveProp<number | ResponsiveColType>;
 };
 

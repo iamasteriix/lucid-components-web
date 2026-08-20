@@ -1,7 +1,8 @@
-import type { CSSProperties, ReactElement, Ref, } from "react";
-import type { A11yProps } from "./accessibility";
-import type { SxProps } from "./sx-styles";
-import type { ViewVariant } from "@/primitives";
+import type { CSSProperties, ReactElement, Ref, } from 'react';
+import type { A11yProps } from './accessibility';
+import type { SxProps } from './sx-styles';
+import type { ViewVariant } from '@/primitives';
+import type { TextVariant } from '@/components';
 
 
 type ElementChildren = ReactElement | ElementChildren[];  // self-referential
@@ -19,5 +20,6 @@ export type LayoutProps = ElementBaseProps & {
 };
 
 export type VariantMap = {
-  view: ViewVariant;
+  view?: ViewVariant;
+  text?: TextVariant;
 };

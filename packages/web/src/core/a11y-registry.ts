@@ -1,4 +1,4 @@
-import type { A11yProps } from "@/types";
+import type { A11yProps } from '@/types';
 
 
 export const A11yRegistry = {

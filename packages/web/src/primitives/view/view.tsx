@@ -1,7 +1,7 @@
-import type { ViewProps, } from "./view.types";
-import { useMediaQuery } from "@lucid-ui/core";
-import { resolveA11y, resolveSx } from "@/utils";
-import { resolveVariantClasses } from "./view.utils";
+import type { ViewProps, } from './view.types';
+import { useMediaQuery } from '@lucid-ui/core';
+import { resolveA11y, resolveSx } from '@/utils';
+import { resolveVariantClasses } from './view.utils';
 
 
 export const View = ({

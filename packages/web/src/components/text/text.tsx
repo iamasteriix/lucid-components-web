@@ -1,83 +1,39 @@
-import type { Ref } from "react";
-import type { ElementBaseProps, } from "@/types";
-import { useMediaQuery, } from "@lucid-ui/core";
-import { resolveA11y, resolveSx } from "@/utils";
-import styles from "./text.module.css";
-
-
-type TextColor = 'primary' | 'secondary' | 'muted' | 'inverse' | 'inherit';
-
-type TextAlign = 'start' | 'center' | 'end';
-
-type TextSize =
-  | 'xs' | 'sm' | 'base' | 'lg'
-  | 'xl' | '2xl' | '3xl' | '4xl';
-
-type TextWeight = 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
-
-type LineHeight = 'tight' | 'snug' | 'normal' | 'relaxed';
-
-type FontFamily = 'sans' | 'serif' | 'mono';
-
-type TextWrap = 'wrap' | 'nowrap' | 'balance' | 'pretty' | 'truncate';
-
-export type TextProps = Omit<ElementBaseProps, 'children'> & {
-  color?: TextColor;
-  align?: TextAlign;
-  size?: TextSize;
-  weight?: TextWeight;
-  lineHeight?: LineHeight;
-  font?: FontFamily;
-  textWrap?: TextWrap;
-  children?: string | number;
-  ref?: Ref<HTMLParagraphElement>;
-};
+import type { TextProps } from './text.types';
+import { useContext } from 'react';
+import { useMediaQuery, } from '@lucid-ui/core';
+import { resolveA11y, resolveSx } from '@/utils';
+import { resolveClampStyle, resolveVariantClasses, TextContext } from './text.utils';
 
 
 export const Text = ({
-  font = 'sans',
-  size = 'base',
-  weight = 'regular',
-  lineHeight = 'normal',
-  color = 'primary',
-  align = 'start',
-  textWrap = 'wrap',
-  sx,
-  style,
-  children,
-  testID,
-  a11y,
-  ref,
+  lines, sx, style, children, testID, a11y, ref,
+  variant = { name: 'body', },
 }: TextProps) => {
   const { breakpoint, } = useMediaQuery();
 
-  const classes = [
-    styles.text,
-    styles[`text--font-${font}`],
-    styles[`text--size-${size}`],
-    styles[`text--weight-${weight}`],
-    styles[`text--line-height-${lineHeight}`],
-    styles[`text--color-${color}`],
-    styles[`text--align-${align}`],
-    styles[`text--wrap-${textWrap}`],
-  ]
-    .filter(Boolean)
-    .join(' ');
+  // determine whether component has nested children with context
+  const isNested = useContext(TextContext);
+  const Component = isNested ? 'span' : 'p';
 
-  const sxStyles = resolveSx(sx, breakpoint);       // resolve sx into inline styles
-  const styleObj = Object.assign(sxStyles, style);  // merge style properties
-  const accessibility = resolveA11y(a11y);          // resolve accessibility props
+  const className = resolveVariantClasses(variant);             // build class name from variant features
+  const sxStyles = resolveSx(sx, breakpoint);                   // resolve sx into inline styles
+  const clampStyles = resolveClampStyle(lines);                 // truncate text with an ellipsis so we don't exceed line count
+  const styleObj = Object.assign(sxStyles, clampStyles, style); // merge style properties
+  const accessibility = resolveA11y(a11y);                      // resolve accessibility props
 
   return (
-    <p
-      ref={ ref }
-      className={ classes }
-      style={ styleObj }
-      data-component='text'
-      data-testid={ testID }
-      { ...accessibility }
-    >
-      { children }
-    </p>
+    <TextContext.Provider value={ true }>
+      <Component
+        className={ className }
+        style={ styleObj }
+        data-component='text'
+        data-testid={ testID }
+        data-variant={ variant.name }
+        ref={ ref }
+        { ...accessibility }
+      >
+        { children }
+      </Component>
+    </TextContext.Provider>
   );
 }

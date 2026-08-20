@@ -1,66 +1,149 @@
-/* Base */
+/* ============================================================
+   TEXT — role-driven typography system
+   ============================================================ */
+
 .text {
-  display: inline;
   margin: 0;
   padding: 0;
   font-family: var(--typography-fontSans);
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightRegular);
-  line-height: var(--typography-leadingNormal);
+  line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact);
   color: var(--colors-textPrimary);
-  text-align: start;
+  white-space: pre-wrap;
 }
 
-/* Font families */
-.text--font-sans { font-family: var(--typography-fontSans); }
-.text--font-serif { font-family: var(--typography-fontSerif); }
-.text--font-mono { font-family: var(--typography-fontMono); }
+/* ============================================================
+   ROLES — size, weight, line-height, letter-spacing
+   ============================================================ */
 
-/* Sizes */
-.text--size-xs { font-size: var(--typography-textXs); }
-.text--size-sm { font-size: var(--typography-textSm); }
-.text--size-base { font-size: var(--typography-textBase); }
-.text--size-lg { font-size: var(--typography-textLg); }
-.text--size-xl { font-size: var(--typography-textXl); }
-.text--size-2xl { font-size: var(--typography-text2xl); }
-.text--size-3xl { font-size: var(--typography-text3xl); }
-.text--size-4xl { font-size: var(--typography-text4xl); }
+/* Hero */
+.text--role-hero-lg {
+  font-size: var(--typography-text6xl);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingCompact);
+  letter-spacing: var(--typography-trackingCompact);
+}
+.text--role-hero {
+  font-size: var(--typography-text5xl);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingCompact);
+}
 
-/* Weights */
-.text--weight-light { font-weight: var(--typography-weightLight); }
-.text--weight-regular { font-weight: var(--typography-weightRegular); }
-.text--weight-medium { font-weight: var(--typography-weightMedium); }
-.text--weight-semibold { font-weight: var(--typography-weightSemibold); }
-.text--weight-bold { font-weight: var(--typography-weightBold); }
+/* Section */
+.text--role-section-xl {
+  font-size: var(--typography-text4xl);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingTight);
+}
+.text--role-section-lg {
+  font-size: var(--typography-text3xl);
+  font-weight: var(--typography-weightMedium);
+  line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingNormal);
+}
+.text--role-section {
+  font-size: var(--typography-text2xl);
+  font-weight: var(--typography-weightMedium);
+  line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingRelaxed);
+}
 
-/* Line heights */
-.text--line-height-tight { line-height: var(--typography-leadingTight); }
-.text--line-height-snug { line-height: var(--typography-leadingSnug); }
-.text--line-height-normal { line-height: var(--typography-leadingNormal); }
-.text--line-height-relaxed { line-height: var(--typography-leadingRelaxed); }
+/* Title */
+.text--role-title-lg {
+  font-size: var(--typography-textXl);
+  font-weight: var(--typography-weightBold);
+  line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingRelaxed);
+}
+.text--role-title {
+  font-size: var(--typography-textLg);
+  font-weight: var(--typography-weightBold);
+  line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingRelaxed);
+}
 
-/* Colors */
+/* Heading */
+.text--role-heading-lg {
+  font-size: var(--typography-textLg);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingNormal);
+}
+.text--role-heading {
+  font-size: var(--typography-textMd);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingNormal);
+  letter-spacing: var(--typography-trackingNormal);
+}
+.text--role-heading-sm {
+  font-size: var(--typography-textMd);
+  font-weight: var(--typography-weightSemibold);
+  line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingNormal);
+}
+
+/* Body */
+.text--role-body {
+  font-size: var(--typography-textBase);
+  font-weight: var(--typography-weightRegular);
+  line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact);
+}
+.text--role-body-strong {
+  font-size: var(--typography-textBase);
+  font-weight: var(--typography-weightBold);
+  line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingCompact);
+}
+
+/* Caption */
+.text--role-caption {
+  font-size: var(--typography-textSm);
+  font-weight: var(--typography-weightRegular);
+  line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact);
+}
+.text--role-caption-strong {
+  font-size: var(--typography-textSm);
+  font-weight: var(--typography-weightBold);
+  line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingCompact);
+}
+
+/* Mouseprint & Micro */
+.text--role-mouseprint {
+  font-size: var(--typography-textXs);
+  font-weight: var(--typography-weightLight);
+  line-height: var(--typography-leadingCompact);
+  letter-spacing: var(--typography-trackingTight);
+}
+.text--role-micro {
+  font-size: var(--typography-text2xs);
+  font-weight: var(--typography-weightLight);
+  line-height: var(--typography-leadingNormal);
+  letter-spacing: var(--typography-trackingSnug);
+}
+
+/* ============================================================
+   TYPEFACE
+   ============================================================ */
+.text--typeface-sans { font-family: var(--typography-fontSans); }
+.text--typeface-mono { font-family: var(--typography-fontMono); }
+.text--typeface-serif { font-family: var(--typography-fontSerif); }
+
+/* ============================================================
+   COLOR
+   ============================================================ */
 .text--color-primary { color: var(--colors-textPrimary); }
 .text--color-secondary { color: var(--colors-textSecondary); }
 .text--color-muted { color: var(--colors-textMuted); }
 .text--color-inverse { color: var(--colors-textInverse); }
-.text--color-inherit { color: inherit; }
-
-/* Alignment */
-.text--align-start { text-align: start; }
-.text--align-center { text-align: center; }
-.text--align-end { text-align: end; }
-
-/* Text wrap */
-.text--wrap-wrap {
-  white-space: normal;
-  word-break: break-word;
-}
-.text--wrap-nowrap { white-space: nowrap; }
-.text--wrap-balance { text-wrap: balance; }
-.text--wrap-pretty { text-wrap: pretty; }
-.text--wrap-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+.text--color-accent { color: var(--colors-accent); }
+.text--color-info { color: var(--colors-info); }
+.text--color-success { color: var(--colors-success); }
+.text--color-warning { color: var(--colors-warning); }
+.text--color-error { color: var(--colors-error); }

@@ -1,19 +1,5 @@
-import type { CSSProperties } from "react";
-import type { LayoutProps, SxProps, } from "@/types";
-import { View } from "../view/view";
-
-
-type SlotParams <T = {}> = {
-  displayName?: string;
-  defaultSx?: SxProps;
-  defaultStyle?: CSSProperties;
-  useContext?: () => Record<string, any>; // optional hook to inherit values from parent context
-  extraProps?: T;                         // props the slot accepts beyond the base
-};
-
-type SlotProps = LayoutProps & {
-  position?: 'leading' | 'trailing';  // maps to order: -1 or 1
-};
+import type { SlotParams, SlotProps, } from './slot.types';
+import { View } from '../view/view';
 
 
 export const createSlot = <T extends Record<string, any> = {}> ({

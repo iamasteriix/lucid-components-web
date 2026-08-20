@@ -1,4 +1,4 @@
-import type { ResponsiveProp } from "@lucid-ui/core";
+import type { ResponsiveProp } from '@lucid-ui/core';
 
 
 export type SxDisplay = 'flex' | 'none';
@@ -28,7 +28,11 @@ export type SxSpace =
 
 export type SxFit = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
 
-export type SxGap = .25 | .5 | .75 | 1 | 1.25 | 1.5 | 2 | 2.5 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 18 | 20;
+export type SxGap =
+  | '0px' | '.25px' | '.5px' | '.75px' | '1px'
+  | '1.25px' | '1.5px' | '2px' | '2.5px' | '3px'
+  | '4px' | '5px' | '6px' | '8px' | '10px'
+  | '12px' | '16px' | '18px' | '20px' | '24px';
 
 export type SxIntent = 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
 
@@ -43,6 +47,16 @@ export type SxStrokeColor = 'subtle' | 'default' | 'strong';
 export type SxRadius = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 
 export type SxShadow = 'diffuse' | 'directional' | 'linear' | 'edge' | 'enclosed';
+
+export type SxTypeface = 'sans' | 'mono' | 'serif';
+
+export type SxFontSize = '2xs' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+
+export type SxColor = 'primary' | 'secondary' | 'muted' | 'inverse' | 'accent' | 'info' | 'success' | 'warning' | 'error';
+
+export type SxFontWeight = 'light' | 'regular' | 'medium' | 'semi-bold' | 'bold';
+
+export type SxTracking = 'compact' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'wide';
 
 export type SxProps = {
   // -- layout: base ---
@@ -107,4 +121,12 @@ export type SxProps = {
   borderLeftWidth?: ResponsiveProp<SxStrokeWeight>;
   borderRadius?: ResponsiveProp<SxRadius>;
   borderColor?: SxIntent | SxStrokeColor;
+
+  // -- text ---
+  fontFamily?: SxTypeface;
+  fontSize?: ResponsiveProp<SxFontSize>;
+  color?: SxColor;
+  fontWeight?: ResponsiveProp<SxFontWeight>;
+  lineHeight?: ResponsiveProp<SxTracking>;
+  letterSpacing?: ResponsiveProp<SxTracking>;
 };

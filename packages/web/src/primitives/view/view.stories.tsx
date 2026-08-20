@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ViewProps } from "./view.types";
-import { SxStyles } from "@/core";
-import { Text } from "@/components";
-import { View, } from "./view";
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { ViewProps } from './view.types';
+import { SxStyles } from '@/core';
+import { Text } from '@/components';
+import { View, } from './view';
 
 
 type Story = StoryObj<ViewProps>;
@@ -33,7 +33,7 @@ const variants = SxStyles.variants({
   view: {
     veneer: {
       name: 'glass',
-      tone: 'accent',
+      tone: 'neutral',
       intensity: 'subtle',
       elevation: 'level-1',
       blur: 'sm',

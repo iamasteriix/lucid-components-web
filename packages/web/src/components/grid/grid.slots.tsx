@@ -12,8 +12,8 @@ const GridSpanSlot = createSlot<GridSpanProps>({
 
 
 export const GridSpan = ({
-  columns = 1,
   rows = 1,
+  columns = 1,
   ...rest
 }: GridSpanProps) => {
   return (

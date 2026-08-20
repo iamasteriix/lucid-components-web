@@ -3,7 +3,7 @@ import type { GridProps } from "./grid.types";
 import { Grid } from "./grid";
 import { Text } from "../text/text";
 import { View } from "@/primitives";
-import { SxStyles } from "@/utils";
+import { SxStyles } from "@/core";
 
 
 type Story = StoryObj<GridProps>;
@@ -25,65 +25,51 @@ export const GridDashboardLayout: Story = {
     >
       <Grid.Span columns={ 2 } rows={ 2 }>
         <View
-          tone='elevated'
-          intensity='filled'
+          variant={ variants.view.card }
           sx={ styles.panel }
         >
-          <Text size='xs' color='secondary'>Top artist</Text>
-          <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
+          <Text variant={ variants.text.label }>Top artist</Text>
+          <Text variant={ variants.text.prominent }>070 Shake</Text>
         </View>
       </Grid.Span>
       <View
-        tone='elevated'
-        intensity='filled'
-        depth='sm'
-        elevation='level-1'
+        variant={ variants.view.card }
         sx={ styles.card }
       >
-        <Text size='xs' color='secondary'>Minutes listened</Text>
-        <Text size='3xl' color='primary' weight='bold'>1,351</Text>
+        <Text variant={ variants.text.label }>Minutes listened</Text>
+        <Text variant={ variants.text.loud }>1,351</Text>
       </View>
       <View
-        tone='elevated'
-        intensity='filled'
-        depth='sm'
-        elevation='level-1'
+        variant={ variants.view.card }
         sx={ styles.card }
       >
-        <Text size='xs' color='secondary'>Top song</Text>
-        <Text size='lg' color='primary' weight='semibold'>Web</Text>
+        <Text variant={ variants.text.label }>Top song</Text>
+        <Text variant={ variants.text.prominent }>Web</Text>
       </View>
       <View
-        tone='elevated'
-        intensity='filled'
-        depth='sm'
-        elevation='level-1'
+        variant={ variants.view.card }
         sx={ styles.card }
       >
-        <Text size='xs' color='secondary'>Top songs with friends</Text>
-        <Text size='lg' color='primary' weight='semibold'>Don't Break The Silence</Text>
+        <Text variant={ variants.text.label }>Top songs with friends</Text>
+        <Text variant={ variants.text.prominent }>Don't Break The Silence</Text>
       </View>
       <View
-        tone='elevated'
-        intensity='filled'
-        depth='sm'
-        elevation='level-1'
+        variant={ variants.view.card }
         sx={ styles.card }
       >
-        <Text size='xs' color='secondary'>Top artists with friends</Text>
-        <Text size='lg' color='primary' weight='semibold'>070 Shake</Text>
+        <Text variant={ variants.text.label }>Top artists with friends</Text>
+        <Text variant={ variants.text.prominent }>070 Shake</Text>
       </View>
       <Grid.Span
         columns={ 4 }
         rows={ 1 }
       >
         <View
-          tone='elevated'
-          intensity='filled'
+          variant={ variants.view.card }
           sx={ styles.wide }
         >
-          <Text size='2xl' color='primary' weight='semibold'>You hit 7 plays</Text>
-          <Text size='base' color='secondary'>This song was on repeat. Such a fan.</Text>
+          <Text variant={ variants.text.title }>You hit 7 plays</Text>
+          <Text variant={ variants.text.subtle }>This song was on repeat. Such a fan.</Text>
         </View>
       </Grid.Span>
     </Grid>
@@ -91,9 +77,31 @@ export const GridDashboardLayout: Story = {
 };
 
 
+const variants = SxStyles.variants({
+  view: {
+    card: {
+      name: 'flat',
+      fill: 'subtle',
+    },
+  },
+  text: {
+    label: {
+      name: 'caption',
+      color: 'secondary',
+    },
+    prominent: { name: 'heading', },
+    loud: { name: 'title-lg', },
+    title: { name: 'title' },
+    subtle: {
+      name: 'body',
+      color: 'secondary',
+    },
+  },
+});
+
 const styles = SxStyles.create({
   grid: {
-    gap: 4,
+    gap: '4px',
   },
   panel: {
     padding: 'space-4',

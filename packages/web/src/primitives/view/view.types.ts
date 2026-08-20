@@ -1,4 +1,4 @@
-import type { LayoutProps, SxElevation, SxShadow, } from "@/types";
+import type { LayoutProps, SxElevation, SxShadow, } from '@/types';
 
 
 type FlatVariant = {

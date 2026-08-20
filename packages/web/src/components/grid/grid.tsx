@@ -3,7 +3,7 @@ import type { GridBodyProps, GridProps } from "./grid.types";
 import { useLayoutEffect, useRef, useState } from "react";
 import { View } from "@/primitives";
 import { useResponsiveGrid } from "./grid.hooks";
-import { computeGridLayout, } from "./grid-core";
+import { computeGridLayout, } from "./grid.utils";
 import { GridSpan } from "./grid.slots";
 
 
@@ -107,12 +107,12 @@ const GridBody = ({
 
 
 export const Grid = ({
-  material = 'flat',
+  variant={ name: 'flat', },
   columns = 1,
   sx = {
-    gap: 0,
-    columnGap: 0,
-    rowGap: 0,
+    gap: '0px',
+    columnGap: '0px',
+    rowGap: '0px',
   },
   children,
 }: GridProps) => {
@@ -127,10 +127,11 @@ export const Grid = ({
 
   return (
     <View
-      ref={ shelf.ref }
-      material={ material }
+      variant={ variant }
       sx={ sxRest }
       data-component='grid'
+      data-variant={ variant.name }
+      ref={ shelf.ref }
     >
       <GridBody
         placements={ plane.placements }
