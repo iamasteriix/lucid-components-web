@@ -22,7 +22,7 @@ export const ViewsLayered: Story = {
         variant={ variants.view.veneer }
         sx={ styles.veneer }
       >
-        <Text>Timbo is in the party</Text>
+        <Text>Skibidi Skibidi Skibidi</Text>
       </View>
     </View>
   ),

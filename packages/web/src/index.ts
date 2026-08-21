@@ -13,3 +13,7 @@ export { ThemeManager, ThemeProvider, useTheme } from '@/theme';
 export {
   View,
 } from '@/primitives';
+
+export type {
+  VariantRegistry, ViewVariantExt, TextVariantExt,
+} from '@/types';

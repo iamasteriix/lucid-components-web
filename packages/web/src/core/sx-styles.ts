@@ -1,13 +1,18 @@
-import type { SxProps } from '@/types';
-import type { VariantMap } from '@/types/components';
+import type { SxProps, VariantRegistry, } from '@/types';
 
 
 export const SxStyles = {
   create: <T extends Record<string, SxProps>> (styles: T): T => styles,
 
+  /**
+   * Uses a mapped type indexed over optional `keyof VariantRegistry` to isolate
+   * component types and narrows down the mapped type by stripping features with
+   * `undefined` values using `NonNullable`. Making the keys optional allows defining
+   * variants for a single component.
+   */
   variants: <
-    T extends Record<
-      keyof VariantMap,
-      Record<string, VariantMap[keyof VariantMap]>
-    >> (recipe: T): T => recipe,
+    T extends {
+      [K in keyof VariantRegistry]?: Record<string, NonNullable<VariantRegistry[K]>>
+    }
+  > (recipe: T): T => recipe,
 };
