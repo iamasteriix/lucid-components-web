@@ -12,5 +12,5 @@ export type {
 } from './components';
 
 export type {
-  VariantRegistry, ViewVariantExt, TextVariantExt,
+  VariantRegistry, ViewVariantExt, TextVariantExt, IconVariantExt,
 } from "./variants";

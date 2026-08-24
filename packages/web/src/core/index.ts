@@ -1,2 +1,2 @@
 export { SxStyles } from './sx-styles';
-export { A11yRegistry } from './a11y-registry';
+export { A11yManager } from './a11y-manager';

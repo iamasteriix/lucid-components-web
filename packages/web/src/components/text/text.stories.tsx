@@ -5,85 +5,117 @@ import { View } from '@/primitives';
 import { SxStyles } from '@/core';
 
 
-type Story = StoryObj<TextProps>;
-
-
 export default {
   title: 'Components/Text',
   component: Text,
 } as Meta<TextProps>;
 
 
-export const TextOverview: Story = {
+export const TextOverview: StoryObj<TextProps> = {
   name: 'Text — Roles',
-  render: (_: TextProps) => (
-    <View variant={ variants.view.base }>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>hero-lg</Text>
-        <Text variant={ variants.text.heroLg }>Vacuum</Text>
+  render: (_: TextProps) => {
+    const items: {
+      key: keyof typeof variants.text;
+      variant: string;
+      text: string;
+    }[] = [
+      {
+        key: 'heroLg',
+        variant: 'hero-lg',
+        text: 'Vacuum',
+      },
+      {
+        key: 'hero',
+        variant: 'hero',
+        text: 'Woodju',
+      },
+      {
+        key: 'sectionXl',
+        variant: 'section-xl',
+        text: 'In the heavens, they often talk about the ocean',
+      },
+      {
+        key: 'sectionLg',
+        variant: 'section-lg',
+        text: 'And the sunset',
+      },
+      {
+        key: 'section',
+        variant: 'section',
+        text: 'They talk about how glorious it is to watch that massive ball of fire',
+      },
+      {
+        key: 'titleLg',
+        variant: 'title-lg',
+        text: 'How it melts as it descends into the waves',
+      },
+      {
+        key: 'title',
+        variant: 'title',
+        text: 'And the barely visible light, like from a candle,',
+      },
+      {
+        key: 'headingLg',
+        variant: 'heading-lg',
+        text: 'continues to glow somewhere in the depths',
+      },
+      {
+        key: 'heading',
+        variant: 'heading',
+        text: 'It is glorious to watch that massive ball of fire',
+      },
+      {
+        key: 'headingSm',
+        variant: 'heading-sm',
+        text: 'How it melts as it descends into the waves',
+      },
+      {
+        key: 'bodyStrong',
+        variant: 'body-strong',
+        text: 'And the barely visible light, like from a candle,',
+      },
+      {
+        key: 'body',
+        variant: 'body',
+        text: 'continues to glow somewhere in the depths',
+      },
+      {
+        key: 'captionStrong',
+        variant: 'caption-strong',
+        text: '5 437 691',
+      },
+      {
+        key: 'caption',
+        variant: 'caption',
+        text: 'Undiscovered',
+      },
+      {
+        key: 'mouseprint',
+        variant: 'mouseprint',
+        text: '2:53',
+      },
+      {
+        key: 'micro',
+        variant: 'micro',
+        text: 'Sep 20, 2018',
+      },
+    ];
+
+    return (
+      <View variant={ variants.view.base }>
+        {
+          items.map(item => (
+            <View
+              key={ item.variant }
+              variant={ variants.view.segment }
+            >
+              <Text variant={ variants.text.supporting }>{ item.variant }</Text>
+              <Text variant={ variants.text[item.key] }>{ item.text }</Text>
+            </View>
+          ))
+        }
       </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>hero</Text>
-        <Text variant={ variants.text.hero }>Woodju</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>section-xl</Text>
-        <Text variant={ variants.text.sectionXl }>Up in the sky, they often talk about the ocean</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>section-lg</Text>
-        <Text variant={ variants.text.sectionLg }>And the sunset</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>section</Text>
-        <Text variant={ variants.text.section }>They talk about how beautiful it is to watch that huge ball of fire</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>title-lg</Text>
-        <Text variant={ variants.text.titleLg }>How it melts as it descends into the waves</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>title</Text>
-        <Text variant={ variants.text.title }>And the barely visible light, like from a candle, flickers deep</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>heading-lg</Text>
-        <Text variant={ variants.text.headingLg }>inside somewhere</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>heading</Text>
-        <Text variant={ variants.text.heading }>It is beautiful to watch that huge ball of fire</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>heading-sm</Text>
-        <Text variant={ variants.text.headingSm }>How it melts as it descends into the waves</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>body-strong</Text>
-        <Text variant={ variants.text.bodyStrong }>And the barely visible light, like from a candle, flickers deep</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>body</Text>
-        <Text variant={ variants.text.body }>inside somewhere</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>caption-strong</Text>
-        <Text variant={ variants.text.captionStrong }>5 437 691</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>caption</Text>
-        <Text variant={ variants.text.caption }>Undiscovered</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>mouseprint</Text>
-        <Text variant={ variants.text.mouseprint }>2:53</Text>
-      </View>
-      <View variant={ variants.view.segment }>
-        <Text variant={ variants.text.supporting }>micro</Text>
-        <Text variant={ variants.text.micro }>Sep 20, 2018</Text>
-      </View>
-    </View>
-  ),
+  )},
 };
 
 
@@ -123,8 +155,8 @@ const variants = SxStyles.variants({
 
 
 // Nesting Text
-export const TextNested: Story = {
-  name: 'Text — Containers',
+export const TextNested: StoryObj<TextProps> = {
+  name: 'Text — Nesting',
   render: (_: TextProps) => (
     <Text>
       <Text>What is yout favorite flower? </Text>

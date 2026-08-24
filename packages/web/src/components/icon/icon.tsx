@@ -1,30 +1,9 @@
-import type { ComponentType, Ref } from "react";
-import type { ElementBaseProps, SxProps } from "@/types";
+import type { IconProps, IconVariant } from "./icon.types";
 import { useMediaQuery } from "@lucid-ui/core";
 import { resolveA11y, resolveSx, } from "@/utils";
 
 
-// wrapped-around icon's props
-type IconComponentProps = {
-  viewBox?: string;
-  size?: string;
-  variant?: 'monochrome' | 'duotone';
-  fill?: string | string[];
-  solid?: boolean;
-};
-
-export type IconProps = Omit<ElementBaseProps, 'children'> & {
-  as: ComponentType<IconComponentProps>,
-  size?: 'xsm' | 'sm' | 'md' | 'lg';
-  variant?: 'monochrome' | 'duotone';
-  solid?: boolean;
-  sx?: SxProps;
-  children?: never;
-  ref?: Ref<HTMLSpanElement>;
-};
-
-
-const sizeMap: Record<NonNullable<IconProps['size']>, string> = {
+const sizeMap: Record<NonNullable<IconVariant['size']>, string> = {
   xsm: 'var(--typography-textXs)',
   sm: 'var(--typography-textSm)',
   md: 'var(--typography-textLg)',
@@ -33,22 +12,24 @@ const sizeMap: Record<NonNullable<IconProps['size']>, string> = {
 
 
 export const Icon = ({
-  as: IconComponent,
-  size = 'md',
-  variant = 'monochrome',
-  solid = false,
-  sx,
-  style,
-  testID,
+  variant = {
+    name: 'monochrome',
+    size: 'md',
+    solid: false,
+  },
   a11y = {
     role: 'presentation',
     hidden: true,
   },
+  as: IconComponent,
+  sx,
+  style,
+  testID,
 }: IconProps) => {
   const { breakpoint, } = useMediaQuery();
   
-  const fontSize = sizeMap[size];
-  const fill = variant === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent)'] : 'var(--colors-primary)';
+  const fontSize = sizeMap[variant.size || 'md'];
+  const fill = variant.name === 'duotone' ? ['var(--colors-primary)', 'var(--colors-accent)'] : 'var(--colors-primary)';
   
   const sxStyles = resolveSx(sx, breakpoint);       // resolve sx into inline styles
   const styleObj = Object.assign(sxStyles, style);  // merge style properties
@@ -59,14 +40,15 @@ export const Icon = ({
       style={ styleObj }
       data-component='icon'
       data-testid={ testID }
+      data-variant={ variant.name }
       { ...accessibility }
     >
       <IconComponent
         viewBox='0 0 24 24'
         size={ fontSize }
         fill={ fill }
-        variant={ variant }
-        solid={ solid }
+        variant={ variant.name }
+        solid={ variant.solid }
       />
     </span>
   );

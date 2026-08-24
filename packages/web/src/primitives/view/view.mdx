@@ -1,4 +1,4 @@
-import { Meta, Canvas, } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls, } from '@storybook/addon-docs/blocks';
 import * as ViewStories from './view.stories';
 
 
@@ -7,66 +7,100 @@ import * as ViewStories from './view.stories';
   title='View'
 />
 
+
 # View
 
-This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. It offers two native lightweight variants, `flat` and `glass`, that give you quick constrol over the surface aesthetic and are accessible from all the other layout components.
+
+This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. `Grid`, `Stack`, and `AppShell` are all thin presets over `View`.
 <br/>
 
-
+---
+### View — Flat aesthetic
 
 <Canvas
-  of={ ViewStories.ViewsLayered }
+  of={ ViewStories.FlatView }
   layout='padded'
   source={{
     code: `
-      import { SxStyles, Text, View, } from '@lucid-ui/web';
+    import { SxStyles, Text, View, } from "@lucid-ui/web";
 
+    export const FlatView = () => {
+      return (
+        <View
+          sx={ styles.box }
+          variant={ variants.view.box }
+        >
+          <Text>My style is ridiculous</Text>
+        </View>
+      );
+    }
 
-      export const GlassOverBaseViews = () => {
-        return (
-          <View sx={ styles.base }>
-            <View
-              variant={ variants.view.veneer }
-              sx={ styles.veneer }
-            >
-              <Text>Skibidi Skibidi Skibidi</Text>
-            </View>
-          </View>
-        )
-      };
-
-
-      const variants = SxStyles.variants({
-        view: {
-          veneer: {
-            name: 'glass',
-            tone: 'neutral',
-            intensity: 'subtle',
-            elevation: 'level-1',
-            blur: 'sm',
-          },
+    const variants = SxStyles.variants({
+      view: {
+        box: {
+          name: 'flat',
+          fill: 'surface',
         },
-      });
+      },
+    });
 
-      const styles = SxStyles.create({
-        base: {
-          justifyContent: 'center',
-          width: 'fill',
-          height: 'space-20',
-          paddingHorizontal: 'space-8',
-          backgroundColor: 'base',
-          borderWidth: 'light',
-          borderColor: 'subtle',
-          borderRadius: 'xl',
-        },
-        veneer: {
-          alignItems: 'center',
-          width: 'half',
-          marginHorizontal: 'auto',
-          padding: 'space-3',
-          borderRadius: '2xl',
-        },
-      });
-    `
+    const styles = SxStyles.create({
+      box: {
+        alignItems: 'center',
+        borderRadius: '2xl',
+        marginHorizontal: 'auto',
+        padding: 'space-3',
+        width: 'half'
+      },
+    });
+    `,
   }}
 />
+<Controls of={ ViewStories.FlatView }/>
+
+---
+### View — Glass aesthetic
+
+<Canvas
+  of={ ViewStories.GlassView }
+  layout='padded'
+  source={{
+    code: `
+    import { SxStyles, Text, View, } from "@lucid-ui/web";
+
+    export const GlassView = () => {
+      return (
+        <View
+          variant={ variants.view.box }
+          sx={ styles.box }
+        >
+          <Text>Skibidi dom yes</Text>
+        </View>
+      );
+    }
+
+    const variants = SxStyles.variants({
+      view: {
+        box: {
+        name: 'glass',
+        tone: 'neutral',
+        intensity: 'faint',
+        elevation: 'level-1',
+        blur: 'md',
+      },
+      },
+    });
+
+    const styles = SxStyles.create({
+      box: {
+        alignItems: 'center',
+        borderRadius: '2xl',
+        marginHorizontal: 'auto',
+        padding: 'space-3',
+        width: 'half'
+      },
+    });
+    `,
+  }}
+/>
+<Controls of={ ViewStories.GlassView }/>

@@ -7,11 +7,12 @@ import * as IconStories from "./icon.stories";
   title='Icon'
 />
 
+
 # Icon
+
 Icons are small symbols that represent actions and concepts, used to improve scannability and reinforce meaning alongside text.
 
 <Canvas
-  withToolbar
   of={ IconStories.IconOverview }
   layout='padded'
   source={{
@@ -23,12 +24,15 @@ Icons are small symbols that represent actions and concepts, used to improve sca
         return (
           <Icon
             as={ Search }
-            size='md'
-            solid={ false }
-            variant='duotone'
+            variant={{
+              name: 'duotone',
+              size: 'md',
+              solid: false,
+            }}
           />
         );
       }
     `,
   }}
 />
+<Controls of={ IconStories.IconOverview }/>

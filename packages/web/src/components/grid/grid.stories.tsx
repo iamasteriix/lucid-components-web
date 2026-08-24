@@ -1,9 +1,9 @@
-import type { Meta, StoryObj, } from "@storybook/react-vite";
-import type { GridProps } from "./grid.types";
-import { Grid } from "./grid";
-import { Text } from "../text/text";
-import { View } from "@/primitives";
 import { SxStyles } from "@/core";
+import { View } from "@/primitives";
+import type { Meta, StoryObj, } from "@storybook/react-vite";
+import { Text } from "../text/text";
+import { Grid } from "./grid";
+import type { GridProps } from "./grid.types";
 
 
 type Story = StoryObj<GridProps>;
@@ -37,7 +37,7 @@ export const GridDashboardLayout: Story = {
         sx={ styles.card }
       >
         <Text variant={ variants.text.label }>Minutes listened</Text>
-        <Text variant={ variants.text.loud }>1,351</Text>
+        <Text variant={ variants.text.loud }>1 351</Text>
       </View>
       <View
         variant={ variants.view.card }

@@ -46,11 +46,11 @@
 .view--flat-shadow-enclosed { box-shadow: var(--elevation-shadowEnclosed); }
 
 /* Focus ring */
-.view--flat-focus-accent { outline: var(--shape-strokesemibold) solid var(--colors-accent); }
-.view--flat-focus-info { outline: var(--shape-strokesemibold) solid var(--colors-info); }
-.view--flat-focus-success { outline: var(--shape-strokesemibold) solid var(--colors-success); }
-.view--flat-focus-warning { outline: var(--shape-strokesemibold) solid var(--colors-warning); }
-.view--flat-focus-error { outline: var(--shape-strokesemibold) solid var(--colors-error); }
+.view--flat-focus-accent { outline: var(--shape-strokeMedium) solid var(--colors-accent); }
+.view--flat-focus-info { outline: var(--shape-strokeMedium) solid var(--colors-info); }
+.view--flat-focus-success { outline: var(--shape-strokeMedium) solid var(--colors-success); }
+.view--flat-focus-warning { outline: var(--shape-strokeMedium) solid var(--colors-warning); }
+.view--flat-focus-error { outline: var(--shape-strokeMedium) solid var(--colors-error); }
 
 
 /* ============================================================

@@ -1,7 +1,7 @@
 import type { LayoutProps, SxElevation, SxShadow, } from '@/types';
 
 
-type FlatVariant = {
+export type FlatVariant = {
   name: 'flat';
   fill?: 'base' | 'surface' | 'subtle' | 'raised' | 'overlay' | 'floating';
   elevation?: SxElevation;
@@ -9,7 +9,7 @@ type FlatVariant = {
   focus?: 'accent' | 'info' | 'success' | 'warning' | 'error';
 };
 
-type GlassVariant = {
+export type GlassVariant = {
   name: 'glass',
   tone?: 'neutral' | 'accent';
   intensity?: 'faint' | 'subtle' | 'base' | 'strong';

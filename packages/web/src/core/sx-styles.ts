@@ -1,3 +1,4 @@
+import type { ThemeTokensType } from '@lucid-ui/core';
 import type { SxProps, VariantRegistry, } from '@/types';
 
 
@@ -15,4 +16,6 @@ export const SxStyles = {
       [K in keyof VariantRegistry]?: Record<string, NonNullable<VariantRegistry[K]>>
     }
   > (recipe: T): T => recipe,
+
+  createTheme: <T extends Record<string, ThemeTokensType>> (tokens: T): T => tokens,
 };

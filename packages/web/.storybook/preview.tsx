@@ -58,7 +58,7 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
-      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid', 'sx'],
+      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid', 'sx', 'variant', 'a11y',],
     },
     options: {
       storySort: {

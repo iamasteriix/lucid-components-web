@@ -5,7 +5,7 @@ export {
 
 export {
   SxStyles,
-  A11yRegistry,
+  A11yManager,
 } from '@/core';
 
 export { ThemeManager, ThemeProvider, useTheme } from '@/theme';
@@ -15,5 +15,5 @@ export {
 } from '@/primitives';
 
 export type {
-  VariantRegistry, ViewVariantExt, TextVariantExt,
+  VariantRegistry, ViewVariantExt, TextVariantExt, IconVariantExt,
 } from '@/types';

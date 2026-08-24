@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { ViewProps } from './view.types';
+import type { FlatVariant, GlassVariant, ViewProps, ViewVariant } from './view.types';
 import { SxStyles } from '@/core';
 import { Text } from '@/components';
 import { View, } from './view';
-
-
-type Story = StoryObj<ViewProps>;
 
 
 export default {
@@ -14,45 +11,97 @@ export default {
 } as Meta<ViewProps>;
 
 
-export const ViewsLayered: Story = {
-  name: 'View — Glass layered over base',
-  render: (_: ViewProps) => (
-    <View sx={ styles.base }>
-      <View
-        variant={ variants.view.veneer }
-        sx={ styles.veneer }
-      >
-        <Text>Skibidi Skibidi Skibidi</Text>
-      </View>
+export const FlatView: StoryObj<FlatVariant> = {
+  name: 'View — Flat aesthetic',
+
+  argTypes: {
+    name: {
+      options: ['flat'],
+      control: false,
+      table: { defaultValue: { summary: 'flat', }, },
+    },
+    fill: {
+      options: ['base', 'surface', 'subtle', 'raised', 'overlay', 'floating'],
+      control: 'select',
+    },
+    elevation: {
+      options: ['level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
+      control: 'select',
+    },
+    shadow: {
+      options: ['diffuse', 'directional', 'linear', 'edge', 'enclosed'],
+      control: 'select',
+    },
+    focus: {
+      options: ['accent', 'info', 'success', 'warning', 'error'],
+      control: 'select',
+    },
+  },
+
+  args: {
+    name: 'flat',
+    fill: 'surface',
+  },
+
+  render: (args: FlatVariant) => (
+    <View
+      variant={ args }
+      sx={ styles.box }
+    >
+      <Text>My style is ridiculous</Text>
     </View>
-  ),
+  )  
 };
 
 
-const variants = SxStyles.variants({
-  view: {
-    veneer: {
-      name: 'glass',
-      tone: 'neutral',
-      intensity: 'subtle',
-      elevation: 'level-1',
-      blur: 'sm',
+export const GlassView: StoryObj<ViewVariant> = {
+  name: 'View — Glass aesthetic',
+
+  argTypes: {
+    name: {
+      options: ['glass'],
+      control: false,
+      table: { defaultValue: { summary: 'glass', }, },
+    },
+    tone: {
+      options: ['neutral', 'accent'],
+      control: 'select',
+    },
+    intensity: {
+      options: ['faint', 'subtle', 'base', 'strong'],
+      control: 'select',
+    },
+    elevation: {
+      options: ['level-1', 'level-2', 'level-3', 'level-4', 'level-5'],
+      control: 'select',
+    },
+    blur: {
+      options: ['sm', 'md', 'lg'],
+      control: 'select',
     },
   },
-});
+
+  args: {
+    name: 'glass',
+    tone: 'neutral',
+    intensity: 'base',
+    elevation: 'level-1',
+    blur: 'md',
+  },
+
+  render: (args: GlassVariant) => (
+    <View
+      variant={ args }
+      sx={ styles.box }
+    >
+      <Text>Skibidi dom yes</Text>
+    </View>
+  )
+};
+
 
 const styles = SxStyles.create({
-  base: {
-    justifyContent: 'center',
-    width: 'fill',
-    height: 'space-20',
-    paddingHorizontal: 'space-8',
-    backgroundColor: 'base',
-    borderWidth: 'light',
-    borderColor: 'subtle',
-    borderRadius: 'xl',
-  },
-  veneer: {
+  box: {
     alignItems: 'center',
     width: 'half',
     marginHorizontal: 'auto',
