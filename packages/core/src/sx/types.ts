@@ -1,6 +1,8 @@
 import type { ResponsiveProp } from '@lucid-ui/core';
 
 
+export type StyleValue = string | number | undefined;
+
 export type SxDisplay = 'flex' | 'none';
 
 export type SxFlex = 'auto' | 'none';
@@ -17,7 +19,7 @@ export type SxOverflow = 'visible' | 'hidden' | 'scroll' | 'auto';
 
 export type SxPosition = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
-export type SxElevation = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5';
+export type SxElevation = 'base' | 'low' | 'raised' | 'medium' | 'high' | 'max';
 
 // cosmetic choice
 export type SxSpace =
@@ -29,10 +31,10 @@ export type SxSpace =
 export type SxFit = 'auto' | 'fill' | 'half' | 'third' | 'quarter';
 
 export type SxGap =
-  | '0px' | '.25px' | '.5px' | '.75px' | '1px'
-  | '1.25px' | '1.5px' | '2px' | '2.5px' | '3px'
-  | '4px' | '5px' | '6px' | '8px' | '10px'
-  | '12px' | '16px' | '18px' | '20px' | '24px';
+  | 'gap-1' | 'gap-2' | 'gap-3' | 'gap-4'
+  | 'gap-5' | 'gap-6' | 'gap-8' | 'gap-10'
+  | 'gap-12' | 'gap-16' | 'gap-18' | 'gap-20'
+  | 'gap-24' | 'gap-28' | 'gap-32' | 'gap-36';
 
 export type SxIntent = 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
 
@@ -46,7 +48,7 @@ export type SxStrokeColor = 'subtle' | 'default' | 'strong';
 
 export type SxRadius = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 
-export type SxShadow = 'diffuse' | 'directional' | 'linear' | 'edge' | 'enclosed';
+export type SxShadow = 'base' | 'low' | 'raised' | 'medium' | 'high' | 'max';
 
 export type SxTypeface = 'sans' | 'mono' | 'serif';
 

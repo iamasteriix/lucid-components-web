@@ -1,10 +1,10 @@
 import { Meta, Canvas, Controls, } from '@storybook/addon-docs/blocks';
-import * as ViewStories from './view.stories';
+import * as ViewStories from './glass-view.stories';
 
 
 <Meta
   of={ ViewStories }
-  title='View'
+  title='GlassView'
 />
 
 
@@ -14,23 +14,23 @@ import * as ViewStories from './view.stories';
 This is the fundamental layout component built around ***flexbox*** to be multi-purpose and open-ended. `Grid`, `Stack`, and `AppShell` are all thin presets over `View`.
 <br/>
 
----
-### View — Flat aesthetic
+
+### View — Glass aesthetic
 
 <Canvas
-  of={ ViewStories.FlatView }
+  of={ ViewStories.GlassView }
   layout='padded'
   source={{
     code: `
     import { SxStyles, Text, View, } from "@lucid-ui/web";
 
-    export const FlatView = () => {
+    export const GlassView = () => {
       return (
         <View
-          sx={ styles.box }
           variant={ variants.view.box }
+          sx={ styles.box }
         >
-          <Text>My style is ridiculous</Text>
+          <Text>Skibidi dom yes</Text>
         </View>
       );
     }
@@ -38,9 +38,12 @@ This is the fundamental layout component built around ***flexbox*** to be multi-
     const variants = SxStyles.variants({
       view: {
         box: {
-          name: 'flat',
-          fill: 'surface',
-        },
+        name: 'glass',
+        tone: 'neutral',
+        intensity: 'faint',
+        elevation: 'level-1',
+        blur: 'md',
+      },
       },
     });
 
@@ -56,4 +59,4 @@ This is the fundamental layout component built around ***flexbox*** to be multi-
     `,
   }}
 />
-<Controls of={ ViewStories.FlatView }/>
+<Controls of={ ViewStories.GlassView }/>

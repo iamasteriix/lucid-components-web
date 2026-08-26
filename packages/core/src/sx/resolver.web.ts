@@ -1,20 +1,16 @@
 import type { CSSProperties } from 'react';
-import type { BreakpointType } from '@lucid-ui/core';
+import type { BreakpointType } from '@/layout';
 import type {
-  SxColor, SxElevation, SxFit, SxTypeface, SxFontSize, SxFontWeight, SxIntent, SxProps,
-  SxRadius, SxShadow, SxSpace, SxStrokeColor, SxStrokeWeight, SxSurface, SxTracking,
-} from '@/types';
-import { resolveBreakpointSx } from '@lucid-ui/core';
+  StyleValue, SxColor, SxElevation, SxFit, SxTypeface, SxFontSize, SxFontWeight,
+  SxIntent, SxProps, SxRadius, SxShadow, SxSpace, SxStrokeColor, SxStrokeWeight,
+  SxSurface, SxTracking,
+} from './types';
+import { resolveBreakpoint } from '@/layout';
 import {
-  sxFitMap, sxIntentMap, sxRadiusMap, sxSpaceMap, sxStrokeColor, sxStrokeWeightMap,
-} from '@/theme';
-import {
+  sxFitMap, sxIntentMap, sxRadiusMap, sxSpacingMap, sxStrokeColor, sxStrokeWeightMap,
   sxColor, sxTypeface, sxFontSize, sxFontWeight, sxLetterSpacing, sxLevelMap,
   sxLineHeight, sxShadow, sxSurface,
-} from '@/theme/constants';
-
-
-type SxCssValue = string | number | undefined;
+} from './constants.web';
 
 
 const spaceOrFitKeys = new Set([
@@ -51,7 +47,7 @@ const passthroughKeys = new Set([
 const resolveSxValue = (
   key: keyof SxProps,
   value: any,
-): SxCssValue => {
+): StyleValue => {
   if (value === undefined || value === null) return undefined;
 
   // elevation
@@ -61,7 +57,7 @@ const resolveSxValue = (
 
   // map to spacing or fit
   if (spaceOrFitKeys.has(key)) {
-    if (value in sxSpaceMap) return sxSpaceMap[value as SxSpace];
+    if (value in sxSpacingMap) return sxSpacingMap[value as SxSpace];
     if (value in sxFitMap) return sxFitMap[value as SxFit];
     if (value === 'auto') return 'auto';
     if (/^-?\d*\.?\d+px$/.test(value)) return value;
@@ -116,7 +112,7 @@ export const resolveSx = (
   if (sx === undefined || sx === null) return {} as CSSProperties;
   if (breakpoint === undefined || breakpoint === null) return {} as CSSProperties;
 
-  const styles: Record<string, SxCssValue> = {};
+  const styles: Record<string, StyleValue> = {};
 
   // resolve each responsive prop to a single value at the current breakpoint
   const sxKeys = Object.keys(sx) as Array<keyof SxProps>;
@@ -124,7 +120,7 @@ export const resolveSx = (
   for (const key of sxKeys) {
     const value = sx[key];
     if (value === undefined || value === null) continue;
-    sxResolved[key] = resolveBreakpointSx(value, breakpoint);
+    sxResolved[key] = resolveBreakpoint(value, breakpoint);
   }
 
   // map each resolved value to a css property

@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactElement, Ref, } from 'react';
+import type { SxProps } from '@lucid-ui/core';
 import type { A11yProps } from './accessibility';
-import type { SxProps } from './sx-styles';
 
 
 type ElementChildren = ReactElement | ElementChildren[];  // self-referential

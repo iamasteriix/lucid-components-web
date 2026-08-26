@@ -1,0 +1,58 @@
+/* Base */
+.view--glass {
+  position: relative;
+  background-color: rgb(from var(--colors-bgRaised) r g b / .09);
+  backdrop-filter: blur(var(--elevation-blur)) saturate(var(--elevation-saturate));
+  -webkit-backdrop-filter: blur(var(--elevation-blur)) saturate(var(--elevation-saturate));
+  border: var(--shape-strokeMedium) solid var(--colors-strokeSubtle);
+  border-top: var(--shape-strokeMedium) solid var(--colors-strokeStrong);
+  border-bottom: var(--shape-strokeLight) solid var(--colors-strokeSubtle);
+}
+
+/* Tone + Intensity combinations using rgb() opacity */
+.view--glass-tone-neutral.view--glass-intensity-faint {
+  background-color: rgb(from var(--colors-bgRaised) r g b / .03);
+}
+.view--glass-tone-neutral.view--glass-intensity-subtle {
+  background-color: rgb(from var(--colors-bgRaised) r g b / .06);
+}
+.view--glass-tone-neutral.view--glass-intensity-base {
+  background-color: rgb(from var(--colors-bgRaised) r g b / .09);
+}
+.view--glass-tone-neutral.view--glass-intensity-strong {
+  background-color: rgb(from var(--colors-bgRaised) r g b / .12);
+}
+
+.view--glass-tone-accent.view--glass-intensity-faint {
+  background-color: rgb(from var(--colors-accent) r g b / .03);
+}
+.view--glass-tone-accent.view--glass-intensity-subtle {
+  background-color: rgb(from var(--colors-accent) r g b / .06);
+}
+.view--glass-tone-accent.view--glass-intensity-base {
+  background-color: rgb(from var(--colors-accent) r g b / .09);
+}
+.view--glass-tone-accent.view--glass-intensity-strong {
+  background-color: rgb(from var(--colors-accent) r g b / .12);
+}
+
+/* Blur depth */
+.view--glass-blur-sm {
+  backdrop-filter: blur(var(--elevation-blurSubtle)) saturate(var(--elevation-saturate));
+  -webkit-backdrop-filter: blur(var(--elevation-blurSubtle)) saturate(var(--elevation-saturate));
+}
+.view--glass-blur-md {
+  backdrop-filter: blur(var(--elevation-blur)) saturate(var(--elevation-saturate));
+  -webkit-backdrop-filter: blur(var(--elevation-blur)) saturate(var(--elevation-saturate));
+}
+.view--glass-blur-lg {
+  backdrop-filter: blur(var(--elevation-blurStrong)) saturate(var(--elevation-saturate));
+  -webkit-backdrop-filter: blur(var(--elevation-blurStrong)) saturate(var(--elevation-saturate));
+}
+
+/* Elevation (z-index) */
+.view--glass-level-1 { z-index: var(--elevation-level1); }
+.view--glass-level-2 { z-index: var(--elevation-level2); }
+.view--glass-level-3 { z-index: var(--elevation-level3); }
+.view--glass-level-4 { z-index: var(--elevation-level4); }
+.view--glass-level-5 { z-index: var(--elevation-level5); }

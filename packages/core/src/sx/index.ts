@@ -1,13 +1,8 @@
-export type { BreakpointType, ResponsiveProp, } from '@/layout';
-export type { ThemeTokensType, } from '@/theme';
 export type {
   SxAlign, SxDirection, SxDisplay, SxElevation, SxFill, SxFit, SxFlex, SxGap, SxIntent,
   SxJustify, SxOverflow, SxPosition, SxProps, SxRadius, SxSpace, SxStrokeColor,
   SxStrokeWeight, SxWrap, SxShadow, SxSurface, SxFontSize, SxTracking, SxFontWeight,
   SxTypeface, SxColor,
-} from '@/sx';
+} from './types';
 
-
-export { tokens, } from '@/theme';
-export { resolveBreakpoint, useMediaQuery, } from '@/layout';
-export { resolveSx } from '@/sx';
+export { resolveSx } from "./resolver.web";

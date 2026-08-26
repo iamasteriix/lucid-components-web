@@ -1,10 +1,26 @@
 import type {
   SxElevation, SxFit, SxIntent, SxRadius, SxShadow, SxSpace, SxStrokeColor, SxSurface,
-  SxStrokeWeight, SxFontSize, SxTracking, SxFontWeight, SxTypeface, SxColor,
-} from '@/types';
+  SxStrokeWeight, SxFontSize, SxTracking, SxFontWeight, SxTypeface, SxColor, SxGap,
+} from './types';
 
 
-export const sxSpaceMap: Record<SxSpace, string> = {
+export const sxSpacingMap: Record<SxGap | SxSpace, string> = {
+  'gap-1':    'var(--spacing-gap1)',
+  'gap-2':    'var(--spacing-gap2)',
+  'gap-3':    'var(--spacing-gap3)',
+  'gap-4':    'var(--spacing-gap4)',
+  'gap-5':    'var(--spacing-gap5)',
+  'gap-6':    'var(--spacing-gap6)',
+  'gap-8':    'var(--spacing-gap8)',
+  'gap-10':   'var(--spacing-gap10)',
+  'gap-12':   'var(--spacing-gap12)',
+  'gap-16':   'var(--spacing-gap16)',
+  'gap-18':   'var(--spacing-gap18)',
+  'gap-20':   'var(--spacing-gap20)',
+  'gap-24':   'var(--spacing-gap24)',
+  'gap-28':   'var(--spacing-gap28)',
+  'gap-32':   'var(--spacing-gap32)',
+  'gap-36':   'var(--spacing-gap36)',
   'space-1':  'var(--spacing-space1)',
   'space-2':  'var(--spacing-space2)',
   'space-3':  'var(--spacing-space3)',
@@ -32,11 +48,12 @@ export const sxFitMap: Record<SxFit, string> = {
 };
 
 export const sxLevelMap: Record<SxElevation, string> = {
-  'level-1': 'var(--elevation-level1)',
-  'level-2': 'var(--elevation-level2)',
-  'level-3': 'var(--elevation-level3)',
-  'level-4': 'var(--elevation-level4)',
-  'level-5': 'var(--elevation-level5)',
+  base:     'var(--elevation-levelBase)',
+  low:      'var(--elevation-levelLow)',
+  raised:   'var(--elevation-levelRaised)',
+  medium:   'var(--elevation-levelMedium)',
+  high:     'var(--elevation-levelHigh)',
+  max:      'var(--elevation-levelMax)',
 };
 
 export const sxRadiusMap: Record<SxRadius, string> = {
@@ -81,11 +98,12 @@ export const sxSurface: Record<SxSurface, string> = {
 };
 
 export const sxShadow: Record<SxShadow, string> = {
-  diffuse:      'var(--elevation-shadowDiffuse)',
-  directional:  'var(--elevation-shadowDirectional)',
-  linear:       'var(--elevation-shadowLinear)',
-  edge:         'var(--elevation-shadowEdge)',
-  enclosed:     'var(--elevation-shadowEnclosed)',
+  base:     'var(--elevation-boxShadowBase)',
+  low:      'var(--elevation-boxShadowLow)',
+  raised:   'var(--elevation-boxShadowRaised)',
+  medium:   'var(--elevation-boxShadowMedium)',
+  high:     'var(--elevation-boxShadowHigh)',
+  max:      'var(--elevation-boxShadowMax)',
 };
 
 export const sxFontSize: Record<SxFontSize, string> = {
@@ -104,21 +122,21 @@ export const sxFontSize: Record<SxFontSize, string> = {
 };
 
 export const sxLineHeight: Record<SxTracking, string> = {
-  'compact':  'var(--typography-leadingCompact)',
-  'tight':    'var(--typography-leadingTight)',
-  'snug':     'var(--typography-leadingSnug)',
-  'normal':   'var(--typography-leadingNormal)',
-  'relaxed':  'var(--typography-leadingRelaxed)',
-  'wide':     'var(--typography-leadingWide)',
+  compact:  'var(--typography-leadingCompact)',
+  tight:    'var(--typography-leadingTight)',
+  snug:     'var(--typography-leadingSnug)',
+  normal:   'var(--typography-leadingNormal)',
+  relaxed:  'var(--typography-leadingRelaxed)',
+  wide:     'var(--typography-leadingWide)',
 };
 
 export const sxLetterSpacing: Record<SxTracking, string> = {
-  'compact':  'var(--typography-trackingCompact)',
-  'tight':    'var(--typography-trackingTight)',
-  'snug':     'var(--typography-trackingSnug)',
-  'normal':   'var(--typography-trackingNormal)',
-  'relaxed':  'var(--typography-trackingRelaxed)',
-  'wide':     'var(--typography-trackingWide)',
+  compact:  'var(--typography-trackingCompact)',
+  tight:    'var(--typography-trackingTight)',
+  snug:     'var(--typography-trackingSnug)',
+  normal:   'var(--typography-trackingNormal)',
+  relaxed:  'var(--typography-trackingRelaxed)',
+  wide:     'var(--typography-trackingWide)',
 };
 
 export const sxFontWeight: Record<SxFontWeight, string> = {

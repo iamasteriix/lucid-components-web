@@ -1,61 +1,80 @@
-import type { CSSProperties, ReactNode } from 'react';
-import type { ThemeTokensType } from '@lucid-ui/core';
-import { useMemo } from 'react';
-import { tokens } from '@lucid-ui/core';
+import type { CSSProperties, } from 'react';
+import type { ThemeProviderProps, ThemesType } from './types';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { tokens, } from '@lucid-ui/core';
+import { storageAdapter } from '@/api';
 import { ThemeContext } from './context';
+import { toCSSVariables } from './utils';
 
 
-type ThemeProviderProps = {
-  theme?: ThemeTokensType;
-  children: ReactNode;
-};
-
-
-/**
- * Merges a partial theme override with the default tokens.
- * Only one level of nesting — we merge per category, not recursively.
- */
-const resolveTheme = (override?: ThemeTokensType): ThemeTokensType => {
-  if (!override) return tokens;
-  return {
-    colors:     { ...tokens.colors,     ...override.colors, },
-    typography: { ...tokens.typography, ...override.typography, },
-    spacing:    { ...tokens.spacing,    ...override.spacing, },
-    shape:      { ...tokens.shape,      ...override.shape, },
-    elevation:  { ...tokens.elevation,  ...override.elevation, },
-    motion:     { ...tokens.motion,     ...override.motion, },
-  }
-}
-
-
-/**
- * Flattens the resolved token set into CSS custom properties
- * and injects them onto a wrapping div.
- * e.g. colors.primary -> --colors-primary
- */
-const toCSSVariables = (tokens: ThemeTokensType): Record<string, string> => {
-  return Object
-    .entries(tokens)
-    .reduce((acc, [category, values]) => {
-      Object.entries(values).forEach(([key, value]) => {
-        acc[`--${category}-${key}`] = value as string
-      });
-      return acc;
-    },
-    {} as Record<string, string>
-  );
-}
+const DEFAULT_THEMES: ThemesType = { moonsong: tokens, };
 
 
 /**
  * Provides the resolved theme to all children via context and CSS variables
  */
-export function ThemeProvider({ theme, children }: ThemeProviderProps) {
-  const resolved = useMemo(() => resolveTheme(theme), [theme])
-  const cssVars: CSSProperties = useMemo(() => toCSSVariables(resolved), [resolved])
+export const ThemeProvider = ({
+  themes = DEFAULT_THEMES,
+  persister = storageAdapter,
+  children,
+}: ThemeProviderProps) => {
+
+  const fallback: keyof ThemesType = Object.keys(themes)[0];
+  const [themeName, setThemeName] = useState<keyof ThemesType>(fallback);
+  
+  // persist all provided themes
+  useEffect(
+    () => {
+      const persist = persister('theme');
+      Object.entries(themes)
+        .forEach(([name, tokens]) => {
+          persist.set(name, tokens);
+        });
+    },
+    [themes, persister]
+  );
+
+  useLayoutEffect(
+    () => {
+      let canceled = false;
+      Promise.resolve(
+        persister('activeTheme').get<string>('name')
+      ).then(activeThemeName => {
+          if (!canceled && activeThemeName && activeThemeName in themes) setThemeName(activeThemeName);
+        });
+      return () => {
+        canceled = true;
+      };
+    },
+    [themes, persister]
+  );
+
+  const setTheme = useCallback(
+    (name: keyof ThemesType) => {
+      if (!(name in themes)) return;
+      setThemeName(name);
+      persister('activeTheme').set('name', name);
+    },
+    [themes, persister]
+  );
+
+  const resolvedTheme = themes[themeName];
+  const cssVars: CSSProperties = useMemo(
+    () => toCSSVariables(resolvedTheme),
+    [resolvedTheme]
+  );
+
+  const themeProviderValues = useMemo(
+    () => ({
+      tokens: resolvedTheme,
+      name: themeName,
+      setTheme,
+    }),
+    [resolvedTheme, themeName, setTheme]
+  );
 
   return (
-    <ThemeContext.Provider value={ resolved }>
+    <ThemeContext.Provider value={ themeProviderValues }>
       <div style={ cssVars }>
         { children }
       </div>

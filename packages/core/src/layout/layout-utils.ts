@@ -3,7 +3,7 @@ import { breakpointList } from "./constants";
 
 
 
-export const resolveBreakpointSx = <T>(
+export const resolveBreakpoint = <T>(
   prop: ResponsiveProp<T>,
   breakpoint: BreakpointType | undefined,
 ): T | undefined => {

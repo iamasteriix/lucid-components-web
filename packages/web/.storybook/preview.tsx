@@ -6,7 +6,7 @@ import "./styles.css";
 
 
 
-const { colors, typography, } = tokens;
+const { colors, shape, typography, } = tokens;
 
 const preview: Preview = {
   initialGlobals: {
@@ -28,7 +28,7 @@ const preview: Preview = {
         appHoverBg: colors.bgRaised,
         appPreviewBg: colors.primarySubtle,
         appBorderColor: colors.strokeDefault,
-        appBorderRadius: 24,
+        appBorderRadius: shape.radius2xl,
         fontBase: typography.fontSans,
         fontCode: typography.fontMono,
         textColor: colors.textPrimary,
@@ -45,7 +45,7 @@ const preview: Preview = {
         inputBg: colors.bgSurface,
         inputBorder: colors.strokeSubtle,
         inputTextColor: colors.textSecondary,
-        inputBorderRadius: 24,
+        inputBorderRadius: shape.radius2xl,
       }),
     },
     backgrounds: {

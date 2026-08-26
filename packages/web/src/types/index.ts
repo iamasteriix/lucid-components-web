@@ -1,10 +1,3 @@
-export type {
-  SxAlign, SxDirection, SxDisplay, SxElevation, SxFill, SxFit, SxFlex, SxGap, SxIntent,
-  SxJustify, SxOverflow, SxPosition, SxProps, SxRadius, SxSpace, SxStrokeColor,
-  SxStrokeWeight, SxWrap, SxShadow, SxSurface, SxFontSize, SxTracking, SxFontWeight,
-  SxTypeface, SxColor,
-} from './sx-styles';
-
 export type { A11yProps, } from './accessibility';
 
 export type {
@@ -13,4 +6,6 @@ export type {
 
 export type {
   VariantRegistry, ViewVariantExt, TextVariantExt, IconVariantExt,
-} from "./variants";
+} from './variants';
+
+export type { StorageAdapter, StorageTopics, } from './utils';

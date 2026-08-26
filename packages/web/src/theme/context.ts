@@ -1,5 +1,5 @@
-import type { ThemeTokensType } from '@lucid-ui/core';
+import type { ThemeProviderValue } from './types';
 import { createContext } from 'react';
 
 
-export const ThemeContext = createContext<ThemeTokensType | null>(null);
+export const ThemeContext = createContext<ThemeProviderValue | null>(null);

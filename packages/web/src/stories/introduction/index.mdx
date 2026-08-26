@@ -8,50 +8,23 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Lucid Design empowers you to express yourself and give your audience a consistent and familiar experience across web and mobile.
 
-Install the Lucid UI web kit and start building.
+Install the Lucid UI web kit to get started.
+
 ```bash
 npm install @lucid-ui/web
 ```
-<br/>
 
+Once that's done, wrap your app inside the `AppLayoutView` component, and you are ready to go!
 
-## Your first component
-
-The `AppShell` accepts an optional `theme` prop for customization.
-<br/>
-
-### Theme System
-
-Pass a partial object to `AppShell`. Only the tokens you provide are overridden; the rest fall back to the defaults.
 ```tsx
-import { AppShell } from '@lucid-ui/web';
-
-const theme = {
-  colors: {
-    primary: '#bef264',
-    accent: '#2d4a00',
-    textPrimary: '#091c00',
-    bgBase: '#fafafa',
-    bgSurface: '#ffffff',
-    strokeDefault: '#bde481',
-  },
-  typography: {
-    fontSans: '"Google Sans"',
-    fontSerif: 'Montserrat',
-  },
-  spacing: {
-    space4: '1.25rem',
-    space8: '2.5rem',
-  },
-};
+import { AppLayoutView } from '@lucid-ui/web';
+import { App } from './app.jsx';
 
 const Root = () => {
   return (
-    <AppShell theme={ theme }>
+    <AppLayoutView>
       <App/>
-    </AppShell>
+    </AppLayoutView>
   );
 }
 ```
-
-Once you wrap `AppShell` around your app, you can use any component from the library. All layout, spacing, and visual props are token‑constrained, and you get autocomplete and type safety for every value.

@@ -4,7 +4,7 @@ import { tokens } from "@lucid-ui/core";
 import "./styles.css";
 
 
-const { colors, typography, } = tokens;
+const { colors, shape, typography, } = tokens;
 
 addons.setConfig({
   theme: create({
@@ -20,7 +20,7 @@ addons.setConfig({
     appHoverBg: colors.bgRaised,
     appPreviewBg: colors.primarySubtle,
     appBorderColor: colors.strokeDefault,
-    appBorderRadius: 24,
+    appBorderRadius: shape.radius2xl,
     fontBase: typography.fontSans,
     fontCode: typography.fontMono,
     textColor: colors.textPrimary,
@@ -37,7 +37,7 @@ addons.setConfig({
     inputBg: colors.bgSurface,
     inputBorder: colors.strokeSubtle,
     inputTextColor: colors.textSecondary,
-    inputBorderRadius: 24,
+    inputBorderRadius: shape.radius2xl,
   }),
   sidebar: { showRoots: true },
 });

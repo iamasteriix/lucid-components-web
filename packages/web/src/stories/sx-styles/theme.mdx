@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+
+<Meta title='Foundations/Theme'/>
+
+
+# Theme
+
+**Moonsong** provides carefully curated design tokens to streamline your adoption experience and allow you to keep working on the nuts and bolts of your application before you can commit to your own set. When you're ready, your can pass your theme tokens or set of theme tokens to the `themes` prop in `AppLayoutView`.
+
+We use `SxStyles.themes` to facilitate passing as many themes as you wish to the prop. The first argument is the base theme, an object for all your default theme tokens, while the second argument is an optional array of objects that include a `name` property so you can create named variants of the base theme.
+
+```tsx
+import { AppLayoutView, SxStyles, } from '@lucid-ui/web';
+import App from './app.jsx';
+
+const Root = () => {
+  return (
+    <AppLayoutView themes={ themes }>
+      <App/>
+    <AppLayoutView>
+  );
+}
+
+const themes = SxStyles.themes({
+  colors: {
+    primary: '#bef264',
+    accent: '#2d4a00',
+    textPrimary: '#091c00',
+    bgBase: '#fafafa',
+    bgSurface: '#ffffff',
+    strokeDefault: '#bde481',
+  },
+  typography: {
+    fontSans: '"Google Sans"',
+    fontSerif: 'Montserrat',
+  },
+  spacing: {
+    space4: '1.25rem',
+    space8: '2.5rem',
+  }
+}, [
+  forest: {
+    colors: {
+      primary: '#1fb854',
+      accent: '#1fb8ab',
+      bgBase: '#1b1717',
+    },
+  },
+  lofi: {
+    colors: {
+      primary: '#0d0d0d',
+      accent: '#262626',
+      bgBase: '#ffffff',
+    },
+]);
+```
