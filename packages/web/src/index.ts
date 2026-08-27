@@ -1,14 +1,14 @@
 export {
   Icon, Text,
-  Grid,
+  Grid, AppLayoutView,
 } from '@/components';
 
 export {
   SxStyles,
   A11yManager,
-} from '@/core';
+} from '@/api';
 
-export { ThemeManager, ThemeProvider, useTheme } from '@/theme';
+export { useTheme } from '@/theme';
 
 export {
   View,

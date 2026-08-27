@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { GlassVariant, ViewProps, ViewVariant } from './view.types';
-import { SxStyles } from '@/core';
+import { SxStyles } from '@/api';
 import { Text } from '@/components';
 import { View, } from './view';
 

@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import path, { resolve } from "path";
-import react from "@vitejs/plugin-react";
+import react from '@vitejs/plugin-react';
+import path, { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 
 /**
@@ -8,7 +8,9 @@ import react from "@vitejs/plugin-react";
  * @see https://vitejs.dev/guide/build#library-mode
  */
 export default defineConfig ({
-  plugins: [react()],
+  plugins: [
+    react(),
+  ],
 
   server: {
     port: 3001,

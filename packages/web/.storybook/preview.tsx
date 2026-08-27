@@ -1,12 +1,10 @@
-import type { Preview } from "@storybook/react-vite";
-import { create } from "storybook/theming";
-import { tokens } from "@lucid-ui/core";
-import { DocsContainer } from "./docs-container";
-import "./styles.css";
+import type { Preview } from '@storybook/react-vite';
+import { create } from 'storybook/theming';
+import { tokens } from '@lucid-ui/core';
+import { DocsContainer } from './docs-container';
+import { theme } from './theme';
+import './styles.css';
 
-
-
-const { colors, shape, typography, } = tokens;
 
 const preview: Preview = {
   initialGlobals: {
@@ -15,42 +13,11 @@ const preview: Preview = {
   parameters: {
     docs: {
       container: DocsContainer,
-      theme: create({
-        base: 'dark',
-        brandTitle: 'Lucid Design',
-        brandUrl: '/design/',
-        brandImage: '/logo-48x48.webp',
-        brandTarget: '_self',
-        colorPrimary: colors.primary,
-        colorSecondary: colors.primarySubtle,
-        appBg: colors.bgBase,
-        appContentBg: colors.bgSurface,
-        appHoverBg: colors.bgRaised,
-        appPreviewBg: colors.primarySubtle,
-        appBorderColor: colors.strokeDefault,
-        appBorderRadius: shape.radius2xl,
-        fontBase: typography.fontSans,
-        fontCode: typography.fontMono,
-        textColor: colors.textPrimary,
-        textInverseColor: colors.textInverse,
-        textMutedColor: colors.textSecondary,
-        barTextColor: colors.textSecondary,
-        barHoverColor: colors.textPrimary,
-        barSelectedColor: colors.primaryStrong,
-        barBg: colors.bgSubtle,
-        buttonBg: colors.bgSubtle,
-        buttonBorder: colors.bgSubtle,
-        booleanBg: colors.bgOverlay,
-        booleanSelectedBg: colors.bgSubtle,
-        inputBg: colors.bgSurface,
-        inputBorder: colors.strokeSubtle,
-        inputTextColor: colors.textSecondary,
-        inputBorderRadius: shape.radius2xl,
-      }),
+      theme: create(theme),
     },
     backgrounds: {
       options: {
-        dark: { name: 'Moonsong', value: colors.bgBase, },
+        dark: { name: 'Moonsong', value: tokens.colors.bgBase, },
       },
     },
     controls: {
@@ -58,7 +25,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
-      exclude: ['ref', 'as', 'style', 'className', 'children', 'data-testid', 'sx', 'variant', 'a11y',],
+      exclude: [
+        'ref', 'as', 'style', 'className', 'children', 'data-testid', 'sx', 'variant',
+        'a11y',
+      ],
     },
     options: {
       storySort: {

@@ -48,10 +48,10 @@ const colorTokens = {
  * Font stacks, size scale, weights, and line heights
  */
 const typographyTokens = {
-  // --- Font Families ---
-  fontSans: 'DMSans-Regular',
+  // --- Typefaces ---
+  fontBody: 'OpenSans-Regular',
   fontMono: 'JetBrainsMono-Regular',
-  fontSerif: 'Lora-Regular',
+  fontHeadline: 'GoogleSans-Regular',
 
   // --- Sizes ---
   text2xs: 10,

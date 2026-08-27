@@ -1,6 +1,6 @@
 import type { ViewProps, } from './types';
-import { useMediaQuery } from '@lucid-ui/core';
-import { resolveA11y, resolveSx } from '@/utils';
+import { resolveSx, useMediaQuery } from '@lucid-ui/core';
+import { resolveA11y, } from '@/utils';
 import { resolveViewClasses } from './view.utils';
 
 

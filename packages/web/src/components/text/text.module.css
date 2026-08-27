@@ -5,7 +5,7 @@
 .text {
   margin: 0;
   padding: 0;
-  font-family: var(--typography-fontSans);
+  font-family: var(--typography-fontBody);
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightRegular);
   line-height: var(--typography-leadingRelaxed);
@@ -20,12 +20,14 @@
 
 /* Hero */
 .text--role-hero-lg {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text6xl);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingCompact);
   letter-spacing: var(--typography-trackingCompact);
 }
 .text--role-hero {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text5xl);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingTight);
@@ -34,12 +36,14 @@
 
 /* Section */
 .text--role-section-xl {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text4xl);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingTight);
   letter-spacing: var(--typography-trackingTight);
 }
 .text--role-section-lg {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text3xl);
   font-weight: var(--typography-weightMedium);
   line-height: var(--typography-leadingTight);
@@ -54,6 +58,7 @@
 
 /* Title */
 .text--role-title-lg {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textXl);
   font-weight: var(--typography-weightBold);
   line-height: var(--typography-leadingTight);
@@ -68,18 +73,21 @@
 
 /* Heading */
 .text--role-heading-lg {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textLg);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingSnug);
   letter-spacing: var(--typography-trackingNormal);
 }
 .text--role-heading {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textMd);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingNormal);
   letter-spacing: var(--typography-trackingNormal);
 }
 .text--role-heading-sm {
+  font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textMd);
   font-weight: var(--typography-weightSemibold);
   line-height: var(--typography-leadingSnug);
@@ -131,9 +139,9 @@
 /* ============================================================
    TYPEFACE
    ============================================================ */
-.text--typeface-sans { font-family: var(--typography-fontSans); }
+.text--typeface-body { font-family: var(--typography-fontBody); }
 .text--typeface-mono { font-family: var(--typography-fontMono); }
-.text--typeface-serif { font-family: var(--typography-fontSerif); }
+.text--typeface-headline { font-family: var(--typography-fontHeadline); }
 
 /* ============================================================
    COLOR

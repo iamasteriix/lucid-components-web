@@ -8,7 +8,10 @@ const config: StorybookConfig = {
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: ['@storybook/addon-docs'],
-  staticDirs: ['../public'],
+  staticDirs: [
+    '../public',
+    '../assets',
+  ],
   core: {
     allowedHosts: ['localhost'],
     disableTelemetry: true,

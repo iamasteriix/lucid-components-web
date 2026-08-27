@@ -1,4 +1,4 @@
-import { SxStyles } from "@/core";
+import { SxStyles } from "@/api";
 import { View } from "@/primitives";
 import type { Meta, StoryObj, } from "@storybook/react-vite";
 import { Text } from "../text/text";

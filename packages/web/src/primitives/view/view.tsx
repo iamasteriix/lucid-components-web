@@ -1,7 +1,7 @@
 import type { ViewProps, } from './view.types';
-import { useMediaQuery } from '@lucid-ui/core';
-import { resolveA11y, resolveSx } from '@/utils';
-import { resolveVariantClasses } from './view.utils';
+import { resolveSx, useMediaQuery } from '@lucid-ui/core';
+import { resolveA11y, } from '@/utils';
+import { resolveViewClasses } from './view.utils';
 
 
 export const View = ({
@@ -10,7 +10,7 @@ export const View = ({
 }: ViewProps) => {
   const { breakpoint, } = useMediaQuery();
 
-  const className = resolveVariantClasses(variant); // build class name from variant features
+  const className = resolveViewClasses(variant); // build class name from variant features
   const sxStyles = resolveSx(sx, breakpoint);       // resolve sx into inline styles
   const styleObj = Object.assign(sxStyles, style);  // merge style properties
   const accessibility = resolveA11y(a11y);          // resolve accessibility props

@@ -9,6 +9,7 @@ COPY packages/web/package*.json       ./packages/web/
 COPY packages/native/package*.json    ./packages/native/
 COPY packages/icons/package*.json     ./packages/icons/
 COPY packages/core/package*.json      ./packages/core/
+COPY packages/cli/package*.json       ./packages/cli/
 
 RUN npm i
 
@@ -16,3 +17,4 @@ COPY packages/web/      ./packages/web/
 COPY packages/native/   ./packages/native/
 COPY packages/icons/    ./packages/icons/
 COPY packages/core/     ./packages/core/
+COPY packages/cli/      ./packages/cli/

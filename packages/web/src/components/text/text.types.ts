@@ -1,5 +1,6 @@
 import type { ReactElement, Ref } from 'react';
-import type { ElementBaseProps, SxColor, SxTypeface, } from '@/types';
+import type { SxColor, SxTypeface } from '@lucid-ui/core';
+import type { ElementBaseProps, } from '@/types';
 
 
 type TextRole = 

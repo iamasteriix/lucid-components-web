@@ -1,10 +1,10 @@
 import type { DocsContainerProps } from "@storybook/addon-docs/blocks";
 import { DocsContainer as DocsContainerBase } from "@storybook/addon-docs/blocks";
-import { ThemeProvider } from "@/theme";
+import { AppLayoutView } from "@/components";
 
 
 export const DocsContainer = (props: DocsContainerProps) => (
-  <ThemeProvider>
+  <AppLayoutView>
     <DocsContainerBase { ...props }/>
-  </ThemeProvider>
+  </AppLayoutView>
 );

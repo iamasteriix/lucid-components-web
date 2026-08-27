@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { SxProps, } from '@/types';
+import type { SxProps, } from '@lucid-ui/core';
 import type { ViewProps } from '../view/view.types';
 
 

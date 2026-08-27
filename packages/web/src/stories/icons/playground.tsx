@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as Icons from "@lucid-ui/icons";
 import { View } from "@/primitives";
 import { Text } from "@/components";
-import { SxStyles } from "@/core";
+import { SxStyles } from "@/api";
 
 
 const IconsList = Object.entries(Icons);

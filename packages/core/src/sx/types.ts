@@ -50,7 +50,7 @@ export type SxRadius = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 
 export type SxShadow = 'base' | 'low' | 'raised' | 'medium' | 'high' | 'max';
 
-export type SxTypeface = 'sans' | 'mono' | 'serif';
+export type SxTypeface = 'body' | 'mono' | 'headline';
 
 export type SxFontSize = '2xs' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
 

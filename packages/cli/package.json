@@ -1,0 +1,19 @@
+{
+  "name": "@lucid-ui/cli",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Lucid UI setup manager",
+  "bin": {
+    "lucid-ui": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "devDependencies": {
+    "@types/fontkit": "^2.0.9",
+    "@types/node": "26.4.0",
+    "fontkit": "2.0.4",
+    "tsup": "8.5.1"
+  }
+}

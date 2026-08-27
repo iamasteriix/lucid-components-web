@@ -47,9 +47,9 @@ const colorTokens = {
 
 // Font stacks, size scale, weights, and line heights
 const typographyTokens = {
-  fontSans: "'DM Sans', 'Inter', system-ui, sans-serif",
+  fontBody: "'DM Sans', 'Inter', system-ui, sans-serif",
   fontMono: "'JetBrains Mono', 'Fira Code', monospace",
-  fontSerif: "'Lora', 'Georgia', serif",
+  fontHeadline: "'Lora', 'Georgia', serif",
   textXs: '.75rem',
   textSm: '.875rem',
   textBase: '1rem',

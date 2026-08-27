@@ -148,9 +148,9 @@ export const sxFontWeight: Record<SxFontWeight, string> = {
 };
 
 export const sxTypeface: Record<SxTypeface, string> = {
-  sans:   'var(--typography-fontSans)',
-  mono:   'var(--typography-fontMono)',
-  serif:  'var(--typography-fontSerif)',
+  body:     'var(--typography-fontBody)',
+  mono:     'var(--typography-fontMono)',
+  headline: 'var(--typography-fontHeadline)',
 };
 
 export const sxColor: Record<SxColor, string> = {
