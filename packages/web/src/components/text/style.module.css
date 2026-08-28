@@ -8,8 +8,8 @@
   font-family: var(--typography-fontBody);
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightRegular);
-  line-height: var(--typography-leadingRelaxed);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact); */
   color: var(--colors-textPrimary);
   white-space: pre-wrap;
 }
@@ -23,15 +23,15 @@
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text6xl);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingCompact);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingCompact);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 .text--role-hero {
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text5xl);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingTight);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 
 /* Section */
@@ -39,21 +39,21 @@
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text4xl);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingTight);
-  letter-spacing: var(--typography-trackingTight);
+  /* line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingTight); */
 }
 .text--role-section-lg {
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-text3xl);
   font-weight: var(--typography-weightMedium);
-  line-height: var(--typography-leadingTight);
-  letter-spacing: var(--typography-trackingNormal);
+  /* line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingNormal); */
 }
 .text--role-section {
   font-size: var(--typography-text2xl);
   font-weight: var(--typography-weightMedium);
-  line-height: var(--typography-leadingSnug);
-  letter-spacing: var(--typography-trackingRelaxed);
+  /* line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingRelaxed); */
 }
 
 /* Title */
@@ -61,14 +61,14 @@
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textXl);
   font-weight: var(--typography-weightBold);
-  line-height: var(--typography-leadingTight);
-  letter-spacing: var(--typography-trackingRelaxed);
+  /* line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingRelaxed); */
 }
 .text--role-title {
   font-size: var(--typography-textLg);
   font-weight: var(--typography-weightBold);
-  line-height: var(--typography-leadingTight);
-  letter-spacing: var(--typography-trackingRelaxed);
+  /* line-height: var(--typography-leadingTight);
+  letter-spacing: var(--typography-trackingRelaxed); */
 }
 
 /* Heading */
@@ -76,64 +76,64 @@
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textLg);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingSnug);
-  letter-spacing: var(--typography-trackingNormal);
+  /* line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingNormal); */
 }
 .text--role-heading {
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textMd);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingNormal);
-  letter-spacing: var(--typography-trackingNormal);
+  /* line-height: var(--typography-leadingNormal);
+  letter-spacing: var(--typography-trackingNormal); */
 }
 .text--role-heading-sm {
   font-family: var(--typography-fontHeadline);
   font-size: var(--typography-textMd);
   font-weight: var(--typography-weightSemibold);
-  line-height: var(--typography-leadingSnug);
-  letter-spacing: var(--typography-trackingNormal);
+  /* line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingNormal); */
 }
 
 /* Body */
 .text--role-body {
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightRegular);
-  line-height: var(--typography-leadingRelaxed);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 .text--role-body-strong {
   font-size: var(--typography-textBase);
   font-weight: var(--typography-weightBold);
-  line-height: var(--typography-leadingSnug);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 
 /* Caption */
 .text--role-caption {
   font-size: var(--typography-textSm);
   font-weight: var(--typography-weightRegular);
-  line-height: var(--typography-leadingRelaxed);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingRelaxed);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 .text--role-caption-strong {
   font-size: var(--typography-textSm);
   font-weight: var(--typography-weightBold);
-  line-height: var(--typography-leadingSnug);
-  letter-spacing: var(--typography-trackingCompact);
+  /* line-height: var(--typography-leadingSnug);
+  letter-spacing: var(--typography-trackingCompact); */
 }
 
 /* Mouseprint & Micro */
 .text--role-mouseprint {
   font-size: var(--typography-textXs);
   font-weight: var(--typography-weightLight);
-  line-height: var(--typography-leadingCompact);
-  letter-spacing: var(--typography-trackingTight);
+  /* line-height: var(--typography-leadingCompact);
+  letter-spacing: var(--typography-trackingTight); */
 }
 .text--role-micro {
   font-size: var(--typography-text2xs);
   font-weight: var(--typography-weightLight);
-  line-height: var(--typography-leadingNormal);
-  letter-spacing: var(--typography-trackingSnug);
+  /* line-height: var(--typography-leadingNormal);
+  letter-spacing: var(--typography-trackingSnug); */
 }
 
 /* ============================================================

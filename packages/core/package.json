@@ -13,6 +13,7 @@
     "build": "tsup"
   },
   "devDependencies": {
+    "@types/node": "^26.2.0",
     "@types/react": "19.2.18",
     "tsup": "8.5.1",
     "typescript": "6.0.2"

@@ -1,4 +1,6 @@
-@keyframes btn-shimmer {
+/* @import '@lucid-ui/web/assets/styles/fonts.css'; */
+
+@keyframes btnShimmer {
   0% { background-position: 200% center; }
   100% { background-position: -200% center; }
 }

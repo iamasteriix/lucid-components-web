@@ -3,7 +3,6 @@ import { create } from 'storybook/theming';
 import { tokens } from '@lucid-ui/core';
 import { DocsContainer } from './docs-container';
 import { theme } from './theme';
-import './styles.css';
 
 
 const preview: Preview = {

@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 
 /**
@@ -10,6 +11,9 @@ import { defineConfig } from 'vite';
 export default defineConfig ({
   plugins: [
     react(),
+    viteStaticCopy({
+      targets: [{ src: 'assets/styles/fonts.css', dest: '.' }],
+    }),
   ],
 
   server: {
@@ -17,10 +21,12 @@ export default defineConfig ({
   },
 
   build: {
+    outDir: 'dist',
+    
     /** Library entry — all public exports flow through here */
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'LucidUIKitReact',
+      name: 'LucidJS',
       formats: ['es', 'cjs'],
       fileName: format => `index.${format}.js`, // outputs dist/index.es.js, dist/index.cjs.js
     },

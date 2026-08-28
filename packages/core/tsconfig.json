@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["node"],
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
@@ -8,5 +9,5 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "*.config.ts"]
 }

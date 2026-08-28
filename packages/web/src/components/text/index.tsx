@@ -1,8 +1,8 @@
-import type { TextProps } from './text.types';
+import type { TextProps } from './types';
 import { useContext } from 'react';
 import { resolveSx, useMediaQuery, } from '@lucid-ui/core';
 import { resolveA11y, } from '@/utils';
-import { resolveClampStyle, resolveVariantClasses, TextContext } from './text.utils';
+import { resolveClampStyle, resolveVariantClasses, TextContext } from './utils';
 
 
 export const Text = ({

@@ -1,4 +1,4 @@
-import type { ResponsiveProp } from '@lucid-ui/core';
+import type { ResponsiveProp } from "@/layout";
 
 
 export type StyleValue = string | number | undefined;

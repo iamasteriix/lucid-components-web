@@ -41,8 +41,13 @@ const scanDirForFonts = (dirPath: string): FontMetadata[] => {
     if (!format) continue;  // skip non-font files
 
     try {
-      const font = fontkit.openSync(absolutePath).getFont(file);
-      if (!font) continue;
+      const font = fontkit.openSync(absolutePath);
+      // `openSync()` returns a union of `Font | FontCollection`
+      // so narrow out `FontCollection` because it is out of scope
+      if ('fonts' in font) {
+        console.log(`[lucidjs] Skipping unsupported font collection: ${file}`);
+        continue;
+      }
       const weight = font['OS/2']?.usWeightClass || 400;
       const isItalic = font.subfamilyName?.toLowerCase().includes('italic') || font.postscriptName?.toLowerCase().includes('italic');
       fonts.push({

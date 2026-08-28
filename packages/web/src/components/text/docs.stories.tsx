@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type { TextProps } from './text.types'
-import { Text } from './text';
+import type { TextProps } from './types'
+import { Text } from '.';
 import { View } from '@/primitives';
 import { SxStyles } from '@/api';
 

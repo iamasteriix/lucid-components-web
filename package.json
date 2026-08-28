@@ -12,6 +12,7 @@
     "packages/web",
     "packages/native",
     "packages/icons",
-    "packages/core"
+    "packages/core",
+    "packages/cli"
   ]
 }

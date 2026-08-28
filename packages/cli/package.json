@@ -10,8 +10,12 @@
     "build": "tsup",
     "dev": "tsup --watch"
   },
+  "peerDependencies": {
+    "@lucid-ui/core": ">=0",
+    "@lucid-ui/web": ">=0"
+  },
   "devDependencies": {
-    "@types/fontkit": "^2.0.9",
+    "@types/fontkit": "2.0.9",
     "@types/node": "26.4.0",
     "fontkit": "2.0.4",
     "tsup": "8.5.1"

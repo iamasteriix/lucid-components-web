@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
-import type { TextVariant } from './text.types';
+import type { TextVariant } from './types';
 import { createContext } from 'react';
-import styles from './text.module.css';
+import styles from './style.module.css';
 
 
 export const TextContext = createContext(false);

@@ -2,27 +2,34 @@ import { parseArgs } from 'util';
 import { initFonts, updateFonts, } from './fonts';
 
 
-const { values, positionals, } = parseArgs({
-  args: process.argv.slice(2),
-  options: {
-    web: { type: 'boolean' },
-    ios: { type: 'boolean' },
-    android: { type: 'boolean' },
-  },
-  allowPositionals: true,
-});
+/**
+ * @todo add one of those guide-manual-things that explain the available command arguments
+ */
+const main = (): void => {
+  const { values, positionals, } = parseArgs({
+    args: process.argv.slice(2),
+    options: {
+      web: { type: 'boolean' },
+      ios: { type: 'boolean' },
+      android: { type: 'boolean' },
+    },
+    allowPositionals: true,
+  });
+  const [action, target] = positionals;
 
-const [action, target] = positionals;
+  if (action === 'init') {
+    initFonts(values);
+    return;
+  }
 
-if (action === 'init') {
-  initFonts(values);
-} else {
-  console.log('Usage: npx lucidjs init [--web] [--ios] [--android]');
+  if (action === 'update' && target === 'fonts') {
+    updateFonts(values);
+    return;
+  } else {
+    console.log('Usage: npx lucidjs update fonts [--web] [--ios] [--android]');
+    return;
+  }
 }
 
 
-if (action === 'init' && target === 'fonts') {
-  updateFonts(values);
-} else {
-  console.log('Usage: npx lucidjs update fonts [--web] [--ios] [--android]');
-}
+main();

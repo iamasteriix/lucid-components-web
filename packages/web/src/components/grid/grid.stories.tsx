@@ -1,7 +1,7 @@
 import { SxStyles } from "@/api";
 import { View } from "@/primitives";
 import type { Meta, StoryObj, } from "@storybook/react-vite";
-import { Text } from "../text/text";
+import { Text } from "../text";
 import { Grid } from "./grid";
 import type { GridProps } from "./grid.types";
 
