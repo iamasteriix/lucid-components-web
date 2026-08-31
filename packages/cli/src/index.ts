@@ -26,7 +26,7 @@ const main = (): void => {
     updateFonts(values);
     return;
   } else {
-    console.log('Usage: npx lucidjs update fonts [--web] [--ios] [--android]');
+    console.log('Usage: npx lucid-uik update fonts [--web] [--ios] [--android]');
     return;
   }
 }

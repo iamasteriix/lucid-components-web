@@ -11,9 +11,15 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 export default defineConfig ({
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [{ src: 'assets/styles/fonts.css', dest: '.' }],
-    }),
+    {
+      ...viteStaticCopy({
+        targets: [
+          { src: 'assets/styles/fonts.css', dest: '.', },
+          { src: 'assets/fonts/*', dest: '.', },
+        ],
+      }),
+      apply: 'build',
+    }
   ],
 
   server: {
@@ -33,7 +39,11 @@ export default defineConfig ({
 
     /** Peer deps — expected to exist in the consuming project */
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: [
+        'react',
+        'react-dom',
+        '@lucid-ui/web/assets/styles/fonts.css',
+      ],
       output: {
         globals: {
           react: 'React',

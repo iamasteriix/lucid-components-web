@@ -32,7 +32,7 @@ export const TextOverview: StoryObj<TextProps> = {
       {
         key: 'sectionXl',
         variant: 'section-xl',
-        text: 'In the heavens, they often talk about the ocean',
+        text: 'In the heavens, they talk about the ocean',
       },
       {
         key: 'sectionLg',

@@ -14,12 +14,12 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
     },
-    "./assets/styles/fonts.css": "./assets/styles/fonts.css"
+    "./assets/styles/fonts.css": "./dist/assets/styles/fonts.css"
   },
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": ["**/*.css"],
   "scripts": {
     "dev": "storybook dev --port 3001",
     "build": "tsc && vite build",

@@ -10,7 +10,7 @@ export const View = ({
 }: ViewProps) => {
   const { breakpoint, } = useMediaQuery();
 
-  const className = resolveViewClasses(variant); // build class name from variant features
+  const className = resolveViewClasses(variant);    // build class name from variant features
   const sxStyles = resolveSx(sx, breakpoint);       // resolve sx into inline styles
   const styleObj = Object.assign(sxStyles, style);  // merge style properties
   const accessibility = resolveA11y(a11y);          // resolve accessibility props

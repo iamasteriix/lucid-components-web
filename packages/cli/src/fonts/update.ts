@@ -45,7 +45,7 @@ const scanDirForFonts = (dirPath: string): FontMetadata[] => {
       // `openSync()` returns a union of `Font | FontCollection`
       // so narrow out `FontCollection` because it is out of scope
       if ('fonts' in font) {
-        console.log(`[lucidjs] Skipping unsupported font collection: ${file}`);
+        console.log(`[lucid-ui] Skipping unsupported font collection: ${file}`);
         continue;
       }
       const weight = font['OS/2']?.usWeightClass || 400;
@@ -88,7 +88,9 @@ const writeFontCss = (fontMap: Map<string, FontMetadata>): void => {
   const fontMapValues = fontMap.values();
   for (const font of fontMapValues) {
     const dest = path.join(generatedFontsDir, font.fileName);
-    fs.copyFileSync(font.absolutePath, dest);
+    const tmpDest = `${dest}.tmp`;
+    fs.copyFileSync(font.absolutePath, tmpDest);
+    fs.renameSync(tmpDest, dest);
     rules.push(`
       @font-face {
         font-family: '${font.family}';
@@ -99,7 +101,9 @@ const writeFontCss = (fontMap: Map<string, FontMetadata>): void => {
       }
     `);
   }
-  fs.writeFileSync(fontCssPath, rules.join('\n\n'));
+  const tmpFontCssPath = `${fontCssPath}.tmp`;
+  fs.writeFileSync(tmpFontCssPath, rules.join('\n\n'));
+  fs.renameSync(tmpFontCssPath, fontCssPath);
 }
 
 

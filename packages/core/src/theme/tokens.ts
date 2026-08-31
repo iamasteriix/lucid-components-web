@@ -3,33 +3,33 @@
  */
 const colorTokens = {
   // --- Brand ---
-  primary: '#eeeeee',
-  primarySubtle: '#787878',
-  primaryStrong: '#ffffff',
+  primary:        '#eeeeee',
+  primarySubtle:  '#787878',
+  primaryStrong:  '#ffffff',
 
   // --- Secondary ---
-  secondary: '#19242b',
-  secondarySubtle: '#11181d',
-  secondaryStrong: '#2a3c48',
+  secondary:        '#19242b',
+  secondarySubtle:  '#11181d',
+  secondaryStrong:  '#2a3c48',
 
   // --- Accent ---
-  accent: '#30db12',
+  accent:       '#30db12',
   accentSubtle: '#156108',
   accentStrong: '#5cff3a',
 
   // --- Surface fills ---
-  bgBase: '#000000',
-  bgSurface: '#111111',
-  bgSubtle: '#191919',
-  bgRaised: 'rgba(238, 238, 238, .09)',
-  bgOverlay: 'rgba(238, 238, 238, .12)',
+  bgBase:     '#000000',
+  bgSurface:  '#111111',
+  bgSubtle:   '#191919',
+  bgRaised:   'rgba(238, 238, 238, .09)',
+  bgOverlay:  'rgba(238, 238, 238, .12)',
   bgFloating: 'rgba(238, 238, 238, .06)',
 
   // --- Text ---
-  textPrimary: '#eeeeee',
-  textSecondary: '#9e9e9e',
-  textMuted: '#424242',
-  textInverse: '#212121',
+  textPrimary:    '#eeeeee',
+  textSecondary:  '#9e9e9e',
+  textMuted:      '#424242',
+  textInverse:    '#212121',
 
   // --- Strokes ---
   strokeSubtle:  'rgba(238, 238, 238, .12)',
@@ -37,10 +37,10 @@ const colorTokens = {
   strokeStrong:  'rgba(238, 238, 238, .27)',
 
   // --- Semantic ---
-  info: '#3b82f6',
-  success: '#10b981',
-  warning: '#f59e0b',
-  error: '#ef4444',
+  info:     '#3b82f6',
+  success:  '#10b981',
+  warning:  '#f59e0b',
+  error:    '#ef4444',
 } as const;
 
 
@@ -49,46 +49,46 @@ const colorTokens = {
  */
 const typographyTokens = {
   // --- Typefaces ---
-  fontBody: 'OpenSans-Regular',
-  fontMono: 'JetBrainsMono-Regular',
+  fontBody:     'OpenSans-Regular',
+  fontMono:     'JetBrainsMono-Regular',
   fontHeadline: 'GoogleSans-Regular',
 
   // --- Sizes ---
-  text2xs: 10,
-  textXs: 12,
-  textSm: 14,
-  textBase: 16,
-  textMd: 18,
-  textLg: 20,
-  textXl: 24,
-  text2xl: 28,
-  text3xl: 32,
-  text4xl: 36,
-  text5xl: 40,
-  text6xl: 56,
+  text2xs:  '.625rem',
+  textXs:   '.75rem',
+  textSm:   '.875rem',
+  textBase: '1rem',
+  textMd:   '1.125rem',
+  textLg:   '1.25rem',
+  textXl:   '1.5rem',
+  text2xl:  '1.75rem',
+  text3xl:  '2rem',
+  text4xl:  '2.25rem',
+  text5xl:  '2.5rem',
+  text6xl:  '3.5rem',
 
   // --- Weights ---
-  weightLight: '300',
-  weightRegular: '400',
-  weightMedium: '500',
+  weightLight:    '300',
+  weightRegular:  '400',
+  weightMedium:   '500',
   weightSemibold: '600',
-  weightBold: '700',
+  weightBold:     '700',
 
   // --- Line Heights ---
-  leadingCompact: 16,
-  leadingTight: 18,
-  leadingSnug: 20,
-  leadingNormal: 22,
-  leadingRelaxed: 24,
-  leadingWide: 40,
+  leadingCompact: '1',
+  leadingTight:   '1.125',
+  leadingSnug:    '1.25',
+  leadingNormal:  '1.375',
+  leadingRelaxed: '1.5',
+  leadingWide:    '2',
 
   // --- Letter Spacing ---
-  trackingCompact: -.25,
-  trackingTight: -.1,
-  trackingSnug: -.05,
-  trackingNormal: 0,
-  trackingRelaxed: .1,
-  trackingWide: .2,
+  trackingCompact:  '-.25',
+  trackingTight:    '-.1',
+  trackingSnug:     '-.05',
+  trackingNormal:   '0',
+  trackingRelaxed:  '.1',
+  trackingWide:     '.2',
 } as const;
 
 
@@ -97,40 +97,40 @@ const typographyTokens = {
  */
 const spacingTokens = {
   // --- gap --
-  gap1: .25,
-  gap2: .5,
-  gap3: .75,
-  gap4: 1,
-  gap5: 1.25,
-  gap6: 1.5,
-  gap8: 2,
-  gap10: 2.5,
-  gap12: 3,
-  gap16: 4,
-  gap18: 4.5,
-  gap20: 5,
-  gap24: 6,
-  gap28: 7,
-  gap32: 8,
-  gap36: 9,
+  gap1:   '.25px',
+  gap2:   '.5px',
+  gap3:   '.75px',
+  gap4:   '1px',
+  gap5:   '1.25px',
+  gap6:   '1.5',
+  gap8:   '2px',
+  gap10:  '2.5px',
+  gap12:  '3px',
+  gap16:  '4px',
+  gap18:  '4.5px',
+  gap20:  '5px',
+  gap24:  '6px',
+  gap28:  '7px',
+  gap32:  '8px',
+  gap36:  '9px',
 
   // --- space --
-  space1: 4,
-  space2: 8,
-  space3: 12,
-  space4: 16,
-  space5: 20,
-  space6: 24,
-  space8: 32,
-  space10: 40,
-  space12: 48,
-  space16: 64,
-  space18: 72,
-  space20: 80,
-  space24: 96,
-  space28: 112,
-  space32: 128,
-  space36: 144,
+  space1:   '.25rem',
+  space2:   '.5rem',
+  space3:   '.75rem',
+  space4:   '1rem',
+  space5:   '1.25rem',
+  space6:   '1.5rem',
+  space8:   '2rem',
+  space10:  '2.5rem',
+  space12:  '3rem',
+  space16:  '4rem',
+  space18:  '4.5rem',
+  space20:  '5rem',
+  space24:  '6rem',
+  space28:  '7rem',
+  space32:  '8rem',
+  space36:  '9rem',
 } as const;
 
 
@@ -139,18 +139,18 @@ const spacingTokens = {
  */
 const shapeTokens = {
   // -- border radius scale ---
-  radiusSm: 4,
-  radiusMd: 8,
-  radiusLg: 12,
-  radiusXl: 16,
-  radius2xl: 24,
-  radiusFull: 9999,
+  radiusSm:   '4px',
+  radiusMd:   '8px',
+  radiusLg:   '12px',
+  radiusXl:   '16px',
+  radius2xl:  '24px',
+  radiusFull: '9999px',
 
   // -- stroke weights ---
-  strokeLight: .5,
-  strokeMedium: 1,
-  strokeSemiBold: 2,
-  strokeBold: 3,
+  strokeLight:    '.5px',
+  strokeMedium:   '1px',
+  strokeSemiBold: '2px',
+  strokeBold:     '3px',
 } as const;
 
 
@@ -159,23 +159,23 @@ const shapeTokens = {
  */
 const opticalTokens = {
   // -- blur ---
-  blurLow: 8,
-  blurMedium: 16,
-  blurDeep: 24,
+  blurLow:    '8px',
+  blurMedium: '16px',
+  blurDeep:   '24px',
 
   // -- brightness multipliers ---
-  brightnessLow: .9,
-  brightnessNormal: 1.0,
-  brightnessHigh: 1.2,
+  brightnessLow:    '.9',
+  brightnessNormal: '1',
+  brightnessHigh:   '1.2',
 
   // -- saturation multipliers ---
-  saturateSubtle: 1.2,
-  saturateStrong: 1.6,
+  saturateSubtle: '1.2',
+  saturateStrong: '1.6',
 
   // -- opacity ---
-  opacityLow: .36,
-  opacityMedium: .27,
-  opacityHigh: .18,
+  opacityLow:     '.36',
+  opacityMedium:  '.27',
+  opacityHigh:    '.18',
 } as const;
 
 
@@ -184,20 +184,20 @@ const opticalTokens = {
  */
 const elevationTokens = {
   // -- elevation ---
-  levelBase: 0,
-  levelLow: 10,
-  levelRaised: 20,
-  levelMedium: 30,
-  levelHigh: 60,
-  levelMax: 90,
+  levelBase:    '0',
+  levelLow:     '10',
+  levelRaised:  '20',
+  levelMedium:  '30',
+  levelHigh:    '60',
+  levelMax:     '90',
 
   // -- shadow ---
-  boxShadowBase: 'none',
-  boxShadowLow: '0px 1px 3px rgba(201, 201, 201, .18)',
-  boxShadowRaised: '0px 2px 6px rgba(201, 201, 201, .21)',
-  boxShadowMedium: '0px 3px 12px rgba(201, 201, 201, .27)',
-  boxShadowHigh: '0px 6px 18px rgba(201, 201, 201, .36)',
-  boxShadowMax: '0px 9px 21px rgba(201, 201, 201, .42)',
+  boxShadowBase:    'none',
+  boxShadowLow:     '0px 1px 3px rgba(201, 201, 201, .18)',
+  boxShadowRaised:  '0px 2px 6px rgba(201, 201, 201, .21)',
+  boxShadowMedium:  '0px 3px 12px rgba(201, 201, 201, .27)',
+  boxShadowHigh:    '0px 6px 18px rgba(201, 201, 201, .36)',
+  boxShadowMax:     '0px 9px 21px rgba(201, 201, 201, .42)',
 } as const;
 
 
@@ -207,60 +207,60 @@ const elevationTokens = {
  */
 const motionTokens = {
   // --- Durations (ms) ---
-  durationMoment: 0,
-  durationBrief: 40,
-  durationShort: 100,
-  durationBase: 180,
-  durationLong: 240,
-  durationExtended: 320,
+  durationMoment:   '0ms',
+  durationBrief:    '40ms',
+  durationShort:    '100ms',
+  durationBase:     '180ms',
+  durationLong:     '240ms',
+  durationExtended: '320ms',
 
   // --- Easing: accelerate ---
-  easingInX1: .4,
-  easingInY1: 0,
-  easingInX2: 1,
-  easingInY2: 1,
+  easingInX1: '.4',
+  easingInY1: '0',
+  easingInX2: '1',
+  easingInY2: '1',
 
   // --- Easing: decelerate ---
-  easingOutX1: 0,
-  easingOutY1: 0,
-  easingOutX2: .2,
-  easingOutY2: 1,
+  easingOutX1: '0',
+  easingOutY1: '0',
+  easingOutX2: '.2',
+  easingOutY2: '1',
 
   // --- Easing: standard ---
-  easingInOutX1: .4,
-  easingInOutY1: 0,
-  easingInOutX2: .2,
-  easingInOutY2: 1,
+  easingInOutX1: '.4',
+  easingInOutY1: '0',
+  easingInOutX2: '.2',
+  easingInOutY2: '1',
 
   // --- Spring ---
-  springMass: 1,
-  springRestSpeed: .01,
-  springRestDisplacement: .01,
+  springMass:             '1',
+  springRestSpeed:        '.01',
+  springRestDisplacement: '.01',
 
   // --- Spring: stiffness magnitude scale ---
-  springStiffnessLow: 90,
-  springStiffnessMedium: 180,
-  springStiffnessHigh: 300,
+  springStiffnessLow:     '90',
+  springStiffnessMedium:  '180',
+  springStiffnessHigh:    '300',
 
   // --- Spring: damping magnitude scale ---
-  springDampingLow: 10,
-  springDampingMedium: 18,
-  springDampingHigh: 30,
+  springDampingLow:     '10',
+  springDampingMedium:  '18',
+  springDampingHigh:    '30',
 
   // --- Transform: translate (px) ---
-  transformTranslateX: 9,
-  transformTranslateY: 9,
-  transformTranslateZ: 9,
+  transformTranslateX: '9px',
+  transformTranslateY: '9px',
+  transformTranslateZ: '9px',
 
   // --- Transform: scale (unitless multiplier) ---
-  transformScaleX: .9,
-  transformScaleY: .9,
-  transformScaleZ: .9,
+  transformScaleX: '.9',
+  transformScaleY: '.9',
+  transformScaleZ: '.9',
 
   // --- Transform: rotate (degrees) ---
-  transformRotateX: 3,
-  transformRotateY: 3,
-  transformRotateZ: 3,
+  transformRotateX: '3deg',
+  transformRotateY: '3deg',
+  transformRotateZ: '3deg',
 } as const;
 
 
@@ -269,11 +269,11 @@ const motionTokens = {
  * Pass a partial override to ThemeProvider to customize
 */
 export const tokens = {
-  colors: colorTokens,
+  colors:     colorTokens,
   typography: typographyTokens,
-  spacing: spacingTokens,
-  shape: shapeTokens,
-  optical: opticalTokens,
-  elevation: elevationTokens,
-  motion: motionTokens,
+  spacing:    spacingTokens,
+  shape:      shapeTokens,
+  optical:    opticalTokens,
+  elevation:  elevationTokens,
+  motion:     motionTokens,
 } as const;

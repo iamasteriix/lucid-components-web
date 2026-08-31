@@ -1,11 +1,11 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 
-const config: StorybookConfig = {
-  framework: "@storybook/react-vite",
+export default {
+  framework: '@storybook/react-vite',
   stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: ['@storybook/addon-docs'],
   staticDirs: [
@@ -20,7 +20,4 @@ const config: StorybookConfig = {
     defaultName: 'Lucid Design',
     docsMode: true,
   },
-};
-
-
-export default config;
+} as StorybookConfig;
